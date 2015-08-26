@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Locate me</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="cordova.js"></script>
+    <link rel="stylesheet" href="style/bootstrap.css" media="screen">
+    <link rel="stylesheet" href="style/bootswatch.min.css">
+    <link rel="stylesheet" href="style/style.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
+      <script src="../bower_components/respond/dest/respond.min.js"></script>
+    <![endif]-->
+
+<script type="text/javascript" charset="utf-8">
+
+    // Wait for Cordova to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    var watchID = null;
+
+    // Cordova is ready
+    //
+    function onDeviceReady() {
+        // Throw an error if no update is received every 5 seconds
+		//var options = { enableHighAccuracy: true, timeout: 5000 };
+
+        watchID = navigator.geolocation.watchPosition(onSuccess, onError, { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true });
+    }
+
+    // onSuccess Geolocation
+    //
+    function onSuccess(position) {
+        var element = document.getElementById('geolocation');
+        element.innerHTML = datetime()+'<br />'+'Latitude: '  + position.coords.latitude      + '<br />' +
+                            'Longitude: ' + position.coords.longitude     + '<br />' +
+                            '<hr />'      + element.innerHTML;
+    }
+
+    // onError Callback receives a PositionError object
+    //
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }
+	
+	function datetime(){
+		var d = new Date(),
+			minutes = d.getMinutes().toString().length == 1 ? '0'+d.getMinutes() : d.getMinutes(),
+			hours = d.getHours().toString().length == 1 ? '0'+d.getHours() : d.getHours(),
+			ampm = d.getHours() >= 12 ? 'pm' : 'am',
+			months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+			days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+		return days[d.getDay()]+' '+months[d.getMonth()]+' '+d.getDate()+' '+d.getFullYear()+' '+hours+':'+minutes+ampm;
+	}
+    </script>
+
+	
+  </head>
+  <body>
+
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container" id="header">
+        <div class="navbar-header">
+          <a class="navbar-brand"><img src="images/top_logo.png"></a>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+			<ul class="nav navbar-nav">
+			<li><a href="#" id="nav_home">Home</a></li>
+			<!-- <li><a href="#" id="nav_findadeal">Find an offer</a></li>
+			<li><a href="#" id="nav_map">Map</a></li>
+			<li><a href="#" id="back-menu">Back</a></li> -->
+			</ul>
+						
+          <!--</ul>-->
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container page_container" id="home">
+		<div class="row">
+			<p id="geolocation">Watching geolocation...</p>
+		</div>
+    </div>
+	
+
+	
+    <div class="container page_container" id="deal_details">
+        <div class="page-header" >
+			<div class="row">
+				  <div id="deal_details_result">
+					
+				  </div>
+
+			</div>
+	   </div>
+    </div>
+    
+    <footer>
+        <div class="row">
+          <div class="col-lg-12">
+          </div>
+        </div>
+    </footer>
+
+
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootswatch.js"></script>
+    <script>
+    $( document ).ready(function() {
+		//alert(datetime());
+     });
+
+    </script>
+
+  </body>
+</html>
