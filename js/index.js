@@ -98,6 +98,36 @@ var app = {
 
 };
 
+var box_counter = 1;
+
 function load_new_scan(result_text){
-	jQuery('#content-inner').prepend('<div class="scan_box">123</div>');
+	var htmlstr = '<div class="scan_box" id="send_box_'+box_counter+'">';
+	htmlstr = '<div class="scan_box_remove" onClick="remove_scan_box('+box_counter+')"><img src="img/Remove.png" /></div>';
+	htmlstr = '	<div class="scan_box_content">';
+	htmlstr = '		<div class="scan_box_img col-xs-3"><img src="img/product_image.png" /></div>';
+	htmlstr = '		<div class="scan_box_details col-xs-6">';
+	htmlstr = '		<div class="scan_box_title">Some awesome screws</div>';
+	htmlstr = '		<div class="scan_box_code"><span>Code: </span>'+result_text+'</div>';
+	htmlstr = '	</div>';
+	htmlstr = '	<div class="scan_box_actions col-xs-3">';
+	htmlstr = '		<div>Amount:</div>';
+	htmlstr = '		<select><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option><option>60</option></select>';
+	htmlstr = '		<button class="topcoat-button event send" onClick="send_order('+box_counter+')">SEND ORDER</button>';
+	htmlstr = '	</div>';
+	htmlstr = '</div>';
+	htmlstr = '</div>';
+	jQuery('#content-inner').prepend(htmlstr);
+	
+	box_counter++;
+}
+function remove_scan_box(scan_box_id){
+	jQuery('#send_box_'+scan_box_id).fadeOut();
+}
+function send_order(scan_box_id){
+	jQuery('#send_box_'+scan_box_id).animate({
+		opacity: 0,
+		left: "+=2000"
+	}, 1000, function() {
+		jQuery('#send_box_'+scan_box_id).remove();
+	});
 }
