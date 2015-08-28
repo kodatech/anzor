@@ -99,9 +99,11 @@ var app = {
 };
 
 var box_counter = 1;
-
+var found = 0;
 function load_new_scan(result_text){
-	var htmlstr = '<div class="scan_box" id="send_box_'+box_counter+'">';
+	found = 1;
+	jQuery('#send_all').fadeIn();
+	var htmlstr = '<div class="scan_box" this_id="'+box_counter+'" id="send_box_'+box_counter+'">';
 	htmlstr += '<div class="scan_box_remove" onClick="remove_scan_box('+box_counter+')"><img src="img/Remove.png" /></div>';
 	htmlstr += '	<div class="scan_box_content">';
 	htmlstr += '		<div class="scan_box_img col-xs-3"><img src="img/product_image.png" /></div>';
@@ -129,5 +131,15 @@ function send_order(scan_box_id){
 		left: "+=2000"
 	}, 1000, function() {
 		jQuery('#send_box_'+scan_box_id).remove();
+	});
+}
+
+function send_all(){
+	found = 0;
+	
+	jQuery('#send_all').fadeOut();
+	jQuery('.scan_box').each(function(){
+		var this_id = jQuery(this).attr('this_id');
+		send_order(this_id);
 	});
 }
