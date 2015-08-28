@@ -6,7 +6,7 @@
     <name>Scanner Demo</name>
 
     <description>
-        Scans barcodes.
+        Scans barcodes or QR-codes.
     </description>
 
     <author href="http://phonegap.com" email="support@phonegap.com">

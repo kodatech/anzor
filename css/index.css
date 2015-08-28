@@ -121,4 +121,19 @@ h1 { background:#fff; }
 #deviceready {margin-top:10px; text-align:center;}
 .content_line {width:100%; margin-top:10px;  }
 #scan { text-align:center; width:100%; font-size:1.4em;}
-.event {color:#000;}
+.event {}
+.scan_box {    
+	width: 100%;
+    background-color: #fff;
+    margin: 10px 0 0 0;
+    padding: 10px 0;
+	float: left;
+}
+.scan_box img { float:left; width:100%;}
+.scan_box_details { float:left; }
+.scan_box_actions { float:left;}
+.scan_box_code {font-size:0.9em; margin:24px 0 0 0; }
+.scan_box_title {font-size:1.2em;}
+.scan_box select { width:100%; margin:5px 0; font-size:1.2em; }
+.send { text-align:center; width:100%; font-size:1.2em; }
+button.event { color:#000;}
