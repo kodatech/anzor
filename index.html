@@ -26,24 +26,23 @@
         <title>Barcode Scanner Demo</title>
     </head>
     <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
+        <div class="content">
+            <h1><img src="img/anzor_logo.png"></h1>
             <div id="deviceready" class="blink">
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">Device is Ready</p>
             </div>
-            <p><a href="#" class="topcoat-button" id="scan">SCAN</a></p>
-            <p><a href="#" class="topcoat-button" id="encode">ENCODE</a></p>
-            <p id="info"></p>
-            <h2>OPENING LINKS:</h2>
-            <p><a href="#" class="topcoat-button" onclick="window.open('http://www.nhl.com', '_blank', 'location=yes');">InAppBrowser</a></p>
-            <p><a href="#" class="topcoat-button" onclick="window.open('http://www.nhl.com', '_system', 'location=yes');">System Browser</a></p>
-            <p><a href="#" class="topcoat-button" onclick="window.open('http://www.yahoo.com', '_self', 'location=yes');">This Webview</a></p>
-            <p><a href="#" class="topcoat-button" onclick="window.plugins.childBrowser.showWebPage('http://www.nhl.com', {});">ChildBrowser</a></p>
+            <div class="content_line"><button href="#" class="topcoat-button event" id="scan">SCAN</button></div>
+			<div id="content-inner">
+			
+			</div>
         </div>
+		<script src="js/jquery-1.10.2.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="barcodescanner.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/custom.js"></script>
         <script type="text/javascript">
             app.initialize();
         </script>

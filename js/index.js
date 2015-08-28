@@ -67,6 +67,8 @@ var app = {
                 "text: " + result.text + "\n" +
                 "format: " + result.format + "\n" +
                 "cancelled: " + result.cancelled + "\n");
+			load_new_scan(result.text);
+				
             document.getElementById("info").innerHTML = result.text;
             console.log(result);
             /*
@@ -93,3 +95,7 @@ var app = {
     }
 
 };
+
+function load_new_scan(result_text){
+	jQuery('#content-inner').prepend('<div class="scan_box">123</div>');
+}

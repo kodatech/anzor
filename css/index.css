@@ -83,7 +83,7 @@ h1 {
     -webkit-border-radius:4px;
     color:#FFFFFF;
     font-size:12px;
-    margin:0px 30px;
+    /*margin:0px 30px;*/
     padding:2px 0px;
 }
 
@@ -113,3 +113,12 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+
+
+
+/*custom*/
+h1 { background:#fff; }
+#deviceready {margin-top:10px; text-align:center;}
+.content_line {width:100%; margin-top:10px;  }
+#scan { text-align:center; width:100%; font-size:1.4em;}
+.event {color:#000;}
