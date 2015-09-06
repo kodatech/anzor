@@ -121,7 +121,7 @@ body {font-size:20px;}
 h1 { background:#fff; text-align:left; padding:0 5px;}
 #deviceready {margin-top:10px; text-align:center;}
 .content_line {width:100%; margin-top:10px;  }
-#scan { text-align:center; width:100%; font-size:1.4em;}
+#scan { text-align:center; width:100%; font-size:1.4em; height: 135px;}
 .event {}
 .scan_box {    
 	width: 100%;
