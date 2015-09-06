@@ -136,11 +136,11 @@ h1 { background:#fff; text-align:left; padding:0 5px;}
 .scan_box_actions { float:left;}
 .scan_box_code {font-size:0.9em; }
 .scan_box_title {font-size:1.2em; color:#006699;}
-.scan_box select { width:100%; margin:5px 0; font-size:1.2em; }
+.scan_box select { width:100%; margin:5px 0; font-size:1.6em; }
 .send { text-align:center; width:100%; font-size:1.2em; background:#fff url(../img/send_button.png) center center no-repeat; text-indent:-5000px; height:70px;}
 #send_all { display:none; background:#fff url(../img/send_all_button.png) center center no-repeat;}
 button.event { color:#000;}
-#content-inner .scan_box_remove { width:40px; height:40px; position:absolute; right:0; top:0px; cursor:pointer; }
+#content-inner .scan_box_remove { width:40px; height:60px; position:absolute; right:0; top:0px; cursor:pointer; }
 
 .scan_box_remove img { float:right; height:100%; }
 
