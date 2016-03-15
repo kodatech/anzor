@@ -158,6 +158,7 @@ function checkConnection() {
         states[Connection.CELL_3G]  = 'Cell 3G connection';
         states[Connection.CELL_4G]  = 'Cell 4G connection';
         states[Connection.NONE]     = 'No network connection';*/
+	alert("hi");
         alert('Connection type: ' + states[networkState]);
 	alert(connectionStatus);
     }
