@@ -149,7 +149,7 @@ function send_all(){
 /*Check differents types of conn*/
 function checkConnection() {
 	alert("hi");
-	connectionStatus = navigator.onLine ? 'online' : 'offline';
+	connectionStatus = navigator.onLine;
 	alert(connectionStatus);
 	alert("hi2");
         /*var networkState = navigator.network.connection.type;
