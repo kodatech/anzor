@@ -35,9 +35,10 @@ var app = {
     //
     // The scope of `this` is the event. In order to call the `receivedEvent`
     // function, we must explicity call `app.receivedEvent(...);`
+    // 
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-	app.checkConnection();
+	checkConnection();
     },
 
     // Update DOM on a Received Event
@@ -145,6 +146,7 @@ function send_all(){
 	});
 }
 
+/*Check differents types of conn*/
 function checkConnection() {
         var networkState = navigator.network.connection.type;
         var states = {};

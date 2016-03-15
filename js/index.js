@@ -38,7 +38,7 @@ var app = {
     // 
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-	app.checkConnection();
+	checkConnection();
     },
 
     // Update DOM on a Received Event
@@ -148,7 +148,7 @@ function send_all(){
 
 /*Check differents types of conn*/
 function checkConnection() {
-        var networkState = navigator.network.connection.type;
+        /*var networkState = navigator.network.connection.type;
         var states = {};
         states[Connection.UNKNOWN]  = 'Unknown connection';
         states[Connection.ETHERNET] = 'Ethernet connection';
@@ -157,5 +157,6 @@ function checkConnection() {
         states[Connection.CELL_3G]  = 'Cell 3G connection';
         states[Connection.CELL_4G]  = 'Cell 4G connection';
         states[Connection.NONE]     = 'No network connection';
-        alert('Connection type: ' + states[networkState]);
+        alert('Connection type: ' + states[networkState]);*/
+	alert('hi');
     }
