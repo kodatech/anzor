@@ -151,7 +151,7 @@ function send_all(){
 
 /*Check differents types of conn*/
 function checkConnection() {
-	alert("No Internet Connection");
+	//alert("No Internet Connection");
 	
 
 	//document.addEventListener("offline", function(){ navigator.notification.alert("No connection found") }, false);
