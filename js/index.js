@@ -149,21 +149,18 @@ function send_all(){
 	});
 }
 
-/*Check differents types of conn*/
-function checkConnection() {
-	//alert("No Internet Connection");
-	// check to see if the network is reachable
-setTimeout(function() {
-  navigator.network.isReachable("www.google.com",
-  networkConnectionCheck, {isIpAddress:false});
-}, 500);
-
+/*Check connection*/
 function networkConnectionCheck(reachability) {
   if ( reachability.remoteHostStatus == NetworkStatus.NOT_REACHABLE ) {
     navigator.notification.alert("You appear to be offline.", "your app name");
   }
-};
-
+}
+function checkConnection() {
+	//alert("No Internet Connection");
+	// check to see if the network is reachable
+alert('entro');
+navigator.network.isReachable("www.google.com", networkConnectionCheck, {isIpAddress:false});
+alert('paso');
 	//document.addEventListener("offline", function(){ navigator.notification.alert("No connection found") }, false);
 	//connectionStatus = navigator.connection;
 	//alert(connectionStatus[0]);
