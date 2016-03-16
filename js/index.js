@@ -26,9 +26,14 @@ var app = {
     // Bind any events that are required on startup. Common events are:
     // `load`, `deviceready`, `offline`, and `online`.
     bindEvents: function() {
+
+
         document.addEventListener('deviceready', this.onDeviceReady, false);
         document.getElementById('scan').addEventListener('click', this.scan, false);
         document.getElementById('encode').addEventListener('click', this.encode, false);
+
+	document.addEventListener("offline", checkConnection, false);
+
     },
 
     // deviceready Event Handler
@@ -148,7 +153,7 @@ function send_all(){
 
 /*Check differents types of conn*/
 function checkConnection() {
-	alert("hi");
+	alert("No connection to Internet");
 	
 
 	//document.addEventListener("offline", function(){ navigator.notification.alert("No connection found") }, false);
