@@ -32,7 +32,6 @@ var app = {
         document.getElementById('scan').addEventListener('click', this.scan, false);
         document.getElementById('encode').addEventListener('click', this.encode, false);
 
-	document.addEventListener('offline', checkConnection, false);
 
     },
 
@@ -43,7 +42,7 @@ var app = {
     // 
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-
+	document.addEventListener('offline', checkConnection, false);
     },
 
     // Update DOM on a Received Event

@@ -32,7 +32,7 @@ var app = {
         document.getElementById('scan').addEventListener('click', this.scan, false);
         document.getElementById('encode').addEventListener('click', this.encode, false);
 
-	document.addEventListener("offline", checkConnection, false);
+	document.addEventListener('offline', checkConnection, false);
 
     },
 
@@ -43,7 +43,7 @@ var app = {
     // 
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-	checkConnection();
+
     },
 
     // Update DOM on a Received Event
@@ -153,7 +153,7 @@ function send_all(){
 
 /*Check differents types of conn*/
 function checkConnection() {
-	alert("No connection to Internet");
+	alert("No Internet Connection");
 	
 
 	//document.addEventListener("offline", function(){ navigator.notification.alert("No connection found") }, false);
