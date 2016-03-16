@@ -157,9 +157,10 @@ function checkConnection() {
 	//document.addEventListener("offline", function(){ navigator.notification.alert("No connection found") }, false);
 	connectionStatus = navigator.connection;
 	//alert(connectionStatus[0]);
+var respuesta="";
 	for (var i in connectionStatus)
         {
-            respuesta+=i+": "+objeto[i]+"<br>";
+            respuesta+=i+": "+connectionStatus[i]+"<br>";
         }
 alert(respuesta);
 	//alert("hi2");
