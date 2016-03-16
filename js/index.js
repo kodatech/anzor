@@ -153,10 +153,11 @@ function send_all(){
 function checkConnection() {
 	//alert("No Internet Connection");
 	// check to see if the network is reachable
-	alert('entro');
+	//alert('entro');
 	var networkState = navigator.connection.type;
-	alert('paso');
-	alert(networkState);
+if (networkState=='none'){alert('No Internet Connection');}
+	//alert('paso');
+	//alert(networkState);
 	//document.addEventListener("offline", function(){ navigator.notification.alert("No connection found") }, false);
 	//connectionStatus = navigator.connection;
 	//alert(connectionStatus[0]);

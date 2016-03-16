@@ -150,17 +150,13 @@ function send_all(){
 }
 
 /*Check connection*/
-function networkConnectionCheck(reachability) {
-  if ( reachability.remoteHostStatus == NetworkStatus.NOT_REACHABLE ) {
-    navigator.notification.alert("You appear to be offline.", "your app name");
-  }
-}
 function checkConnection() {
 	//alert("No Internet Connection");
 	// check to see if the network is reachable
-alert('entro');
-navigator.network.isReachable("www.google.com", networkConnectionCheck, {isIpAddress:false});
-alert('paso');
+	alert('entro');
+	var networkState = navigator.connection.type;
+	alert('paso');
+	alert(networkState);
 	//document.addEventListener("offline", function(){ navigator.notification.alert("No connection found") }, false);
 	//connectionStatus = navigator.connection;
 	//alert(connectionStatus[0]);
