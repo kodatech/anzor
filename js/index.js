@@ -156,7 +156,7 @@ function checkConnection() {
 
 	//document.addEventListener("offline", function(){ navigator.notification.alert("No connection found") }, false);
 	connectionStatus = navigator.connection;
-	alert(dump(connectionStatus));
+	alert(connectionStatus[0]);
 	//alert("hi2");
         /*var networkState = navigator.network.connection.type;
         var states = {};
