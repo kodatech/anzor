@@ -148,9 +148,10 @@ function send_all(){
 
 /*Check differents types of conn*/
 function checkConnection() {
-	//alert("hi");
+	alert("hi");
+	document.addEventListener("offline", function(){ alert("No connection found") }, false);
 
-	document.addEventListener("offline", function(){ navigator.notification.alert("No connection found") }, false);
+	//document.addEventListener("offline", function(){ navigator.notification.alert("No connection found") }, false);
 	//connectionStatus = navigator.onLine;
 	//alert(connectionStatus);
 	//alert("hi2");
