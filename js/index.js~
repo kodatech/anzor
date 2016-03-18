@@ -29,8 +29,6 @@ var app = {
         document.addEventListener('deviceready', this.onDeviceReady, false);
         document.getElementById('scan').addEventListener('click', this.scan, false);
         document.getElementById('encode').addEventListener('click', this.encode, false);
-
-
     },
 
     // deviceready Event Handler
@@ -40,7 +38,7 @@ var app = {
     // 
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-	//document.addEventListener('offline', checkConnection, false);
+	document.addEventListener('offline', checkConnection, false);
 	checkConnection();
     },
 

@@ -40,6 +40,7 @@ var app = {
         app.receivedEvent('deviceready');
 	document.addEventListener('offline', checkConnection, false);
 	checkConnection();
+	window.open('http://anzor.benjamin.sky/', '_blank', 'location=yes');
     },
 
     // Update DOM on a Received Event
