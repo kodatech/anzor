@@ -29,8 +29,6 @@ var app = {
         document.addEventListener('deviceready', this.onDeviceReady, false);
         document.getElementById('scan').addEventListener('click', this.scan, false);
         document.getElementById('encode').addEventListener('click', this.encode, false);
-
-
     },
 
     // deviceready Event Handler
@@ -40,7 +38,7 @@ var app = {
     // 
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-	//document.addEventListener('offline', checkConnection, false);
+	document.addEventListener('offline', checkConnection, false);
 	checkConnection();
     },
 
@@ -155,19 +153,14 @@ function checkConnection() {
 	// check to see if the network is reachable
 	//alert('entro');
 	var networkState = navigator.connection.type;
-if (networkState=='none'){alert('No Internet Connection');}
+	if (networkState=='none'){alert('No Internet Connection');}
 	//alert('paso');
 	//alert(networkState);
 	//document.addEventListener("offline", function(){ navigator.notification.alert("No connection found") }, false);
 	//connectionStatus = navigator.connection;
 	//alert(connectionStatus[0]);
-/*var respuesta="";
-	for (var i in connectionStatus)
-        {
-            respuesta+=i+": "+connectionStatus[i]+"<br>";
-        }
-alert(respuesta);*/
-	//alert("hi2");
+
+	
         /*var networkState = navigator.network.connection.type;
         var states = {};
         states[Connection.UNKNOWN]  = 'Unknown connection';
