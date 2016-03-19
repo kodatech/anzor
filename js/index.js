@@ -29,6 +29,7 @@ var app = {
         document.addEventListener('deviceready', this.onDeviceReady, false);
         document.getElementById('scan').addEventListener('click', this.scan, false);
         document.getElementById('encode').addEventListener('click', this.encode, false);
+        $("#list").click(listar);
     },
 
     // deviceready Event Handler
@@ -148,7 +149,14 @@ function send_all(){
 	});
 }
 
-/*Check connection*/
+/*Check connection drupal and list category_name*/
+function listar(){
+	alert('hi');
+}
+
+
+
+/*Check connection internet*/
 function checkConnection() {
 	//alert("No Internet Connection");
 	// check to see if the network is reachable
@@ -173,3 +181,4 @@ function checkConnection() {
         states[Connection.NONE]     = 'No network connection';
         alert('Connection type: ' + states[networkState]);*/
     }
+
