@@ -151,7 +151,17 @@ function send_all(){
 
 /*Check connection drupal and list category_name*/
 function listar(){
-	alert('hi');
+	//alert('hi');
+        var url = 'http://192.168.1.16/drupal/saludar/hola-mundo';
+    return $.ajax({
+        type: "GET",
+        url: url,
+        timeout: 60 * 1000
+    }).done(function (data) {
+        alert('hey');
+    }).fail(function (a, b, c) {
+        console.log(b + '|' + c);
+    });
 }
 
 
