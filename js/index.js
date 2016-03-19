@@ -158,7 +158,14 @@ function listar(){
         url: url,
         timeout: 60 * 1000
     }).done(function (data) {
-        alert('hey');
+        //alert('hey');
+        var htmlstr='<table>';
+        htmlstr +='<tr><td>Category Name</td></tr>';
+        for (var i in data){
+            htmlstr += '<tr><td>'+data[i]+'</td></tr>';
+        }
+        htmlstr += '</table>';
+        jQuery('#content-inner').prepend(htmlstr);
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
     });
