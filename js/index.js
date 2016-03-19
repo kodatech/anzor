@@ -162,7 +162,7 @@ function listar(){
         var htmlstr='<table>';
         htmlstr +='<tr><td>Category Name</td></tr>';
         for (var i in data){
-            htmlstr += '<tr><td>'+data[i]+'</td></tr>';
+            htmlstr += '<tr><td>'+data[i]['category_name']+'</td></tr>';
         }
         htmlstr += '</table>';
         jQuery('#content-inner').prepend(htmlstr);
