@@ -29,7 +29,6 @@ var app = {
         document.addEventListener('deviceready', this.onDeviceReady, false);
         document.getElementById('scan').addEventListener('click', this.scan, false);
         document.getElementById('encode').addEventListener('click', this.encode, false);
-        $("#list").click(listar);
     },
 
     // deviceready Event Handler
@@ -39,6 +38,7 @@ var app = {
     // 
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        document.getElementById('list').addEventListener('click', listar, false);
 	document.addEventListener('offline', checkConnection, false);
 	checkConnection();
 	//window.open('http://anzor.benjamin.sky/', '_blank', 'location=yes');
