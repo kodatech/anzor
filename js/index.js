@@ -40,7 +40,7 @@ var app = {
         app.receivedEvent('deviceready');
         document.getElementById('list').addEventListener('click', listar, false);
 	document.addEventListener('offline', checkConnection, false);
-        document.getElementById('recharge').addEventListener('click', this.initialize, false);
+        document.getElementById('recharge').addEventListener('click', rechargeble, false);
 	checkConnection();
 	//window.open('http://anzor.benjamin.sky/', '_blank', 'location=yes');
     },
@@ -150,6 +150,10 @@ function send_all(){
 	});
 }
 
+function rechargable(){
+    location.reload();
+}
+
 /*Check connection drupal and list category_name*/
 function listar(){
 	//alert('hi');
@@ -191,7 +195,7 @@ function checkConnection() {
             htmlstr+='<br><br>';
             htmlstr+='<input type="button" id="recharge" value="Try again">';
             htmlstr+='</div>';
-            jQuery('.content').prepend(htmlstr);
+            jQuery('.content').html(htmlstr);
         }
 	//alert('paso');
 	//alert(networkState);
