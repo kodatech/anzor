@@ -38,7 +38,7 @@ var app = {
     // 
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        document.getElementById('list').addEventListener('click', validate, false);
+        document.getElementById('login').addEventListener('click', validate, false);
 	document.addEventListener('offline', checkConnection, false);
 	checkConnection();
 	//window.open('http://anzor.benjamin.sky/', '_blank', 'location=yes');
@@ -178,11 +178,11 @@ function listar(){
 
 /*User validation*/
 function validate(){
-    var url = 'http://anzor.benjamin.sky/anzor_services/login';
+    //var url = 'http://anzor.benjamin.sky/anzor_services/login';
     var usr = $("#usr").val();
-    var pass = md5($("#pass").val());
+    //var pass = md5($("#pass").val());
     alert (usr);
-    alert (pass);
+    //alert (pass);
     //jQuery('#content-inner').prepend(pass);
     /*    return $.ajax({
             type: "GET",
