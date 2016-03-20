@@ -157,7 +157,7 @@ function rechargable(){
 /*Check connection drupal and list category_name*/
 function listar(){
 	//alert('hi');
-        var url = 'http://192.168.1.16/drupal/saludar/hola-mundo';
+        var url = 'http://anzor.benjamin.sky/saludar/hola-mundo';
     return $.ajax({
         type: "GET",
         url: url,
