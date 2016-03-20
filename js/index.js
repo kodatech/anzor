@@ -40,7 +40,6 @@ var app = {
         app.receivedEvent('deviceready');
         document.getElementById('list').addEventListener('click', listar, false);
 	document.addEventListener('offline', checkConnection, false);
-        document.getElementById('recharge').addEventListener('click', rechargable, false);
 	checkConnection();
 	//window.open('http://anzor.benjamin.sky/', '_blank', 'location=yes');
     },
@@ -197,6 +196,7 @@ function checkConnection() {
             htmlstr+='<input type="button" id="recharge" value="Try again">';
             htmlstr+='</div>';
             jQuery('.content').html(htmlstr);
+            document.getElementById('recharge').addEventListener('click', rechargable, false);
         }
 	//alert('paso');
 	//alert(networkState);
