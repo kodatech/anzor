@@ -181,7 +181,9 @@ function validate(){
     var url = 'http://anzor.benjamin.sky/anzor_services/login';
     var usr = $("#usr").val();
     var pass = md5($("#pass").val());
-    jQuery('#content-inner').prepend(pass);
+    alert (usr);
+    alert (pass);
+    //jQuery('#content-inner').prepend(pass);
     /*    return $.ajax({
             type: "GET",
             url: url,
