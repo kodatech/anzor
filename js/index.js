@@ -189,9 +189,9 @@ function checkConnection() {
             htmlstr+='<p>You need to be</p>';
             htmlstr+='<p>connected to the Internet</p>';
             htmlstr+='<br><br>';
-            htmlstr+='<p id="recharge">Try again</p>';
+            htmlstr+='<input type="button" id="recharge" value="Try again">';
             htmlstr+='</div>';
-            jQuery('#content-inner').prepend(htmlstr);
+            jQuery('.content').prepend(htmlstr);
         }
 	//alert('paso');
 	//alert(networkState);
