@@ -40,6 +40,7 @@ var app = {
         app.receivedEvent('deviceready');
         document.getElementById('list').addEventListener('click', listar, false);
 	document.addEventListener('offline', checkConnection, false);
+        document.getElementById('recharge').addEventListener('click', this.initialize, false);
 	checkConnection();
 	//window.open('http://anzor.benjamin.sky/', '_blank', 'location=yes');
     },
@@ -179,7 +180,19 @@ function checkConnection() {
 	// check to see if the network is reachable
 	//alert('entro');
 	var networkState = navigator.connection.type;
-	if (networkState=='none'){alert('No Internet Connection');}
+	if (networkState=='none'){
+            //alert('No Internet Connection');
+            var htmlstr='<div id="msgNoConn">';
+            htmlstr+='<p>Cannot establish connection</p>';
+            htmlstr+='<p>with the Anzor server.</p>';
+            htmlstr+='<br><br>';
+            htmlstr+='<p>You need to be</p>';
+            htmlstr+='<p>connected to the Internet</p>';
+            htmlstr+='<br><br>';
+            htmlstr+='<p id="recharge">Try again</p>';
+            htmlstr+='</div>';
+            jQuery('#content-inner').prepend(htmlstr);
+        }
 	//alert('paso');
 	//alert(networkState);
 	//document.addEventListener("offline", function(){ navigator.notification.alert("No connection found") }, false);
