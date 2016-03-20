@@ -150,8 +150,9 @@ function send_all(){
 	});
 }
 
-function rechargable(){
-    location.reload();
+/*function to recharge the app when the connection is broke*/
+function rechargable(){ 
+    window.location.reload();
 }
 
 /*Check connection drupal and list category_name*/
