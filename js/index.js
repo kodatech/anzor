@@ -156,7 +156,7 @@ function rechargable(){
 
 /*Check connection drupal and list category_name*/
 function listar(){
-	//alert('hi');
+	alert('hi');
         var url = 'http://anzor.benjamin.sky/anzor_services/category-name';
     return $.ajax({
         type: "GET",
