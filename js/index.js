@@ -180,9 +180,9 @@ function listar(){
 function validate(){
     //var url = 'http://anzor.benjamin.sky/anzor_services/login';
     var usr = $("#usr").val();
-    //var pass = md5($("#pass").val());
+    var pass = md5('123asd');//$("#pass").val()
     alert (usr);
-    //alert (pass);
+    alert (pass);
     //jQuery('#content-inner').prepend(pass);
     /*    return $.ajax({
             type: "GET",
