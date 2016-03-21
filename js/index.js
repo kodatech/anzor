@@ -27,8 +27,8 @@ var app = {
     // `load`, `deviceready`, `offline`, and `online`.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
-        document.getElementById('scan').addEventListener('click', this.scan, false);
-        document.getElementById('encode').addEventListener('click', this.encode, false);
+        //document.getElementById('scan').addEventListener('click', this.scan, false);
+        //document.getElementById('encode').addEventListener('click', this.encode, false);
     },
 
     // deviceready Event Handler
@@ -54,15 +54,16 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-    },
+    }
+    //,
 
-    scan: function() {
-        console.log('scanning');
-        
-        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
-
-        scanner.scan( function (result) { 
-			load_new_scan(result.text);
+//    scan: function() {
+//        console.log('scanning');
+//        
+//        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+//
+//        scanner.scan( function (result) { 
+//			load_new_scan(result.text);
 			/*
             alert("We got a barcode\n" + 
             "Result: " + result.text + "\n" + 
@@ -84,12 +85,12 @@ var app = {
             }
             */
 
-        }, function (error) { 
-            console.log("Scanning failed: ", error); 
-        } );
-    },
+//        }, function (error) { 
+//            console.log("Scanning failed: ", error); 
+//        } );
+//    },
 
-    encode: function() {
+   /* encode: function() {
         var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
         scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
@@ -99,7 +100,7 @@ var app = {
           }
         );
 
-    }
+    }*/
 
 };
 
@@ -181,8 +182,8 @@ function validate(){
     var url = 'http://anzor.benjamin.sky/anzor_services/login';
     var usr = $("#usr").val();
     var pass = $("#pass").val();
-    alert (usr);
-    alert (pass);
+    //alert (usr);
+    //alert (pass);
     //jQuery('#content-inner').prepend(pass);
         return $.ajax({
             type: "GET",
@@ -201,13 +202,62 @@ function validate(){
         if (data){
             var htmlstr='<button class="topcoat-button event" id="scan"><img src="img/barcode-scanner_button.png" height="100px" /></button>';
             $("#bar_code").html(htmlstr);
+            document.getElementById('scan').addEventListener('click', scan, false);
+            document.getElementById('encode').addEventListener('click', encode, false);
         }else{
-            alert("wrong");
+            alert("usr & pass goes wrong");
         }
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
     });
 }
+
+/*probando */
+    function scan() {
+        console.log('scanning');
+        
+        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+
+        scanner.scan( function (result) { 
+			load_new_scan(result.text);
+			/*
+            alert("We got a barcode\n" + 
+            "Result: " + result.text + "\n" + 
+            "Format: " + result.format + "\n" + 
+            "Cancelled: " + result.cancelled);  
+
+           console.log("Scanner result: \n" +
+                "text: " + result.text + "\n" +
+                "format: " + result.format + "\n" +
+                "cancelled: " + result.cancelled + "\n");
+			
+			
+            document.getElementById("info").innerHTML = result.text;
+            console.log(result);
+            */
+			/*
+            if (args.format == "QR_CODE") {
+                window.plugins.childBrowser.showWebPage(args.text, { showLocationBar: false });
+            }
+            */
+
+        }, function (error) { 
+            console.log("Scanning failed: ", error); 
+        } );
+    }
+
+    function encode() {
+        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+
+        scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
+            alert("encode success: " + success);
+          }, function(fail) {
+            alert("encoding failed: " + fail);
+          }
+        );
+
+    }
+
 
 /*Check connection internet*/
 function checkConnection() {
