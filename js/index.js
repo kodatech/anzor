@@ -186,19 +186,19 @@ function validate(){
     //jQuery('#content-inner').prepend(pass);
         return $.ajax({
             type: "GET",
-            data: { usr: usr, pass : pass} ,
+            data: { name: usr, pass : pass} ,
             url: url,
             timeout: 60 * 1000
         }).done(function (data) {
         //alert('hey');
-        var htmlstr='<table>';
-        htmlstr +='<tr><td>Category Name</td></tr>';
-        for (var i in data){
-            //htmlstr += '<tr><td>'+data[i]['category_name']+'</td></tr>';
-            htmlstr += '<tr><td>'+data[i]+'</td></tr>';
-        }
-        htmlstr += '</table>';
-        jQuery('#content-inner').prepend(htmlstr);
+//        var htmlstr='<table>';
+//        htmlstr +='<tr><td>Category Name</td></tr>';
+//        for (var i in data){
+//            //htmlstr += '<tr><td>'+data[i]['category_name']+'</td></tr>';
+//            htmlstr += '<tr><td>'+data[i]+'</td></tr>';
+//        }
+//        htmlstr += '</table>';
+        if (data){alert("correct usr and pass");}else{alert("wrong");}
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
     });
