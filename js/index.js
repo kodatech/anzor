@@ -180,7 +180,7 @@ function listar(){
 /*User validation*/
 function validate(){
     var url = 'http://anzor.benjamin.sky/anzor_services/login';
-    var usr = btoa($("#usr").val());//atob(encodedData);
+    var usr = $("#usr").val();// btoa atob(encodedData);
     var pass = $("#pass").val();
     //alert (usr);
     //alert (pass);
