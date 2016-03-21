@@ -198,7 +198,12 @@ function validate(){
 //            htmlstr += '<tr><td>'+data[i]+'</td></tr>';
 //        }
 //        htmlstr += '</table>';
-        if (data){alert("correct usr and pass");}else{alert("wrong");}
+        if (data){
+            var htmlstr='<button class="topcoat-button event" id="scan"><img src="img/barcode-scanner_button.png" height="100px" /></button>';
+            $("#bar_code").html(htmlstr);
+        }else{
+            alert("wrong");
+        }
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
     });
