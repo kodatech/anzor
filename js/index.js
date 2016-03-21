@@ -180,17 +180,17 @@ function listar(){
 /*User validation*/
 function validate(){
     var url = 'http://anzor.benjamin.sky/anzor_services/login';
-    var usr = $("#usr").val();
+    var usr = btoa($("#usr").val());//atob(encodedData);
     var pass = $("#pass").val();
     //alert (usr);
     //alert (pass);
     //jQuery('#content-inner').prepend(pass);
-        return $.ajax({
-            type: "GET",
-            data: { name: usr, pass : pass} ,
-            url: url,
-            timeout: 60 * 1000
-        }).done(function (data) {
+    return $.ajax({
+        type: "GET",
+        data: { name: usr, pass : pass} ,
+        url: url,
+        timeout: 60 * 1000
+    }).done(function (data) {
         //alert('hey');
 //        var htmlstr='<table>';
 //        htmlstr +='<tr><td>Category Name</td></tr>';
