@@ -114,8 +114,8 @@ function load_new_scan(result_text, data){
 	htmlstr += '	<div class="scan_box_content">';
 	htmlstr += '		<div class="scan_box_img col-xs-3"><img src="img/product_image.png" /></div>';
 	htmlstr += '		<div class="scan_box_details col-xs-6">';
-	htmlstr += '		<div class="scan_box_title">Some awesome screws</div>';
-	htmlstr += '		<div class="scan_box_code"><span>Code: </span>'+result_text+"-"+data[0]+'</div>';
+	htmlstr += '		<div class="scan_box_title">'+data[0]['name']+'</div>';
+	htmlstr += '		<div class="scan_box_code"><span>Code: </span>'+result_text+"-"+data[0]['name']+'</div>';
 	htmlstr += '	</div>';
 	htmlstr += '	<div class="scan_box_actions col-xs-3">';
 	htmlstr += '		<div>Amount:</div>';
