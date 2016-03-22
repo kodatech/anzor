@@ -177,6 +177,41 @@ function listar(){
     });
 }
 
+/*Product validation*/
+function validateProduct(){
+    var url = 'http://anzor.benjamin.sky/anzor_services/product';
+    //var usr = $("#usr").val();// btoa atob(encodedData);
+    //var pass = $("#pass").val();
+    //alert (usr);
+    //alert (pass);
+    //jQuery('#content-inner').prepend(pass);
+    return $.ajax({
+        type: "GET",
+        data: { name: usr, pass : pass} ,
+        url: url,
+        timeout: 60 * 1000
+    }).done(function (data) {
+        //alert('hey');
+//        var htmlstr='<table>';
+//        htmlstr +='<tr><td>Category Name</td></tr>';
+//        for (var i in data){
+//            //htmlstr += '<tr><td>'+data[i]['category_name']+'</td></tr>';
+//            htmlstr += '<tr><td>'+data[i]+'</td></tr>';
+//        }
+//        htmlstr += '</table>';
+        if (data){
+            var htmlstr='<button class="topcoat-button event" id="scan"><img src="img/barcode-scanner_button.png" height="100px" /></button>';
+            $("#bar_code").html(htmlstr);
+            document.getElementById('scan').addEventListener('click', scan, false);
+            document.getElementById('encode').addEventListener('click', encode, false);
+        }else{
+            alert("usr & pass goes wrong");
+        }
+    }).fail(function (a, b, c) {
+        console.log(b + '|' + c);
+    });
+}
+
 /*User validation*/
 function validate(){
     var url = 'http://anzor.benjamin.sky/anzor_services/login';
@@ -219,7 +254,10 @@ function validate(){
         var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
         scanner.scan( function (result) { 
-			load_new_scan(result.text);
+            
+            alert(result.text);
+            
+			//load_new_scan(result.text);
 			/*
             alert("We got a barcode\n" + 
             "Result: " + result.text + "\n" + 
