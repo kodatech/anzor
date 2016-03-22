@@ -107,6 +107,7 @@ var app = {
 var box_counter = 1;
 var found = 0;
 function load_new_scan(data){
+    if (data){
 	found = 1;
 	jQuery('#send_all').fadeIn();
 	var htmlstr = '<div class="scan_box" this_id="'+box_counter+'" id="send_box_'+box_counter+'">';
@@ -127,6 +128,9 @@ function load_new_scan(data){
 	jQuery('#content-inner').prepend(htmlstr);
 	
 	box_counter++;
+    }else{
+        alert("wrong product");
+    }
 }
 function remove_scan_box(scan_box_id){
 	jQuery('#send_box_'+scan_box_id).fadeOut();
