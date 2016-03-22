@@ -106,7 +106,7 @@ var app = {
 
 var box_counter = 1;
 var found = 0;
-function load_new_scan(result_text, data){
+function load_new_scan(data){
 	found = 1;
 	jQuery('#send_all').fadeIn();
 	var htmlstr = '<div class="scan_box" this_id="'+box_counter+'" id="send_box_'+box_counter+'">';
@@ -115,12 +115,12 @@ function load_new_scan(result_text, data){
 	htmlstr += '		<div class="scan_box_img col-xs-3"><img src="img/product_image.png" /></div>';
 	htmlstr += '		<div class="scan_box_details col-xs-6">';
 	htmlstr += '		<div class="scan_box_title">'+data[0]['name']+'</div>';
-	htmlstr += '		<div class="scan_box_code"><span>Code: </span>'+result_text+"-"+data[0]['name']+'</div>';
+	htmlstr += '		<div class="scan_box_code"><span>Code: </span>'+data[0]['barcode']+"-"+data[0]['name']+'</div>';
 	htmlstr += '	</div>';
 	htmlstr += '	<div class="scan_box_actions col-xs-3">';
 	htmlstr += '		<div>Amount:</div>';
 	htmlstr += '		<select><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option><option>60</option></select>';
-	htmlstr += '		<button class="topcoat-button event send" onClick="send_order('+box_counter+')">SEND ORDER</button>';
+	htmlstr += '		<button class="topcoat-button event send" onClick="send_order('+box_counter+')">ADD TO CART</button>';
 	htmlstr += '	</div>';
 	htmlstr += '</div>';
 	htmlstr += '</div>';
@@ -199,7 +199,7 @@ function validateProduct(barCode){
 //            htmlstr += '<tr><td>'+data[i]+'</td></tr>';
 //        }
 //        htmlstr += '</table>';
-            load_new_scan(barCode, data);
+            load_new_scan(data);
         /*if (data){
             var htmlstr='<button class="topcoat-button event" id="scan"><img src="img/barcode-scanner_button.png" height="100px" /></button>';
             $("#bar_code").html(htmlstr);
