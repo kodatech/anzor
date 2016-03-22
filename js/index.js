@@ -106,7 +106,7 @@ var app = {
 
 var box_counter = 1;
 var found = 0;
-function load_new_scan(result_text){
+function load_new_scan(result_text, data){
 	found = 1;
 	jQuery('#send_all').fadeIn();
 	var htmlstr = '<div class="scan_box" this_id="'+box_counter+'" id="send_box_'+box_counter+'">';
@@ -115,7 +115,7 @@ function load_new_scan(result_text){
 	htmlstr += '		<div class="scan_box_img col-xs-3"><img src="img/product_image.png" /></div>';
 	htmlstr += '		<div class="scan_box_details col-xs-6">';
 	htmlstr += '		<div class="scan_box_title">Some awesome screws</div>';
-	htmlstr += '		<div class="scan_box_code"><span>Code: </span>'+result_text+'</div>';
+	htmlstr += '		<div class="scan_box_code"><span>Code: </span>'+result_text+"-"+data+'</div>';
 	htmlstr += '	</div>';
 	htmlstr += '	<div class="scan_box_actions col-xs-3">';
 	htmlstr += '		<div>Amount:</div>';
@@ -178,7 +178,7 @@ function listar(){
 }
 
 /*Product validation*/
-function validateProduct(){
+function validateProduct(barCode){
     var url = 'http://anzor.benjamin.sky/anzor_services/product';
     //var usr = $("#usr").val();// btoa atob(encodedData);
     //var pass = $("#pass").val();
@@ -187,7 +187,7 @@ function validateProduct(){
     //jQuery('#content-inner').prepend(pass);
     return $.ajax({
         type: "GET",
-        data: { name: usr, pass : pass} ,
+        data: { barCode: barCode} ,
         url: url,
         timeout: 60 * 1000
     }).done(function (data) {
@@ -199,14 +199,15 @@ function validateProduct(){
 //            htmlstr += '<tr><td>'+data[i]+'</td></tr>';
 //        }
 //        htmlstr += '</table>';
-        if (data){
+            load_new_scan(barCode, data);
+        /*if (data){
             var htmlstr='<button class="topcoat-button event" id="scan"><img src="img/barcode-scanner_button.png" height="100px" /></button>';
             $("#bar_code").html(htmlstr);
             document.getElementById('scan').addEventListener('click', scan, false);
             document.getElementById('encode').addEventListener('click', encode, false);
         }else{
             alert("usr & pass goes wrong");
-        }
+        }*/
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
     });
@@ -255,7 +256,8 @@ function validate(){
 
         scanner.scan( function (result) { 
             
-            alert(result.text);
+            //alert(result.text);
+            validateProduct(result.text)
             
 			//load_new_scan(result.text);
 			/*
