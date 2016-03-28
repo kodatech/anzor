@@ -116,23 +116,29 @@ function load_new_scan(data){
 	//htmlstr += '		<div class="scan_box_img col-xs-3"><img src="img/product_image.png" /></div>';
 	htmlstr += '		<div class="scan_box_details col-xs-6">';
 	htmlstr += '		<div class="scan_box_title">'+data[0]['description']+'</div>';
-	htmlstr += '		<div class="scan_box_code"><span>Code: </span>'+data[0]['stockcode']+'</div>';
+	htmlstr += '		<div class="scan_box_code">'+data[0]['stockcode']+'</div>';
 	htmlstr += '	</div>';
 	htmlstr += '	<div class="scan_box_actions col-xs-3">';
 	htmlstr += '		<div>Qty:</div>';
-    htmlstr += '		<div><input type="text"></div>';
+    htmlstr += '		<div><input id="qty_'+box_counter+'" type="text" value="1"></div>';
     htmlstr += '		<div>' +
                             '<span class="views-label views-label-commerce-unit-price"> x </span>' +
                             '<div class="field-content">'+data[0]['sell_price_1']+'</div>' +
-                    '</div>';
+               '        </div>';
 	//htmlstr += '		<select><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option><option>60</option></select>';
 	//htmlstr += '		<button class="topcoat-button event send" onClick="send_order('+box_counter+')">ADD TO CART</button>';
 	htmlstr += '	</div>';
+    htmlstr += '	<div><span class="views-label views-label-commerce-total"> = </span>';
+    htmlstr += '        <div class="field-content price">'+data[0]['sell_price_1']+'</div>';
+    htmlstr += '	</div>';
 	htmlstr += '</div>';
 	htmlstr += '</div>';
 	jQuery('#content-inner').prepend(htmlstr);
-	
+
+        $("#qty_"+box_counter).blur(checkPrice);
+
 	box_counter++;
+
     }else{
         alert("wrong product");
     }
@@ -349,3 +355,8 @@ function checkConnection() {
         alert('Connection type: ' + states[networkState]);*/
     }
 
+function checkPrice(){
+
+    alert ('hi');
+
+}
