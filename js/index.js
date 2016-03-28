@@ -261,7 +261,9 @@ function validate(){
         scanner.scan( function (result) { 
             
             //alert(result.text);
-            validateProduct(result.text)
+            //validateProduct(result.text);
+
+            validateProduct('9420019451302');
             
 			//load_new_scan(result.text);
 			/*
