@@ -120,7 +120,7 @@ function load_new_scan(data){
 	htmlstr += '	</div>';
 	htmlstr += '	<div class="scan_box_actions col-xs-3">';
 	htmlstr += '		<div>Qty:</div>';
-    htmlstr += '		<div><input id="qty_'+box_counter+'" type="text" value="1"></div>';
+    htmlstr += '		<div><input type="text" value="1"></div>';
     htmlstr += '		<div>' +
                             '<span class="views-label views-label-commerce-unit-price"> x </span>' +
                             '<div class="field-content">'+data[0]['sell_price_1']+'</div>' +
@@ -135,10 +135,7 @@ function load_new_scan(data){
 	htmlstr += '</div>';
 	jQuery('#content-inner').prepend(htmlstr);
 
-        $("#qty_"+box_counter).blur(checkPrice);
-
 	box_counter++;
-
     }else{
         alert("wrong product");
     }
@@ -355,8 +352,3 @@ function checkConnection() {
         alert('Connection type: ' + states[networkState]);*/
     }
 
-function checkPrice(){
-    
-    alert ('hi');
-
-}
