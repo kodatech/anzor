@@ -356,7 +356,7 @@ function checkConnection() {
     }
 
 function checkPrice(){
-
-    alert ('hi');
+    
+    alert ($(this).val());
 
 }
