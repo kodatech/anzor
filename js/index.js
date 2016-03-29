@@ -368,7 +368,7 @@ function checkQty(obj, stockcode){
     alert (pass);
     return $.ajax({
         type: "GET",
-        data: { name: usr, pass : pass, stockcode: stockcode, qty: qty} ,
+        data: { name: usr, pass : pass, qty: qty} ,
         url: url,
         timeout: 60 * 1000
     }).done(function (data) {
@@ -381,7 +381,7 @@ function checkQty(obj, stockcode){
 //        }
 //        htmlstr += '</table>';
         if (data){
-            $("#total").html(data);
+            $("#total").html("501");
         }else{
             alert("sth goes wrong");
         }
