@@ -108,36 +108,36 @@ var box_counter = 1;
 var found = 0;
 function load_new_scan(data){
     if (data){
-	found = 1;
-	jQuery('#send_all').fadeIn();
+        found = 1;
+        jQuery('#send_all').fadeIn();
         var stockcode=data[0]['stockcode'];
-	var htmlstr = '<div class="scan_box" this_id="'+box_counter+'" id="send_box_'+box_counter+'">';
-	htmlstr += '<div class="scan_box_remove" onClick="remove_scan_box('+box_counter+')"><img src="img/Remove.png" /></div>';
-	htmlstr += '	<div class="scan_box_content">';
-	//htmlstr += '		<div class="scan_box_img col-xs-3"><img src="img/product_image.png" /></div>';
-	htmlstr += '		<div class="scan_box_details col-xs-6">';
-	htmlstr += '		<div class="scan_box_title">'+data[0]['description']+'</div>';
-	htmlstr += '		<div class="scan_box_code">'+data[0]['stockcode']+'</div>';
-	htmlstr += '	</div>';
-	htmlstr += '	<div class="scan_box_actions col-xs-3">';
-	htmlstr += '		<div>Qty:</div>';
-    htmlstr += '		<div><input type="text" onblur="checkQty(this,'+123+')" value="1"></div>';
-    htmlstr += '		<div>' +
-                            '<span class="views-label views-label-commerce-unit-price"> x </span>' +
-                            '<div class="field-content">'+data[0]['sell_price_1']+'</div>' +
-               '        </div>';
-	//htmlstr += '		<select><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option><option>60</option></select>';
-	//htmlstr += '		<button class="topcoat-button event send" onClick="send_order('+box_counter+')">ADD TO CART</button>';
-	htmlstr += '	</div>';
-    htmlstr += '	<div><span class="views-label views-label-commerce-total"> = </span>';
-    htmlstr +='         <div class="field-content price">'+data[0]['sell_price_1']+'</div>';
+        var htmlstr = '<div class="scan_box" this_id="'+box_counter+'" id="send_box_'+box_counter+'">';
+        htmlstr += '<div class="scan_box_remove" onClick="remove_scan_box('+box_counter+')"><img src="img/Remove.png" /></div>';
+        htmlstr += '	<div class="scan_box_content">';
+        //htmlstr += '		<div class="scan_box_img col-xs-3"><img src="img/product_image.png" /></div>';
+        htmlstr += '		<div class="scan_box_details col-xs-6">';
+        htmlstr += '		<div class="scan_box_title">'+data[0]['description']+'</div>';
+        htmlstr += '		<div class="scan_box_code">'+data[0]['stockcode']+'</div>';
+        htmlstr += '	</div>';
+        htmlstr += '	<div class="scan_box_actions col-xs-3">';
+        htmlstr += '		<div>Qty:</div>';
+        htmlstr += '		<div><input type="text" onblur="checkQty(this,'+stockcode+')" value="1"></div>';
+        htmlstr += '		<div>' +
+                                '<span class="views-label views-label-commerce-unit-price"> x </span>' +
+                                '<div class="field-content">'+data[0]['sell_price_1']+'</div>' +
+                   '        </div>';
+        //htmlstr += '		<select><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option><option>60</option></select>';
+        //htmlstr += '		<button class="topcoat-button event send" onClick="send_order('+box_counter+')">ADD TO CART</button>';
+        htmlstr += '	</div>';
+        htmlstr += '	<div><span class="views-label views-label-commerce-total"> = </span>';
+        htmlstr +='         <div class="field-content price">'+data[0]['sell_price_1']+'</div>';
 
-    htmlstr += '	</div>';
-	htmlstr += '</div>';
-	htmlstr += '</div>';
-	jQuery('#content-inner').prepend(htmlstr);
+        htmlstr += '	</div>';
+        htmlstr += '</div>';
+        htmlstr += '</div>';
+        jQuery('#content-inner').prepend(htmlstr);
 
-	box_counter++;
+        box_counter++;
     }else{
         alert("wrong product");
     }
