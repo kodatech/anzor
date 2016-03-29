@@ -233,8 +233,8 @@ function validate(){
     var url = 'http://anzor.benjamin.sky/anzor_services/login';
     var usr = $("#usr").val();// btoa atob(encodedData);
     var pass = $("#pass").val();
-    //alert (usr);
-    //alert (pass);
+    alert (usr);
+    alert (pass);
     //jQuery('#content-inner').prepend(pass);
     return $.ajax({
         type: "GET",
@@ -356,7 +356,7 @@ function checkConnection() {
     }
 
 function checkPrice(){
-    
+
     alert ($(this).val());
 
 }
