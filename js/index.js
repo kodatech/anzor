@@ -233,8 +233,8 @@ function validate(){
     var url = 'http://anzor.benjamin.sky/anzor_services/login';
     var usr = $("#usr").val();// btoa atob(encodedData);
     var pass = $("#pass").val();
-    alert (usr);
-    alert (pass);
+    //alert (usr);
+    //alert (pass);
     //jQuery('#content-inner').prepend(pass);
     return $.ajax({
         type: "GET",
@@ -251,7 +251,9 @@ function validate(){
 //        }
 //        htmlstr += '</table>';
         if (data){
-            var htmlstr='<button class="topcoat-button event" id="scan"><img src="img/barcode-scanner_button.png" height="100px" /></button>';
+            //var htmlstr='<button class="topcoat-button event" id="scan"><img src="img/barcode-scanner_button.png" height="100px" /></button>';
+            alert("entro");
+            htmlstr='<div>estoy</div>';
             $("#bar_code").html(htmlstr);
             document.getElementById('scan').addEventListener('click', scan, false);
             document.getElementById('encode').addEventListener('click', encode, false);
