@@ -135,7 +135,7 @@ function load_new_scan(data){
 	htmlstr += '</div>';
 	jQuery('#content-inner').prepend(htmlstr);
 
-        //$("#qty_"+box_counter).blur(checkPrice);
+        $("#qty_"+box_counter).blur(checkPrice);
 
 	box_counter++;
 
@@ -251,9 +251,7 @@ function validate(){
 //        }
 //        htmlstr += '</table>';
         if (data){
-            //var htmlstr='<button class="topcoat-button event" id="scan"><img src="img/barcode-scanner_button.png" height="100px" /></button>';
-            alert("entro");
-            htmlstr='<div>estoy</div>';
+            var htmlstr='<button class="topcoat-button event" id="scan"><img src="img/barcode-scanner_button.png" height="100px" /></button>';
             $("#bar_code").html(htmlstr);
             document.getElementById('scan').addEventListener('click', scan, false);
             document.getElementById('encode').addEventListener('click', encode, false);
@@ -357,8 +355,8 @@ function checkConnection() {
         alert('Connection type: ' + states[networkState]);*/
     }
 
-/*function checkPrice(){
+function checkPrice(){
+    
+    alert ('hi');
 
-    alert ($(this).val());
-
-}*/
+}
