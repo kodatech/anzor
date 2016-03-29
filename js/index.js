@@ -373,7 +373,7 @@ function checkQty(obj, stockcode){
         data: { name: usr, pass : pass, scode:stock, qty: qty, price:price} ,
         url: url,
         timeout: 60 * 1000
-    }).done(function (data) {
+    }).success(function (data) {
         //alert('hey');
 //        var htmlstr='<table>';
 //        htmlstr +='<tr><td>Category Name</td></tr>';
