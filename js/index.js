@@ -360,6 +360,7 @@ function checkConnection() {
 function checkQty(obj, stockcode){
     //alert($(obj).val());
     //alert(stockcode);
+    var stock=stockcode;
     var usr = $("#usr").val();// btoa atob(encodedData);
     var pass = $("#pass").val();
     var qty = $(obj).val();
@@ -368,7 +369,7 @@ function checkQty(obj, stockcode){
     alert (pass);
     return $.ajax({
         type: "GET",
-        data: { name: usr, pass : pass, qty: qty} ,
+        data: { name: usr, pass : pass, stockcode:stock, qty: qty} ,
         url: url,
         timeout: 60 * 1000
     }).done(function (data) {
