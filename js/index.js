@@ -121,7 +121,7 @@ function load_new_scan(data){
         htmlstr += '	</div>';
         htmlstr += '	<div class="scan_box_actions col-xs-3">';
         htmlstr += '		<div>Qty:</div>';
-        htmlstr += '		<div><input type="text" onblur="checkQty(this,'+stockcode+')" value="1"></div>';
+        htmlstr += '		<div><input type="text" onblur="checkQty(this)" value="1"></div>';
         htmlstr += '		<div>' +
                                 '<span class="views-label views-label-commerce-unit-price"> x </span>' +
                                 '<div class="field-content">'+data[0]['sell_price_1']+'</div>' +
@@ -354,11 +354,11 @@ function checkConnection() {
         alert('Connection type: ' + states[networkState]);*/
     }
 
-function checkQty(obj, stockcode){
+function checkQty(obj){
     alert($(obj).val());
-    alert(stockcode);
-    /*var usr = $("#usr").val();// btoa atob(encodedData);
+    //alert(stockcode);
+    var usr = $("#usr").val();// btoa atob(encodedData);
     var pass = $("#pass").val();
     alert (usr);
-    alert (pass);*/
+    alert (pass);
 }
