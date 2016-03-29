@@ -130,7 +130,7 @@ function load_new_scan(data){
         //htmlstr += '		<button class="topcoat-button event send" onClick="send_order('+box_counter+')">ADD TO CART</button>';
         htmlstr += '	</div>';
         htmlstr += '	<div><span class="views-label views-label-commerce-total"> = </span>';
-        htmlstr +='         <div class="field-content price">'+data[0]['sell_price_1']+'</div>';
+        htmlstr +='         <div id="total" class="field-content price">'+data[0]['sell_price_1']+'</div>';
 
         htmlstr += '	</div>';
         htmlstr += '</div>';
@@ -250,10 +250,10 @@ function validate(){
 //        }
 //        htmlstr += '</table>';
         if (data){
-            //<input type="hidden" name="country" value="Norway">
+
             $("#f1").css("display","none");
-            alert (data[0]['uid']);
-            var htmlstr='<button class="topcoat-button event" id="scan"><img src="img/barcode-scanner_button.png" height="100px" /></button>';
+            var uid=data[0]['uid'];
+            var htmlstr='<input type="hidden" name="uid" value="'+uid+'"><button class="topcoat-button event" id="scan"><img src="img/barcode-scanner_button.png" height="100px" /></button>';
             $("#bar_code").html(htmlstr);
             document.getElementById('scan').addEventListener('click', scan, false);
             document.getElementById('encode').addEventListener('click', encode, false);
@@ -358,10 +358,34 @@ function checkConnection() {
     }
 
 function checkQty(obj, stockcode){
-    alert($(obj).val());
-    alert(stockcode);
+    //alert($(obj).val());
+    //alert(stockcode);
     var usr = $("#usr").val();// btoa atob(encodedData);
     var pass = $("#pass").val();
-    alert (usr);
-    alert (pass);
+    var qty = $(obj).val();
+    var url = 'http://anzor.benjamin.sky/anzor_services/price';
+    //alert (usr);
+    //alert (pass);
+    return $.ajax({
+        type: "GET",
+        data: { name: usr, pass : pass, stockcode: stockcode, qty: qty} ,
+        url: url,
+        timeout: 60 * 1000
+    }).done(function (data) {
+        //alert('hey');
+//        var htmlstr='<table>';
+//        htmlstr +='<tr><td>Category Name</td></tr>';
+//        for (var i in data){
+//            //htmlstr += '<tr><td>'+data[i]['category_name']+'</td></tr>';
+//            htmlstr += '<tr><td>'+data[i]+'</td></tr>';
+//        }
+//        htmlstr += '</table>';
+        if (data){
+            $("#total").html(data);
+        }else{
+            alert("sth goes wrong");
+        }
+    }).fail(function (a, b, c) {
+        console.log(b + '|' + c);
+    });
 }
