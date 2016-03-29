@@ -135,7 +135,7 @@ function load_new_scan(data){
 	htmlstr += '</div>';
 	jQuery('#content-inner').prepend(htmlstr);
 
-        $("#qty_"+box_counter).blur(checkPrice);
+        //$("#qty_"+box_counter).blur(checkPrice);
 
 	box_counter++;
 
@@ -355,8 +355,8 @@ function checkConnection() {
         alert('Connection type: ' + states[networkState]);*/
     }
 
-function checkPrice(){
+/*function checkPrice(){
 
     alert ($(this).val());
 
-}
+}*/
