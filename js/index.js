@@ -110,6 +110,7 @@ function load_new_scan(data){
     if (data){
 	found = 1;
 	jQuery('#send_all').fadeIn();
+        var stockcode=data[0]['stockcode'];
 	var htmlstr = '<div class="scan_box" this_id="'+box_counter+'" id="send_box_'+box_counter+'">';
 	htmlstr += '<div class="scan_box_remove" onClick="remove_scan_box('+box_counter+')"><img src="img/Remove.png" /></div>';
 	htmlstr += '	<div class="scan_box_content">';
@@ -120,7 +121,7 @@ function load_new_scan(data){
 	htmlstr += '	</div>';
 	htmlstr += '	<div class="scan_box_actions col-xs-3">';
 	htmlstr += '		<div>Qty:</div>';
-    htmlstr += '		<div><input type="text" onblur="checkQty(this, data[0])" value="1"></div>';
+    htmlstr += '		<div><input type="text" onblur="checkQty(this, stockcode)" value="1"></div>';
     htmlstr += '		<div>' +
                             '<span class="views-label views-label-commerce-unit-price"> x </span>' +
                             '<div class="field-content">'+data[0]['sell_price_1']+'</div>' +
@@ -353,9 +354,9 @@ function checkConnection() {
         alert('Connection type: ' + states[networkState]);*/
     }
 
-function checkQty(obj, data){
+function checkQty(obj, stockcode){
     alert($(obj).val());
-    alert(data[0]['stockcode']);
+    alert(stockcode);
     var usr = $("#usr").val();// btoa atob(encodedData);
     var pass = $("#pass").val();
     alert (usr);
