@@ -239,7 +239,7 @@ function validate(){
         url: url,
         timeout: 60 * 1000
     }).done(function (data) {
-        //alert('hey');
+        alert('hey');
 //        var htmlstr='<table>';
 //        htmlstr +='<tr><td>Category Name</td></tr>';
 //        for (var i in data){
@@ -247,14 +247,14 @@ function validate(){
 //            htmlstr += '<tr><td>'+data[i]+'</td></tr>';
 //        }
 //        htmlstr += '</table>';
-        if (data){
+        //if (data){
             var htmlstr='<button class="topcoat-button event" id="scan"><img src="img/barcode-scanner_button.png" height="100px" /></button>';
             $("#bar_code").html(htmlstr);
             document.getElementById('scan').addEventListener('click', scan, false);
             document.getElementById('encode').addEventListener('click', encode, false);
-        }else{
+        //}else{
             alert("usr & pass goes wrong");
-        }
+        //}
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
     });
