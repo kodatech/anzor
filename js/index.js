@@ -365,9 +365,9 @@ function checkQty(obj, stockcode){
     var pass = $("#pass").val();
     var qty = $(obj).val();
     var url = 'http://anzor.benjamin.sky/anzor_services/price';
-    alert (usr);
-    alert (pass);
-    var price=$('#price').val();
+    //alert (usr);
+    //alert (pass);
+    var price=$('#price').text();
     return $.ajax({
         type: "GET",
         data: { name: usr, pass : pass, scode:stock, qty: qty, price:price} ,
