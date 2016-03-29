@@ -382,11 +382,11 @@ function checkQty(obj, stockcode){
 //            htmlstr += '<tr><td>'+data[i]+'</td></tr>';
 //        }
 //        htmlstr += '</table>';
-        if (data){
-            $("#total").html("501");
-        }else{
-            alert("sth goes wrong");
-        }
+        //if (data){
+            $("#total").html(data);
+        //}else{
+        //    alert("sth goes wrong");
+        //}
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
     });
