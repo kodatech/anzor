@@ -383,7 +383,8 @@ function checkQty(obj, stockcode){
 //        }
 //        htmlstr += '</table>';
         if (data){
-            $("#total").html(data[0]['price']);
+            alert(data[0]['price'])
+            $("#total").text(data[0]['price']);
         }else{
             alert("sth goes wrong");
         }
