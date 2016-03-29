@@ -124,7 +124,7 @@ function load_new_scan(data){
         htmlstr += '		<div><input type="text" onblur="checkQty(this,\'' + stockcode + '\')" value="1"></div>';
         htmlstr += '		<div>' +
                                 '<span class="views-label views-label-commerce-unit-price"> x </span>' +
-                                '<div class="field-content">'+data[0]['sell_price_1']+'</div>' +
+                                '<div id="price" class="field-content">'+data[0]['sell_price_1']+'</div>' +
                    '        </div>';
         //htmlstr += '		<select><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option><option>60</option></select>';
         //htmlstr += '		<button class="topcoat-button event send" onClick="send_order('+box_counter+')">ADD TO CART</button>';
@@ -367,9 +367,10 @@ function checkQty(obj, stockcode){
     var url = 'http://anzor.benjamin.sky/anzor_services/price';
     alert (usr);
     alert (pass);
+    var price=$('#price').val();
     return $.ajax({
         type: "GET",
-        data: { name: usr, pass : pass, stockcode:stock, qty: qty} ,
+        data: { name: usr, pass : pass, scode:stock, qty: qty, price:price} ,
         url: url,
         timeout: 60 * 1000
     }).done(function (data) {
