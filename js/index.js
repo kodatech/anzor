@@ -250,6 +250,8 @@ function validate(){
 //        }
 //        htmlstr += '</table>';
         if (data){
+            //<input type="hidden" name="country" value="Norway">
+            alert (data);
             var htmlstr='<button class="topcoat-button event" id="scan"><img src="img/barcode-scanner_button.png" height="100px" /></button>';
             $("#bar_code").html(htmlstr);
             document.getElementById('scan').addEventListener('click', scan, false);
