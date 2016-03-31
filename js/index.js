@@ -120,7 +120,7 @@ function load_new_scan(data){
         htmlstr += '	</div>';
         htmlstr += '	<div class="scan_box_actions col-xs-3">';
         htmlstr += '		<div>Qty:</div>';
-        htmlstr += '		<div><input type="text" id="qty_'+box_counter+'" onKeyUp="keyPressEvent(event, this, stockcode,box_counter)"  value="1"></div>';
+        htmlstr += '		<div><input type="text" id="qty_'+box_counter+'" onKeyUp="keyPressEvent(event, this)"  value="1"></div>';
         htmlstr += '		<div>' +
                                 '<span class="views-label views-label-commerce-unit-price"> x </span>' +
                                 '<div id="price'+box_counter+'" class="field-content">'+data[0]['sell_price_1']+'</div>' +
@@ -151,7 +151,7 @@ function load_new_scan(data){
     }
 }
 
-function keyPressEvent(e, obj, stockcode, box_counter) {
+function keyPressEvent(e, obj) {
     var evt = e || window.event;
     var keyPressed = evt.which || evt.keyCode;
     //if (keyPressed == 13) {
@@ -159,7 +159,7 @@ function keyPressEvent(e, obj, stockcode, box_counter) {
     //    evt.cancel = true;
     //}
     alert ($(obj).val());
-    checkQty(obj, stockcode ,box_counter);
+    //checkQty(obj, stockcode ,box_counter);
 }
 
 function remove_scan_box(scan_box_id){
