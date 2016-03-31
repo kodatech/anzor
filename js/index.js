@@ -39,8 +39,8 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
         document.getElementById('login').addEventListener('click', validate, false);
-	document.addEventListener('offline', checkConnection, false);
-	checkConnection();
+	    document.addEventListener('offline', checkConnection, false);
+	    checkConnection();
 	//window.open('http://anzor.benjamin.sky/', '_blank', 'location=yes');
     },
 
@@ -49,7 +49,6 @@ var app = {
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
-
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
 
