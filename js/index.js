@@ -107,26 +107,36 @@ var box_counter = 1;
 var found = 0;
 function load_new_scan(data){
     if (data){
-	found = 1;
-	jQuery('#send_all').fadeIn();
-	var htmlstr = '<div class="scan_box" this_id="'+box_counter+'" id="send_box_'+box_counter+'">';
-	htmlstr += '<div class="scan_box_remove" onClick="remove_scan_box('+box_counter+')"><img src="img/Remove.png" /></div>';
-	htmlstr += '	<div class="scan_box_content">';
-	htmlstr += '		<div class="scan_box_img col-xs-3"><img src="img/product_image.png" /></div>';
-	htmlstr += '		<div class="scan_box_details col-xs-6">';
-	htmlstr += '		<div class="scan_box_title">'+data[0]['name']+'</div>';
-	htmlstr += '		<div class="scan_box_code"><span>Code: </span>'+data[0]['barcode']+"-"+data[0]['name']+'</div>';
-	htmlstr += '	</div>';
-	htmlstr += '	<div class="scan_box_actions col-xs-3">';
-	htmlstr += '		<div>Amount:</div>';
-	htmlstr += '		<select><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option><option>60</option></select>';
-	htmlstr += '		<button class="topcoat-button event send" onClick="send_order('+box_counter+')">ADD TO CART</button>';
-	htmlstr += '	</div>';
-	htmlstr += '</div>';
-	htmlstr += '</div>';
-	jQuery('#content-inner').prepend(htmlstr);
-	
-	box_counter++;
+        found = 1;
+        jQuery('#send_all').fadeIn();
+        var stockcode=data[0]['stockcode'];
+        var htmlstr = '<div class="scan_box" this_id="'+box_counter+'" id="send_box_'+box_counter+'">';
+        htmlstr += '<div class="scan_box_remove" onClick="remove_scan_box('+box_counter+')"><img src="img/Remove.png" /></div>';
+        htmlstr += '	<div class="scan_box_content">';
+        //htmlstr += '		<div class="scan_box_img col-xs-3"><img src="img/product_image.png" /></div>';
+        htmlstr += '		<div class="scan_box_details col-xs-6">';
+        htmlstr += '		<div class="scan_box_title">'+data[0]['description']+'</div>';
+        htmlstr += '		<div class="scan_box_code">'+data[0]['stockcode']+'</div>';
+        htmlstr += '	</div>';
+        htmlstr += '	<div class="scan_box_actions col-xs-3">';
+        htmlstr += '		<div>Qty:</div>';
+        htmlstr += '		<div><input type="text" onblur="checkQty(this,\'' + stockcode + '\')" value="1"></div>';
+        htmlstr += '		<div>' +
+                                '<span class="views-label views-label-commerce-unit-price"> x </span>' +
+                                '<div id="price" class="field-content">'+data[0]['sell_price_1']+'</div>' +
+                   '        </div>';
+        //htmlstr += '		<select><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option><option>60</option></select>';
+        //htmlstr += '		<button class="topcoat-button event send" onClick="send_order('+box_counter+')">ADD TO CART</button>';
+        htmlstr += '	</div>';
+        htmlstr += '	<div><span class="views-label views-label-commerce-total"> = </span>';
+        htmlstr +='         <div id="total" class="field-content price">'+data[0]['sell_price_1']+'</div>';
+
+        htmlstr += '	</div>';
+        htmlstr += '</div>';
+        htmlstr += '</div>';
+        jQuery('#content-inner').prepend(htmlstr);
+
+        box_counter++;
     }else{
         alert("wrong product");
     }
@@ -239,7 +249,10 @@ function validate(){
 //        }
 //        htmlstr += '</table>';
         if (data){
-            var htmlstr='<button class="topcoat-button event" id="scan"><img src="img/barcode-scanner_button.png" height="100px" /></button>';
+
+            $("#f1").css("display","none");
+            var uid=data[0]['uid'];
+            var htmlstr='<input type="hidden" name="uid" value="'+uid+'"><button class="topcoat-button event" id="scan"><img src="img/barcode-scanner_button.png" height="100px" /></button>';
             $("#bar_code").html(htmlstr);
             document.getElementById('scan').addEventListener('click', scan, false);
             document.getElementById('encode').addEventListener('click', encode, false);
@@ -260,7 +273,9 @@ function validate(){
         scanner.scan( function (result) { 
             
             //alert(result.text);
-            validateProduct(result.text)
+            //validateProduct(result.text);
+
+            validateProduct('9420019451302');
             
 			//load_new_scan(result.text);
 			/*
@@ -341,3 +356,38 @@ function checkConnection() {
         alert('Connection type: ' + states[networkState]);*/
     }
 
+function checkQty(obj, stockcode){
+    //alert($(obj).val());
+    //alert(stockcode);
+    var stock=stockcode;
+    var usr = $("#usr").val();// btoa atob(encodedData);
+    var pass = $("#pass").val();
+    var qty = $(obj).val();
+    var url = 'http://anzor.benjamin.sky/anzor_services/price';
+    //alert (usr);
+    //alert (pass);
+    var price=$('#price').text();
+    return $.ajax({
+        type: "GET",
+        data: { name: usr, pass : pass, scode:stock, qty: qty, price:price} ,
+        url: url,
+        timeout: 60 * 1000
+    }).success(function (data) {
+        //alert('hey');
+//        var htmlstr='<table>';
+//        htmlstr +='<tr><td>Category Name</td></tr>';
+//        for (var i in data){
+//            //htmlstr += '<tr><td>'+data[i]['category_name']+'</td></tr>';
+//            htmlstr += '<tr><td>'+data[i]+'</td></tr>';
+//        }
+//        htmlstr += '</table>';
+        if (data){
+            alert(data[0].price)
+            $("#total").text(data[0]['price']);
+        }else{
+            alert("sth goes wrong");
+        }
+    }).fail(function (a, b, c) {
+        console.log(b + '|' + c);
+    });
+}
