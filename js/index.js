@@ -120,16 +120,16 @@ function load_new_scan(data){
         htmlstr += '	</div>';
         htmlstr += '	<div class="scan_box_actions col-xs-3">';
         htmlstr += '		<div>Qty:</div>';
-        htmlstr += '		<div><input type="text" onblur="checkQty(this,\'' + stockcode + '\')" value="1"></div>';
+        htmlstr += '		<div><input type="text" onblur="checkQty(this,\'' + stockcode + '\',\'' + box_counter + '\')" value="1"></div>';
         htmlstr += '		<div>' +
                                 '<span class="views-label views-label-commerce-unit-price"> x </span>' +
-                                '<div id="price" class="field-content">'+data[0]['sell_price_1']+'</div>' +
+                                '<div id="price'+box_counter+'" class="field-content">'+data[0]['sell_price_1']+'</div>' +
                    '        </div>';
         //htmlstr += '		<select><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option><option>60</option></select>';
         //htmlstr += '		<button class="topcoat-button event send" onClick="send_order('+box_counter+')">ADD TO CART</button>';
         htmlstr += '	</div>';
         htmlstr += '	<div><span class="views-label views-label-commerce-total"> = </span>';
-        htmlstr +='         <div id="total" class="field-content price">'+data[0]['sell_price_1']+'</div>';
+        htmlstr +='         <div id="total'+box_counter+'" class="field-content price">'+data[0]['sell_price_1']+'</div>';
 
         htmlstr += '	</div>';
         htmlstr += '</div>';
@@ -356,7 +356,8 @@ function checkConnection() {
         alert('Connection type: ' + states[networkState]);*/
     }
 
-function checkQty(obj, stockcode){
+/*calculate the price per line*/
+function checkQty(obj, stockcode, box_counter){
     //alert($(obj).val());
     //alert(stockcode);
     var stock=stockcode;
@@ -366,7 +367,7 @@ function checkQty(obj, stockcode){
     var url = 'http://anzor.benjamin.sky/anzor_services/price';
     //alert (usr);
     //alert (pass);
-    var price=$('#price').text();
+    var price=$('#price'+box_counter).text();
     return $.ajax({
         type: "GET",
         data: { name: usr, pass : pass, scode:stock, qty: qty, price:price} ,
@@ -382,8 +383,8 @@ function checkQty(obj, stockcode){
 //        }
 //        htmlstr += '</table>';
         if (data){
-            alert(data[0].price)
-            $("#total").text(data[0]['price']);
+            //alert(data[0].price)
+            $("#total"+box_counter).text(data[0]['price']);
         }else{
             alert("sth goes wrong");
         }
