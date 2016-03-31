@@ -120,7 +120,7 @@ function load_new_scan(data){
         htmlstr += '	</div>';
         htmlstr += '	<div class="scan_box_actions col-xs-3">';
         htmlstr += '		<div>Qty:</div>';
-        htmlstr += '		<div><input type="text" id="qty_'+box_counter+'" onblur="checkQty(this,\'' + stockcode + '\',\'' + box_counter + '\')" value="1"></div>';
+        htmlstr += '		<div><input type="text" id="qty_'+box_counter+'"  value="1"></div>';
         htmlstr += '		<div>' +
                                 '<span class="views-label views-label-commerce-unit-price"> x </span>' +
                                 '<div id="price'+box_counter+'" class="field-content">'+data[0]['sell_price_1']+'</div>' +
@@ -135,8 +135,12 @@ function load_new_scan(data){
         htmlstr += '</div>';
         htmlstr += '</div>';
         jQuery('#content-inner').prepend(htmlstr);
-        $("#qty_"+box_counter).on("keypress",function(){
-            $('#price'+box_counter).text("hi");
+
+        //onblur="checkQty(this,\'' + stockcode + '\',\'' + box_counter + '\')"
+
+        $("#qty_"+box_counter).on("tap",function(){
+            //$('#price'+box_counter).text("hi");
+            checkQty($('#qty_'+box_counter),stockcode ,box_counter);
         });
         box_counter++;
     }else{
@@ -365,7 +369,7 @@ function checkQty(obj, stockcode, box_counter){
     var stock=stockcode;
     var usr = $("#usr").val();// btoa atob(encodedData);
     var pass = $("#pass").val();
-    var qty = $(obj).val();
+    var qty = obj.val();
     var url = 'http://anzor.benjamin.sky/anzor_services/price';
     //alert (usr);
     //alert (pass);
