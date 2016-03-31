@@ -158,7 +158,7 @@ function keyPressEvent(e) {
     //    document.getElementById('goButton').click();
     //    evt.cancel = true;
     //}
-    alert (keyPressed);
+    alert ($(this).val());
 }
 
 function remove_scan_box(scan_box_id){
