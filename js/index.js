@@ -158,7 +158,7 @@ function keyPressEvent(e, obj, stockcode, box_counter) {
     //    document.getElementById('goButton').click();
     //    evt.cancel = true;
     //}
-    //alert ($(obj).val());
+    alert ($(obj).val());
     checkQty(obj, stockcode ,box_counter);
 }
 
