@@ -120,7 +120,7 @@ function load_new_scan(data){
         htmlstr += '	</div>';
         htmlstr += '	<div class="scan_box_actions col-xs-3">';
         htmlstr += '		<div>Qty:</div>';
-        htmlstr += '		<div><input type="text" onblur="checkQty(this,\'' + stockcode + '\',\'' + box_counter + '\')" value="1"></div>';
+        htmlstr += '		<div><input type="text" onchange="checkQty(this,\'' + stockcode + '\',\'' + box_counter + '\')" value="1"></div>';
         htmlstr += '		<div>' +
                                 '<span class="views-label views-label-commerce-unit-price"> x </span>' +
                                 '<div id="price'+box_counter+'" class="field-content">'+data[0]['sell_price_1']+'</div>' +
