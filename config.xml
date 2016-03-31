@@ -17,7 +17,9 @@
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.core.inappbrowser" />
     <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
-    <gap:plugin name="cordova-plugin-customurlscheme" parameter="URL_SCHEME=scan" source="npm"/>
+    <gap:plugin name="cordova-plugin-customurlscheme" source="npm">
+        <param name="URL_SCHEME" value="scan" />
+    </gap:plugin>
 
     <feature name="http://api.phonegap.com/1.0/device" />
     <feature name="debug-server" required="true">
