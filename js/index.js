@@ -120,7 +120,7 @@ function load_new_scan(data){
         htmlstr += '	</div>';
         htmlstr += '	<div class="scan_box_actions col-xs-3">';
         htmlstr += '		<div>Qty:</div>';
-        htmlstr += '		<div><input type="text" id="qty_'+box_counter+'"  value="1"></div>';
+        htmlstr += '		<div><input type="text" id="qty_'+box_counter+'" onKeyPress="keyPressEvent(event)"  value="1"></div>';
         htmlstr += '		<div>' +
                                 '<span class="views-label views-label-commerce-unit-price"> x </span>' +
                                 '<div id="price'+box_counter+'" class="field-content">'+data[0]['sell_price_1']+'</div>' +
@@ -138,18 +138,29 @@ function load_new_scan(data){
 
         //onblur="checkQty(this,\'' + stockcode + '\',\'' + box_counter + '\')"
 
-        $("#qty_"+box_counter).on("tap",function(){
+        //$("#qty_"+box_counter).on("tap",function(){
             //$('#price'+box_counter).text("hi");
             //checkQty($('#qty_'+box_counter),stockcode ,box_counter);
-            
-            alert($(this).val());
+
+        //    alert($(this).val());
            // $('#total'+box_counter).append("hi");
-        });
+       // });
         box_counter++;
     }else{
         alert("wrong product");
     }
 }
+
+function keyPressEvent(e) {
+    var evt = e || window.event;
+    var keyPressed = evt.which || evt.keyCode;
+    //if (keyPressed == 13) {
+    //    document.getElementById('goButton').click();
+    //    evt.cancel = true;
+    //}
+    alert (keyPressed);
+}
+
 function remove_scan_box(scan_box_id){
 	jQuery('#send_box_'+scan_box_id).fadeOut();
 }
