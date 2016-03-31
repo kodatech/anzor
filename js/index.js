@@ -135,8 +135,8 @@ function load_new_scan(data){
         htmlstr += '</div>';
         htmlstr += '</div>';
         jQuery('#content-inner').prepend(htmlstr);
-        $("#qty_"+box_counter).on("tap",function(){
-            $(this).hide();
+        $("#qty_"+box_counter).on("keypress",function(){
+            $('#price'+box_counter).text("hi");
         });
         box_counter++;
     }else{
