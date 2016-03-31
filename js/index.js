@@ -140,7 +140,8 @@ function load_new_scan(data){
 
         $("#qty_"+box_counter).on("tap",function(){
             //$('#price'+box_counter).text("hi");
-            checkQty($('#qty_'+box_counter),stockcode ,box_counter);
+            //checkQty($('#qty_'+box_counter),stockcode ,box_counter);
+            $('#total'+box_counter).append("hi");
         });
         box_counter++;
     }else{
