@@ -380,7 +380,7 @@ function checkConnection() {
 /*calculate the price per line*/
 function checkQty(obj, stockcode, box_counter){
     //alert($(obj).val());
-    //alert(stockcode);
+    alert(stockcode);
     var stock=stockcode;
     var usr = $("#usr").val();// btoa atob(encodedData);
     var pass = $("#pass").val();
@@ -396,13 +396,7 @@ function checkQty(obj, stockcode, box_counter){
         timeout: 60 * 1000
     }).success(function (data) {
         //alert('hey');
-//        var htmlstr='<table>';
-//        htmlstr +='<tr><td>Category Name</td></tr>';
-//        for (var i in data){
-//            //htmlstr += '<tr><td>'+data[i]['category_name']+'</td></tr>';
-//            htmlstr += '<tr><td>'+data[i]+'</td></tr>';
-//        }
-//        htmlstr += '</table>';
+
         if (data){
             //alert(data[0].price)
             $("#total"+box_counter).text(data[0]['price']);
