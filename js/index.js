@@ -414,11 +414,11 @@ function checkQty(obj, stockcode, box_counter){
 
 
         if (data){
-            //alert(data[0].price)
-            var aux=parseFloat($("#total"+box_counter).text());
+            alert(box_counter);
+            var auxLinea=parseFloat($("#total"+box_counter).text());
             $("#total"+box_counter).text(data[0]['price']);
             var aux=$("#total").text();
-            aux=parseFloat(aux)+parseFloat(data[0]['price'])-parseFloat(aux);
+            aux=parseFloat(aux)+parseFloat(data[0]['price'])-parseFloat(auxLinea);
             $("#total").text(aux);
         }else{
             alert("sth goes wrong");
