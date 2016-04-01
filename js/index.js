@@ -395,7 +395,7 @@ function checkQty(obj, stockcode, box_counter){
         url: url,
         timeout: 60 * 1000
     }).success(function (data) {
-        //alert('hey');
+        alert('hey');
 
         if (data){
             //alert(data[0].price)
