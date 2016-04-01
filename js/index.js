@@ -138,7 +138,7 @@ function load_new_scan(data){
         jQuery('#content-inner').prepend(htmlstr);
 
 
-        if (isNaN($("#total").text())){
+        if ($("#total").text()==""){
             $("#total").text(data[0]['sell_price_1']);
             $("#items").text(1);
         }else{
