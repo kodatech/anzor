@@ -137,6 +137,17 @@ function load_new_scan(data){
         htmlstr += '</div>';
         jQuery('#content-inner').prepend(htmlstr);
 
+
+        if (isNaN($("#total").text())){
+            $("#total").text(data[0]['sell_price_1']);
+            $("#items").text(1);
+        }else{
+
+            var aux=$("#total").text();
+            aux=aux+data[0]['sell_price_1'];
+            $("#total").text(aux);
+        }
+
         //onblur="checkQty(this,\'' + stockcode + '\',\'' + box_counter + '\')"
 
         //$("#qty_"+box_counter).on("tap",function(){
@@ -402,8 +413,8 @@ function checkQty(obj, stockcode, box_counter){
         if (data){
             //alert(data[0].price)
             $("#total"+box_counter).text(data[0]['price']);
-            var aux=parseInt($("#total").text());
-            aux=aux+parseInt(data[0]['price']);
+            var aux=$("#total").text();
+            aux=aux+data[0]['price'];
             $("#total").text(aux);
         }else{
             alert("sth goes wrong");
