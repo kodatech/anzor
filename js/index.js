@@ -144,7 +144,7 @@ function load_new_scan(data){
         }else{
 
             var aux=$("#total").text();
-            aux=aux+data[0]['sell_price_1'];
+            aux=parseFloat(aux)+parseFloat(data[0]['sell_price_1']);
             $("#total").text(aux);
         }
 
@@ -414,7 +414,7 @@ function checkQty(obj, stockcode, box_counter){
             //alert(data[0].price)
             $("#total"+box_counter).text(data[0]['price']);
             var aux=$("#total").text();
-            aux=parseFloat(aux)+parseFloat(data[0]['price']);
+            aux=parseFloat(aux)+parseFloat(data[0]['price']-parseFloat(price));
             $("#total").text(aux);
         }else{
             alert("sth goes wrong");
