@@ -146,6 +146,9 @@ function load_new_scan(data){
             var aux=$("#total").text();
             aux=parseFloat(aux)+parseFloat(data[0]['sell_price_1']);
             $("#total").text(aux);
+            var auxItems=parseInt($("#items").text());
+            auxItems++;
+            $("#items").text(auxItems);
         }
 
         //onblur="checkQty(this,\'' + stockcode + '\',\'' + box_counter + '\')"
@@ -412,9 +415,10 @@ function checkQty(obj, stockcode, box_counter){
 
         if (data){
             //alert(data[0].price)
+            var aux=parseFloat($("#total"+box_counter).text());
             $("#total"+box_counter).text(data[0]['price']);
             var aux=$("#total").text();
-            aux=parseFloat(aux)+parseFloat(data[0]['price']-parseFloat(price));
+            aux=parseFloat(aux)+parseFloat(data[0]['price'])-parseFloat(aux);
             $("#total").text(aux);
         }else{
             alert("sth goes wrong");
