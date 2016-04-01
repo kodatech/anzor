@@ -36,11 +36,16 @@
             </div>
 		<div>
                     <form id="f1">
-                            <label>Username</label>
-                            <input id="usr" type="text"/>
-                            <label>Password</label>
-                            <input id="pass" type="password">
-                            <input type="button" id="login" value="Login">
+                        <div class="form-item form-item-name form-type-textfield form-group">
+                            <input placeholder="Username" id="usr" type="text" class="form-control form-text"/>
+                        </div>
+                        <div class="form-item form-item-pass form-type-password form-group">
+                            <input id="pass" placeholder="Password" type="password" class="form-control form-text">
+                        </div>
+                        <div class="form-actions form-wrapper form-group" id="edit-actions">
+                            <input class="btn btn-default form-submit" type="button" id="login" value="Login">
+                        </div>
+
                     </form>
                 </div>
                 <div id="bar_code" class="content_line">
