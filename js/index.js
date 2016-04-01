@@ -402,8 +402,8 @@ function checkQty(obj, stockcode, box_counter){
         if (data){
             //alert(data[0].price)
             $("#total"+box_counter).text(data[0]['price']);
-            var aux=parseFloat($("#total").text());
-            aux=aux+parseFloat(data[0]['price']);
+            var aux=parseInt($("#total").text());
+            aux=aux+parseInt(data[0]['price']);
             $("#total").text(aux);
         }else{
             alert("sth goes wrong");
