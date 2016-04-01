@@ -380,7 +380,7 @@ function checkConnection() {
 /*calculate the price per line*/
 function checkQty(obj, stockcode, box_counter){
     //alert($(obj).val());
-    alert(stockcode);
+    //alert(stockcode);
     var stock=stockcode;
     var usr = $("#usr").val();// btoa atob(encodedData);
     var pass = $("#pass").val();
@@ -389,7 +389,7 @@ function checkQty(obj, stockcode, box_counter){
     //alert (usr);
     //alert (pass);
     var price=$('#price'+box_counter).text();
-    alert (price);
+    //alert (price);
     return $.ajax({
         type: "GET",
         data: { name: usr, pass : pass, scode:stock, qty: qty, price:price} ,
