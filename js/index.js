@@ -389,6 +389,7 @@ function checkQty(obj, stockcode, box_counter){
     //alert (usr);
     //alert (pass);
     var price=$('#price'+box_counter).text();
+    alert (price);
     return $.ajax({
         type: "GET",
         data: { name: usr, pass : pass, scode:stock, qty: qty, price:price} ,
