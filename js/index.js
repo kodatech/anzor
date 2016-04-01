@@ -125,13 +125,19 @@ function load_new_scan(data){
                                 '<span class="views-label views-label-commerce-unit-price"> x </span>' +
                                 '<div id="price'+box_counter+'" class="field-content">'+data[0]['sell_price_1']+'</div>' +
                    '        </div>';
-        //htmlstr += '		<select><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option><option>60</option></select>';
-        //htmlstr += '		<button class="topcoat-button event send" onClick="send_order('+box_counter+')">ADD TO CART</button>';
         htmlstr += '	</div>';
         htmlstr += '	<div><span class="views-label views-label-commerce-total"> = </span>';
         htmlstr +='         <div id="total'+box_counter+'" class="field-content price">'+data[0]['sell_price_1']+'</div>';
 
         htmlstr += '	</div>';
+        htmlstr += '<div class="line-item-summary">'+
+                        '<div class="line-item-quantity">'+
+                            '<span class="line-item-quantity-raw">4</span> <span class="line-item-quantity-label">items</span>'+
+                        '</div>'+
+                        '<div class="line-item-total">'+
+                            '<span class="line-item-total-label">Total:</span> <span class="line-item-total-raw">$96.11</span>'+
+                        '</div>'+
+                    '</div>';
         htmlstr += '</div>';
         htmlstr += '</div>';
         jQuery('#content-inner').prepend(htmlstr);
