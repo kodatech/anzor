@@ -158,7 +158,7 @@ function keyPressEvent(e, obj, stockcode, box_counter) {
     //    document.getElementById('goButton').click();
     //    evt.cancel = true;
     //}
-    alert ($(obj).val());
+    //alert ($(obj).val());
     checkQty(obj, stockcode ,box_counter);
 }
 
@@ -384,7 +384,7 @@ function checkQty(obj, stockcode, box_counter){
     var stock=stockcode;
     var usr = $("#usr").val();// btoa atob(encodedData);
     var pass = $("#pass").val();
-    var qty = obj.val();
+    var qty = $(obj).val();
     var url = 'http://anzor.benjamin.sky/anzor_services/price';
     //alert (usr);
     //alert (pass);
@@ -396,7 +396,7 @@ function checkQty(obj, stockcode, box_counter){
         url: url,
         timeout: 60 * 1000
     }).success(function (data) {
-        alert('hey');
+
 
         if (data){
             //alert(data[0].price)
