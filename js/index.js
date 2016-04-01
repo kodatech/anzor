@@ -131,15 +131,7 @@ function load_new_scan(data){
 
         htmlstr += '	</div>';
         htmlstr += '</div>';
-        htmlstr += '<div class="line-item-summary">'+
-                        '<div class="line-item-quantity">'+
-                            '<span class="line-item-quantity-raw">'+box_counter+'</span> <span class="line-item-quantity-label">items</span>'+
-                        '</div>'+
-                        '<div class="line-item-total">'+
-                            '<span class="line-item-total-label">Total:</span> <span  id="total"  class="line-item-total-raw">$'+data[0]['sell_price_1']+'</span>'+
-                        '</div>'+
-                    '</div>';
-
+        
         htmlstr += '</div>';
         jQuery('#content-inner').prepend(htmlstr);
 
@@ -408,8 +400,9 @@ function checkQty(obj, stockcode, box_counter){
         if (data){
             //alert(data[0].price)
             $("#total"+box_counter).text(data[0]['price']);
-            var aux=$("#total").text();
-            $("#total").text(parseFloat(aux)+data[0]['price']);
+            var aux=parseFloat($("#total").text());
+            aux=aux+data[0]['price'];
+            $("#total").text(aux);
         }else{
             alert("sth goes wrong");
         }
