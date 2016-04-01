@@ -40,6 +40,7 @@ var app = {
         app.receivedEvent('deviceready');
         document.getElementById('login').addEventListener('click', validate, false);
 	    document.addEventListener('offline', checkConnection, false);
+        $(".line-item-summary").hide();
 	    checkConnection();
 	//window.open('http://anzor.benjamin.sky/', '_blank', 'location=yes');
     },
@@ -108,6 +109,7 @@ var found = 0;
 function load_new_scan(data){
     if (data){
         found = 1;
+        $(".line-item-summary").show();
         jQuery('#send_all').fadeIn();
         var stockcode=data[0]['stockcode'];
         var htmlstr = '<div class="scan_box" this_id="'+box_counter+'" id="send_box_'+box_counter+'">';
@@ -400,7 +402,7 @@ function checkQty(obj, stockcode, box_counter){
         if (data){
             //alert(data[0].price)
             $("#total"+box_counter).text(data[0]['price']);
-            var aux=parseFloat($("#total").text());
+            var aux=$("#total").text();
             aux=aux+data[0]['price'];
             $("#total").text(aux);
         }else{
