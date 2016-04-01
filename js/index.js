@@ -16,6 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+var server="anzor.benjamin.sky";
 var app = {
     // Application Constructor
     initialize: function() {
@@ -207,7 +208,7 @@ function rechargable(){
 /*Check connection drupal and list category_name*/
 function listar(){
 	//alert('hi');
-        var url = 'http://anzor.benjamin.sky/anzor_services/category-name';
+        var url = 'http://'+server+'/anzor_services/category-name';
         return $.ajax({
             type: "GET",
             url: url,
@@ -228,7 +229,7 @@ function listar(){
 
 /*Product validation*/
 function validateProduct(barCode){
-    var url = 'http://anzor.benjamin.sky/anzor_services/product';
+    var url = 'http://'+server+'/anzor_services/product';
     //var usr = $("#usr").val();// btoa atob(encodedData);
     //var pass = $("#pass").val();
     //alert (usr);
@@ -264,7 +265,7 @@ function validateProduct(barCode){
 
 /*User validation*/
 function validate(){
-    var url = 'http://anzor.benjamin.sky/anzor_services/login';
+    var url = 'http://'+server+'/anzor_services/login';
     var usr = $("#usr").val();// btoa atob(encodedData);
     var pass = $("#pass").val();
     //alert (usr);
@@ -400,7 +401,7 @@ function checkQty(obj, stockcode, box_counter){
     var usr = $("#usr").val();// btoa atob(encodedData);
     var pass = $("#pass").val();
     var qty = $(obj).val();
-    var url = 'http://anzor.benjamin.sky/anzor_services/price';
+    var url = 'http://'+server+'/anzor_services/price';
     //alert (usr);
     //alert (pass);
     var price=$('#price'+box_counter).text();
