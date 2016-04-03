@@ -27,75 +27,53 @@
         <title>Barcode Scanner Demo</title>
     </head>
     <body>
-        
+
         <div class="content">
             <h1><img src="img/anzor_logo.png"></h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
-
-		    <div>
-
-                    <form id="f1">
-                        <div class="form-item form-item-name form-type-textfield form-group">
-                            <input placeholder="Username" id="usr" type="text" class="form-control form-text"/>
-                        </div>
-                        <div class="form-item form-item-pass form-type-password form-group">
-                            <input id="pass" placeholder="Password" type="password" class="form-control form-text">
-                        </div>
-                        <div class="form-actions form-wrapper form-group" id="edit-actions">
-                            <input class="btn btn-default form-submit" type="button" id="login" value="Login">
-                        </div>
-
-                    </form>
-            </div>
 
             <div class="main-container container">
-
                 <div class="row">
+                    <div id="deviceready" class="blink">
+                        <p class="event listening">Connecting to Device</p>
+                        <p class="event received">Device is Ready</p>
+                    </div>
+
 
                     <div class="col-sm-9" role="complementary">
                         <div class="region region-sidebar-second">
                             <section id="block-user-dashboard-user-dashboard" class="block block-user-dashboard user-links-section clearfix">
 
-
                                 <ul>
                                     <li class="um-login">
                                         <div id="login-form" class="showblock">
-                                            <form action="/bolts/bumax-bolts-high-strength-stainless/m12-bumax-109-stainless-steel" method="post" id="user-login" accept-charset="UTF-8">
-                                                <div>
-                                                    <div class="form-item form-item-name form-type-textfield form-group">
-                                                        <label class="control-label" for="edit-name">Username
-                                                            <span class="form-required" title="This field is required."></span>
-                                                        </label>
-                                                            <input placeholder="Username" class="form-control form-text required" title="" data-toggle="tooltip" type="text" id="edit-name" name="name" value="" size="60" maxlength="60" >
-                                                    </div>
-                                                    <div class="form-item form-item-pass form-type-password form-group">
-                                                        <label class="control-label" for="edit-pass">Password
-                                                            <span class="form-required" title="This field is required."></span>
-                                                        </label>
-                                                        <input placeholder="Password" class="form-control form-text required" title="" data-toggle="tooltip" type="password" id="edit-pass" name="pass" size="60" maxlength="128" >
-                                                    </div>
 
-                                                    <div class="form-actions form-wrapper form-group" id="edit-actions">
-                                                        <button type="submit" id="edit-submit" name="op" value="Log in" class="btn btn-default form-submit">Log in</button>
-                                                    </div>
-                                                </div>
-                                            </form>
+                                <form id="f1">
+                                    <div>
+
+                                        <div class="form-item form-item-name form-type-textfield form-group">
+                                            <input placeholder="Username" id="usr" type="text" class="form-control input-lg form-text">
+                                        </div>
+                                        <div class="form-item form-item-pass form-type-password form-group">
+                                            <input id="pass" placeholder="Password" type="password" class="form-control input-lg form-text">
+                                        </div>
+                                        <div class="form-actions form-wrapper form-group" id="edit-actions">
+                                            <input class="btn btn-default form-submit input-lg" type="button" id="login" value="Login">
+                                        </div>
+
+                                    </div>
+                                </form>
+
                                         </div>
                                     </li>
-
                                 </ul>
+
                             </section>
-
-
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div id="bar_code" class="content_line">
+         <div id="bar_code" class="content_line">
 
             </div>
 
