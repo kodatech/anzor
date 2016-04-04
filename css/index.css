@@ -154,12 +154,13 @@ button.event { color:#000;}
 /* line 9, ../bootstrap-sass/bootstrap/_normalize.scss */
 
 .form-control{
-    height: 50px;
+    height: 100px;
+    width: 100%;
 }
 .btn{
     display: block;
     width: 100%;
-    height: 30px;
+    height: 50px;
     padding: 4px 12px;
     font-size: 13px;
     color: #fff;
