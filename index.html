@@ -101,14 +101,22 @@
                                 </div>
                         </div>
                 -->
-                    <div class="line-item-summary">
-                        <div class="line-item-quantity">
-                            <span class="line-item-quantity-raw" id="items"> </span> <span  class="line-item-quantity-label">items</span>
+
+                        <div class="line-item-summary">
+                            <div class="row line-item-quantity">
+                                <div class="col-xs-1"></div>
+                                <div class="col-xs-1">
+                                    <span class="line-item-quantity-raw" id="items"> </span>
+                                </div>
+                                <div class="col-xs-1">
+                                     <span  class="line-item-quantity-label">items</span>
+                                </div>
+                            </div>
+                            <div class=" row line-item-total">
+                                <span class="line-item-total-label">Total:</span> <span  id="total"  class="line-item-total-raw"></span>
+                            </div>
                         </div>
-                        <div class="line-item-total">
-                            <span class="line-item-total-label">Total:</span> <span  id="total"  class="line-item-total-raw"></span>
-                        </div>
-                    </div>
+
 
                     <button id="send_all" class="send send_all" onClick="send_all()"></button>
                 </div>
