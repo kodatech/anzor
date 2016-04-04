@@ -113,29 +113,30 @@ function load_new_scan(data){
         $(".line-item-summary").show();
         jQuery('#send_all').fadeIn();
         var stockcode=data[0]['stockcode'];
-        var htmlstr = '<div class="scan_box" this_id="'+box_counter+'" id="send_box_'+box_counter+'">';
-        htmlstr +=      '<div class="scan_box_remove" onClick="remove_scan_box('+box_counter+')">X</div>';//<img src="img/Remove.png" />
-        htmlstr += '	<div class="scan_box_content">';
-        //htmlstr += '		<div class="scan_box_img col-xs-3"><img src="img/product_image.png" /></div>';
-        htmlstr += '		<div class="scan_box_details col-xs-6">';
-        htmlstr += '		<div class="scan_box_title">'+data[0]['description']+'</div>';
-        htmlstr += '		<div class="scan_box_code">'+data[0]['stockcode']+'</div>';
-        htmlstr += '	</div>';
-        htmlstr += '	<div class="scan_box_actions col-xs-3">';
-        htmlstr += '		<div>Qty:</div>';
-        htmlstr += '		<div><input type="text" id="qty_'+box_counter+'" onKeyUp="keyPressEvent(event, this,\'' + stockcode + '\',\'' + box_counter + '\')"  value="1"></div>';
-        htmlstr += '		<div>' +
-                                '<span class="views-label views-label-commerce-unit-price"> x </span>' +
-                                '<div id="price'+box_counter+'" class="field-content">'+data[0]['sell_price_1']+'</div>' +
-                   '        </div>';
-        htmlstr += '	</div>';
-        htmlstr += '	<div><span class="views-label views-label-commerce-total"> = </span>';
-        htmlstr +='         <div id="total'+box_counter+'" class="field-content price">'+data[0]['sell_price_1']+'</div>';
+        var htmlstr = '<div class="row">';
 
-        htmlstr += '	</div>';
-        htmlstr += '</div>';
-        
-        htmlstr += '</div>';
+        htmlstr +=      '<div class="scan_box" this_id="'+box_counter+'" id="send_box_'+box_counter+'">';
+        htmlstr +=          '<div class="scan_box_remove" onClick="remove_scan_box('+box_counter+')">X</div>';//<img src="img/Remove.png" />
+        htmlstr +=          '<div class="scan_box_content">';
+        //htmlstr += '		<div class="scan_box_img col-xs-3"><img src="img/product_image.png" /></div>';
+        htmlstr +=              '<div class="scan_box_details col-xs-6">';
+        htmlstr +=                  '<div class="scan_box_title">'+data[0]['description']+'</div>';
+        htmlstr +=                  '<div class="scan_box_code">'+data[0]['stockcode']+'</div>';
+        htmlstr +=              '</div>';
+        htmlstr +=              '<div class="scan_box_actions col-xs-3">';
+        htmlstr +=                  '<div>Qty:</div>';
+        htmlstr +=                  '<div><input type="text" id="qty_'+box_counter+'" onKeyUp="keyPressEvent(event, this,\'' + stockcode + '\',\'' + box_counter + '\')"  value="1"></div>';
+        htmlstr +=                  '<div>' +
+                                        '<span class="views-label views-label-commerce-unit-price"> x </span>' +
+                                        '<div id="price'+box_counter+'" class="field-content">'+data[0]['sell_price_1']+'</div>' +
+                                    '</div>';
+        htmlstr +=              '</div>';
+        htmlstr +=              '<div><span class="views-label views-label-commerce-total"> = </span>';
+        htmlstr +=                  '<div id="total'+box_counter+'" class="field-content price">'+data[0]['sell_price_1']+'</div>';
+        htmlstr +=              '</div>';
+        htmlstr +=          '</div>';
+        htmlstr +=      '</div>';
+        htmlstr +=   '</div>';
         jQuery('#content-inner').prepend(htmlstr);
 
 
@@ -181,8 +182,8 @@ function keyPressEvent(e, obj, stockcode, box_counter) {
 function remove_scan_box(scan_box_id){
     //alert($("#total"+scan_box_id).text());
 	jQuery('#send_box_'+scan_box_id).fadeOut();
-    $("#total").text(parseFloat($("#total").text())-parseFloat($("#total"+scan_box_id).text()))
-
+    $("#total").text(parseFloat($("#total").text())-parseFloat($("#total"+scan_box_id).text()));
+    $("#items").text(parseFloat($("#items").text())-1);
 }
 function send_order(scan_box_id){
 	jQuery('#send_box_'+scan_box_id).animate({
