@@ -174,3 +174,8 @@ button.event { color:#000;}
     box-shadow: none;
 }
 
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
