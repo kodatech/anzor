@@ -120,16 +120,28 @@ function load_new_scan(data){
 
         htmlstr +=          '<div class="scan_box_content">';
         htmlstr +=              '<div class="row">';
-        htmlstr +=                  '<div class="scan_box_details col-xs-9">';
+
+        htmlstr +=                  '<div class="scan_box_details col-xs-2">';
+        //htmlstr +=                      '<div class="scan_box_title">'+data[0]['description']+'</div>';
+        //htmlstr +=                      '<div class="scan_box_code">'+data[0]['stockcode']+'</div>';
+        //htmlstr +=                      '<div class="scan_box_remove" onClick="remove_scan_box('+box_counter+')">X</div>';//<img src="img/Remove.png" />
+        htmlstr +=                  '</div>';
+
+        htmlstr +=                  '<div class="scan_box_details col-xs-7">';
         htmlstr +=                      '<div class="scan_box_title">'+data[0]['description']+'</div>';
         htmlstr +=                      '<div class="scan_box_code">'+data[0]['stockcode']+'</div>';
         //htmlstr +=                      '<div class="scan_box_remove" onClick="remove_scan_box('+box_counter+')">X</div>';//<img src="img/Remove.png" />
         htmlstr +=                  '</div>';
 
-        htmlstr +=                  '<div class="scan_box_details col-xs-3">';
+        htmlstr +=                  '<div class="scan_box_details col-xs-2">';
         //htmlstr +=                      '<div class="scan_box_title">'+data[0]['description']+'</div>';
         //htmlstr +=                      '<div class="scan_box_code">'+data[0]['stockcode']+'</div>';
         htmlstr +=                      '<div class="scan_box_remove" onClick="remove_scan_box('+box_counter+')">X</div>';//<img src="img/Remove.png" />
+        htmlstr +=                  '</div>';
+        htmlstr +=                  '<div class="scan_box_details col-xs-1">';
+        //htmlstr +=                      '<div class="scan_box_title">'+data[0]['description']+'</div>';
+        //htmlstr +=                      '<div class="scan_box_code">'+data[0]['stockcode']+'</div>';
+        //htmlstr +=                      '<div class="scan_box_remove" onClick="remove_scan_box('+box_counter+')">X</div>';//<img src="img/Remove.png" />
         htmlstr +=                  '</div>';
 
         htmlstr +=              '</div>';
