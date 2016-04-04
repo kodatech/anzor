@@ -145,7 +145,7 @@ h1 { background:#fff; text-align:left; padding:0 5px;}
 button.event { color:#000;}
 #content-inner .scan_box_remove { width:100px; height:100px; position:absolute; right:0; top:0px; cursor:pointer; }
 
-.scan_box_remove img { float:right; height:100%; }
+.scan_box_remove { float:right; height:100%; font-weight: bold;}
 
 /*css web*/
 /*
