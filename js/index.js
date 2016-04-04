@@ -112,6 +112,7 @@ function load_new_scan(data){
         found = 1;
         $(".line-item-summary").show();
         jQuery('#send_all').fadeIn();
+        jQuery('#price_enquiry').fadeIn();
         var stockcode=data[0]['stockcode'];
 
 
@@ -234,6 +235,7 @@ function send_all(){
 	found = 0;
 	
 	jQuery('#send_all').fadeOut();
+    jQuery('#price_enquiry').fadeOut();
 	jQuery('.scan_box').each(function(){
 		var this_id = jQuery(this).attr('this_id');
 		send_order(this_id);
