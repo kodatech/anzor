@@ -114,7 +114,7 @@ function load_new_scan(data){
         jQuery('#send_all').fadeIn();
         var stockcode=data[0]['stockcode'];
         var htmlstr = '<div class="scan_box" this_id="'+box_counter+'" id="send_box_'+box_counter+'">';
-        htmlstr += '<div class="scan_box_remove" onClick="remove_scan_box('+box_counter+')"><img src="img/Remove.png" /></div>';
+        htmlstr +=      '<div class="scan_box_remove" onClick="remove_scan_box('+box_counter+')">X</div>';//<img src="img/Remove.png" />
         htmlstr += '	<div class="scan_box_content">';
         //htmlstr += '		<div class="scan_box_img col-xs-3"><img src="img/product_image.png" /></div>';
         htmlstr += '		<div class="scan_box_details col-xs-6">';
