@@ -139,7 +139,7 @@ h1 { background:#fff; text-align:left; padding:0 5px;}
 .scan_box_code {font-size:1.2em; }
 .scan_box_title {font-size:1.5em; color:#006699;}
 .scan_box select { width:100%; margin:5px 0 20px 0; font-size:3em; }
-.send { text-align:center; width:100%; font-size:1.2em;}
+.send { text-align:center; width:100%;}
 #send_all { display:none; }/*background:#fff url(../img/send_all_button.png) center center no-repeat; height: 140px;}*/
 #price_enquiry { display:none; }/*background:#fff url(../img/send_all_button.png) center center no-repeat; height: 140px;}*/
 button.event { color:#000;}

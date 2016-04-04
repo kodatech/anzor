@@ -153,7 +153,7 @@ function load_new_scan(data){
         htmlstr +=                  '<div class="scan_box_actions col-xs-1">';
         htmlstr +=                      '<label>Qty:</label>';
         htmlstr +=                  '</div>';
-        htmlstr +=                  '<div class="scan_box_actions col-xs-1">';
+        htmlstr +=                  '<div class="scan_box_actions col-xs-2">';
         htmlstr +=                      '<input type="text" id="qty_'+box_counter+'" onKeyUp="keyPressEvent(event, this,\'' + stockcode + '\',\'' + box_counter + '\')"  value="1" size="4">';
         htmlstr +=                  '</div>';
 
@@ -164,7 +164,7 @@ function load_new_scan(data){
                                          '<div id="price'+box_counter+'" class="field-content">'+data[0]['sell_price_1']+'</div>' +
                                      '</div>';
 
-        htmlstr +=                  '<div class="scan_box_actions col-xs-1"><span class="views-label views-label-commerce-total"> = </span>';
+        htmlstr +=                  '<div class="scan_box_actions col-xs-2"><span class="views-label views-label-commerce-total"> = </span>';
         htmlstr +=                  '</div>';
     htmlstr +=                      '<div class="scan_box_actions col-xs-1" id="total'+box_counter+'" class="field-content price">'+data[0]['sell_price_1']+'</div>';
 
