@@ -24,9 +24,9 @@
 }
 
 body {
-    background-color:#E4E4E4;
+    background-color:#ffffff;
     /*background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);#E4E4E4
     background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-webkit-gradient(
         linear,
@@ -132,7 +132,8 @@ h1 { background:#fff; text-align:left; padding:0 5px;}
 } 
 .scan_box .scan_box_img img { float:left; width:100%;}
 .scan_box_content { margin: 10px 0 0 0;}
-.line-item-summary{margin: 40px 0 0 0;}
+.line-item-summary{margin: 40px 0 0 0;
+    background-color: #E4E4E4;}
 .scan_box_details { float:left; margin-top:40px;}
 .scan_box_actions { float:left;}
 .scan_box_code {font-size:1.2em; }
