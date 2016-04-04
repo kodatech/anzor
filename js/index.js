@@ -159,13 +159,14 @@ function load_new_scan(data){
         htmlstr +=                   '<div class="scan_box_actions col-xs-1">' +
                                          '<span class="views-label views-label-commerce-unit-price"> x </span>' +
                                     '</div>'+
-                                    '<div class="scan_box_actions col-xs-3">' +
+                                    '<div class="scan_box_actions col-xs-2">' +
                                          '<div id="price'+box_counter+'" class="field-content">'+data[0]['sell_price_1']+'</div>' +
                                      '</div>';
 
-        htmlstr +=                  '<div><span class="views-label views-label-commerce-total"> = </span>';
-        htmlstr +=                      '<div id="total'+box_counter+'" class="field-content price">'+data[0]['sell_price_1']+'</div>';
+        htmlstr +=                  '<div class="scan_box_actions col-xs-1"><span class="views-label views-label-commerce-total"> = </span>';
         htmlstr +=                  '</div>';
+    htmlstr +=                      '<div class="scan_box_actions col-xs-2" id="total'+box_counter+'" class="field-content price">'+data[0]['sell_price_1']+'</div>';
+
 
         htmlstr +=                  '<div class="scan_box_actions col-xs-1">';
         htmlstr +=                  '</div>';
