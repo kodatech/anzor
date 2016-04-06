@@ -23,35 +23,132 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-        <!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
-        <link rel="stylesheet" type="text/css" href="css/new.css" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>Barcode Scanner Demo</title>
     </head>
     <body>
 
-    <div class="content">
-        <div class="row">
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
-        </div>
-        <div class="pagetxt col-xs-12">
-            <div class="logo"><img src="img/anzor_logo.png"></div>
-            <h1>Welcome to ANZOR</h1>
-            <p class="text-center">Please login to start work</p>
-        </div>
-        <div class="loginform col-xs-12">
-            <form id="f1">
-                <input placeholder="Username" id="usr" type="text" class="form-control">
-                <input id="pass" placeholder="Password" type="password" class="form-control">
-                <input class="btn btn-default form-submit" type="button" id="login" value="Login">
-                <div class="form-add">
-                    <label><input class="chkbx" type="checkbox" checked="checked">Remember me</label><span class="divider">|</span><a href="#">New user</a>
+        <div class="content">
+            <h1><img src="img/anzor_logo.png"></h1>
+
+            <div class="main-container container">
+
+                <div class="row">
+                    <div id="deviceready" class="blink">
+                        <p class="event listening">Connecting to Device</p>
+                        <p class="event received">Device is Ready</p>
+                    </div>
                 </div>
-            </form>
+
+                <div class="row">
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="region region-sidebar-second">
+                            <section id="block-user-dashboard-user-dashboard" class="block block-user-dashboard user-links-section clearfix">
+
+
+
+                                <form id="f1">
+                                    <div>
+
+                                        <div class="form-item form-item-name form-type-textfield form-group">
+                                            <input placeholder="Username" id="usr" type="text" class="form-control form-text">
+                                        </div>
+                                        <div class="form-item form-item-pass form-type-password form-group">
+                                            <input id="pass" placeholder="Password" type="password" class="form-control form-text">
+                                        </div>
+                                        <div class="form-actions form-wrapper form-group" id="edit-actions">
+                                            <input class="btn btn-default form-submit" type="button" id="login" value="Login">
+                                        </div>
+
+                                    </div>
+                                </form>
+
+
+
+                            </section>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                    </div>
+                </div>
+
+            </div>
+
+         <div id="bar_code" class="content_line">
+
+            </div>
+
+
+
+
+            <div id="content-inner">
+                <!--
+                        <div class="scan_box" this_id="1" id="send_box_1">
+                                <div class="scan_box_remove" onClick="remove_scan_box('1')"><img src="img/Remove.png" /></div>
+                                        <div class="scan_box_content">
+                                                <div class="scan_box_img col-xs-3"><img src="img/product_image.png" /></div>
+                                                <div class="scan_box_details col-xs-6">
+                                                <div class="scan_box_title">Some awesome screws</div>
+                                                <div class="scan_box_code"><span>Code: </span>12312312</div>
+                                        </div>
+                                        <div class="scan_box_actions col-xs-3">
+                                                <div>Amount:</div>
+                                                <select><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option><option>60</option></select>
+                                                <button class="topcoat-button event send" onClick="send_order('1')">SEND ORDER</button>
+                                        </div>
+                                </div>
+                        </div>
+                -->
+                <div class="row">
+                    <div class="col-xs-1"></div>
+                    <div class="col-xs-9">
+                        <div class="line-item-summary">
+                            <div class="row"></div>
+                            <div class="row line-item-quantity">
+                                <!--<div class="col-xs-1"></div>-->
+                                <div class="col-xs-2">
+                                    <span class="line-item-quantity-raw" id="items"></span>
+                                </div>
+                                <div class="col-xs-2">
+                                     <span  class="line-item-quantity-label">items</span>
+                                </div>
+                            </div>
+                            <div class=" row line-item-total">
+                                <!--<div class="col-xs-1"></div>-->
+                                <div class="col-xs-2">
+                                    <span class="line-item-total-label">Total:</span>
+                                </div>
+                                <div class="col-xs-2">
+                                    <span  id="total"  class="line-item-total-raw"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-1"></div>
+                    <div class="col-xs-5">
+                        <button id="price_enquiry" class="btn send send_enquiry" onClick="send_enquiry()">Request Prices Save Project</button>
+                    </div>
+                    <div class="col-xs-4">
+                        <button id="send_all" class="btn send send_all" onClick="send_all()">Checkout</button>
+                    </div>
+                    <div class="col-xs-2"></div>
+                </div>
+                </div>
+                </div>
+
+
+
+
         </div>
-    </div>
+
+
+
+
 
 
 

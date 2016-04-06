@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var server="192.168.1.9";
+var server="anzor.benjamin.sky";
 var app = {
     // Application Constructor
     initialize: function() {
