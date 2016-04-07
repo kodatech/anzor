@@ -341,13 +341,13 @@ function validate(){
                             '<p class="text-center">Put product opposite your phone camera, fit barcode to scanning area and wait until we recognize it.</p>'+
                             //'<input type="hidden" name="uid" value="'+uid+'"><button class="btn btn-default scan" id="scan"><img src="img/search.svg" height="100px" />Start scanning</button>'+
                             '<input type="hidden" name="uid" value="'+uid+'">'+
-                            '<a id= "scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
+                            //'<a id= "scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
                         '</div>';
 
-                       // '<div class="scanbttn col-xs-12">'+
-                            //'<a href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
+                        '<div class="scanbttn col-xs-12">'+
+                            '<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
 
-                        //'</div>';
+                        '</div>';
             $("#bar_code").html(htmlstr);
             document.getElementById('scan').addEventListener('click', scan, false);
             document.getElementById('encode').addEventListener('click', encode, false);
