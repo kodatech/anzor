@@ -342,7 +342,7 @@ function validate(){
                             //'<input type="hidden" name="uid" value="'+uid+'"><button class="btn btn-default scan" id="scan"><img src="img/search.svg" height="100px" />Start scanning</button>'+
                             '<input type="hidden" name="uid" value="'+uid+'">'+
                             //'<a id= "scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
-                        '</div>';
+                        '</div>'+
 
                         '<div class="scanbttn col-xs-12">'+
                             '<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
