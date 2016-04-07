@@ -113,7 +113,7 @@ function load_new_scan(data){
     if (data){
         found = 1;
         //$(".line-item-summary").show();
-        $(".content-inner").show();
+        $("#content-inner").show();
         jQuery('#send_all').fadeIn();
         jQuery('#price_enquiry').fadeIn();
         var stockcode=data[0]['stockcode'];
@@ -281,6 +281,7 @@ function validateProduct(barCode){
     //alert (usr);
     //alert (pass);
     //jQuery('#content-inner').prepend(pass);
+    $("#to_hide2").hide();
     return $.ajax({
         type: "GET",
         data: { barCode: barCode} ,
@@ -336,7 +337,7 @@ function validate(){
             $("#f1").css("display","none");
             var uid=data[0]['uid'];
             //var htmlstr='<input type="hidden" name="uid" value="'+uid+'"><button class="topcoat-button event" id="scan"><img src="img/search.svg" height="100px" /></button>';
-            var htmlstr='<div class="pagetxt col-xs-12">'+
+            var htmlstr='<div id="to_hide2" class="pagetxt col-xs-12">'+
                             '<h1>Add product</h1>'+
                             '<p class="text-center">Put product opposite your phone camera, fit barcode to scanning area and wait until we recognize it.</p>'+
                             //'<input type="hidden" name="uid" value="'+uid+'"><button class="btn btn-default scan" id="scan"><img src="img/search.svg" height="100px" />Start scanning</button>'+
