@@ -332,7 +332,7 @@ function validate(){
 //        }
 //        htmlstr += '</table>';
         if (data){
-
+            $("#to_hide").css("display","none");
             $("#f1").css("display","none");
             var uid=data[0]['uid'];
             //var htmlstr='<input type="hidden" name="uid" value="'+uid+'"><button class="topcoat-button event" id="scan"><img src="img/search.svg" height="100px" /></button>';
