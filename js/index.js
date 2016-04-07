@@ -41,8 +41,10 @@ var app = {
         app.receivedEvent('deviceready');
         document.getElementById('login').addEventListener('click', validate, false);
 	    document.addEventListener('offline', checkConnection, false);
-        $(".line-item-summary").hide();
+        //$(".line-item-summary").hide();
+        $("#content-inner").hide();
 	    checkConnection();
+
 	//window.open('http://anzor.benjamin.sky/', '_blank', 'location=yes');
     },
 
@@ -110,7 +112,8 @@ var found = 0;
 function load_new_scan(data){
     if (data){
         found = 1;
-        $(".line-item-summary").show();
+        //$(".line-item-summary").show();
+        $(".content-inner").show();
         jQuery('#send_all').fadeIn();
         jQuery('#price_enquiry').fadeIn();
         var stockcode=data[0]['stockcode'];
@@ -332,7 +335,7 @@ function validate(){
 
             $("#f1").css("display","none");
             var uid=data[0]['uid'];
-            var htmlstr='<input type="hidden" name="uid" value="'+uid+'"><button class="topcoat-button event" id="scan"><img src="img/barcode-scanner_button.png" height="100px" /></button>';
+            var htmlstr='<input type="hidden" name="uid" value="'+uid+'"><button class="topcoat-button event" id="scan"><img src="img/search.svg" height="100px" /></button>';
             $("#bar_code").html(htmlstr);
             document.getElementById('scan').addEventListener('click', scan, false);
             document.getElementById('encode').addEventListener('click', encode, false);
