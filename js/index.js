@@ -335,7 +335,22 @@ function validate(){
 
             $("#f1").css("display","none");
             var uid=data[0]['uid'];
-            var htmlstr='<input type="hidden" name="uid" value="'+uid+'"><button class="topcoat-button event" id="scan"><img src="img/search.svg" height="100px" /></button>';
+            //var htmlstr='<input type="hidden" name="uid" value="'+uid+'"><button class="topcoat-button event" id="scan"><img src="img/search.svg" height="100px" /></button>';
+            var htmlstr='<div class="row">'+
+                            '<div id="deviceready" class="blink">'+
+                                '<p class="event listening">Connecting to Device</p>'+
+                                '<p class="event received">Device is Ready</p>'+
+                            '</div>'+
+                        '</div>'+
+                        '<div class="pagetxt col-xs-12">'+
+                            '<div class="logo"><img src="img/anzor_logo.png"></div>'+
+                            '<h1>Add product</h1>'+
+                            '<p class="text-center">Put product opposite your phone camera, fit barcode to scanning area and wait until we recognize it.</p>'+
+                        '</div>'+
+
+                        '<div class="scanbttn col-xs-12">'+
+                            '<a href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
+                        '</div>';
             $("#bar_code").html(htmlstr);
             document.getElementById('scan').addEventListener('click', scan, false);
             document.getElementById('encode').addEventListener('click', encode, false);
