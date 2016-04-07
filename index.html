@@ -21,69 +21,44 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=2, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>Barcode Scanner Demo</title>
     </head>
     <body>
 
-        <div class="content">
-            <h1><img src="img/anzor_logo.png"></h1>
-
-            <div class="main-container container">
-
-                <div class="row">
-                    <div id="deviceready" class="blink">
-                        <p class="event listening">Connecting to Device</p>
-                        <p class="event received">Device is Ready</p>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-2">
-                    </div>
-                    <div class="col-sm-8">
-                        <div class="region region-sidebar-second">
-                            <section id="block-user-dashboard-user-dashboard" class="block block-user-dashboard user-links-section clearfix">
-
-
-
-                                <form id="f1">
-                                    <div>
-
-                                        <div class="form-item form-item-name form-type-textfield form-group">
-                                            <input placeholder="Username" id="usr" type="text" class="form-control form-text">
-                                        </div>
-                                        <div class="form-item form-item-pass form-type-password form-group">
-                                            <input id="pass" placeholder="Password" type="password" class="form-control form-text">
-                                        </div>
-                                        <div class="form-actions form-wrapper form-group" id="edit-actions">
-                                            <input class="btn btn-default form-submit" type="button" id="login" value="Login">
-                                        </div>
-
-                                    </div>
-                                </form>
-
-
-
-                            </section>
-                        </div>
-                    </div>
-                    <div class="col-sm-2">
-                    </div>
-                </div>
-
+    <div class="content">
+        <div class="row">
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
             </div>
+        </div>
+        <div class="pagetxt col-xs-12">
+            <div class="logo"><img src="img/anzor_logo.png"></div>
+            <h1>Welcome to ANZOR</h1>
+            <p class="text-center">Please login to start work</p>
+        </div>
+        <div class="loginform col-xs-12">
+            <form id="f1">
+                <input placeholder="Username" id="usr" type="text" class="form-control">
+                <input id="pass" placeholder="Password" type="password" class="form-control">
+                <input class="btn btn-default form-submit" type="button" id="login" value="Login">
+                <div class="form-add">
+                    <label><input class="chkbx" type="checkbox" checked="checked">Remember me</label><span class="divider">|</span><a href="#">New user</a>
+                </div>
+            </form>
+        </div>
 
          <div id="bar_code" class="content_line">
 
-            </div>
+         </div>
 
 
 
 
-            <div id="content-inner">
+        <div id="content-inner">
                 <!--
                         <div class="scan_box" this_id="1" id="send_box_1">
                                 <div class="scan_box_remove" onClick="remove_scan_box('1')"><img src="img/Remove.png" /></div>
@@ -144,7 +119,7 @@
 
 
 
-        </div>
+
 
 
 
