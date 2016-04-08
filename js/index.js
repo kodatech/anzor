@@ -282,15 +282,9 @@ function validateProduct(barCode){
     //alert (pass);
     //jQuery('#content-inner').prepend(pass);
     $("#to_hide2").css("display","none");
-    var htmlstr='<div class="pagetxt fixed col-xs-12">'+
-                    '<div class="logo small col-xs-3">'+
-                        '<img src="img/anzor_logo_s.png">'+
-                    '</div>'+
-                    '<div class="scanbttn col-xs-9">'+
-                        '<a id="scan" href="#" class="btn btn-default scan topbtn"><img src="img/search.svg">Add new product</a>'+
-                    '</div>'+
-                '</div>';
-    $("#start_scan").html(htmlstr);
+    $("#start_scan").removeClass("col-xs-12").addClass( "col-xs-9" );
+    $("#scan").html('<img src="img/search.svg">Add new product</a>');
+
     return $.ajax({
         type: "GET",
         data: { barCode: barCode} ,
