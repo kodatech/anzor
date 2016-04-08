@@ -336,6 +336,7 @@ function validate(){
             var uid=data[0]['uid'];
             //var htmlstr='<input type="hidden" name="uid" value="'+uid+'"><button class="topcoat-button event" id="scan"><img src="img/search.svg" height="100px" /></button>';
             var htmlstr='<div id="to_hide2" class="pagetxt col-xs-12">'+
+                            '<div class="logo"><img src="img/anzor_logo.png"></div>' +
                             '<h1>Add product</h1>'+
                             '<p class="text-center">Put product opposite your phone camera, fit barcode to scanning area and wait until we recognize it.</p>'+
                             //'<input type="hidden" name="uid" value="'+uid+'"><button class="btn btn-default scan" id="scan"><img src="img/search.svg" height="100px" />Start scanning</button>'+
