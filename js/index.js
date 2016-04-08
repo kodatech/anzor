@@ -348,7 +348,7 @@ function validate(){
                             //'<a id= "scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
                         '</div>'+
 
-                        '<div id="addimg" class="pagetxt fixed col-xs-12">' +
+                        '<div id="addimg" class="pagetxt col-xs-12">' +
                             '<div id="start_scan" class="scanbttn col-xs-12">'+
                                 '<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
 
