@@ -278,6 +278,8 @@ function validateProduct(barCode){
     $("#to_hide2").css("display","none");
     $("#start_scan").removeClass("col-xs-12").addClass( "col-xs-9" );
     $("#scan").html('<img src="img/search.svg">Add new product</a>');
+    $("#addimg").prepend('<div class="logo small col-xs-3"><img src="img/anzor_logo_s.png"></div>');
+    $("#addimg").removeClass("fixed")
     //$('#bar_code #rem_chi').remove();
     //$("#bar_code").prepend('<div id="rem_chi" class="logo small col-xs-3"><img src="img/anzor_logo_s.png"></div>');
     return $.ajax({
@@ -344,9 +346,11 @@ function validate(){
                             //'<a id= "scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
                         '</div>'+
 
-                        '<div id="start_scan" class="scanbttn col-xs-12">'+
-                            '<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
+                        '<div id="addimg" class="pagetxt fixed col-xs-12">' +
+                            '<div id="start_scan" class="scanbttn col-xs-12">'+
+                                '<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
 
+                            '</div>' +
                         '</div>';
             $("#bar_code").html(htmlstr);
             document.getElementById('scan').addEventListener('click', scan, false);
