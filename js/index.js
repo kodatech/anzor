@@ -492,3 +492,8 @@ function checkQty(obj, stockcode, box_counter){
         console.log(b + '|' + c);
     });
 }
+
+function openURL(){
+    var url = 'http://www.google.com'
+        var ref = window.open(url, '_system', location=yes);
+}
