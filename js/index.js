@@ -120,9 +120,9 @@ function load_new_scan(data){
 
 
         //var htmlstr = '<div class="scan_box" this_id="'+box_counter+'" id="send_box_'+box_counter+'">';prodlist col-xs-12
-        var htmlstr = '<div class="prodlist col-xs-12" this_id="'+box_counter+'" id="send_box_'+box_counter+'">';
+        //var htmlstr = '<div class="prodlist col-xs-12" this_id="'+box_counter+'" id="send_box_'+box_counter+'">';
 
-        htmlstr +=          '<div class="views-row views-row-1 views-row-odd views-row-first prodrow out-top">';
+        var htmlstr =          '<div class="views-row views-row-1 views-row-odd views-row-first prodrow out-top" this_id="'+box_counter+'" id="send_box_'+box_counter+'">';
         htmlstr +=              '<div class="views-field views-field-nothing-1"><span class="field-content">';
 
         htmlstr +=                  '<div class="cartprodname">';
@@ -168,8 +168,9 @@ function load_new_scan(data){
 
         htmlstr +=              '<div class="clearfix"></div>';
         htmlstr +=          '</div>';
-        htmlstr +=   '</div>';
-        jQuery('#content-inner').prepend(htmlstr);
+       // htmlstr +=   '</div>';
+
+        jQuery('#prodListId').prepend(htmlstr);
 
 
         if ($("#total").text()==""){
@@ -366,9 +367,9 @@ function validate(){
         scanner.scan( function (result) { 
             
             //alert(result.text);
-            //validateProduct(result.text);
+            validateProduct(result.text);
 
-            validateProduct('9420019451302');
+            //validateProduct('9420019451302');
             
 			//load_new_scan(result.text);
 			/*
