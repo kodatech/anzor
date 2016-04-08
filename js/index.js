@@ -119,62 +119,54 @@ function load_new_scan(data){
         var stockcode=data[0]['stockcode'];
 
 
-        var htmlstr = '<div class="scan_box" this_id="'+box_counter+'" id="send_box_'+box_counter+'">';
+        //var htmlstr = '<div class="scan_box" this_id="'+box_counter+'" id="send_box_'+box_counter+'">';prodlist col-xs-12
+        var htmlstr = '<div class="prodlist col-xs-12" this_id="'+box_counter+'" id="send_box_'+box_counter+'">';
+
+        htmlstr +=          '<div class="views-row views-row-1 views-row-odd views-row-first prodrow out-top">';
+        htmlstr +=              '<div class="views-field views-field-nothing-1"><span class="field-content">';
+
+        htmlstr +=                  '<div class="cartprodname">';
+        //htmlstr +=
 
 
-        htmlstr +=          '<div class="scan_box_content">';
-        htmlstr +=              '<div class="row">';
-
-        htmlstr +=                  '<div class="scan_box_details col-xs-1">';
+        htmlstr +=                      '<div class="views-field-line-item-title">'+data[0]['description']+'</div>';
+        htmlstr +=                      '<div class="views-field-line-item-label">'+data[0]['stockcode']+'</div>';
+        //htmlstr +=                      '<div class="scan_box_remove" onClick="remove_scan_box('+box_counter+')">X</div>';//<img src="img/Remove.png" />
+        htmlstr +=                  '</div></span>';
+        htmlstr +=               '</div>';
+        htmlstr +=               '<div class="views-field views-field-edit-delete"><span class="field-content">';
         //htmlstr +=                      '<div class="scan_box_title">'+data[0]['description']+'</div>';
         //htmlstr +=                      '<div class="scan_box_code">'+data[0]['stockcode']+'</div>';
         //htmlstr +=                      '<div class="scan_box_remove" onClick="remove_scan_box('+box_counter+')">X</div>';//<img src="img/Remove.png" />
-        htmlstr +=                  '</div>';
+        htmlstr +=                      '<a href="#" onClick="remove_scan_box('+box_counter+')" class="delete-line-item btn btn-default form-submit"><img src="img/delete.svg"></a></span>';
+        htmlstr +=               '</div>';
+        htmlstr +=               '<div class="clearfix"></div>';
 
-        htmlstr +=                  '<div class="scan_box_details col-xs-8">';
-        htmlstr +=                      '<div class="scan_box_title">'+data[0]['description']+'</div>';
-        htmlstr +=                      '<div class="scan_box_code">'+data[0]['stockcode']+'</div>';
-        //htmlstr +=                      '<div class="scan_box_remove" onClick="remove_scan_box('+box_counter+')">X</div>';//<img src="img/Remove.png" />
-        htmlstr +=                  '</div>';
 
-        htmlstr +=                  '<div class="scan_box_details col-xs-1">';
-        //htmlstr +=                      '<div class="scan_box_title">'+data[0]['description']+'</div>';
-        //htmlstr +=                      '<div class="scan_box_code">'+data[0]['stockcode']+'</div>';
-        htmlstr +=                      '<div class="scan_box_remove" onClick="remove_scan_box('+box_counter+')">X</div>';//<img src="img/Remove.png" />
-        htmlstr +=                  '</div>';
-        htmlstr +=                  '<div class="scan_box_details col-xs-2">';
-        //htmlstr +=                      '<div class="scan_box_title">'+data[0]['description']+'</div>';
-        //htmlstr +=                      '<div class="scan_box_code">'+data[0]['stockcode']+'</div>';
-        //htmlstr +=                      '<div class="scan_box_remove" onClick="remove_scan_box('+box_counter+')">X</div>';//<img src="img/Remove.png" />
-        htmlstr +=                  '</div>';
+        htmlstr +=               '<div class="views-field views-field-edit-quantity">';
+        htmlstr +=                      '<span class="views-label views-label-edit-quantity">Qty:</span>';
+        htmlstr +=                      '<span class="views-label views-label-edit-quantity">' +
+                                            '<div class="form-item form-item-edit-quantity-0 form-type-textfield form-group">' +
+                                                '<input title="Qty:" class="form-control form-text ajax-processed" type="text" id="qty_'+box_counter+'" onKeyUp="keyPressEvent(event, this,\'' + stockcode + '\',\'' + box_counter + '\')"  value="1" size="4">' +
+                                            '</div>' +
+                                        '</span>'+
+                                '</div>';
 
-        htmlstr +=              '</div>';
-        htmlstr +=              '<div class="row">';
-        htmlstr +=                  '<div class="scan_box_actions col-xs-1">';
-        htmlstr +=                  '</div>';
-
-        htmlstr +=                  '<div class="scan_box_actions col-xs-1">';
-        htmlstr +=                      '<label>Qty:</label>';
-        htmlstr +=                  '</div>';
-        htmlstr +=                  '<div class="scan_box_actions col-xs-1">';
-        htmlstr +=                      '<input type="text" id="qty_'+box_counter+'" onKeyUp="keyPressEvent(event, this,\'' + stockcode + '\',\'' + box_counter + '\')"  value="1" size="4">';
-        htmlstr +=                  '</div>';
-
-        htmlstr +=                   '<div class="scan_box_actions col-xs-1">' +
+        htmlstr +=              '<div class="views-field views-field-commerce-unit-price">' +
                                          '<span class="views-label views-label-commerce-unit-price"> x </span>' +
-                                    '</div>'+
-                                    '<div class="scan_box_actions col-xs-1">' +
                                          '<div id="price'+box_counter+'" class="field-content">'+data[0]['sell_price_1']+'</div>' +
-                                     '</div>';
-
-        htmlstr +=                  '<div class="scan_box_actions col-xs-1"><span class="views-label views-label-commerce-total"> = </span>';
-        htmlstr +=                  '</div>';
-    htmlstr +=                      '<div class="scan_box_actions col-xs-1" id="total'+box_counter+'" class="field-content price">'+data[0]['sell_price_1']+'</div>';
+                                '</div>';
 
 
-        htmlstr +=                  '<div class="scan_box_actions col-xs-5">';
-        htmlstr +=                  '</div>';
+
+
+
+        htmlstr +=              '<div class="views-field views-field-commerce-total"><span class="views-label views-label-commerce-total"> = </span>';
+
+        htmlstr +=                      '<div class="field-content price" id="total'+box_counter+'" class="field-content price">'+data[0]['sell_price_1']+'</div>';
         htmlstr +=              '</div>';
+
+        htmlstr +=              '<div class="clearfix"></div>';
         htmlstr +=          '</div>';
         htmlstr +=   '</div>';
         jQuery('#content-inner').prepend(htmlstr);
