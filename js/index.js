@@ -42,7 +42,7 @@ var app = {
         document.getElementById('login').addEventListener('click', validate, false);
 	    document.addEventListener('offline', checkConnection, false);
         //$(".line-item-summary").hide();
-        $("#content-inner").hide();
+        $("#content-inner").css("display","none")
 	    checkConnection();
 
 	//window.open('http://anzor.benjamin.sky/', '_blank', 'location=yes');
@@ -284,7 +284,7 @@ function validateProduct(barCode){
     $("#to_hide2").css("display","none");
     $("#start_scan").removeClass("col-xs-12").addClass( "col-xs-9" );
     $("#scan").html('<img src="img/search.svg">Add new product</a>');
-
+    $("#bar_code").prepend('<div class="logo small col-xs-3"><img src="img/anzor_logo_s.png"></div>');
     return $.ajax({
         type: "GET",
         data: { barCode: barCode} ,
