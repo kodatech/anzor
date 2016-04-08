@@ -284,8 +284,8 @@ function validateProduct(barCode){
     $("#to_hide3").css("display","none");
     $("#start_scan").removeClass("col-xs-12").addClass( "col-xs-9" );
     $("#scan").html('<img src="img/search.svg">Add new product</a>');
-    $('#bar_code #rem_chi').remove();
-    $("#bar_code").prepend('<div id="rem_chi" class="logo small col-xs-3"><img src="img/anzor_logo_s.png"></div>');
+    //$('#bar_code #rem_chi').remove();
+    //$("#bar_code").prepend('<div id="rem_chi" class="logo small col-xs-3"><img src="img/anzor_logo_s.png"></div>');
     return $.ajax({
         type: "GET",
         data: { barCode: barCode} ,
