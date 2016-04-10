@@ -126,18 +126,11 @@ function load_new_scan(data){
         htmlstr +=              '<div class="views-field views-field-nothing-1"><span class="field-content">';
 
         htmlstr +=                  '<div class="cartprodname">';
-        //htmlstr +=
-
-
         htmlstr +=                      '<div class="views-field-line-item-title">'+data[0]['description']+'</div>';
         htmlstr +=                      '<div class="views-field-line-item-label">'+data[0]['stockcode']+'</div>';
-        //htmlstr +=                      '<div class="scan_box_remove" onClick="remove_scan_box('+box_counter+')">X</div>';//<img src="img/Remove.png" />
         htmlstr +=                  '</div></span>';
         htmlstr +=               '</div>';
         htmlstr +=               '<div class="views-field views-field-edit-delete"><span class="field-content">';
-        //htmlstr +=                      '<div class="scan_box_title">'+data[0]['description']+'</div>';
-        //htmlstr +=                      '<div class="scan_box_code">'+data[0]['stockcode']+'</div>';
-        //htmlstr +=                      '<div class="scan_box_remove" onClick="remove_scan_box('+box_counter+')">X</div>';//<img src="img/Remove.png" />
         htmlstr +=                      '<a href="#" onClick="remove_scan_box('+box_counter+')" class="delete-line-item btn btn-default form-submit"><img src="img/delete.svg"></a></span>';
         htmlstr +=               '</div>';
         htmlstr +=               '<div class="clearfix"></div>';
@@ -168,8 +161,7 @@ function load_new_scan(data){
 
         htmlstr +=              '<div class="clearfix"></div>';
         htmlstr +=          '</div>';
-       // htmlstr +=   '</div>';
-
+      
         jQuery('#prodListId').prepend(htmlstr);
 
 
@@ -282,11 +274,11 @@ function validateProduct(barCode){
     $("#addimg").prepend('<div class="logo small col-xs-3"><img src="img/anzor_logo_s.png"></div>');
     $("#bar_code").addClass("fixed");
 
-    //$('#bar_code #rem_chi').remove();
-    //$("#bar_code").prepend('<div id="rem_chi" class="logo small col-xs-3"><img src="img/anzor_logo_s.png"></div>');
+    var uid=$("#uid").val();
+    alert(uid);
     return $.ajax({
         type: "GET",
-        data: { barCode: barCode} ,
+        data: { barCode: barCode, uid : uid} ,
         url: url,
         timeout: 60 * 1000
     }).done(function (data) {
@@ -327,13 +319,7 @@ function validate(){
         timeout: 60 * 1000
     }).done(function (data) {
         //alert('hey');
-//        var htmlstr='<table>';
-//        htmlstr +='<tr><td>Category Name</td></tr>';
-//        for (var i in data){
-//            //htmlstr += '<tr><td>'+data[i]['category_name']+'</td></tr>';
-//            htmlstr += '<tr><td>'+data[i]+'</td></tr>';
-//        }
-//        htmlstr += '</table>';
+
         if (data){
             $("#to_hide3").css("display","none");
             $("#f1").css("display","none");
