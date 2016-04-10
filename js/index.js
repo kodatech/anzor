@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var server="anzornz.kodait.com";
+var server="anzor.benjamin.sky";
 var app = {
     // Application Constructor
     initialize: function() {
@@ -373,10 +373,9 @@ function validate(){
 
         scanner.scan( function (result) { 
             
-            //alert(result.text);
-            validateProduct(result.text);
+            //validateProduct(result.text);
 
-            //validateProduct('9420019451302');
+            validateProduct('9420019451302');
             
 			//load_new_scan(result.text);
 			/*
