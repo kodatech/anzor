@@ -275,7 +275,7 @@ function validateProduct(barCode){
     $("#bar_code").addClass("fixed");
 
     var uid=$("#uid").val();
-    alert(uid);
+    //alert(uid);
     return $.ajax({
         type: "GET",
         data: { barCode: barCode, uid : uid} ,
