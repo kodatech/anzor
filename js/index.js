@@ -451,7 +451,7 @@ function checkQty(obj, stockcode, box_counter){
     var pass = $("#pass").val();
     var qty = $(obj).val();
     var url = 'http://'+server+'/anzor_services/price';
-    var uid=data[0]['uid'];
+    var uid=$("#uid").val();//data[0]['uid'];
     //alert (usr);
     //alert (pass);
     var price=$('#price'+box_counter).text();
