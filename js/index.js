@@ -451,13 +451,14 @@ function checkQty(obj, stockcode, box_counter){
     var pass = $("#pass").val();
     var qty = $(obj).val();
     var url = 'http://'+server+'/anzor_services/price';
+    var uid=data[0]['uid'];
     //alert (usr);
     //alert (pass);
     var price=$('#price'+box_counter).text();
     //alert (price);
     return $.ajax({
         type: "GET",
-        data: { name: usr, pass : pass, scode:stock, qty: qty, price:price} ,
+        data: { name: usr, pass : pass, scode:stock, qty: qty, price:price, uid:uid} ,
         url: url,
         timeout: 60 * 1000
     }).success(function (data) {
