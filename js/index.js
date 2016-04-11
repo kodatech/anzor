@@ -330,7 +330,7 @@ function validate(){
                             '<h1>Add product</h1>'+
                             '<p class="text-center">Put product opposite your phone camera, fit barcode to scanning area and wait until we recognize it.</p>'+
                             //'<input type="hidden" name="uid" value="'+uid+'"><button class="btn btn-default scan" id="scan"><img src="img/search.svg" height="100px" />Start scanning</button>'+
-                            '<input type="hidden" name="uid" value="'+uid+'">'+
+                            '<input type="hidden" id="uid" value="'+uid+'">'+
                             //'<a id= "scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
                         '</div>'+
 
