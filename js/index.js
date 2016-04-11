@@ -361,7 +361,7 @@ function validate(){
             
             //validateProduct(result.text);
 
-            validateProduct('9420019451302');
+            validateProduct('9420019451401');
             
 			//load_new_scan(result.text);
 			/*
