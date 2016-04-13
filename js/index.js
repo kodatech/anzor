@@ -350,15 +350,16 @@ function validate(){
                         '</div>' +
                         '</div>';
                 }
+                $("#bar_code").html(htmlstr);
             }).fail(function (a, b, c) {
                 console.log(b + '|' + c);
             });
 
-            
 
 
 
-            $("#bar_code").html(htmlstr);
+
+
             document.getElementById('scan').addEventListener('click', scan, false);
             document.getElementById('encode').addEventListener('click', encode, false);
         }else{
