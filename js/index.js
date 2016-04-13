@@ -319,27 +319,45 @@ function validate(){
         timeout: 60 * 1000
     }).done(function (data) {
         //alert('hey');
-
         if (data){
             $("#to_hide3").css("display","none");
             $("#f1").css("display","none");
             var uid=data[0]['uid'];
-            //var htmlstr='<input type="hidden" name="uid" value="'+uid+'"><button class="topcoat-button event" id="scan"><img src="img/search.svg" height="100px" /></button>';
-            var htmlstr='<div id="to_hide2" class="pagetxt col-xs-12">'+
-                            '<div class="logo"><img src="img/anzor_logo.png"></div>' +
-                            '<h1>Add product</h1>'+
-                            '<p class="text-center">Put product opposite your phone camera, fit barcode to scanning area and wait until we recognize it.</p>'+
-                            //'<input type="hidden" name="uid" value="'+uid+'"><button class="btn btn-default scan" id="scan"><img src="img/search.svg" height="100px" />Start scanning</button>'+
-                            '<input type="hidden" id="uid" value="'+uid+'">'+
-                            //'<a id= "scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
+
+            var url = 'http://'+server+'/anzor_services/cart';
+            return $.ajax({
+                type: "GET",
+                data: { uid: uid} ,
+                url: url,
+                timeout: 60 * 1000
+            }).done(function (data) {
+                if (data){
+                    alert("hi");
+                }else{
+                    var htmlstr='<div id="to_hide2" class="pagetxt col-xs-12">'+
+                        '<div class="logo"><img src="img/anzor_logo.png"></div>' +
+                        '<h1>Add product</h1>'+
+                        '<p class="text-center">Put product opposite your phone camera, fit barcode to scanning area and wait until we recognize it.</p>'+
+                        //'<input type="hidden" name="uid" value="'+uid+'"><button class="btn btn-default scan" id="scan"><img src="img/search.svg" height="100px" />Start scanning</button>'+
+                        '<input type="hidden" id="uid" value="'+uid+'">'+
+                        //'<a id= "scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
                         '</div>'+
 
                         '<div id="addimg" class="pagetxt col-xs-12">' +
-                            '<div id="start_scan" class="scanbttn col-xs-12">'+
-                                '<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
+                        '<div id="start_scan" class="scanbttn col-xs-12">'+
+                        '<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
 
-                            '</div>' +
+                        '</div>' +
                         '</div>';
+                }
+            }).fail(function (a, b, c) {
+                console.log(b + '|' + c);
+            });
+
+            
+
+
+
             $("#bar_code").html(htmlstr);
             document.getElementById('scan').addEventListener('click', scan, false);
             document.getElementById('encode').addEventListener('click', encode, false);
