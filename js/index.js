@@ -58,52 +58,7 @@ var app = {
 
         console.log('Received Event: ' + id);
     }
-    //,
 
-//    scan: function() {
-//        console.log('scanning');
-//        
-//        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
-//
-//        scanner.scan( function (result) { 
-//			load_new_scan(result.text);
-			/*
-            alert("We got a barcode\n" + 
-            "Result: " + result.text + "\n" + 
-            "Format: " + result.format + "\n" + 
-            "Cancelled: " + result.cancelled);  
-
-           console.log("Scanner result: \n" +
-                "text: " + result.text + "\n" +
-                "format: " + result.format + "\n" +
-                "cancelled: " + result.cancelled + "\n");
-			
-			
-            document.getElementById("info").innerHTML = result.text;
-            console.log(result);
-            */
-			/*
-            if (args.format == "QR_CODE") {
-                window.plugins.childBrowser.showWebPage(args.text, { showLocationBar: false });
-            }
-            */
-
-//        }, function (error) { 
-//            console.log("Scanning failed: ", error); 
-//        } );
-//    },
-
-   /* encode: function() {
-        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
-
-        scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
-            alert("encode success: " + success);
-          }, function(fail) {
-            alert("encoding failed: " + fail);
-          }
-        );
-
-    }*/
 
 };
 
@@ -119,8 +74,6 @@ function load_new_scan(data){
         var stockcode=data[0]['stockcode'];
 
 
-        //var htmlstr = '<div class="scan_box" this_id="'+box_counter+'" id="send_box_'+box_counter+'">';prodlist col-xs-12
-        //var htmlstr = '<div class="prodlist col-xs-12" this_id="'+box_counter+'" id="send_box_'+box_counter+'">';
 
         var htmlstr =          '<div class="views-row views-row-1 views-row-odd views-row-first prodrow out-top" this_id="'+box_counter+'" id="send_box_'+box_counter+'">';
         htmlstr +=              '<div class="views-field views-field-nothing-1"><span class="field-content">';
@@ -178,15 +131,7 @@ function load_new_scan(data){
             $("#items").text(auxItems);
         }
 
-        //onblur="checkQty(this,\'' + stockcode + '\',\'' + box_counter + '\')"
 
-        //$("#qty_"+box_counter).on("tap",function(){
-            //$('#price'+box_counter).text("hi");
-            //checkQty($('#qty_'+box_counter),stockcode ,box_counter);
-
-        //    alert($(this).val());
-           // $('#total'+box_counter).append("hi");
-       // });
         box_counter++;
     }else{
         alert("wrong product");
@@ -196,11 +141,7 @@ function load_new_scan(data){
 function keyPressEvent(e, obj, stockcode, box_counter) {
     var evt = e || window.event;
     var keyPressed = evt.which || evt.keyCode;
-    //if (keyPressed == 13) {
-    //    document.getElementById('goButton').click();
-    //    evt.cancel = true;
-    //}
-    //alert ($(obj).val());
+
     checkQty(obj, stockcode ,box_counter);
 }
 
@@ -312,6 +253,7 @@ function validate(){
     //alert (usr);
     //alert (pass);
     //jQuery('#content-inner').prepend(pass);
+    //send usr and pass to validate the user
     return $.ajax({
         type: "GET",
         data: { name: usr, pass : pass} ,
@@ -325,30 +267,29 @@ function validate(){
             var uid=data[0]['uid'];
 
             var url = 'http://'+server+'/anzor_services/cart';
+            //send uid to check if this usr has a cart
             return $.ajax({
                 type: "GET",
                 data: { uid: uid} ,
                 url: url,
                 timeout: 60 * 1000
             }).done(function (data) {
-                if (data){
+                //display the information of the cart
+                if (data || data!="" ){
                     alert("hi");
                 }else{
+                    //show the information to scanning without items in the cart
                     var htmlstr='<div id="to_hide2" class="pagetxt col-xs-12">'+
-                        '<div class="logo"><img src="img/anzor_logo.png"></div>' +
-                        '<h1>Add product</h1>'+
-                        '<p class="text-center">Put product opposite your phone camera, fit barcode to scanning area and wait until we recognize it.</p>'+
-                        //'<input type="hidden" name="uid" value="'+uid+'"><button class="btn btn-default scan" id="scan"><img src="img/search.svg" height="100px" />Start scanning</button>'+
-                        '<input type="hidden" id="uid" value="'+uid+'">'+
-                        //'<a id= "scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
-                        '</div>'+
-
-                        '<div id="addimg" class="pagetxt col-xs-12">' +
-                        '<div id="start_scan" class="scanbttn col-xs-12">'+
-                        '<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
-
-                        '</div>' +
-                        '</div>';
+                                    '<div class="logo"><img src="img/anzor_logo.png"></div>' +
+                                    '<h1>Add product</h1>'+
+                                    '<p class="text-center">Put product opposite your phone camera, fit barcode to scanning area and wait until we recognize it.</p>'+
+                                    '<input type="hidden" id="uid" value="'+uid+'">'+
+                                '</div>'+
+                                '<div id="addimg" class="pagetxt col-xs-12">' +
+                                    '<div id="start_scan" class="scanbttn col-xs-12">'+
+                                        '<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
+                                    '</div>' +
+                                '</div>';
                 }
                 $("#bar_code").html(htmlstr);
                 document.getElementById('scan').addEventListener('click', scan, false);
