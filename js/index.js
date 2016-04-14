@@ -277,6 +277,7 @@ function validate(){
                 //display the information of the cart
                 if (data){
                     alert(data);
+                    console.log(data);
                 }else{
                     //show the information to scanning without items in the cart
                     var htmlstr='<div id="to_hide2" class="pagetxt col-xs-12">'+
