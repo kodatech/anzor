@@ -266,7 +266,7 @@ function validate(){
             $("#f1").css("display","none");
             var uid=data[0]['uid'];
 
-            var url = 'http://'+server+'/anzor_services/cart';
+            /*var url = 'http://'+server+'/anzor_services/cart';
             //send uid to check if this usr has a cart
             return $.ajax({
                 type: "GET",
@@ -277,8 +277,7 @@ function validate(){
                 //display the information of the cart
                 if (data){
                     alert(data);
-                    console.log(data);
-                }else{
+                }else{*/
                     //show the information to scanning without items in the cart
                     var htmlstr='<div id="to_hide2" class="pagetxt col-xs-12">'+
                                     '<div class="logo"><img src="img/anzor_logo.png"></div>' +
@@ -291,13 +290,13 @@ function validate(){
                                         '<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
                                     '</div>' +
                                 '</div>';
-                }
+               // }
                 $("#bar_code").html(htmlstr);
                 document.getElementById('scan').addEventListener('click', scan, false);
                 document.getElementById('encode').addEventListener('click', encode, false);
-            }).fail(function (a, b, c) {
+           /* }).fail(function (a, b, c) {
                 console.log(b + '|' + c);
-            });
+            });*/
 
 
 
