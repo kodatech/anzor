@@ -432,6 +432,7 @@ function openWebCart(){
     var uid = $("#uid").val();// btoa atob(encodedData);
     var ref=window.open('http://anzor.benjamin.sky/anzor_services/cart?uid='+uid+'', '_blank');
     ref.addEventListener('loadstop', function() {
-        ref.executeScript({ file: "custom.js" });
+        alert("stop");
+        document.getElementById('edit-actions').addEventListener('click', alert("hi"), false);;
     });
 }
