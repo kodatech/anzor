@@ -438,6 +438,14 @@ function checkOut(){
     var url = 'http://'+server+'/anzor_services/checkout';
     var uid=$("#uid").val();
     //alert(uid);
+    //skuArray=$("#views-field-line-item-label").text();
+
+    arraySku=$(".views-field-line-item-label");
+
+    for (i in arraySku){
+        alert(i);
+    }
+
     barcode="9420019451401";
     return $.ajax({
         type: "GET",
@@ -445,7 +453,10 @@ function checkOut(){
         url: url,
         timeout: 60 * 1000
     }).done(function (data) {
-        jQuery('#prodListId').empty();
+        $('#prodListId').empty();
+        $('#items').empty();
+        $('#total').empty();
+        alert("products successfuly added to the cart");
         //load_new_scan(data);
         //$('#edit-actions').click(alert('hi'));
         //openWebCart();
