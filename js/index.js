@@ -223,23 +223,10 @@ function validateProduct(barCode){
         url: url,
         timeout: 60 * 1000
     }).done(function (data) {
-        //alert('hey');
-//        var htmlstr='<table>';
-//        htmlstr +='<tr><td>Category Name</td></tr>';
-//        for (var i in data){
-//            //htmlstr += '<tr><td>'+data[i]['category_name']+'</td></tr>';
-//            htmlstr += '<tr><td>'+data[i]+'</td></tr>';
-//        }
-//        htmlstr += '</table>';
-            load_new_scan(data);
-        /*if (data){
-            var htmlstr='<button class="topcoat-button event" id="scan"><img src="img/barcode-scanner_button.png" height="100px" /></button>';
-            $("#bar_code").html(htmlstr);
-            document.getElementById('scan').addEventListener('click', scan, false);
-            document.getElementById('encode').addEventListener('click', encode, false);
-        }else{
-            alert("usr & pass goes wrong");
-        }*/
+
+            //load_new_scan(data);
+            //$('#edit-actions').click(alert('hi'));
+        openWebCart();
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
     });
@@ -443,5 +430,8 @@ function checkQty(obj, stockcode, box_counter){
 
 function openWebCart(){
     var uid = $("#uid").val();// btoa atob(encodedData);
-    window.open('http://anzor.benjamin.sky/anzor_services/cart?uid='+uid+'', '_blank');
+    var ref=window.open('http://anzor.benjamin.sky/anzor_services/cart?uid='+uid+'', '_blank');
+    ref.addEventListener('loadstop', function() {
+        ref.executeScript({ file: "custom.js" });
+    });
 }
