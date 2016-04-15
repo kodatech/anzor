@@ -433,3 +433,24 @@ function openWebCart(){
     var ref=window.open('http://anzor.benjamin.sky/anzor_services/cart?uid='+uid+'', '_blank');
 
 }
+
+function checkOut(){
+    var url = 'http://'+server+'/anzor_services/checkout';
+    var uid=$("#uid").val();
+    //alert(uid);
+    barcode="9420019451401";
+    return $.ajax({
+        type: "GET",
+        data: { barcode: barcode, uid : uid} ,
+        url: url,
+        timeout: 60 * 1000
+    }).done(function (data) {
+        jQuery('#prodListId').empty();
+        //load_new_scan(data);
+        //$('#edit-actions').click(alert('hi'));
+        //openWebCart();
+
+    }).fail(function (a, b, c) {
+        console.log(b + '|' + c);
+    });
+}
