@@ -440,7 +440,9 @@ function checkOut(){
     //alert(uid);
     //skuArray=$("#views-field-line-item-label").text();
 
-    arraySku=$(".views-field-line-item-label").each();
+    arraySku=$(".views-field-line-item-label").map(function(){
+        return $(this).text();
+    }).get();
 
     for (i in arraySku){
         alert(arraySku[i]);
