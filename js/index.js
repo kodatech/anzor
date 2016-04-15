@@ -224,9 +224,9 @@ function validateProduct(barCode){
         timeout: 60 * 1000
     }).done(function (data) {
 
-            //load_new_scan(data);
+            load_new_scan(data);
             //$('#edit-actions').click(alert('hi'));
-        openWebCart();
+        //openWebCart();
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
     });
@@ -431,9 +431,5 @@ function checkQty(obj, stockcode, box_counter){
 function openWebCart(){
     var uid = $("#uid").val();// btoa atob(encodedData);
     var ref=window.open('http://anzor.benjamin.sky/anzor_services/cart?uid='+uid+'', '_blank');
-    ref.addEventListener('loadstop', function() {
-        alert("stop");
-        var elem=ref.document.getElementById('edit-submit');//.addEventListener('click', alert("hi"), false);
-        elem.style.color = "red";   
-    });
+
 }
