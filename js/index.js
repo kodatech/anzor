@@ -441,7 +441,7 @@ function checkQty(obj, stockcode, box_counter){
     });
 }
 
-function openURL(){
-    var url = 'http://www.google.com'
-        var ref = window.open(url, '_system', location=yes);
+function openWebCart(){
+    var uid = $("#uid").val();// btoa atob(encodedData);
+    window.open('http://anzor.benjamin.sky/anzor_services/cart?uid='+uid+'', '_blank');
 }
