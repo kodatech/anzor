@@ -443,7 +443,7 @@ function checkOut(){
     arraySku=$(".views-field-line-item-label");
 
     for (i in arraySku){
-        alert(i.text());
+        alert(arraySku[i].text());
     }
 
     barcode="9420019451401";
