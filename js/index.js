@@ -440,10 +440,10 @@ function checkOut(){
     //alert(uid);
     //skuArray=$("#views-field-line-item-label").text();
 
-    arraySku=$(".views-field-line-item-label");
+    arraySku=$(".views-field-line-item-label").each();
 
     for (i in arraySku){
-        alert(arraySku[i].text());
+        alert(arraySku[i]);
     }
 
     barcode="9420019451401";
