@@ -446,10 +446,10 @@ function checkOut(){
     var arrayQtySku=$(".form-control.form-text.ajax-processed").map(function(){
         return $(this).val();
     }).get();
-    for (i in arrayQtySku){
+    /*for (i in arrayQtySku){
         alert(arrayQtySku[i]);
         alert(i);
-    }
+    }*/
 
     //var barcode="9420019451401";
     return $.ajax({
@@ -459,8 +459,8 @@ function checkOut(){
         timeout: 60 * 1000
     }).done(function (data) {
         $('#prodListId').empty();
-        $('#items').empty();
-        $('#total').empty();
+        $('#items').text("0");
+        $('#total').text("0");
         alert("products successfuly added to the cart");
         //load_new_scan(data);
         //$('#edit-actions').click(alert('hi'));
