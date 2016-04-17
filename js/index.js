@@ -307,9 +307,9 @@ function validate(){
 
         scanner.scan( function (result) { 
             
-            //validateProduct(result.text);
+            validateProduct(result.text);
 
-            validateProduct('9420019451401');
+            //validateProduct('9420019451401');
             
 			//load_new_scan(result.text);
 			/*
