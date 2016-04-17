@@ -440,7 +440,7 @@ function checkOut(){
     //alert(uid);
     //skuArray=$("#views-field-line-item-label").text();
 
-    arraySku=$(".views-field-line-item-label").map(function(){
+    var arraySku=$(".views-field-line-item-label").map(function(){
         return $(this).text();
     }).get();
 
@@ -448,10 +448,10 @@ function checkOut(){
         alert(arraySku[i]);
     }
 
-    barcode="9420019451401";
+    var barcode="9420019451401";
     return $.ajax({
         type: "GET",
-        data: { barcode: barcode, uid : uid} ,
+        data: { sku:arraySku, barcode: barcode, uid : uid} ,
         url: url,
         timeout: 60 * 1000
     }).done(function (data) {
