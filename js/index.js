@@ -446,9 +446,10 @@ function checkOut(){
     var arrayQtySku=$(".form-control.form-text.ajax-processed").map(function(){
         return $(this).val();
     }).get();
-    /*for (i in arrayQtySku){
+    for (i in arrayQtySku){
         alert(arrayQtySku[i]);
-    }*/
+        alert(i);
+    }
 
     //var barcode="9420019451401";
     return $.ajax({
