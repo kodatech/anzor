@@ -446,14 +446,14 @@ function checkOut(){
     var arrayQtySku=$(".form-control.form-text.ajax-processed").map(function(){
         return $(this).val();
     }).get();
-    for (i in arrayQtySku){
+    /*for (i in arrayQtySku){
         alert(arrayQtySku[i]);
-    }
+    }*/
 
-    var barcode="9420019451401";
+    //var barcode="9420019451401";
     return $.ajax({
         type: "GET",
-        data: { skuQty:arrayQtySku, sku:arraySku, barcode: barcode, uid : uid} ,
+        data: { skuQty:arrayQtySku, sku:arraySku, uid : uid} ,
         url: url,
         timeout: 60 * 1000
     }).done(function (data) {
