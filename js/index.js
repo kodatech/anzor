@@ -443,15 +443,17 @@ function checkOut(){
     var arraySku=$(".views-field-line-item-label").map(function(){
         return $(this).text();
     }).get();
-
-    for (i in arraySku){
-        alert(arraySku[i]);
+    var arrayQtySku=$(".form-control.form-text.ajax-processed").map(function(){
+        return $(this).val();
+    }).get();
+    for (i in arrayQtySku){
+        alert(arrayQtySku[i]);
     }
 
     var barcode="9420019451401";
     return $.ajax({
         type: "GET",
-        data: { sku:arraySku, barcode: barcode, uid : uid} ,
+        data: { skuVal:arrayValSku, sku:arraySku, barcode: barcode, uid : uid} ,
         url: url,
         timeout: 60 * 1000
     }).done(function (data) {
