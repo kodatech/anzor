@@ -459,9 +459,14 @@ function checkOut(){
         timeout: 60 * 1000
     }).done(function (data) {
         $('#prodListId').empty();
+
+        $('#prodListId').text("Products successfuly added to the cart").show("slow");
+
         $('#items').text("0");
         $('#total').text("0");
-        alert("products successfuly added to the cart");
+        //alert("products successfuly added to the cart");
+
+        $('#prodListId').empty();
         //load_new_scan(data);
         //$('#edit-actions').click(alert('hi'));
         //openWebCart();
