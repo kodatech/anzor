@@ -453,7 +453,7 @@ function checkOut(){
     var barcode="9420019451401";
     return $.ajax({
         type: "GET",
-        data: { skuVal:arrayValSku, sku:arraySku, barcode: barcode, uid : uid} ,
+        data: { skuQty:arrayQtySku, sku:arraySku, barcode: barcode, uid : uid} ,
         url: url,
         timeout: 60 * 1000
     }).done(function (data) {
