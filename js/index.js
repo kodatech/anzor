@@ -44,8 +44,12 @@ var app = {
         //$(".line-item-summary").hide();
         $("#content-inner").css("display","none")
 	    checkConnection();
-
-	//window.open('http://anzor.benjamin.sky/', '_blank', 'location=yes');
+        $("#loading").css("display","none");
+        $("#loading").bind("ajaxStart", function(){
+            $(this).show();
+        }).bind('ajaxStop', function(){
+            $(this).hide();
+        });
     },
 
     // Update DOM on a Received Event
@@ -460,13 +464,12 @@ function checkOut(){
     }).done(function (data) {
         $('#prodListId').empty();
 
-        $('#prodListId').text("Products successfuly added to the cart").show("slow");
+
 
         $('#items').text("0");
         $('#total').text("0");
         //alert("products successfuly added to the cart");
 
-        $('#prodListId').empty();
         //load_new_scan(data);
         //$('#edit-actions').click(alert('hi'));
         //openWebCart();
