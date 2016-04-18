@@ -46,11 +46,11 @@ var app = {
 	    checkConnection();
         $("#loadingDiv").css("display","none");
         $("#msgDiv").css("display","none");
-        $("#loadingDiv").ajaxStart(function(){
-            $(this).css("display","block");
-        }).ajaxStop(function(){
-            $(this).fadeOut();
-            $(this).css("display","none");
+        $(document).on("ajaxSend",function(){
+            $("#loadingDiv").css("display","block");
+        }).on("ajaxComplete", function(){
+            $("#loadingDiv").fadeOut();
+            $("#loadingDiv").css("display","none");
         });
     },
 
