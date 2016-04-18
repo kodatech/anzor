@@ -23,13 +23,12 @@ $(document).ready(iniEvents);
 function iniEvents(){
 
     sacar();
-    $('#loading-center')
-        .hide()  // Hide it initially
+    $('#loading-center').css("display","none")  // Hide it initially
         .ajaxStart(function() {
             $(this).show();
         })
         .ajaxStop(function() {
-            $(this).hide();
+            $(this).css("display","none");
         })
 }
 
