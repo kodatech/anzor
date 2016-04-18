@@ -44,7 +44,7 @@ var app = {
         //$(".line-item-summary").hide();
         $("#content-inner").css("display","none")
 	    checkConnection();
-        //$("#loading").css("display","none");
+        $("#loadingDiv").css("display","none");
         $("#loadingDiv").bind("ajaxStart", function(){
             $(this).show();
         }).bind('ajaxStop', function(){
