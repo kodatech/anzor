@@ -472,6 +472,8 @@ function checkOut(){
         //alert("products successfuly added to the cart");
         $("#msgDiv").css("display","block");
         $("#msgDiv").text("products successfuly added to the cart");
+        $("#msgDiv").hide("slow");
+        //$("#msgDiv").css("display","none");
         //load_new_scan(data);
         //$('#edit-actions').click(alert('hi'));
         //openWebCart();
