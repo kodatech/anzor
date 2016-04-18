@@ -48,7 +48,8 @@ var app = {
         $("#msgDiv").css("display","none");
         $(document).on("ajaxSend",function(){
             $("#loadingDiv").css("display","block");
-        }).on("ajaxStop", function(){
+        });
+        $(document).on("ajaxStop", function(){
             $("#loadingDiv").fadeOut();
             $("#loadingDiv").css("display","none");
         });
