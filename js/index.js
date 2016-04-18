@@ -477,8 +477,8 @@ function checkOut(){
 
 
 
-        $('#items').text("0");
-        $('#total').text("0");
+        $('#items').text("0 ");
+        $('#total').text(" 0");
         //alert("products successfuly added to the cart");
         $("#msgDiv").css("display","block");
         $("#msgDiv").text("Products successfuly added to the cart");
