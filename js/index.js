@@ -46,9 +46,9 @@ var app = {
 	    checkConnection();
         $("#loadingDiv").css("display","none");
         $("#loadingDiv").bind("ajaxStart", function(){
-            $(this).show();
+            $("#loadingDiv").css("display");
         }).bind('ajaxStop', function(){
-            $(this).hide();
+            $("#loadingDiv").css("display","none");
         });
     },
 
