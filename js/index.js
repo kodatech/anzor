@@ -480,7 +480,9 @@ function checkOut(){
         //alert("products successfuly added to the cart");
         $("#msgDiv").css("display","block");
         $("#msgDiv").text("products successfuly added to the cart");
-        $("#msgDiv").hide("slow");
+        $("#msgDiv").hide(1200,function(){
+            $("#msgDiv").css("display","none");
+        });
         //$("#msgDiv").css("display","none");
         //load_new_scan(data);
         //$('#edit-actions').click(alert('hi'));
