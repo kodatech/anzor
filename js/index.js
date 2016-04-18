@@ -49,7 +49,7 @@ var app = {
         $(document).on("ajaxSend",function(){
             $("#loadingDiv").css("display","block");
         });
-        $(document).on("ajaxStop", function(){
+        $(document).on("ajaxComplete", function(){
             $("#loadingDiv").fadeOut();
             $("#loadingDiv").css("display","none");
         });
