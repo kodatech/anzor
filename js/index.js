@@ -313,6 +313,8 @@ function validate(){
         
         var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
+        $("#msgDiv").css("display","none");
+
         scanner.scan( function (result) { 
             
             validateProduct(result.text);
@@ -479,10 +481,10 @@ function checkOut(){
         $('#total').text("0");
         //alert("products successfuly added to the cart");
         $("#msgDiv").css("display","block");
-        $("#msgDiv").text("products successfuly added to the cart");
-        $("#msgDiv").hide(1200,function(){
+        $("#msgDiv").text("Products successfuly added to the cart");
+        /*$("#msgDiv").hide(1200,function(){
             $("#msgDiv").css("display","none");
-        });
+        });*/
         //$("#msgDiv").css("display","none");
         //load_new_scan(data);
         //$('#edit-actions').click(alert('hi'));
