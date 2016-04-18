@@ -49,10 +49,7 @@ var app = {
         $(document).on("ajaxSend",function(){
             $("#loadingDiv").css("display","block");
         });
-        $(document).on("ajaxSuccess", function(){
-            $("#loadingDiv").fadeOut();
-            $("#loadingDiv").css("display","none");
-        });
+
     },
 
     // Update DOM on a Received Event
@@ -254,7 +251,10 @@ function validate(){
         url: url,
         timeout: 60 * 1000
     }).done(function (data) {
-        //alert('hey');
+        //$(document).on("ajaxSuccess", function(){
+            $("#loadingDiv").fadeOut();
+            $("#loadingDiv").css("display","none");
+        //});
         if (data){
             $("#to_hide3").css("display","none");
             $("#f1").css("display","none");
