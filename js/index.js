@@ -45,6 +45,7 @@ var app = {
         $("#content-inner").css("display","none")
 	    checkConnection();
         $("#loadingDiv").css("display","none");
+        $("#msgDiv").css("display","none");
         $("#loadingDiv").bind("ajaxStart", function(){
             $("#loadingDiv").css("display");
         }).bind('ajaxStop', function(){
@@ -469,7 +470,8 @@ function checkOut(){
         $('#items').text("0");
         $('#total').text("0");
         //alert("products successfuly added to the cart");
-
+        $("#msgDiv").css("display");
+        $("#msgDiv").text("products successfuly added to the cart");
         //load_new_scan(data);
         //$('#edit-actions').click(alert('hi'));
         //openWebCart();
