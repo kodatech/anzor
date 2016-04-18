@@ -45,11 +45,11 @@ var app = {
         $("#content-inner").css("display","none")
 	    checkConnection();
         $("#loading").css("display","none");
-        $("#loading").bind("ajaxStart", function(){
+        /*$("#loading").bind("ajaxStart", function(){
             $(this).show();
         }).bind('ajaxStop', function(){
             $(this).hide();
-        });
+        });*/
     },
 
     // Update DOM on a Received Event
