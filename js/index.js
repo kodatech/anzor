@@ -44,11 +44,8 @@ var app = {
         //$(".line-item-summary").hide();
         $("#content-inner").css("display","none")
 	    checkConnection();
-        $("#loadingDiv").css("display","none");
-        $("#msgDiv").css("display","none");
-        $(document).on("ajaxSend",function(){
-            $("#loadingDiv").css("display","block");
-        });
+
+        $("#loading").fadeOut(500);
 
     },
 
@@ -227,8 +224,7 @@ function validateProduct(barCode){
         url: url,
         timeout: 60 * 1000
     }).done(function (data) {
-        $("#loadingDiv").fadeOut();
-        $("#loadingDiv").css("display","none");
+
             load_new_scan(data);
             //$('#edit-actions').click(alert('hi'));
         //openWebCart();
@@ -253,8 +249,7 @@ function validate(){
         timeout: 60 * 1000
     }).done(function (data) {
         //$(document).on("ajaxSuccess", function(){
-            $("#loadingDiv").fadeOut();
-            $("#loadingDiv").css("display","none");
+
         //});
         if (data){
             $("#to_hide3").css("display","none");
@@ -313,7 +308,6 @@ function validate(){
         
         var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
-        $("#msgDiv").css("display","none");
 
         scanner.scan( function (result) { 
             
@@ -420,8 +414,7 @@ function checkQty(obj, stockcode, box_counter){
         url: url,
         timeout: 60 * 1000
     }).success(function (data) {
-        $("#loadingDiv").fadeOut();
-        $("#loadingDiv").css("display","none");
+
 
         if (data){
             //alert(box_counter);
@@ -470,8 +463,7 @@ function checkOut(){
         timeout: 60 * 1000
     }).done(function (data) {
 
-        $("#loadingDiv").fadeOut();
-        $("#loadingDiv").css("display","none");
+
 
         $('#prodListId').empty();
 
@@ -479,16 +471,9 @@ function checkOut(){
 
         $('#items').text("0 ");
         $('#total').text(" 0");
-        //alert("products successfuly added to the cart");
-        $("#msgDiv").css("display","block");
-        $("#msgDiv").text("Products successfuly added to the cart");
-        /*$("#msgDiv").hide(1200,function(){
-            $("#msgDiv").css("display","none");
-        });*/
-        //$("#msgDiv").css("display","none");
-        //load_new_scan(data);
-        //$('#edit-actions').click(alert('hi'));
-        //openWebCart();
+        alert("products successfuly added to the cart");
+
+
 
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
