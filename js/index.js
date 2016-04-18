@@ -49,7 +49,7 @@ var app = {
         $("#loadingDiv").bind("ajaxStart", function(){
             $("#loadingDiv").css("display","block");
         }).bind('ajaxStop', function(){
-            $("#loadingDiv").css("display","none");
+            //$("#loadingDiv").css("display","none");
         });
     },
 
