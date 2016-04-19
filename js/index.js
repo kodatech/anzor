@@ -24,10 +24,11 @@ function iniEvents(){
 
     //sacar();
     //noinspection JSUnresolvedFunction,JSUnresolvedFunction
-    $("#loading").css("display","none").  // Hide it initially
-      ajaxSend(function() {
-            $(this).show();
-        })
+    $("#loading").css("display","none");  // Hide it initially
+    $("#login").ajaxSend(function() {
+        $("#loading").css("display","block");
+        //alert("ajax");
+    })
         /*.ajaxStop(function() {
             $(this).css("display","none");
         })*/
