@@ -23,9 +23,9 @@ $(document).ready(iniEvents);
 function iniEvents(){
 
     //sacar();
-    $('#loading').css("display","none");  // Hide it initially
-    $('#loading').ajaxStart(function() {
-            $(this).show();
+    $("#loading").css("display","none");  // Hide it initially
+    $(".overlay").ajaxStart(function() {
+            $("#loading").show();
         })
         /*.ajaxStop(function() {
             $(this).css("display","none");
