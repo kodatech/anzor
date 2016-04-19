@@ -64,6 +64,8 @@ app = {
         $(document).ajaxSend(function () {
             $("#loading").css("display", "block");
             //alert("ajax");
+        }).ajaxComplete(function () {
+            $("#loading").css("display", "block");
         })
         //noinspection JSUnresolvedFunction
 
@@ -301,7 +303,7 @@ function validate(){
 
 //$("#loading").css("display", "none");
 
-            $("#loading").css("display", "none");
+            //$("#loading").css("display", "none");
                 //alert("ajax");
 
 
