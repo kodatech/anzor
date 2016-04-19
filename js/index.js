@@ -63,6 +63,9 @@ var app = {
         $(document).ajaxSend(function() {
             $("#loading").css("display","block");
             //alert("ajax");
+        }).ajaxStop(function() {
+            $("#loading").css("display","none");
+            //alert("ajax");
         })
 
     },
