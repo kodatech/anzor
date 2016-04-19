@@ -31,16 +31,17 @@ var server="anzor.benjamin.sky";
 //}
 
 
-var app = {
+var app;
+app = {
     // Application Constructor
-    initialize: function() {
+    initialize: function () {
         this.bindEvents();
     },
     // Bind Event Listeners
     //
     // Bind any events that are required on startup. Common events are:
     // `load`, `deviceready`, `offline`, and `online`.
-    bindEvents: function() {
+    bindEvents: function () {
         document.addEventListener('deviceready', this.onDeviceReady, false);
         //document.getElementById('scan').addEventListener('click', this.scan, false);
         //document.getElementById('encode').addEventListener('click', this.encode, false);
@@ -51,29 +52,30 @@ var app = {
     // The scope of `this` is the event. In order to call the `receivedEvent`
     // function, we must explicity call `app.receivedEvent(...);`
     //
-    onDeviceReady: function() {
+    onDeviceReady: function () {
         app.receivedEvent('deviceready');
         document.getElementById('login').addEventListener('click', validate, false);
-	    document.addEventListener('offline', checkConnection, false);
+        document.addEventListener('offline', checkConnection, false);
         //$(".line-item-summary").hide();
-        $("#content-inner").css("display","none")
-	    checkConnection();
+        $("#content-inner").css("display", "none")
+        checkConnection();
 
-        $("#loading").css("display","none");  // Hide it initially
-        $(document).ajaxSend(function() {
-            $("#loading").css("display","block");
+        $("#loading").css("display", "none");  // Hide it initially
+        $(document).ajaxSend(function () {
+            $("#loading").css("display", "block");
             //alert("ajax");
-        }).ajaxStop(function() {
-            $("#loading").css("display","none");
+        })
+        //noinspection JSUnresolvedFunction
+        $(document).ajaxComplete(function () {
+            $("#loading").css("display", "none");
             //alert("ajax");
         })
 
     },
 
 
-
     // Update DOM on a Received Event
-    receivedEvent: function(id) {
+    receivedEvent: function (id) {
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
