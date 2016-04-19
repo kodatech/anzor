@@ -66,7 +66,7 @@ app = {
             //alert("ajax");
         })
         //noinspection JSUnresolvedFunction
-        $(document).ajaxComplete(function () {
+        $(document).ajaxStop(function () {
             $("#loading").css("display", "none");
             //alert("ajax");
         })
@@ -91,11 +91,6 @@ app = {
 var box_counter = 1;
 var found = 0;
 
-function sacar(){
-    $("#loading-center").click(function() {
-        $("#loading").fadeOut(500);
-    })
-}
 
 function load_new_scan(data){
     if (data){
