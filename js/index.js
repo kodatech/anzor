@@ -64,8 +64,9 @@ app = {
         $(document).ajaxSend(function () {
             $("#loading").css("display", "block");
             //alert("ajax");
-        }).ajaxComplete(function () {
-            $("#loading").css("display", "block");
+        })
+        $(document).ajaxComplete(function () {
+            $("#loading").css("display", "none");
         })
         //noinspection JSUnresolvedFunction
 
