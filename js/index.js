@@ -27,9 +27,9 @@ function iniEvents(){
     $('#loading').ajaxStart(function() {
             $(this).show();
         })
-        .ajaxStop(function() {
+        /*.ajaxStop(function() {
             $(this).css("display","none");
-        })
+        })*/
 }
 
 
