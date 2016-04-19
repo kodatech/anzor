@@ -310,7 +310,7 @@ function validate(){
 
 
         }else{
-            alert("usr & pass goes wrong");
+            //alert("usr & pass goes wrong");
         }
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
