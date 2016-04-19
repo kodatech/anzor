@@ -18,21 +18,17 @@
  */
 var server="anzor.benjamin.sky";
 
-$(document).ready(iniEvents);
+//$(document).ready(iniEvents);
 
-function iniEvents(){
+//function iniEvents(){
 
     //sacar();
     //noinspection JSUnresolvedFunction,JSUnresolvedFunction
-    $("#loading").css("display","none");  // Hide it initially
-    $("#login").ajaxSend(function() {
-        $("#loading").css("display","block");
-        //alert("ajax");
-    })
+
         /*.ajaxStop(function() {
             $(this).css("display","none");
         })*/
-}
+//}
 
 
 var app = {
@@ -63,7 +59,11 @@ var app = {
         $("#content-inner").css("display","none")
 	    checkConnection();
 
-
+        $("#loading").css("display","none");  // Hide it initially
+        $(document).ajaxSend(function() {
+            $("#loading").css("display","block");
+            //alert("ajax");
+        })
 
     },
 
