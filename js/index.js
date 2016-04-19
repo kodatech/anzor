@@ -320,7 +320,7 @@ function validate(){
                 console.log(b + '|' + c);
             });*/
 
-
+                return;
 
 
 
