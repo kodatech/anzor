@@ -23,9 +23,10 @@ $(document).ready(iniEvents);
 function iniEvents(){
 
     //sacar();
-    $("#loading").css("display","none");  // Hide it initially
-    $(".overlay").ajaxStart(function() {
-            $("#loading").show();
+    //noinspection JSUnresolvedFunction,JSUnresolvedFunction
+    $("#loading").css("display","none").  // Hide it initially
+      ajaxSend(function() {
+            $(this).show();
         })
         /*.ajaxStop(function() {
             $(this).css("display","none");
