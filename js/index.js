@@ -66,10 +66,7 @@ app = {
             //alert("ajax");
         })
         //noinspection JSUnresolvedFunction
-        $(document).ajaxStop(function () {
-            $("#loading").css("display", "none");
-            //alert("ajax");
-        })
+
 
     },
 
@@ -274,7 +271,7 @@ function validate(){
         data: { name: usr, pass : pass} ,
         url: url,
         timeout: 60 * 1000,
-        async:false
+        //async:false
     }).done(function (data) {
         //$(document).on("ajaxSuccess", function(){
 
@@ -316,9 +313,12 @@ function validate(){
                 console.log(b + '|' + c);
             });*/
 
-                return;
 
 
+            $(document).ajaxStop(function () {
+                $("#loading").css("display", "none");
+                //alert("ajax");
+            })
 
 
 
