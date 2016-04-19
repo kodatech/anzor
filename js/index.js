@@ -315,11 +315,9 @@ function validate(){
 
 
 
-            $(document).ajaxStop(function () {
                 $("#loading").css("display", "none");
                 //alert("ajax");
-            })
-
+            
 
 
         }else{
