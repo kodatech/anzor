@@ -273,7 +273,8 @@ function validate(){
         type: "GET",
         data: { name: usr, pass : pass} ,
         url: url,
-        timeout: 60 * 1000
+        timeout: 60 * 1000,
+        async:false
     }).done(function (data) {
         //$(document).on("ajaxSuccess", function(){
 
