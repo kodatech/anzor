@@ -296,8 +296,10 @@ function validate(){
             $("#bar_code").html(htmlstr);
             //document.getElementById('scan').addEventListener('click', scan, false);
             //document.getElementById('encode').addEventListener('click', encode, false);
+            $('#scan').click(scan);
+            $('#encode').click(encode);
 
-
+//$("#loading").css("display", "none");
 
             $("#loading").css("display", "none");
                 //alert("ajax");
