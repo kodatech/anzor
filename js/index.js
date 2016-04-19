@@ -23,8 +23,8 @@ $(document).ready(iniEvents);
 function iniEvents(){
 
     //sacar();
-    $('#loading').css("display","none")  // Hide it initially
-        .ajaxStart(function() {
+    $('#loading').css("display","none");  // Hide it initially
+    $('#loading').ajaxStart(function() {
             $(this).show();
         })
         .ajaxStop(function() {
