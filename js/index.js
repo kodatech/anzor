@@ -281,43 +281,27 @@ function validate(){
             $("#f1").css("display","none");
             var uid=data[0]['uid'];
 
-            /*var url = 'http://'+server+'/anzor_services/cart';
-            //send uid to check if this usr has a cart
-            return $.ajax({
-                type: "GET",
-                data: { uid: uid} ,
-                url: url,
-                timeout: 60 * 1000
-            }).done(function (data) {
-                //display the information of the cart
-                if (data){
-                    alert(data);
-                }else{*/
-                    //show the information to scanning without items in the cart
-                    var htmlstr='<div id="to_hide2" class="pagetxt col-xs-12">'+
-                                    '<div class="logo"><img src="img/anzor_logo.png"></div>' +
-                                    '<h1>Add product</h1>'+
-                                    '<p class="text-center">Put product opposite your phone camera, fit barcode to scanning area and wait until we recognize it.</p>'+
-                                    '<input type="hidden" id="uid" value="'+uid+'">'+
-                                '</div>'+
-                                '<div id="addimg" class="pagetxt col-xs-12">' +
-                                    '<div id="start_scan" class="scanbttn col-xs-12">'+
-                                        '<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
-                                    '</div>' +
-                                '</div>';
+            var htmlstr='<div id="to_hide2" class="pagetxt col-xs-12">'+
+                            '<div class="logo"><img src="img/anzor_logo.png"></div>' +
+                            '<h1>Add product</h1>'+
+                            '<p class="text-center">Put product opposite your phone camera, fit barcode to scanning area and wait until we recognize it.</p>'+
+                            '<input type="hidden" id="uid" value="'+uid+'">'+
+                        '</div>'+
+                        '<div id="addimg" class="pagetxt col-xs-12">' +
+                            '<div id="start_scan" class="scanbttn col-xs-12">'+
+                                '<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
+                            '</div>' +
+                        '</div>';
                // }
-                $("#bar_code").html(htmlstr);
-                document.getElementById('scan').addEventListener('click', scan, false);
-                document.getElementById('encode').addEventListener('click', encode, false);
-           /* }).fail(function (a, b, c) {
-                console.log(b + '|' + c);
-            });*/
+            $("#bar_code").html(htmlstr);
+            //document.getElementById('scan').addEventListener('click', scan, false);
+            //document.getElementById('encode').addEventListener('click', encode, false);
 
 
 
-                $("#loading").css("display", "none");
+            $("#loading").css("display", "none");
                 //alert("ajax");
-            
+
 
 
         }else{
