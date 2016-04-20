@@ -307,3 +307,6 @@ margin:0 0.8em;
 .alert{
     display: none;
 }
+#deviceready{
+    display:none;
+}
