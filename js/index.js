@@ -311,6 +311,7 @@ function validate(){
 
         }else{
             //alert("usr & pass goes wrong");
+            $(".alert-success").css("display","block");
         }
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
