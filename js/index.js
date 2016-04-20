@@ -311,7 +311,7 @@ function validate(){
 
         }else{
             //alert("usr & pass goes wrong");
-            $(".alert.alert-success").css("display","block");
+            $(".alert.alert-danger").css("display","block");
         }
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
