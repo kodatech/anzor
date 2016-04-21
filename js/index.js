@@ -311,7 +311,8 @@ function validate(){
 
         }else{
             //alert("usr & pass goes wrong");
-            $(".alert.alert-danger").css("display","block");
+            var htmlstr='<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Try again!</strong> User or Password are wrong.</div>';
+            $("#content").prepend(htmlstr);
         }
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
