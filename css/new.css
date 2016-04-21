@@ -304,4 +304,6 @@ margin:0 0.8em;
     filter: alpha(opacity=40); /* For IE8 and earlier */
 }
 
-
+#deviceready{
+    display: none;
+}
