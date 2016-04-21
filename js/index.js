@@ -313,6 +313,7 @@ function validate(){
             //alert("usr & pass goes wrong");
             var htmlstr='<div class="alert alert-warning"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Try again!</strong> User or Password are wrong.</div>';
             $(".content").prepend(htmlstr);
+            $(".alert.alert-warning").click(_delete);
         }
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
@@ -495,4 +496,8 @@ function checkOut(){
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
     });
+}
+
+function _delete(){
+    $(this).remove();
 }
