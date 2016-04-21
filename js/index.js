@@ -310,15 +310,25 @@ function validate(){
 
 
         }else{
+            msg("alert-warning", "User or Password are wrong.", "Try again!");
             //alert("usr & pass goes wrong");
-            var htmlstr='<div class="alert alert-warning"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Try again!</strong> User or Password are wrong.</div>';
-            $(".content").prepend(htmlstr);
-            $(".alert.alert-warning").click(_delete);
+
         }
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
     });
 }
+
+function msg(parClass, parMsg, parMsgStrong ){
+
+    var htmlstr='<div class="alert '+parClass+'"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>'+parMsgStrong+'</strong> '+parMsg+'</div>';
+    if ($(".alert."+parClass).length){
+        $(".alert."+parClass).remove();
+    }
+    $(".content").prepend(htmlstr);
+    $(".alert.alert-warning").click(_delete);
+}
+
 
 /*probando */
     function scan() {
@@ -393,23 +403,7 @@ function checkConnection() {
             jQuery('.content').html(htmlstr);
             document.getElementById('recharge').addEventListener('click', rechargable, false);
         }
-	//alert('paso');
-	//alert(networkState);
-	//document.addEventListener("offline", function(){ navigator.notification.alert("No connection found") }, false);
-	//connectionStatus = navigator.connection;
-	//alert(connectionStatus[0]);
 
-	
-        /*var networkState = navigator.network.connection.type;
-        var states = {};
-        states[Connection.UNKNOWN]  = 'Unknown connection';
-        states[Connection.ETHERNET] = 'Ethernet connection';
-        states[Connection.WIFI]     = 'WiFi connection';
-        states[Connection.CELL_2G]  = 'Cell 2G connection';
-        states[Connection.CELL_3G]  = 'Cell 3G connection';
-        states[Connection.CELL_4G]  = 'Cell 4G connection';
-        states[Connection.NONE]     = 'No network connection';
-        alert('Connection type: ' + states[networkState]);*/
     }
 
 /*calculate the price per line*/
