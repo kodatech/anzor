@@ -327,6 +327,12 @@ function msg(parClass, parMsg, parMsgStrong ){
     }
     $(".content").prepend(htmlstr);
     $(".alert.alert-warning").click(_delete);
+    setTimeout(function() {   //calls click event after a certain time
+        if($(".alert."+parClass).length)
+        {
+            $(".alert." + parClass).remove();
+        }
+    }, 10000);
 }
 
 
