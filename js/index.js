@@ -275,7 +275,7 @@ function validate(){
 
 
 
-    alert($("#remember").val());
+    alert($("#remember").is(':checked'));
 
     return $.ajax({
         type: "GET",
