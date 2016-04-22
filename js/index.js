@@ -69,8 +69,9 @@ app = {
             $("#loading").css("display", "none");
         })
         //noinspection JSUnresolvedFunction
-        if (localStorage.name){
+        if (localStorage.name!=""){
             $("#usr").val(localStorage.name);
+            $("#pass").val(localStorage.pass);
         }
 
     },
@@ -275,7 +276,7 @@ function validate(){
 
 
 
-    alert($("#remember").is(':checked'));
+    //alert($("#remember").is(':checked'));
 
     return $.ajax({
         type: "GET",
@@ -304,9 +305,12 @@ function validate(){
                             '</div>' +
                         '</div>';
                // }
-            if ($("#remember").val()){
+            if ($("#remember").is(':checked')){
                 localStorage.name=usr;
                 localStorage.pass=pass;
+            }else{
+                localStorage.name="";
+                localStorage.pass="";
             }
             $("#bar_code").html(htmlstr);
             //document.getElementById('scan').addEventListener('click', scan, false);
