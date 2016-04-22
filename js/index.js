@@ -69,7 +69,9 @@ app = {
             $("#loading").css("display", "none");
         })
         //noinspection JSUnresolvedFunction
-
+        if (localStorage.name){
+            $("#usr").val(localStorage.name);
+        }
 
     },
 
@@ -270,6 +272,11 @@ function validate(){
     //alert (pass);
     //jQuery('#content-inner').prepend(pass);
     //send usr and pass to validate the user
+
+
+
+    alert($("#remember").val());
+
     return $.ajax({
         type: "GET",
         data: { name: usr, pass : pass} ,
@@ -297,6 +304,10 @@ function validate(){
                             '</div>' +
                         '</div>';
                // }
+            if ($("#remember").val()){
+                localStorage.name=usr;
+                localStorage.pass=pass;
+            }
             $("#bar_code").html(htmlstr);
             //document.getElementById('scan').addEventListener('click', scan, false);
             //document.getElementById('encode').addEventListener('click', encode, false);
