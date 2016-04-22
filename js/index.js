@@ -162,7 +162,8 @@ function load_new_scan(data){
 
         box_counter++;
     }else{
-        alert("wrong product");
+        //alert("wrong product");
+        msg("alert-warning", "Wrong product.", "Try again!");
     }
 }
 
@@ -489,7 +490,8 @@ function checkOut(){
 
         $('#items').text("0 ");
         $('#total').text(" 0");
-        alert("products successfuly added to the cart");
+        //alert("products successfuly added to the cart");
+        msg("alert-success", "Products successfuly added to the cart", "Success!");
 
 
 
