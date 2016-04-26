@@ -12,8 +12,11 @@
     <author href="http://phonegap.com" email="support@phonegap.com">
         PhoneGap Team
     </author>
+    <!--https://github.com/Telerik-Verified-Plugins/BarcodeScanner.git
+    https://github.com/phonegap/phonegap-plugin-barcodescanner.git
 
-    <gap:plugin name="com.phonegap.plugins.barcodescanner"/>
+    <gap:plugin name="com.phonegap.plugins.barcodescanner"/>-->
+    <gap:plugin name="phonegap.plugin.barcodescanner"/>
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.core.inappbrowser" />
     <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
