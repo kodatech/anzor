@@ -360,7 +360,7 @@ function msg(parClass, parMsg, parMsgStrong ){
 
 
         scanner.scan( function (result) {
-            
+
             
             validateProduct(result.text);
 
@@ -390,6 +390,8 @@ function msg(parClass, parMsg, parMsgStrong ){
 
         }, function (error) { 
             console.log("Scanning failed: ", error); 
+        },{
+            "orientation" : 'portrait'
         } );
     }
 
