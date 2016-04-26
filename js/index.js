@@ -356,7 +356,7 @@ function msg(parClass, parMsg, parMsgStrong ){
     function scan() {
         console.log('scanning');
         
-        var scanner = cordova.require("cordova/plugins/BarcodeScanner");
+        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
 
         scanner.scan( function (result) {
@@ -394,7 +394,7 @@ function msg(parClass, parMsg, parMsgStrong ){
     }
 
     function encode() {
-        var scanner = cordova.require("cordova/plugins/BarcodeScanner");
+        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
         scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
             alert("encode success: " + success);
