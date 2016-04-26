@@ -360,7 +360,7 @@ function msg(parClass, parMsg, parMsgStrong ){
 
 
         scanner.scan( function (result) {
-            window.orientation = 0;
+            
             
             validateProduct(result.text);
 
