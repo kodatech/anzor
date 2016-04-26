@@ -359,7 +359,8 @@ function msg(parClass, parMsg, parMsgStrong ){
         var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
 
-        scanner.scan( function (result) { 
+        scanner.scan( function (result) {
+            window.orientation = 0;
             
             validateProduct(result.text);
 
