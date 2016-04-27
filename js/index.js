@@ -73,7 +73,7 @@ app = {
             $("#usr").val(localStorage.name);
             $("#pass").val(localStorage.pass);
         }
-
+        scan();
     },
 
 
