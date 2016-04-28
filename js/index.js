@@ -519,3 +519,6 @@ function checkOut(){
 function _delete(){
     $(this).remove();
 }
+function closeWindow(){
+    window.close();
+}
