@@ -54,7 +54,7 @@ app = {
     //
     onDeviceReady: function () {
         app.receivedEvent('deviceready');
-        scan();
+        //scan();
         document.getElementById('login').addEventListener('click', validate, false);
         document.addEventListener('offline', checkConnection, false);
         //$(".line-item-summary").hide();
