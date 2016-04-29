@@ -16,19 +16,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var server="anzor.benjamin.sky";
+var server="anzornz.kodait.com";
 
-//$(document).ready(iniEvents);
-
-//function iniEvents(){
-
-    //sacar();
-    //noinspection JSUnresolvedFunction,JSUnresolvedFunction
-
-        /*.ajaxStop(function() {
-            $(this).css("display","none");
-        })*/
-//}
 
 
 var app;
@@ -353,7 +342,7 @@ function msg(parClass, parMsg, parMsgStrong ){
 }
 
 
-/*probando */
+/*scanning and encoding */
     function scan() {
         console.log('scanning');
         
@@ -365,29 +354,7 @@ function msg(parClass, parMsg, parMsgStrong ){
             
             validateProduct(result.text);
 
-            //validateProduct('9420019451401');
-            
-			//load_new_scan(result.text);
-			/*
-            alert("We got a barcode\n" + 
-            "Result: " + result.text + "\n" + 
-            "Format: " + result.format + "\n" + 
-            "Cancelled: " + result.cancelled);  
 
-           console.log("Scanner result: \n" +
-                "text: " + result.text + "\n" +
-                "format: " + result.format + "\n" +
-                "cancelled: " + result.cancelled + "\n");
-			
-			
-            document.getElementById("info").innerHTML = result.text;
-            console.log(result);
-            */
-			/*
-            if (args.format == "QR_CODE") {
-                window.plugins.childBrowser.showWebPage(args.text, { showLocationBar: false });
-            }
-            */
 
         }, function (error) { 
             console.log("Scanning failed: ", error); 
