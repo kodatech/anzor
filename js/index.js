@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var server="anzornz.kodait.com";
+var server="anzor.benjamin.sky";
 
 
 
