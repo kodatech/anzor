@@ -305,9 +305,9 @@ margin:0 0.8em;
 }
 
 
-/*#deviceready{
+#deviceready{
     display: none;
-}*/
+}
 
  #loading{
      /*background-color: #0083a9;*/
