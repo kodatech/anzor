@@ -50,7 +50,8 @@ app = {
         $("#content-inner").css("display", "none");
         checkConnection();
 
-        //$("#loading").css("display", "none");  // Hide it initially
+        $("#loading").css("display", "none");  // Hide it initially
+        $("#f1").show();
         $(document).ajaxSend(function () {
             $("#loading").css("display", "block");
             //alert("ajax");
@@ -199,27 +200,7 @@ function rechargable(){
     window.location.reload();
 }
 
-/*Check connection drupal and list category_name*/
-function listar(){
-	//alert('hi');
-        var url = 'http://'+server+'/anzor_services/category-name';
-        return $.ajax({
-            type: "GET",
-            url: url,
-            timeout: 60 * 1000
-        }).done(function (data) {
-        //alert('hey');
-        var htmlstr='<table>';
-        htmlstr +='<tr><td>Category Name</td></tr>';
-        for (var i in data){
-            htmlstr += '<tr><td>'+data[i]['category_name']+'</td></tr>';
-        }
-        htmlstr += '</table>';
-        jQuery('#content-inner').prepend(htmlstr);
-    }).fail(function (a, b, c) {
-        console.log(b + '|' + c);
-    });
-}
+
 
 /*Product validation*/
 function validateProduct(barCode){
