@@ -47,10 +47,10 @@ app = {
         document.getElementById('login').addEventListener('click', validate, false);
         document.addEventListener('offline', checkConnection, false);
         //$(".line-item-summary").hide();
-        $("#content-inner").css("display", "none")
+        $("#content-inner").css("display", "none");
         checkConnection();
 
-        $("#loading").css("display", "none");  // Hide it initially
+        //$("#loading").css("display", "none");  // Hide it initially
         $(document).ajaxSend(function () {
             $("#loading").css("display", "block");
             //alert("ajax");
@@ -224,11 +224,7 @@ function listar(){
 /*Product validation*/
 function validateProduct(barCode){
     var url = 'http://'+server+'/anzor_services/product';
-    //var usr = $("#usr").val();// btoa atob(encodedData);
-    //var pass = $("#pass").val();
-    //alert (usr);
-    //alert (pass);
-    //jQuery('#content-inner').prepend(pass);
+
     $("#to_hide3").css("display","none");
     $("#to_hide2").css("display","none");
     $("#start_scan").removeClass("col-xs-12").addClass( "col-xs-9" );
@@ -259,14 +255,7 @@ function validate(){
     var url = 'http://'+server+'/anzor_services/login';
     var usr = $("#usr").val();// btoa atob(encodedData);
     var pass = $("#pass").val();
-    //alert (usr);
-    //alert (pass);
-    //jQuery('#content-inner').prepend(pass);
-    //send usr and pass to validate the user
 
-
-
-    //alert($("#remember").is(':checked'));
 
     return $.ajax({
         type: "GET",
