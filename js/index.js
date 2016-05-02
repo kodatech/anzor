@@ -43,27 +43,7 @@ app = {
     //
     onDeviceReady: function () {
         app.receivedEvent('deviceready');
-        //scan();
-        document.getElementById('login').addEventListener('click', validate, false);
-        document.addEventListener('offline', checkConnection, false);
-        //$(".line-item-summary").hide();
-        $("#content-inner").css("display", "none");
-        checkConnection();
-
-        $("#loading").css("display", "none");  // Hide it initially
-        $("#f1").show();
-        $(document).ajaxSend(function () {
-            $("#loading").css("display", "block");
-            //alert("ajax");
-        })
-        $(document).ajaxComplete(function () {
-            $("#loading").css("display", "none");
-        })
-        //noinspection JSUnresolvedFunction
-        if (localStorage.name!=""){
-            $("#usr").val(localStorage.name);
-            $("#pass").val(localStorage.pass);
-        }
+        iniEvents();
 
     },
 
@@ -85,6 +65,30 @@ app = {
 var box_counter = 1;
 var found = 0;
 
+function iniEvents(){
+    //document.getElementById('login').addEventListener('click', validate, false);
+    document.addEventListener('offline', checkConnection, false);
+    $(document).ajaxSend(function () {
+        $("#loading").css("display", "block");
+        //alert("ajax");
+    })
+    $(document).ajaxComplete(function () {
+        $("#loading").css("display", "none");
+    });
+    //noinspection JSUnresolvedFunction
+    if (localStorage.name!=""){
+        $("#usr").val(localStorage.name);
+        $("#pass").val(localStorage.pass);
+    }
+    //$(".line-item-summary").hide();
+    $("#content-inner").css("display", "none");
+    checkConnection();
+
+    $("#loading").css("display", "none");  // Hide it initially
+    //$("#f1").show();
+
+
+}
 
 function load_new_scan(data){
     if (data){
