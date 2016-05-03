@@ -84,8 +84,7 @@ function iniEvents(){
     $("#content-inner").css("display", "none");
     checkConnection();
 
-    $("#loading").css("display", "none");  // Hide it initially
-    //$("#f1").show();
+    //$("#loading").css("display", "none");  // Hide it initially
 
 
 }
