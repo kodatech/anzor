@@ -254,6 +254,7 @@ function validate(){
         if (data){
             $("#to_hide3").css("display","none");
             $("#f1").css("display","none");
+            alert(data[0].uid);
             var uid=data[0].uid;
 
             var htmlstr='<div id="to_hide2" class="pagetxt col-xs-12">'+
