@@ -16,8 +16,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var server="anzornz.kodait.com";
-
+//var server="anzornz.kodait.com";
+var server="anzor.benjamin.sky";
 
 
 var app;
@@ -267,7 +267,7 @@ function validate(){
                                 '<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
                             '</div>' +
                         '</div>';
-               // }
+
             if ($("#remember").is(':checked')){
                 localStorage.name=usr;
                 localStorage.pass=pass;
@@ -276,16 +276,11 @@ function validate(){
                 localStorage.pass="";
             }
             $("#bar_code").html(htmlstr);
-            //document.getElementById('scan').addEventListener('click', scan, false);
-            //document.getElementById('encode').addEventListener('click', encode, false);
+
             $('#scan').click(scan);
             $('#encode').click(encode);
 
-//$("#loading").css("display", "none");
-
-            //$("#loading").css("display", "none");
-                //alert("ajax");
-
+            openHomePage();
 
 
         }else{
@@ -409,6 +404,12 @@ function checkQty(obj, stockcode, box_counter){
 }
 
 function openWebCart(){
+    var uid = $("#uid").val();// btoa atob(encodedData);
+    var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_blank');
+
+}
+
+function openHomePage(){
     var uid = $("#uid").val();// btoa atob(encodedData);
     var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_blank');
 
