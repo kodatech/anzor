@@ -17,7 +17,7 @@
  * under the License.
  */
 //var server="anzornz.kodait.com";
-var server="anzor.benjamin.sky";
+var server="anzornz.kodait.com";
 
 
 var app;
