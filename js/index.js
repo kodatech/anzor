@@ -254,7 +254,7 @@ function validate(){
         if (data){
             $("#to_hide3").css("display","none");
             $("#f1").css("display","none");
-            alert(data[0].uid);
+
             var uid=data[0].uid;
 
             var htmlstr='<div id="to_hide2" class="pagetxt col-xs-12">'+
@@ -412,6 +412,7 @@ function openWebCart(){
 
 function openHomePage(){
     var uid = $("#uid").val();// btoa atob(encodedData);
+    alert("este es "+uid);
     var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_blank');
 
 }

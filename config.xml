@@ -22,6 +22,10 @@
     <gap:plugin name="cordova-plugin-customurlscheme" source="npm">
         <param name="URL_SCHEME" value="scan" />
     </gap:plugin>
+    <gap:platform name="ios" />
+    <gap:platform name="android" />
+
+
     <gap:plugin name="com.ohh2ahh.plugins.appavailability" />
 
     <feature name="http://api.phonegap.com/1.0/device" />
