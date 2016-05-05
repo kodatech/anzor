@@ -254,7 +254,7 @@ function validate(){
         if (data){
             $("#to_hide3").css("display","none");
             $("#f1").css("display","none");
-            var uid=data[0]['uid'];
+            var uid=data[0].uid;
 
             var htmlstr='<div id="to_hide2" class="pagetxt col-xs-12">'+
                             '<div class="logo"><img src="img/anzor_logo.png"></div>' +
@@ -285,7 +285,7 @@ function validate(){
 
         }else{
             msg("alert-warning", "User or Password are wrong.", "Try again!");
-            //alert("usr & pass goes wrong");
+
 
         }
     }).fail(function (a, b, c) {
