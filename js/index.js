@@ -417,7 +417,15 @@ function openWebCart(){
 function openHomePage(){
     var uid = $("#uid").val();// btoa atob(encodedData);
 
-    var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'', '_blank');
+    var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'', '_blank', "EnableViewPortScale=yes" );
+    ref.addEventListener( "loadstop", function() {
+        ref.executeScript(
+            { code: "document.body.innerHTML" },
+            function( values ) {
+                alert( values[ 0 ] );
+            }
+        );
+    });
 
     /*ref.addEventListener('loadstop', function() {
         ref.executeScript({file: "js/custom.js"});
