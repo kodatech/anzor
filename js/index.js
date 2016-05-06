@@ -79,7 +79,7 @@ function iniEvents(){
     if (localStorage.name!=""){
         $("#usr").val(localStorage.name);
         $("#pass").val(localStorage.pass);
-        if($("#usr").attr("placeholder")!='Username'){
+        if($("#usr").val()!=''){
             $("#login").trigger("click");
         }
 
