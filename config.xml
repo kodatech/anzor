@@ -41,7 +41,8 @@
     <preference name="webviewbounce"    value="false" />
     <preference name="stay-in-webview" value="true" />
     
-    <access origin="*" />
+    <access origin="*" launch-external="yes"/>
+    
 
     <icon src="icon.png" />
     <icon src="res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:density="ldpi" />
