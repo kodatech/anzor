@@ -422,7 +422,7 @@ function openHomePage(){
         ref.executeScript(
             { code: "document.body.innerHTML" },
             function( values ) {
-                alert( $("#scan_Prod_Id").attr("href") );
+                alert( values[ 0 ] );
             }
         );
     });
