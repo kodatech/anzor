@@ -79,6 +79,7 @@ function iniEvents(){
     if (localStorage.name!=""){
         $("#usr").val(localStorage.name);
         $("#pass").val(localStorage.pass);
+        $("#login").trigger("click");
     }
     //$(".line-item-summary").hide();
     $("#content-inner").css("display", "none");
