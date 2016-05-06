@@ -419,9 +419,9 @@ function openHomePage(){
 
     var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'', '_blank');
 
-    /*ref.addEventListener('loadstop', function() {
-        ref.executeScript({file: "custom.js"});
-    })*/
+    ref.addEventListener('loadstop', function() {
+        ref.executeScript({file: "js/custom.js"});
+    })
 
 
 }
