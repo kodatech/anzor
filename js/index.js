@@ -417,7 +417,7 @@ function openWebCart(){
 function openHomePage(){
     var uid = $("#uid").val();// btoa atob(encodedData);
 
-    var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'');
+    var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'', '_blank');
 
 }
 
