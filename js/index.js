@@ -16,8 +16,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+//var server="anzornz.kodait.com";
 var server="anzornz.kodait.com";
-
 
 
 var app;
@@ -79,6 +79,10 @@ function iniEvents(){
     if (localStorage.name!=""){
         $("#usr").val(localStorage.name);
         $("#pass").val(localStorage.pass);
+        if($("#usr").val()!=''){
+            $("#login").trigger("click");
+        }
+
     }
     //$(".line-item-summary").hide();
     $("#content-inner").css("display", "none");
@@ -254,7 +258,8 @@ function validate(){
         if (data){
             $("#to_hide3").css("display","none");
             $("#f1").css("display","none");
-            var uid=data[0]['uid'];
+
+            var uid=data[0].uid;
 
             var htmlstr='<div id="to_hide2" class="pagetxt col-xs-12">'+
                             '<div class="logo"><img src="img/anzor_logo.png"></div>' +
@@ -267,7 +272,7 @@ function validate(){
                                 '<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
                             '</div>' +
                         '</div>';
-               // }
+
             if ($("#remember").is(':checked')){
                 localStorage.name=usr;
                 localStorage.pass=pass;
@@ -276,21 +281,16 @@ function validate(){
                 localStorage.pass="";
             }
             $("#bar_code").html(htmlstr);
-            //document.getElementById('scan').addEventListener('click', scan, false);
-            //document.getElementById('encode').addEventListener('click', encode, false);
+
             $('#scan').click(scan);
             $('#encode').click(encode);
 
-//$("#loading").css("display", "none");
-
-            //$("#loading").css("display", "none");
-                //alert("ajax");
-
+            openHomePage();
 
 
         }else{
             msg("alert-warning", "User or Password are wrong.", "Try again!");
-            //alert("usr & pass goes wrong");
+
 
         }
     }).fail(function (a, b, c) {
@@ -411,6 +411,26 @@ function checkQty(obj, stockcode, box_counter){
 function openWebCart(){
     var uid = $("#uid").val();// btoa atob(encodedData);
     var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_blank');
+
+}
+
+function openHomePage(){
+    var uid = $("#uid").val();// btoa atob(encodedData);
+
+    var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'', '_blank', "EnableViewPortScale=yes" );
+    ref.addEventListener( "loadstop", function() {
+        ref.executeScript(
+            { code: "document.body.innerHTML" },
+            function( values ) {
+                alert( values[ 0 ] );
+            }
+        );
+    });
+
+    /*ref.addEventListener('loadstop', function() {
+        ref.executeScript({file: "js/custom.js"});
+    })*/
+
 
 }
 
