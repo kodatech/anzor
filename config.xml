@@ -22,7 +22,7 @@
     <!--<gap:plugin name="cordova-plugin-customurlscheme" source="npm">
         <param name="URL_SCHEME" value="scan" />
     </gap:plugin>-->
-    <gap:url-scheme name="com.anzor.scan" role="None">
+    <gap:url-scheme role="Viewer">
         <scheme>scan</scheme>
         <!--<scheme>pgbw</scheme>-->
     </gap:url-scheme>
