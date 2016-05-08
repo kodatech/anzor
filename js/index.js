@@ -410,7 +410,7 @@ function checkQty(obj, stockcode, box_counter){
 
 function openWebCart(){
     var uid = $("#uid").val();// btoa atob(encodedData);
-    var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_system', '_blank');
+    var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_system');
 
 }
 
@@ -419,7 +419,7 @@ function openHomePage(){
 
     //if (typeof redirection==undefined){
     //    redirection= "NO";
-        var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'', '_system', '_blank');
+        var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'', '_system');
    // }else{
    //     return;
    // }
