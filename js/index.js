@@ -417,7 +417,7 @@ function openWebCart(){
 function openHomePage(){
     var uid = $("#uid").val();// btoa atob(encodedData);
 
-    var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'', '_blank', "EnableViewPortScale=yes" );
+    var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'', '_system');
     ref.addEventListener( "loadstop", function() {
         ref.executeScript(
             { code: "document.body.innerHTML" },
