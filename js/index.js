@@ -319,7 +319,7 @@ function msg(parClass, parMsg, parMsgStrong ){
     function scan() {
         console.log('scanning');
         
-        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+        var scanner = cordova.require("cordova/plugin/barcodescanner");
 
 
         scanner.scan( function (result) {
