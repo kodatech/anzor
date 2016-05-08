@@ -252,9 +252,7 @@ function validate(){
         timeout: 60 * 1000,
         //async:false
     }).done(function (data) {
-        //$(document).on("ajaxSuccess", function(){
 
-        //});
         if (data){
             $("#to_hide3").css("display","none");
             $("#f1").css("display","none");
@@ -284,6 +282,8 @@ function validate(){
 
             $('#scan').click(scan);
             $('#encode').click(encode);
+
+            redirection="YES";
 
             openHomePage();
 
@@ -410,22 +410,32 @@ function checkQty(obj, stockcode, box_counter){
 
 function openWebCart(){
     var uid = $("#uid").val();// btoa atob(encodedData);
-    var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_blank');
+    var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_system', '_blank', 'location=no');
 
 }
 
 function openHomePage(){
     var uid = $("#uid").val();// btoa atob(encodedData);
 
-    var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'', '_system');
-    ref.addEventListener( "loadstop", function() {
+    if (redirection=="YES"){
+        redirection= "NO";
+        var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'', '_system', '_blank', 'location=no');
+    }else{
+        return;
+    }
+
+
+
+
+
+    /*ref.addEventListener( "loadstop", function() {
         ref.executeScript(
             { code: "document.body.innerHTML" },
             function( values ) {
-                alert( values[ 0 ] );
+                //alert( values[ 0 ] );
             }
         );
-    });
+    });*/
 
     /*ref.addEventListener('loadstop', function() {
         ref.executeScript({file: "js/custom.js"});
@@ -446,10 +456,7 @@ function checkOut(){
     var arrayQtySku=$(".form-control.form-text.ajax-processed").map(function(){
         return $(this).val();
     }).get();
-    /*for (i in arrayQtySku){
-        alert(arrayQtySku[i]);
-        alert(i);
-    }*/
+    
 
     //var barcode="9420019451401";
     return $.ajax({
