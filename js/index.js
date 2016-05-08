@@ -17,7 +17,7 @@
  * under the License.
  */
 //var server="anzornz.kodait.com";
-var server="anzornz.kodait.com";
+var server="anzor.benjamin.sky";
 
 
 var app;
@@ -283,7 +283,7 @@ function validate(){
             $('#scan').click(scan);
             $('#encode').click(encode);
 
-            redirection="YES";
+
 
             openHomePage();
 
@@ -417,7 +417,7 @@ function openWebCart(){
 function openHomePage(){
     var uid = $("#uid").val();// btoa atob(encodedData);
 
-    if (redirection=="YES"){
+    if (typeof redirection==undefined){
         redirection= "NO";
         var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'', '_system', '_blank', 'location=no');
     }else{
@@ -456,7 +456,7 @@ function checkOut(){
     var arrayQtySku=$(".form-control.form-text.ajax-processed").map(function(){
         return $(this).val();
     }).get();
-    
+
 
     //var barcode="9420019451401";
     return $.ajax({
