@@ -417,12 +417,12 @@ function openWebCart(){
 function openHomePage(){
     var uid = $("#uid").val();// btoa atob(encodedData);
 
-    //if (typeof redirection==undefined){
-    //    redirection= "NO";
-        var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'', '_system');
-   // }else{
-   //     return;
-   // }
+    if (typeof redirection==undefined){
+        redirection= "NO";
+        var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'', '_system', 'location=no');
+    }else{
+        return;
+    }
 
 
 
