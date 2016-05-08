@@ -331,7 +331,10 @@ function msg(parClass, parMsg, parMsgStrong ){
 
         }, function (error) { 
             console.log("Scanning failed: ", error); 
-        });
+        },
+            {
+               "orientation" : "portrait" // Android only (portrait|landscape), default unset so it rotates with the device
+            });
     }
 
     function encode() {
