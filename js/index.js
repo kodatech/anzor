@@ -283,10 +283,30 @@ function validate(){
             $('#scan').click(scan);
             $('#encode').click(encode);
 
+            var uid = $("#uid").val();// btoa atob(encodedData);
+            var url2 = 'http://'+server+'/anzor_services/home';
+            return $.ajax({
+                type: "GET",
+                data: {uid:uid},
+                url: url2,
+                timeout: 60 * 1000
+            }).done(function (data) {
+                if (data){
+                    //if (typeof(redirection) === 'undefined'){
+                    //    redirection= "NO";
+                    var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'', '_system');
+                    //}else{
+                    //    return;
+                    //}
+                }else{
+                    alert("sth goes wrong");
+                }
+            }).fail(function (a, b, c) {
+                console.log(b + '|' + c);
+            });
 
 
-
-
+            //openHomePage();
 
         }else{
             msg("alert-warning", "User or Password are wrong.", "Try again!");
@@ -297,7 +317,7 @@ function validate(){
         console.log(b + '|' + c);
     });
 
-    openHomePage();
+
 
 }
 
