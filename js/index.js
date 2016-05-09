@@ -284,7 +284,12 @@ function validate(){
             $('#encode').click(encode);
 
 
+            if (typeof(redirection) === 'undefined'){
+                redirection= "NO";
             var ref=window.open('http://'+server+'', '_system');
+            }else{
+                return;
+            }
 
 
             //openHomePage();
