@@ -427,12 +427,12 @@ function openHomePage(){
         timeout: 60 * 1000
     }).done(function (data) {
         if (data){
-            if (typeof(redirection) === 'undefined'){
-                redirection= "NO";
+            //if (typeof(redirection) === 'undefined'){
+            //    redirection= "NO";
                 var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'', '_system');
-            }else{
-                return;
-            }
+            //}else{
+            //    return;
+            //}
         }else{
             alert("sth goes wrong");
         }
