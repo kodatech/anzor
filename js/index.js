@@ -425,8 +425,7 @@ function openHomePage(){
         data: {uid:uid},
         url: url,
         timeout: 60 * 1000
-    }).success(function (data) {
-
+    }).done(function (data) {
         if (data){
             if (typeof(redirection) === 'undefined'){
                 redirection= "NO";
