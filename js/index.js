@@ -284,15 +284,7 @@ function validate(){
             $('#encode').click(encode);
 
 
-            if (typeof(redirection) === 'undefined'){
-                redirection= "NO";
-            var ref=window.open('http://'+server+'', '_system');
-            }else{
-                return;
-            }
-
-
-            //openHomePage();
+            openHomePage();
 
         }else{
             msg("alert-warning", "User or Password are wrong.", "Try again!");
@@ -436,12 +428,13 @@ function openHomePage(){
         timeout: 60 * 1000
     }).done(function (data) {
         if (data){
-            //if (typeof(redirection) === 'undefined'){
-            //    redirection= "NO";
-                var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'', '_system');
-            //}else{
-            //    return;
-            //}
+            if (!sessionStorage.usr){
+                sessionStorage.usr=uid;
+                //var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'', '_system');
+                var ref=window.open('http://'+server+'', '_system');
+            }else{
+                return;
+            }
         }else{
             alert("sth goes wrong");
         }
