@@ -285,7 +285,7 @@ function validate(){
 
 
 
-            openHomePage();
+
 
 
         }else{
@@ -296,6 +296,9 @@ function validate(){
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
     });
+
+    openHomePage();
+
 }
 
 function msg(parClass, parMsg, parMsgStrong ){
