@@ -319,7 +319,7 @@ function msg(parClass, parMsg, parMsgStrong ){
     function scan() {
         console.log('scanning');
         
-        var scanner = cordova.require("cordova/plugin/barcodescanner");
+        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
 
         scanner.scan( function (result) {
@@ -419,13 +419,33 @@ function openWebCart(){
 
 function openHomePage(){
     var uid = $("#uid").val();// btoa atob(encodedData);
+    var url = 'http://'+server+'/anzor_services/home';
+    return $.ajax({
+        type: "GET",
+        data: {uid:uid},
+        url: url,
+        timeout: 60 * 1000
+    }).success(function (data) {
 
-    if (typeof(redirection) === 'undefined'){
+        if (data){
+            if (typeof(redirection) === 'undefined'){
+                redirection= "NO";
+                var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'', '_system');
+            }else{
+                return;
+            }
+        }else{
+            alert("sth goes wrong");
+        }
+    }).fail(function (a, b, c) {
+        console.log(b + '|' + c);
+    });
+    /*if (typeof(redirection) === 'undefined'){
         redirection= "NO";
         var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'', '_system');
     }else{
         return;
-    }
+    }*/
 
 
 
