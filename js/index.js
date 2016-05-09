@@ -87,12 +87,16 @@ function iniEvents(){
     //$(".line-item-summary").hide();
     $("#content-inner").css("display", "none");
     document.addEventListener("resume", function() { localStorage.removeItem("usr"); }, false);
-    document.addEventListener("unload", function() { localStorage.removeItem("usr"); }, false);
+    //document.addEventListener("unload", function() { localStorage.removeItem("usr"); }, false);
     checkConnection();
 
     //$("#loading").css("display", "none");  // Hide it initially
 
 
+}
+
+function delVariables(){
+    localStorage.removeItem("usr");
 }
 
 function load_new_scan(data){
