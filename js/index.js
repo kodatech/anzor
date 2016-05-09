@@ -284,7 +284,7 @@ function validate(){
             $('#encode').click(encode);
 
 
-            var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'', '_system');
+            var ref=window.open('http://'+server+'', '_system');
 
 
             //openHomePage();
