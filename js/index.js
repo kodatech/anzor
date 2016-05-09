@@ -428,10 +428,10 @@ function openHomePage(){
         timeout: 60 * 1000
     }).done(function (data) {
         if (data){
-            if (!sessionStorage.usr){
+            if (sessionStorage.usr!=uid){
                 sessionStorage.usr=uid;
                 //var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'', '_system');
-                var ref=window.open('http://'+server+'', '_system');
+                var ref=window.open('http://'+server+'','win' ,'_system');
             }else{
                 return;
             }
