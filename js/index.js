@@ -225,7 +225,7 @@ function validateProduct(barCode){
 
     $("#scan").html('<img src="img/search.svg">Add product</a>');
 
-    $("#scan").removeAttr( "type" );
+
     $('#addimg .col-xs-3').remove();
     $("#addimg").prepend('<div class="logo small col-xs-3"><img src="img/anzor_logo_s.png"></div>');
     $("#bar_code").addClass("fixed");
@@ -269,16 +269,16 @@ function validate(){
             var uid=data[0].uid;
 
             var htmlstr='<div id="to_hide2" class="pagetxt col-xs-12">'+
-                            '<div class="logo"><img src="img/anzor_logo.png"></div>' +
+                            '<div class="logo"><img src="img/anzor_logo.png" onclick="window.open( \'http:// \'+server+ \' \' , \'_system \')"></div>' +
                            // '<h1>Add product</h1>'+
                           //  '<p class="text-center">Put product opposite your phone camera, fit barcode to scanning area and wait until we recognize it.</p>'+
                             '<input type="hidden" id="uid" value="'+uid+'">'+
-                        '</div>'+
-                        '<div id="addimg" class="pagetxt col-xs-12">' +
-                            '<div id="start_scan" class="scanbttn col-xs-12">'+
-                                '<a id="scan" type="hidden" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
-                            '</div>' +
                         '</div>';
+/*'<div id="addimg" class="pagetxt col-xs-12">' +
+ '<div id="start_scan" class="scanbttn col-xs-12">'+
+ '<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
+ '</div>' +
+ '</div>';*/
 
             if ($("#remember").is(':checked')){
                 localStorage.name=usr;
@@ -443,7 +443,8 @@ function openHomePage(){
 
                 var ref=window.open('http://'+server+'' ,'_system');
             }else{
-                $("#scan").trigger("click");
+                //$("#scan").trigger("click");
+                scan();
                 return;
             }
         }else{
