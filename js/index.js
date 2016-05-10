@@ -444,7 +444,7 @@ function openHomePage(){
                 localStorage.usr=uid;
                 //var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'', '_system');
 
-                var ref=window.open('http://'+server+'','win' ,'_system');
+                ref=window.open('http://'+server+'','_system');
             }else{
                 //$("#scan").trigger("click");
                 scan();
@@ -484,7 +484,8 @@ function openHomePage(){
 }
 
 function openHomePageFromMobileListProducts(){
-    window.open('http://'+server+'','win' ,'_system');
+    //window.open('http://'+server+'','_system');
+    ref.focus();
 }
 function checkOut(){
     var url = 'http://'+server+'/anzor_services/checkout';
