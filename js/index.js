@@ -267,8 +267,8 @@ function validate(){
 
             var htmlstr='<div id="to_hide2" class="pagetxt col-xs-12">'+
                             '<div class="logo"><img src="img/anzor_logo.png"></div>' +
-                            '<h1>Add product</h1>'+
-                            '<p class="text-center">Put product opposite your phone camera, fit barcode to scanning area and wait until we recognize it.</p>'+
+                           // '<h1>Add product</h1>'+
+                          //  '<p class="text-center">Put product opposite your phone camera, fit barcode to scanning area and wait until we recognize it.</p>'+
                             '<input type="hidden" id="uid" value="'+uid+'">'+
                         '</div>'+
                         '<div id="addimg" class="pagetxt col-xs-12">' +
@@ -285,7 +285,7 @@ function validate(){
                 localStorage.pass="";
             }
             $("#bar_code").html(htmlstr);
-
+            $("#to_hide2").css("display","none");
             $('#scan').click(scan);
             $('#encode').click(encode);
 
@@ -440,6 +440,7 @@ function openHomePage(){
 
                 var ref=window.open('http://'+server+'' ,'_system');
             }else{
+                $("#scan").trigger("click");
                 return;
             }
         }else{
