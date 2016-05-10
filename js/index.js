@@ -223,11 +223,12 @@ function validateProduct(barCode){
     $("#to_hide2").css("display","none");
     $("#start_scan").removeClass("col-xs-12").addClass( "col-xs-9" );
 
-    $("#scan").html('<img src="img/search.svg">Add product</a>');
-
+    //$("#scan").html('<img src="img/search.svg">Add product</a>');
+    //<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>
+    $("#start_scan").html('<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Add product</a>');
 
     $('#addimg .col-xs-3').remove();
-    $("#addimg").prepend('<div class="logo small col-xs-3"><img src="img/anzor_logo_s.png"></div>');
+    $("#addimg").prepend('<div class="logo small col-xs-3"><img onclick="openHomePageFromMobileListProducts()" src="img/anzor_logo_s.png"></div>');
     $("#bar_code").addClass("fixed");
 
     var uid=$("#uid").val();
@@ -269,7 +270,7 @@ function validate(){
             var uid=data[0].uid;
 
             var htmlstr='<div id="to_hide2" class="pagetxt col-xs-12">'+
-                            '<div class="logo"><img src="img/anzor_logo.png" onclick="window.open( \'http:// \'+server+ \' \' , \'_system \')"></div>' +
+                            //'<div class="logo"><img src="img/anzor_logo.png" ></div>' +
                            // '<h1>Add product</h1>'+
                           //  '<p class="text-center">Put product opposite your phone camera, fit barcode to scanning area and wait until we recognize it.</p>'+
                             '<input type="hidden" id="uid" value="'+uid+'">'+
@@ -480,6 +481,9 @@ function openHomePage(){
 
 }
 
+function openHomePageFromMobileListProducts(){
+    window.open('http://'+server+'' ,'_system');
+}
 function checkOut(){
     var url = 'http://'+server+'/anzor_services/checkout';
     var uid=$("#uid").val();
