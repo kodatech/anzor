@@ -231,6 +231,8 @@ function validateProduct(barCode){
     $("#addimg").prepend('<div class="logo small col-xs-3"><img onclick="openHomePageFromMobileListProducts()" src="img/anzor_logo_s.png"></div>');
     $("#bar_code").addClass("fixed");
 
+    $('#scan').click(scan);
+
     var uid=$("#uid").val();
     //alert(uid);
     return $.ajax({
@@ -290,7 +292,7 @@ function validate(){
             }
             $("#bar_code").html(htmlstr);
             $("#to_hide2").css("display","none");
-            $('#scan').click(scan);
+
             $('#encode').click(encode);
 
 
