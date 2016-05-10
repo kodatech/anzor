@@ -19,6 +19,7 @@
 //var server="anzornz.kodait.com";
 var server="anzornz.kodait.com";
 
+var ref=FALSE;
 
 var app;
 app = {
@@ -443,8 +444,12 @@ function openHomePage(){
             if (localStorage.usr!=uid){
                 localStorage.usr=uid;
                 //var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'', '_system');
+                if (!ref){
+                    ref=window.open('http://'+server+'','_system');
+                }else{
+                    ref.focus();
+                }
 
-                ref=window.open('http://'+server+'','_system');
             }else{
                 //$("#scan").trigger("click");
                 scan();
@@ -484,8 +489,8 @@ function openHomePage(){
 }
 
 function openHomePageFromMobileListProducts(){
-    //window.open('http://'+server+'','_system');
-    ref.focus();
+    window.open('http://'+server+'','_system');
+    //ref.focus();
 }
 function checkOut(){
     var url = 'http://'+server+'/anzor_services/checkout';
