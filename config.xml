@@ -18,7 +18,7 @@
     <gap:plugin name="com.phonegap.plugins.barcodescanner"/>
 
     <gap:plugin name="cordova-plugin-barcodescanner" source="npm"/> -->
-    <gap:plugin name="com.telerik.plugins.barcodescanner"/>
+    <gap:plugin name="com.telerik.plugins.barcodescanner" source="npm"/>
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.core.inappbrowser" />
     <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
