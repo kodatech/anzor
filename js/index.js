@@ -273,12 +273,12 @@ function validate(){
                            // '<h1>Add product</h1>'+
                           //  '<p class="text-center">Put product opposite your phone camera, fit barcode to scanning area and wait until we recognize it.</p>'+
                             '<input type="hidden" id="uid" value="'+uid+'">'+
-                        '</div>';
-/*'<div id="addimg" class="pagetxt col-xs-12">' +
+                        '</div>'+
+'<div id="addimg" class="pagetxt col-xs-12">' +
  '<div id="start_scan" class="scanbttn col-xs-12">'+
- '<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
+ /*'<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+*/
  '</div>' +
- '</div>';*/
+ '</div>';
 
             if ($("#remember").is(':checked')){
                 localStorage.name=usr;
