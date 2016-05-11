@@ -17,11 +17,11 @@
     <gap:plugin name="phonegap.plugin.barcodescanner" source="npm"/>
     <gap:plugin name="com.phonegap.plugins.barcodescanner"/>
 <gap:plugin name="cordova-plugin-barcodescanner" source="npm"/>
-<plugin name="cordova-plugin-barcodescanner" source="npm" />
-    -->
 
-    <plugin spec="https://github.com/Telerik-Verified-Plugins/BarcodeScanner.git" source="git" />
 
+
+    <plugin spec="https://github.com/Telerik-Verified-Plugins/BarcodeScanner.git" source="git" />-->
+    <plugin name="cordova-plugin-barcodescanner" source="npm" />
 
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.core.inappbrowser" />
