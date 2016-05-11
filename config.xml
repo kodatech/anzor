@@ -20,7 +20,7 @@
 <plugin name="cordova-plugin-barcodescanner" source="npm" />
     -->
 
-    <plugin spec="https://github.com/Telerik-Verified-Plugins/BarcodeScanner" source="git" />
+    <plugin spec="https://github.com/Telerik-Verified-Plugins/BarcodeScanner.git" source="git" />
 
 
     <gap:plugin name="org.apache.cordova.network-information" />
