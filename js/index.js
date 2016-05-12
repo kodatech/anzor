@@ -451,7 +451,7 @@ function openHomePage(){
 
                 ref=window.open('http://'+server+'','_system');
 
-                    
+
 
             }else{
                 //$("#scan").trigger("click");
@@ -492,7 +492,8 @@ function openHomePage(){
 }
 
 function openHomePageFromMobileListProducts(){
-    window.open('http://'+server+'','_system');
+    openHomePage();
+    //window.open('http://'+server+'','_system');
     //ref.focus();
 }
 function checkOut(){
