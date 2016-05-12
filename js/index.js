@@ -339,12 +339,8 @@ function msg(parClass, parMsg, parMsgStrong ){
         //scanner.scan( function (result) {
         cordova.plugins.barcodeScanner.scan( function (result) {
             
-            //validateProduct(result.text);
-                alert("We got a barcode\n" +
-                    "Result: " + result.text + "\n" +
-                    "Format: " + result.format + "\n" +
-                    "Cancelled: " + result.cancelled);
-
+            validateProduct(result.text);
+                
 
 
         }, function (error) { 
