@@ -449,7 +449,7 @@ function openHomePage(){
             if (localStorage.usr!=uid){
                 localStorage.usr=uid;
 
-                ref=window.open('http://'+server+'','_system','location=no');
+                ref=window.open('http://'+server+'','_self','location=no');
 
 
 
