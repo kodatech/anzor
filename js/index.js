@@ -353,8 +353,8 @@ function msg(parClass, parMsg, parMsgStrong ){
                     "orientation" : "portrait" // Android only (portrait|landscape), default unset so it rotates with the device
                 });
 
-        }else if( dispositivo.search(/iphone/) > -1 ){
-            alert('entro 1');
+        }else {
+            
             var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
             scanner.scan( function (result) {
@@ -381,8 +381,8 @@ function msg(parClass, parMsg, parMsgStrong ){
                     alert("encoding failed: " + fail);
                 }
             );
-        }else if( dispositivo.search(/iphone/) > -1 ){
-            alert('entro 2');
+        }else{
+
             var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
             scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
