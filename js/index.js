@@ -339,7 +339,11 @@ function msg(parClass, parMsg, parMsgStrong ){
         //scanner.scan( function (result) {
         cordova.plugins.barcodeScanner.scan( function (result) {
             
-            validateProduct(result.text);
+            //validateProduct(result.text);
+                alert("We got a barcode\n" +
+                    "Result: " + result.text + "\n" +
+                    "Format: " + result.format + "\n" +
+                    "Cancelled: " + result.cancelled);
 
 
 
@@ -347,7 +351,7 @@ function msg(parClass, parMsg, parMsgStrong ){
             console.log("Scanning failed: ", error); 
         },
             {
-                "prompt": "<input type='button'>",
+                //"prompt": "<input type='button'>",
                "orientation" : "portrait" // Android only (portrait|landscape), default unset so it rotates with the device
             });
     }
