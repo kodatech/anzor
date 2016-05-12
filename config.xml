@@ -33,8 +33,13 @@
         <plugin spec="https://github.com/Telerik-Verified-Plugins/BarcodeScanner.git" source="git" />
     </platform>
 
-    <gap:platform name="ios" />
-    <!--<gap:platform name="android" />-->
+    <platform name="ios">
+        <preference name="Orientation" value="all" />
+        <plugin name="cordova-plugin-barcodescanner" source="npm" />
+    </platform>
+
+    <!--<gap:platform name="ios" />
+    <gap:platform name="android" />-->
 
 
     <feature name="http://api.phonegap.com/1.0/device" />
