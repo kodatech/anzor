@@ -38,10 +38,7 @@
     <platform name="android">
         <preference name="Orientation" value="Portrait" />
     </platform>
-    <platform name="ios">
-        <preference name="Orientation" value="Portrait" />
-    </platform>
-
+    
 
     <feature name="http://api.phonegap.com/1.0/device" />
     <feature name="debug-server" required="true">
