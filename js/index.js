@@ -332,14 +332,15 @@ function msg(parClass, parMsg, parMsgStrong ){
 /*scanning and encoding */
     function scan() {
         console.log('scanning');
-        
 
 
 
 
-        var dispositivo = navigator.userAgent.toLowerCase();
-        if( dispositivo.search(/android/) > -1 ){
-            cordova.plugins.barcodeScanner.scan( function (result) {
+        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+
+        scanner.scan( function (result) {
+
+            //cordova.plugins.barcodeScanner.scan( function (result) {
 
                     validateProduct(result.text);
 
@@ -353,35 +354,18 @@ function msg(parClass, parMsg, parMsgStrong ){
                     "orientation" : "portrait" // Android only (portrait|landscape), default unset so it rotates with the device
                 });
 
-        }else {
-            
-            var scanner = cordova.require("cordova/plugin/BarcodeScanner");
-
-            scanner.scan( function (result) {
-            //cordova.plugins.barcodeScanner.scan( function (result) {
-                    validateProduct(result.text);
 
 
 
-                }, function (error) {
-                    console.log("Scanning failed: ", error);
-                });
-        }
+
+
 
     }
 
     function encode() {
-        var dispositivo = navigator.userAgent.toLowerCase();
-        if( dispositivo.search(/android/) > -1 ){
 
-            cordova.plugins.barcodeScanner.encode(cordova.plugins.barcodeScanner.Encode.TEXT_TYPE, "http://www.nytimes.com", function(success) {
 
-                    alert("encode success: " + success);
-                }, function(fail) {
-                    alert("encoding failed: " + fail);
-                }
-            );
-        }else{
+    //cordova.plugins.barcodeScanner.encode(cordova.plugins.barcodeScanner.Encode.TEXT_TYPE, "http://www.nytimes.com", function(success) {
 
             var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
@@ -392,7 +376,7 @@ function msg(parClass, parMsg, parMsgStrong ){
                 }
             );
 
-        }
+
 
 
     }
