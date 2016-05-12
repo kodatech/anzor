@@ -338,7 +338,7 @@ function msg(parClass, parMsg, parMsgStrong ){
 
         //scanner.scan( function (result) {
         cordova.plugins.barcodeScanner.scan( function (result) {
-            
+                
             validateProduct(result.text);
 
 
