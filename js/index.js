@@ -334,10 +334,10 @@ function msg(parClass, parMsg, parMsgStrong ){
         console.log('scanning');
         
         //var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+        var scanner = cordova.require("cordova/plugins/BarcodeScanner");
 
-
-        //scanner.scan( function (result) {
-        cordova.plugins.barcodeScanner.scan( function (result) {
+        scanner.scan( function (result) {
+        //cordova.plugins.barcodeScanner.scan( function (result) {
                 
             validateProduct(result.text);
 
