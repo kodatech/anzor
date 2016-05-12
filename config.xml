@@ -16,10 +16,10 @@
     https://github.com/Telerik-Verified-Plugins/BarcodeScanner.git
     <gap:plugin name="phonegap.plugin.barcodescanner" source="npm"/>
     <gap:plugin name="com.phonegap.plugins.barcodescanner"/>
-<gap:plugin name="cordova-plugin-barcodescanner" source="npm"/>-->
+<gap:plugin name="cordova-plugin-barcodescanner" source="npm"/>
 
-    <plugin spec="https://github.com/Telerik-Verified-Plugins/BarcodeScanner.git" source="git" />
-
+    <plugin spec="https://github.com/Telerik-Verified-Plugins/BarcodeScanner.git" source="git" />-->
+    <gap:plugin name="cordova-plugin-barcodescanner" source="npm"/>
 
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.core.inappbrowser" />
@@ -35,7 +35,12 @@
     <gap:platform name="android" />
 
 
-
+    <platform name="android">
+        <preference name="Orientation" value="Portrait" />
+    </platform>
+    <platform name="ios">
+        <preference name="Orientation" value="Portrait" />
+    </platform>
 
 
     <feature name="http://api.phonegap.com/1.0/device" />
@@ -90,11 +95,6 @@
 
     <!-- content src="http://www.w3.org/2010/05/video/mediaevents.html" / -->
 
-    <platform name="android">
-        <preference name="Orientation" value="Portrait" />
-    </platform>
-    <platform name="ios">
-        <preference name="Orientation" value="Portrait" />
-    </platform>
+
     
 </widget>
