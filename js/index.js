@@ -336,11 +336,11 @@ function msg(parClass, parMsg, parMsgStrong ){
 
 
 
-        var scanner = cordova.require("cordova/plugin/barcodeScanner");
+        //var scanner = cordova.require("cordova/plugin/barcodeScanner");
 
-        scanner.scan( function (result) {
+        //scanner.scan( function (result) {
 
-       //     cordova.plugins.barcodeScanner.scan( function (result) {
+            cordova.plugins.barcodeScanner.scan( function (result) {
 
                     validateProduct(result.text);
 
@@ -365,11 +365,11 @@ function msg(parClass, parMsg, parMsgStrong ){
     function encode() {
 
 
-    //cordova.plugins.barcodeScanner.encode(cordova.plugins.barcodeScanner.Encode.TEXT_TYPE, "http://www.nytimes.com", function(success) {
+            cordova.plugins.barcodeScanner.encode(cordova.plugins.barcodeScanner.Encode.TEXT_TYPE, "http://www.nytimes.com", function(success) {
 
-            var scanner = cordova.require("cordova/plugin/barcodeScanner");
+            //var scanner = cordova.require("cordova/plugin/barcodeScanner");
 
-            scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
+            //scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
                     alert("encode success: " + success);
                 }, function(fail) {
                     alert("encoding failed: " + fail);
