@@ -333,38 +333,69 @@ function msg(parClass, parMsg, parMsgStrong ){
     function scan() {
         console.log('scanning');
         
-        //var scanner = cordova.require("cordova/plugin/BarcodeScanner");
-
-        //scanner.scan( function (result) {
-        cordova.plugins.barcodeScanner.scan( function (result) {
-                
-            validateProduct(result.text);
 
 
 
-        }, function (error) { 
-            console.log("Scanning failed: ", error); 
-        },
-            {
-                //"prompt": "<input type='button'>",
-               "orientation" : "portrait" // Android only (portrait|landscape), default unset so it rotates with the device
-            });
+
+        var dispositivo = navigator.userAgent.toLowerCase();
+        if( dispositivo.search(/android/) > -1 ){
+            cordova.plugins.barcodeScanner.scan( function (result) {
+
+                    validateProduct(result.text);
 
 
+
+                }, function (error) {
+                    console.log("Scanning failed: ", error);
+                },
+                {
+                    //"prompt": "<input type='button'>",
+                    "orientation" : "portrait" // Android only (portrait|landscape), default unset so it rotates with the device
+                });
+
+        }else if( dispositivo.search(/iphone/) > -1 ){
+            var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+
+            scanner.scan( function (result) {
+
+                    validateProduct(result.text);
+
+
+
+                }, function (error) {
+                    console.log("Scanning failed: ", error);
+                },
+                {
+                    //"prompt": "<input type='button'>",
+                    "orientation" : "portrait" // Android only (portrait|landscape), default unset so it rotates with the device
+                });
+        }
 
     }
 
     function encode() {
-        //var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+        var dispositivo = navigator.userAgent.toLowerCase();
+        if( dispositivo.search(/android/) > -1 ){
 
-        //scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
-        cordova.plugins.barcodeScanner.encode(cordova.plugins.barcodeScanner.Encode.TEXT_TYPE, "http://www.nytimes.com", function(success) {
+            cordova.plugins.barcodeScanner.encode(cordova.plugins.barcodeScanner.Encode.TEXT_TYPE, "http://www.nytimes.com", function(success) {
 
-            alert("encode success: " + success);
-          }, function(fail) {
-            alert("encoding failed: " + fail);
-          }
-        );
+                    alert("encode success: " + success);
+                }, function(fail) {
+                    alert("encoding failed: " + fail);
+                }
+            );
+        }else if( dispositivo.search(/iphone/) > -1 ){
+            var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+
+            scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
+                    alert("encode success: " + success);
+                }, function(fail) {
+                    alert("encoding failed: " + fail);
+                }
+            );
+
+        }
+
 
     }
 
