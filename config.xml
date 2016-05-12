@@ -35,11 +35,6 @@
     <gap:platform name="android" />
 
 
-    <platform name="android">
-        <preference name="Orientation" value="Portrait" />
-    </platform>
-    
-
     <feature name="http://api.phonegap.com/1.0/device" />
     <feature name="debug-server" required="true">
        <param name="domain" value="http://debug.phonegap.com"/>
