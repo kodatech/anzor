@@ -354,10 +354,10 @@ function msg(parClass, parMsg, parMsgStrong ){
                 });
 
         }else if( dispositivo.search(/iphone/) > -1 ){
-            //var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+            var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
-            //scanner.scan( function (result) {
-            cordova.plugins.barcodeScanner.scan( function (result) {
+            scanner.scan( function (result) {
+            //cordova.plugins.barcodeScanner.scan( function (result) {
                     validateProduct(result.text);
 
 
