@@ -354,6 +354,7 @@ function msg(parClass, parMsg, parMsgStrong ){
                 });
 
         }else if( dispositivo.search(/iphone/) > -1 ){
+            alert('entro 1');
             var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
             scanner.scan( function (result) {
@@ -381,6 +382,7 @@ function msg(parClass, parMsg, parMsgStrong ){
                 }
             );
         }else if( dispositivo.search(/iphone/) > -1 ){
+            alert('entro 2');
             var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
             scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
