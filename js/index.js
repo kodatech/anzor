@@ -90,7 +90,7 @@ function iniEvents(){
 
     deviceType = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iPad" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iPhone" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/BlackBerry/i)) == "BlackBerry" ? "BlackBerry" : "null";
 
-    //alert(deviceType);
+    alert(deviceType);
 
 }
 
@@ -329,7 +329,7 @@ function msg(parClass, parMsg, parMsgStrong ){
 /*scanning and encoding */
 function scan() {
     console.log('scanning');
-    if (deviceType=="iPhone"){
+    /*if (deviceType=="iPhone"){
     var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
 
@@ -344,7 +344,7 @@ function scan() {
         console.log("Scanning failed: ", error);
     });
 }
-
+*/
     if (deviceType=="Android"){
         cordova.plugins.barcodeScanner.scan( function (result) {
 
