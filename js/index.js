@@ -336,7 +336,7 @@ function msg(parClass, parMsg, parMsgStrong ){
 
 
 
-        var scanner = cordova.require("cordova/plugin/barcodescanner");
+        var scanner = cordova.require("cordova/plugin/barcodeScanner");
 
         scanner.scan( function (result) {
 
@@ -365,7 +365,7 @@ function msg(parClass, parMsg, parMsgStrong ){
     function encode() {
 
 
-        var scanner = cordova.require("cordova/plugin/barcodescanner");
+        var scanner = cordova.require("cordova/plugin/barcodeScanner");
 
         scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
         //    cordova.plugins.barcodeScanner.encode(cordova.plugins.barcodeScanner.Encode.TEXT_TYPE, "http://www.nytimes.com", function(success) {
@@ -465,7 +465,7 @@ function openHomePage(){
             if (localStorage.usr!=uid){
                 localStorage.usr=uid;
 
-                ref=window.open('http://'+server+'','_system','location=no');
+                ref=window.open('http://'+server+'','_system');
 
 
 
