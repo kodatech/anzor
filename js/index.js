@@ -350,7 +350,6 @@ function msg(parClass, parMsg, parMsgStrong ){
                     console.log("Scanning failed: ", error);
                 },
                 {
-                    //"prompt": "<input type='button'>",
                     "orientation" : "portrait" // Android only (portrait|landscape), default unset so it rotates with the device
                 });
 
