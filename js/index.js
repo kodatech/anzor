@@ -98,7 +98,7 @@ function load_new_scan(data){
     if (data){
         found = 1;
         //$(".line-item-summary").show();
-        $("#content-inner").show();
+        //$("#content-inner").show();
         jQuery('#send_all').fadeIn();
         jQuery('#price_enquiry').fadeIn();
         var stockcode=data[0]['stockcode'];
@@ -292,9 +292,10 @@ function validate(){
             var redirection="YES";
 
             //openHomePage(redirection);
-            window.open('http://'+server+'','_system');
-
+            window.open('http://'+server+'','_system');//.css("display", "none");
+            $("#content-inner").css("display","block");
             if (deviceType='iPhone'){
+                $("#only-android").css("display","none");
                 scan();
             }
 
