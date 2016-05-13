@@ -14,7 +14,7 @@
     </author>
     <!--https://github.com/phonegap/phonegap-plugin-barcodescanner.git
     https://github.com/Telerik-Verified-Plugins/BarcodeScanner.git
-    <gap:plugin name="com.phonegap.plugins.barcodescanner"/>-->
+    <gap:plugin name="com.phonegap.plugins.barcodescanner"/>
 
     <platform name="ios">
         <gap:plugin name="com.phonegap.plugins.barcodescanner"/>
@@ -24,8 +24,8 @@
     <platform name="android">
         <preference name="Orientation" value="all" />
         <plugin spec="https://github.com/Telerik-Verified-Plugins/BarcodeScanner.git" source="git" />
-    </platform>
-
+    </platform>-->
+    <plugin spec="https://github.com/Telerik-Verified-Plugins/BarcodeScanner.git" source="git" />
     <!--<gap:plugin name="com.phonegap.plugins.barcodescanner"/>-->
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.core.inappbrowser" />
