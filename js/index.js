@@ -256,7 +256,7 @@ function validate(){
         timeout: 60 * 1000,
         //async:false
     }).done(function (data) {
-
+        alert("adentro");
         if (data){
             $("#to_hide3").css("display","none");
             $("#f1").css("display","none");
