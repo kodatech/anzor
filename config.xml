@@ -35,7 +35,7 @@
 
     <platform name="ios">
         <!--<gap:plugin name="com.phonegap.plugins.barcodescanner"/>-->
-        <plugin name="com.phonegap.plugins.BarcodeScanner"/>
+        <plugin name="com.phonegap.plugins.barcodescanner"/>
     </platform>
 
     <!--<gap:platform name="ios" />
