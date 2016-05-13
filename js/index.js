@@ -413,12 +413,12 @@ function checkQty(obj, stockcode, box_counter){
 
 function openWebCart(){
     var uid = $("#uid").val();// btoa atob(encodedData);
-    var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_system', '_blank', 'location=no');
+    var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_system');
 
 }
 
 function openHomePage(par){
-    alert("hola");
+    //alert("hola");
     var uid = $("#uid").val();// btoa atob(encodedData);
     var url = 'http://'+server+'/anzor_services/home';
     return $.ajax({
