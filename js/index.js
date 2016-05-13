@@ -299,9 +299,9 @@ function validate(){
                 $("#only-android").css("display","none");
                 scan();
             }
-            if(deviceType='iPhone'){
+            /*if(deviceType='Android'){
                 openHomePage();
-            }
+            }*/
 
         }else{
             msg("alert-warning", "User or Password are wrong.", "Try again!");
@@ -349,7 +349,7 @@ function scan() {
     });
 }
 
-    if (deviceType=="Android"){
+    /*if (deviceType=="Android"){
         cordova.plugins.barcodeScanner.scan( function (result) {
 
 
@@ -363,7 +363,7 @@ function scan() {
             {
                 "orientation" : "portrait" // Android only (portrait|landscape), default unset so it rotates with the device
             });
-    }
+    }*/
 
 }
 
@@ -382,7 +382,7 @@ function encode() {
 
 
 
-    if (deviceType=="Android") {
+    /*if (deviceType=="Android") {
 
 
         cordova.plugins.barcodeScanner.encode(cordova.plugins.barcodeScanner.Encode.TEXT_TYPE, "http://www.nytimes.com", function (success) {
@@ -392,7 +392,7 @@ function encode() {
                 alert("encoding failed: " + fail);
             }
         );
-    }
+    }*/
 
 }
 
