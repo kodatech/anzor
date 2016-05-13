@@ -364,10 +364,12 @@ function scan() {
 }
 
 function encode() {
-    var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+    //var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
-    scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
-            alert("encode success: " + success);
+    //scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
+    cordova.plugins.barcodeScanner.encode(cordova.plugins.barcodeScanner.Encode.TEXT_TYPE, "http://www.nytimes.com", function(success) {
+
+        alert("encode success: " + success);
         }, function(fail) {
             alert("encoding failed: " + fail);
         }
