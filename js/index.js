@@ -98,7 +98,6 @@ function load_new_scan(data){
     if (data){
         found = 1;
         //$(".line-item-summary").show();
-        $("#content-inner").show();
         jQuery('#send_all').fadeIn();
         jQuery('#price_enquiry').fadeIn();
         var stockcode=data[0]['stockcode'];
@@ -296,6 +295,7 @@ function validate(){
             //openHomePage(redirection);
             window.open('http://'+server+'','_system');
 
+            $("#content-inner").css("display","block");
 
 
         }else{
