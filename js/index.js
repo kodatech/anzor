@@ -93,6 +93,10 @@ function iniEvents(){
 
 }
 
+function delVariables(){
+    localStorage.removeItem("usr");
+}
+
 function load_new_scan(data){
     if (data){
         found = 1;
@@ -168,6 +172,8 @@ function load_new_scan(data){
     }
 }
 
+
+
 function keyPressEvent(e, obj, stockcode, box_counter) {
     var evt = e || window.event;
     var keyPressed = evt.which || evt.keyCode;
@@ -216,10 +222,12 @@ function validateProduct(barCode){
     $("#to_hide3").css("display","none");
     $("#to_hide2").css("display","none");
     $("#start_scan").removeClass("col-xs-12").addClass( "col-xs-9" );
-    $("#scan").html('<img src="img/search.svg">Add product</a>');
+    //$("#scan").html('<img src="img/search.svg">Add product</a>');
     $('#addimg .col-xs-3').remove();
     $("#addimg").prepend('<div class="logo small col-xs-3"><img onclick="openHomePage()" src="img/anzor_logo_s.png"></div>');
     $("#bar_code").addClass("fixed");
+
+    $('#scan').click(scan);
 
     var uid=$("#uid").val();
     //alert(uid);
