@@ -289,13 +289,13 @@ function validate(){
             $('#encode').click(encode);
 
             var redirection="YES";
-            if (deviceType='iPhone'){
-                scan();
-            }
+            scan();
+
             //openHomePage(redirection);
+            $("#content-inner").css("display","block");
+
             window.open('http://'+server+'','_system');
 
-            $("#content-inner").css("display","block");
 
 
         }else{
