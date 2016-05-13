@@ -35,7 +35,8 @@
 
     <platform name="ios">
         <preference name="Orientation" value="all" />
-        <gap:plugin name="com.phonegap.plugins.barcodescanner"/>
+        <!--<gap:plugin name="com.phonegap.plugins.barcodescanner"/>-->
+        <plugin name="com.phonegap.plugins.barcodescanner" spec="1.1.0" source="pgb" />
     </platform>
 
     <!--<gap:platform name="ios" />
