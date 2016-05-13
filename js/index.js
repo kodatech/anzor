@@ -283,9 +283,9 @@ function validate(){
             $('#scan').click(scan);
             $('#encode').click(encode);
 
-            redirection="YES";
+            var redirection="YES";
 
-            openHomePage();
+            openHomePage(redirection);
 
 
         }else{
@@ -414,7 +414,7 @@ function openWebCart(){
 
 }
 
-function openHomePage(){
+function openHomePage(par){
     var uid = $("#uid").val();// btoa atob(encodedData);
     var url = 'http://'+server+'/anzor_services/home';
     return $.ajax({
@@ -435,8 +435,13 @@ function openHomePage(){
 
             }else if(localStorage.usr==uid){
                 //$("#scan").trigger("click");
-                scan();
-                return;
+                if (par=='YES'){
+                    scan();
+                    return;
+                }else{
+                    ref=window.open('http://'+server+'','_system');
+                }
+
             }
         }else{
             alert("sth goes wrong");
