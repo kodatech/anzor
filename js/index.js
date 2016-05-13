@@ -226,7 +226,7 @@ function validateProduct(barCode){
     var uid=$("#uid").val();
     //alert(uid);
     $('#scan').click(scan);
-
+    $('#encode').click(encode);
 
     return $.ajax({
         type: "GET",
@@ -257,7 +257,7 @@ function validate(){
         timeout: 60 * 1000,
         //async:false
     }).done(function (data) {
-        alert("adentro");
+        //alert("adentro");
         if (data){
             $("#to_hide3").css("display","none");
             $("#f1").css("display","none");
@@ -287,16 +287,16 @@ function validate(){
 
             //$('#scan').click(scan);
 
-            $('#encode').click(encode);
+            //$('#encode').click(encode);
 
             var redirection="YES";
-            if (deviceType='iPhone'){
-                scan();
-            }
+
             //openHomePage(redirection);
             window.open('http://'+server+'','_system');
 
-
+            if (deviceType='iPhone'){
+                scan();
+            }
 
         }else{
             msg("alert-warning", "User or Password are wrong.", "Try again!");
