@@ -90,7 +90,7 @@ function iniEvents(){
 
     deviceType = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iPad" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iPhone" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/BlackBerry/i)) == "BlackBerry" ? "BlackBerry" : "null";
 
-    alert(deviceType);
+    //alert(deviceType);
 
 }
 
@@ -295,10 +295,10 @@ function validate(){
             //openHomePage(redirection);
             window.open('http://'+server+'','_system');//.css("display", "none");
             $("#content-inner").css("display","block");
-            if (deviceType='iPhone'){
-                $("#only-android").css("display","none");
-                scan();
-            }
+
+            $("#only-android").css("display","none");
+            scan();
+
             /*if(deviceType='Android'){
                 openHomePage();
             }*/
@@ -333,7 +333,6 @@ function msg(parClass, parMsg, parMsgStrong ){
 /*scanning and encoding */
 function scan() {
     console.log('scanning');
-    if (deviceType=="iPhone"){
     var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
 
@@ -347,7 +346,7 @@ function scan() {
     }, function (error) {
         console.log("Scanning failed: ", error);
     });
-}
+
 
     /*if (deviceType=="Android"){
         cordova.plugins.barcodeScanner.scan( function (result) {
@@ -369,7 +368,6 @@ function scan() {
 
 function encode() {
 
-    if (deviceType=="iPhone"){
         var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
         scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
@@ -378,7 +376,7 @@ function encode() {
         alert("encoding failed: " + fail);
     }
 );
-    }
+
 
 
 
