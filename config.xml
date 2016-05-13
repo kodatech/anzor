@@ -28,19 +28,19 @@
         <param name="URL_SCHEME" value="scan" />
     </gap:plugin>
 
-    <platform name="ios">
-        <gap:plugin name="com.phonegap.plugins.barcodescanner"/>
-        <!--<plugin name="com.phonegap.plugins.barcodescanner"/>-->
+    <!-- <platform name="ios">
+         <gap:plugin name="com.phonegap.plugins.barcodescanner"/>
+         <plugin name="com.phonegap.plugins.barcodescanner"/>
     </platform>
 
     <platform name="android">
-        <preference name="Orientation" value="all" />
+        <preference name="Orientation" value="all" />-->
         <plugin spec="https://github.com/Telerik-Verified-Plugins/BarcodeScanner.git" source="git" />
-    </platform>
+    <!--</platform>
 
 
 
-    <!--<gap:platform name="ios" />
+    <gap:platform name="ios" />
     <gap:platform name="android" />-->
 
 
