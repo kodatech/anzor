@@ -218,7 +218,7 @@ function validateProduct(barCode){
     $("#start_scan").removeClass("col-xs-12").addClass( "col-xs-9" );
     $("#scan").html('<img src="img/search.svg">Add product</a>');
     $('#addimg .col-xs-3').remove();
-    $("#addimg").prepend('<div class="logo small col-xs-3"><img onclick="openHomePage()" src="img/anzor_logo_s.png"></div>');
+    $("#addimg").prepend('<div class="logo small col-xs-3"><img onclick="openHomePage(\'lista\')" src="img/anzor_logo_s.png"></div>');
     $("#bar_code").addClass("fixed");
 
     var uid=$("#uid").val();
@@ -285,7 +285,7 @@ function validate(){
 
             redirection="YES";
 
-            openHomePage();
+            openHomePage('inicio');
 
 
         }else{
@@ -414,7 +414,7 @@ function openWebCart(){
 
 }
 
-function openHomePage(){
+function openHomePage(arg){
     var uid = $("#uid").val();// btoa atob(encodedData);
     var url = 'http://'+server+'/anzor_services/home';
     return $.ajax({
@@ -433,10 +433,15 @@ function openHomePage(){
 
 
 
-            }else{
+            }else if(localStorage.usr==uid){
                 //$("#scan").trigger("click");
-                scan();
-                return;
+                if (arg=='lista'){
+                    ref=window.open('http://'+server+'','_system');
+                } else if(arg=='inicio'){
+                    scan();
+                    return;
+                }
+
             }
         }else{
             alert("sth goes wrong");
