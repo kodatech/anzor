@@ -424,17 +424,18 @@ function openHomePage(){
         timeout: 60 * 1000
     }).done(function (data) {
         if (data){
+
             if (localStorage.usr!=uid){
                 localStorage.usr=uid;
+                scan();
+                return;
 
-                ref=window.open('http://'+server+'','_system');
 
 
 
             }else{
                 //$("#scan").trigger("click");
-                scan();
-                return;
+                ref=window.open('http://'+server+'','_system');
             }
         }else{
             alert("sth goes wrong");
