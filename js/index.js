@@ -329,7 +329,7 @@ function msg(parClass, parMsg, parMsgStrong ){
 /*scanning and encoding */
 function scan() {
     console.log('scanning');
-    /*if (deviceType=="iPhone"){
+    if (deviceType=="iPhone"){
     var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
 
@@ -344,7 +344,7 @@ function scan() {
         console.log("Scanning failed: ", error);
     });
 }
-*/
+
     if (deviceType=="Android"){
         cordova.plugins.barcodeScanner.scan( function (result) {
 
@@ -364,16 +364,31 @@ function scan() {
 }
 
 function encode() {
-    //var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
-    //scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
-    cordova.plugins.barcodeScanner.encode(cordova.plugins.barcodeScanner.Encode.TEXT_TYPE, "http://www.nytimes.com", function(success) {
+    if (deviceType=="iPhone"){
+        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
+        scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
         alert("encode success: " + success);
-        }, function(fail) {
-            alert("encoding failed: " + fail);
-        }
-    );
+    }, function (fail) {
+        alert("encoding failed: " + fail);
+    }
+);
+    }
+
+
+
+    if (deviceType=="Android") {
+
+
+        cordova.plugins.barcodeScanner.encode(cordova.plugins.barcodeScanner.Encode.TEXT_TYPE, "http://www.nytimes.com", function (success) {
+
+                alert("encode success: " + success);
+            }, function (fail) {
+                alert("encoding failed: " + fail);
+            }
+        );
+    }
 
 }
 
