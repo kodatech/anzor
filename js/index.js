@@ -329,7 +329,7 @@ function msg(parClass, parMsg, parMsgStrong ){
 /*scanning and encoding */
 function scan() {
     console.log('scanning');
-
+    if (deviceType=="iPhone"){
     var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
 
@@ -343,6 +343,24 @@ function scan() {
     }, function (error) {
         console.log("Scanning failed: ", error);
     });
+}
+
+    if (deviceType=="Android"){
+        cordova.plugins.barcodeScanner.scan( function (result) {
+
+
+            validateProduct(result.text);
+
+
+
+        }, function (error) {
+            console.log("Scanning failed: ", error);
+        },
+            {
+                "orientation" : "portrait" // Android only (portrait|landscape), default unset so it rotates with the device
+            });
+    }
+
 }
 
 function encode() {
