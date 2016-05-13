@@ -291,7 +291,7 @@ function validate(){
             var redirection="YES";
 
             //openHomePage(redirection);
-            ref=window.open('http://'+server+'','_system');
+            ref=window.open('http://'+server+'','_blank');
 
 
 
