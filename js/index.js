@@ -289,7 +289,7 @@ function validate(){
             $('#encode').click(encode);
 
             var redirection="YES";
-
+            scan();
             //openHomePage(redirection);
             ref=window.open('http://'+server+'','_system');
 
