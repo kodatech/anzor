@@ -284,6 +284,7 @@ function validate(){
                 localStorage.pass="";
             }
             $("#bar_code").html(htmlstr);
+            $("#to_hide2").css("display","none");
 
             //$('#scan').click(scan);
 
@@ -297,6 +298,9 @@ function validate(){
             if (deviceType='iPhone'){
                 $("#only-android").css("display","none");
                 scan();
+            }
+            if(deviceType='iPhone'){
+                openHomePage();
             }
 
         }else{
@@ -460,8 +464,7 @@ function openWebCart(){
 
 }
 
-function openHomePage(par){
-    //alert("hola");
+function openHomePage(){
     var uid = $("#uid").val();// btoa atob(encodedData);
     var url = 'http://'+server+'/anzor_services/home';
     return $.ajax({
@@ -471,24 +474,17 @@ function openHomePage(par){
         timeout: 60 * 1000
     }).done(function (data) {
         if (data){
-
             if (localStorage.usr!=uid){
                 localStorage.usr=uid;
+
                 ref=window.open('http://'+server+'','_system');
 
 
 
-
-
-            }else if(localStorage.usr==uid){
+            }else{
                 //$("#scan").trigger("click");
-                if (par=='YES'){
-                    scan();
-                    return;
-                }else{
-                    ref=window.open('http://'+server+'','_system');
-                }
-
+                scan();
+                return;
             }
         }else{
             alert("sth goes wrong");
@@ -496,7 +492,6 @@ function openHomePage(par){
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
     });
-
 
 
 
