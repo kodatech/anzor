@@ -427,15 +427,16 @@ function openHomePage(){
 
             if (localStorage.usr!=uid){
                 localStorage.usr=uid;
-                scan();
-                return;
+                ref=window.open('http://'+server+'','_system');
+
 
 
 
 
             }else{
                 //$("#scan").trigger("click");
-                ref=window.open('http://'+server+'','_system');
+                scan();
+                return;
             }
         }else{
             alert("sth goes wrong");
