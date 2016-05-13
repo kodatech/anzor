@@ -14,11 +14,8 @@
     </author>
     <!--https://github.com/phonegap/phonegap-plugin-barcodescanner.git
     https://github.com/Telerik-Verified-Plugins/BarcodeScanner.git
-    <gap:plugin name="phonegap.plugin.barcodescanner" source="npm"/>
-    <gap:plugin name="com.phonegap.plugins.barcodescanner"/> -->
-
-    <gap:plugin name="cordova-plugin-barcodescanner" source="npm"/>
-
+    <gap:plugin name="com.phonegap.plugins.barcodescanner"/>-->
+    <gap:plugin name="com.phonegap.plugins.barcodescanner"/>
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.core.inappbrowser" />
     <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
@@ -41,14 +38,13 @@
         <param name="key" value="willoughby"/>
     </feature>
 
-    <!--<preference name="phonegap-version" value="3.6.3" />-->
-    <preference name="phonegap-version" value="cli-5.2.0" />
+    <preference name="phonegap-version" value="3.6.3" />
     <preference name="orientation"      value="default" />
     <preference name="target-device"    value="universal" />
     <preference name="fullscreen"       value="false" />
     <preference name="webviewbounce"    value="false" />
     <preference name="stay-in-webview" value="true" />
-    <preference name="android-build-tool" value="gradle" />
+
     <access origin="*"/>
 
 

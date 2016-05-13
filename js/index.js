@@ -20,7 +20,6 @@
 var server="anzornz.kodait.com";
 
 
-
 var app;
 app = {
     // Application Constructor
@@ -87,17 +86,11 @@ function iniEvents(){
     }
     //$(".line-item-summary").hide();
     $("#content-inner").css("display", "none");
-    document.addEventListener("resume", function() { localStorage.removeItem("usr"); }, false);
-    //document.addEventListener("unload", function() { localStorage.removeItem("usr"); }, false);
     checkConnection();
 
     //$("#loading").css("display", "none");  // Hide it initially
 
 
-}
-
-function delVariables(){
-    localStorage.removeItem("usr");
 }
 
 function load_new_scan(data){
@@ -223,16 +216,10 @@ function validateProduct(barCode){
     $("#to_hide3").css("display","none");
     $("#to_hide2").css("display","none");
     $("#start_scan").removeClass("col-xs-12").addClass( "col-xs-9" );
-
-    //$("#scan").html('<img src="img/search.svg">Add product</a>');
-    //<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>
-    $("#start_scan").html('<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Add product</a>');
-
+    $("#scan").html('<img src="img/search.svg">Add product</a>');
     $('#addimg .col-xs-3').remove();
-    $("#addimg").prepend('<div class="logo small col-xs-3"><img onclick="openHomePageFromMobileListProducts()" src="img/anzor_logo_s.png"></div>');
+    $("#addimg").prepend('<div class="logo small col-xs-3"><img src="img/anzor_logo_s.png"></div>');
     $("#bar_code").addClass("fixed");
-
-    $('#scan').click(scan);
 
     var uid=$("#uid").val();
     //alert(uid);
@@ -273,14 +260,14 @@ function validate(){
             var uid=data[0].uid;
 
             var htmlstr='<div id="to_hide2" class="pagetxt col-xs-12">'+
-                //'<div class="logo"><img src="img/anzor_logo.png" ></div>' +
-                // '<h1>Add product</h1>'+
-                //  '<p class="text-center">Put product opposite your phone camera, fit barcode to scanning area and wait until we recognize it.</p>'+
+                '<div class="logo"><img src="img/anzor_logo.png"></div>' +
+                '<h1>Add product</h1>'+
+                '<p class="text-center">Put product opposite your phone camera, fit barcode to scanning area and wait until we recognize it.</p>'+
                 '<input type="hidden" id="uid" value="'+uid+'">'+
                 '</div>'+
                 '<div id="addimg" class="pagetxt col-xs-12">' +
                 '<div id="start_scan" class="scanbttn col-xs-12">'+
-                /*'<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+*/
+                '<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
                 '</div>' +
                 '</div>';
 
@@ -292,12 +279,14 @@ function validate(){
                 localStorage.pass="";
             }
             $("#bar_code").html(htmlstr);
-            $("#to_hide2").css("display","none");
 
+            $('#scan').click(scan);
             $('#encode').click(encode);
 
+            redirection="YES";
 
             openHomePage();
+
 
         }else{
             msg("alert-warning", "User or Password are wrong.", "Try again!");
@@ -307,9 +296,6 @@ function validate(){
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
     });
-
-
-
 }
 
 function msg(parClass, parMsg, parMsgStrong ){
@@ -339,16 +325,13 @@ function scan() {
     scanner.scan( function (result) {
 
 
-            validateProduct(result.text);
+        validateProduct(result.text);
 
 
 
-        }, function (error) {
-            console.log("Scanning failed: ", error);
-        },
-        {
-            "orientation" : "portrait" // Android only (portrait|landscape), default unset so it rotates with the device
-        });
+    }, function (error) {
+        console.log("Scanning failed: ", error);
+    });
 }
 
 function encode() {
@@ -427,42 +410,19 @@ function checkQty(obj, stockcode, box_counter){
 
 function openWebCart(){
     var uid = $("#uid").val();// btoa atob(encodedData);
-    var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_system');
+    var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_system', '_blank', 'location=no');
 
 }
 
 function openHomePage(){
     var uid = $("#uid").val();// btoa atob(encodedData);
-    var url = 'http://'+server+'/anzor_services/home';
-    return $.ajax({
-        type: "GET",
-        data: {uid:uid},
-        url: url,
-        timeout: 60 * 1000
-    }).done(function (data) {
-        if (data){
-            if (localStorage.usr!=uid){
-                localStorage.usr=uid;
-                //var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'', '_system');
 
-                ref=window.open('http://'+server+'','_system');
-            }else{
-                //$("#scan").trigger("click");
-                scan();
-                return;
-            }
-        }else{
-            alert("sth goes wrong");
-        }
-    }).fail(function (a, b, c) {
-        console.log(b + '|' + c);
-    });
-    /*if (typeof(redirection) === 'undefined'){
-     redirection= "NO";
-     var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'', '_system');
-     }else{
-     return;
-     }*/
+    if (redirection=="YES"){
+        redirection= "NO";
+        var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'', '_system', '_blank', 'location=no');
+    }else{
+        return;
+    }
 
 
 
@@ -484,10 +444,6 @@ function openHomePage(){
 
 }
 
-function openHomePageFromMobileListProducts(){
-    window.open('http://'+server+'','_system');
-    //ref.focus();
-}
 function checkOut(){
     var url = 'http://'+server+'/anzor_services/checkout';
     var uid=$("#uid").val();
