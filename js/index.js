@@ -98,7 +98,7 @@ function load_new_scan(data){
     if (data){
         found = 1;
         //$(".line-item-summary").show();
-        //$("#content-inner").show();
+        $("#content-inner").show();
         jQuery('#send_all').fadeIn();
         jQuery('#price_enquiry').fadeIn();
         var stockcode=data[0]['stockcode'];
@@ -226,7 +226,7 @@ function validateProduct(barCode){
     var uid=$("#uid").val();
     //alert(uid);
     $('#scan').click(scan);
-    $('#encode').click(encode);
+
 
     return $.ajax({
         type: "GET",
@@ -257,7 +257,7 @@ function validate(){
         timeout: 60 * 1000,
         //async:false
     }).done(function (data) {
-        //alert("adentro");
+        alert("adentro");
         if (data){
             $("#to_hide3").css("display","none");
             $("#f1").css("display","none");
@@ -266,8 +266,8 @@ function validate(){
 
             var htmlstr='<div id="to_hide2" class="pagetxt col-xs-12">'+
                 //'<div class="logo"><img src="img/anzor_logo.png"></div>' +
-               //'<h1>Add product</h1>'+
-               // '<p class="text-center">Put product opposite your phone camera, fit barcode to scanning area and wait until we recognize it.</p>'+
+                //'<h1>Add product</h1>'+
+                // '<p class="text-center">Put product opposite your phone camera, fit barcode to scanning area and wait until we recognize it.</p>'+
                 '<input type="hidden" id="uid" value="'+uid+'">'+
                 '</div>'+
                 '<div id="addimg" class="pagetxt col-xs-12">' +
@@ -284,24 +284,19 @@ function validate(){
                 localStorage.pass="";
             }
             $("#bar_code").html(htmlstr);
-            $("#to_hide2").css("display","none");
 
             //$('#scan').click(scan);
 
-            //$('#encode').click(encode);
+            $('#encode').click(encode);
 
             var redirection="YES";
-
+            if (deviceType='iPhone'){
+                scan();
+            }
             //openHomePage(redirection);
-            window.open('http://'+server+'','_system');//.css("display", "none");
-            $("#content-inner").css("display","block");
+            window.open('http://'+server+'','_system');
 
-            $("#only-android").css("display","none");
-            scan();
 
-            /*if(deviceType='Android'){
-                openHomePage();
-            }*/
 
         }else{
             msg("alert-warning", "User or Password are wrong.", "Try again!");
@@ -333,6 +328,7 @@ function msg(parClass, parMsg, parMsgStrong ){
 /*scanning and encoding */
 function scan() {
     console.log('scanning');
+
     var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
 
@@ -346,51 +342,17 @@ function scan() {
     }, function (error) {
         console.log("Scanning failed: ", error);
     });
-
-
-    /*if (deviceType=="Android"){
-        cordova.plugins.barcodeScanner.scan( function (result) {
-
-
-            validateProduct(result.text);
-
-
-
-        }, function (error) {
-            console.log("Scanning failed: ", error);
-        },
-            {
-                "orientation" : "portrait" // Android only (portrait|landscape), default unset so it rotates with the device
-            });
-    }*/
-
 }
 
 function encode() {
+    var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
-        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
-
-        scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
-        alert("encode success: " + success);
-    }, function (fail) {
-        alert("encoding failed: " + fail);
-    }
-);
-
-
-
-
-    /*if (deviceType=="Android") {
-
-
-        cordova.plugins.barcodeScanner.encode(cordova.plugins.barcodeScanner.Encode.TEXT_TYPE, "http://www.nytimes.com", function (success) {
-
-                alert("encode success: " + success);
-            }, function (fail) {
-                alert("encoding failed: " + fail);
-            }
-        );
-    }*/
+    scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
+            alert("encode success: " + success);
+        }, function(fail) {
+            alert("encoding failed: " + fail);
+        }
+    );
 
 }
 
@@ -462,7 +424,8 @@ function openWebCart(){
 
 }
 
-function openHomePage(){
+function openHomePage(par){
+    //alert("hola");
     var uid = $("#uid").val();// btoa atob(encodedData);
     var url = 'http://'+server+'/anzor_services/home';
     return $.ajax({
@@ -472,17 +435,24 @@ function openHomePage(){
         timeout: 60 * 1000
     }).done(function (data) {
         if (data){
+
             if (localStorage.usr!=uid){
                 localStorage.usr=uid;
-
                 ref=window.open('http://'+server+'','_system');
 
 
 
-            }else{
+
+
+            }else if(localStorage.usr==uid){
                 //$("#scan").trigger("click");
-                scan();
-                return;
+                if (par=='YES'){
+                    scan();
+                    return;
+                }else{
+                    ref=window.open('http://'+server+'','_system');
+                }
+
             }
         }else{
             alert("sth goes wrong");
@@ -490,6 +460,7 @@ function openHomePage(){
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
     });
+
 
 
 
