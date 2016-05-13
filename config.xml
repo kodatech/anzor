@@ -35,7 +35,7 @@
 
     <platform name="ios">
         <preference name="Orientation" value="all" />
-        <plugin name="cordova-plugin-barcodescanner" source="npm" />
+        <gap:plugin name="com.phonegap.plugins.barcodescanner"/>
     </platform>
 
     <!--<gap:platform name="ios" />
