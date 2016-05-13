@@ -418,6 +418,7 @@ function openWebCart(){
 }
 
 function openHomePage(par){
+    alert("hola");
     var uid = $("#uid").val();// btoa atob(encodedData);
     var url = 'http://'+server+'/anzor_services/home';
     return $.ajax({
