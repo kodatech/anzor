@@ -288,7 +288,9 @@ function validate(){
 
             var redirection="YES";
 
-            openHomePage(redirection);
+            //openHomePage(redirection);
+            ref=window.open('http://'+server+'','_system');
+
 
 
         }else{
