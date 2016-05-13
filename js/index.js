@@ -216,13 +216,17 @@ function validateProduct(barCode){
     $("#to_hide3").css("display","none");
     $("#to_hide2").css("display","none");
     $("#start_scan").removeClass("col-xs-12").addClass( "col-xs-9" );
-    $("#scan").html('<img src="img/search.svg">Add product</a>');
+    //$("#scan").html('<img src="img/search.svg">Add product</a>');
+    $("#start_scan").html('<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Add product</a>');
     $('#addimg .col-xs-3').remove();
     $("#addimg").prepend('<div class="logo small col-xs-3"><img onclick="openHomePage()" src="img/anzor_logo_s.png"></div>');
     $("#bar_code").addClass("fixed");
 
     var uid=$("#uid").val();
     //alert(uid);
+    $('#scan').click(scan);
+
+
     return $.ajax({
         type: "GET",
         data: { barCode: barCode, uid : uid} ,
@@ -261,13 +265,13 @@ function validate(){
 
             var htmlstr='<div id="to_hide2" class="pagetxt col-xs-12">'+
                 '<div class="logo"><img src="img/anzor_logo.png"></div>' +
-                '<h1>Add product</h1>'+
-                '<p class="text-center">Put product opposite your phone camera, fit barcode to scanning area and wait until we recognize it.</p>'+
+               //'<h1>Add product</h1>'+
+               // '<p class="text-center">Put product opposite your phone camera, fit barcode to scanning area and wait until we recognize it.</p>'+
                 '<input type="hidden" id="uid" value="'+uid+'">'+
                 '</div>'+
                 '<div id="addimg" class="pagetxt col-xs-12">' +
                 '<div id="start_scan" class="scanbttn col-xs-12">'+
-                '<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
+               // '<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
                 '</div>' +
                 '</div>';
 
@@ -280,7 +284,6 @@ function validate(){
             }
             $("#bar_code").html(htmlstr);
 
-            $('#scan').click(scan);
             $('#encode').click(encode);
 
             var redirection="YES";
