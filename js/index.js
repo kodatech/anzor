@@ -216,10 +216,12 @@ function validateProduct(barCode){
     $("#to_hide3").css("display","none");
     $("#to_hide2").css("display","none");
     $("#start_scan").removeClass("col-xs-12").addClass( "col-xs-9" );
-    $("#scan").html('<img src="img/search.svg">Add product</a>');
+    $("#start_scan").html('<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Add product</a>');
     $('#addimg .col-xs-3').remove();
     $("#addimg").prepend('<div class="logo small col-xs-3"><img src="img/anzor_logo_s.png"></div>');
     $("#bar_code").addClass("fixed");
+
+    $('#scan').click(scan);
 
     var uid=$("#uid").val();
     //alert(uid);
@@ -267,7 +269,7 @@ function validate(){
                 '</div>'+
                 '<div id="addimg" class="pagetxt col-xs-12">' +
                 '<div id="start_scan" class="scanbttn col-xs-12">'+
-                '<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
+                //'<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
                 '</div>' +
                 '</div>';
 
@@ -280,7 +282,7 @@ function validate(){
             }
             $("#bar_code").html(htmlstr);
 
-            $('#scan').click(scan);
+            //$('#scan').click(scan);
             $('#encode').click(encode);
 
             redirection="YES";
