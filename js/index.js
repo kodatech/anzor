@@ -416,13 +416,32 @@ function openWebCart(){
 
 function openHomePage(){
     var uid = $("#uid").val();// btoa atob(encodedData);
+    var url = 'http://'+server+'/anzor_services/home';
+    return $.ajax({
+        type: "GET",
+        data: {uid:uid},
+        url: url,
+        timeout: 60 * 1000
+    }).done(function (data) {
+        if (data){
+            if (localStorage.usr!=uid){
+                localStorage.usr=uid;
 
-    if (redirection=="YES"){
-        redirection= "NO";
-        var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'', '_system', '_blank', 'location=no');
-    }else{
-        return;
-    }
+                ref=window.open('http://'+server+'','_system');
+
+
+
+            }else{
+                //$("#scan").trigger("click");
+                scan();
+                return;
+            }
+        }else{
+            alert("sth goes wrong");
+        }
+    }).fail(function (a, b, c) {
+        console.log(b + '|' + c);
+    });
 
 
 
