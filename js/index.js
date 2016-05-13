@@ -128,16 +128,16 @@ function load_new_scan(data){
         htmlstr +=               '<div class="views-field views-field-edit-quantity">';
         htmlstr +=                      '<span class="views-label views-label-edit-quantity">Qty:</span>';
         htmlstr +=                      '<span class="views-label views-label-edit-quantity">' +
-                                            '<div class="form-item form-item-edit-quantity-0 form-type-textfield form-group">' +
-                                                '<input title="Qty:" class="form-control form-text ajax-processed" type="text" id="qty_'+box_counter+'" onKeyUp="keyPressEvent(event, this,\'' + stockcode + '\',\'' + box_counter + '\')"  value="1" size="4">' +
-                                            '</div>' +
-                                        '</span>'+
-                                '</div>';
+            '<div class="form-item form-item-edit-quantity-0 form-type-textfield form-group">' +
+            '<input title="Qty:" class="form-control form-text ajax-processed" type="text" id="qty_'+box_counter+'" onKeyUp="keyPressEvent(event, this,\'' + stockcode + '\',\'' + box_counter + '\')"  value="1" size="4">' +
+            '</div>' +
+            '</span>'+
+            '</div>';
 
         htmlstr +=              '<div class="views-field views-field-commerce-unit-price">' +
-                                         '<span class="views-label views-label-commerce-unit-price"> x </span>' +
-                                         '<div id="price'+box_counter+'" class="field-content">'+data[0]['sell_price_1']+'</div>' +
-                                '</div>';
+            '<span class="views-label views-label-commerce-unit-price"> x </span>' +
+            '<div id="price'+box_counter+'" class="field-content">'+data[0]['sell_price_1']+'</div>' +
+            '</div>';
 
 
 
@@ -150,7 +150,7 @@ function load_new_scan(data){
 
         htmlstr +=              '<div class="clearfix"></div>';
         htmlstr +=          '</div>';
-      
+
         jQuery('#prodListId').prepend(htmlstr);
 
 
@@ -184,33 +184,33 @@ function keyPressEvent(e, obj, stockcode, box_counter) {
 
 function remove_scan_box(scan_box_id){
     //alert($("#total"+scan_box_id).text());
-	jQuery('#send_box_'+scan_box_id).fadeOut();
+    jQuery('#send_box_'+scan_box_id).fadeOut();
     //$("#total").text(parseFloat($("#total").text())-parseFloat($("#total"+scan_box_id).text()));
     $("#total").text(Number((parseFloat($("#total").text())-parseFloat($("#total"+scan_box_id).text())).toFixed(4)));
     $("#items").text(parseFloat($("#items").text())-1);
 }
 function send_order(scan_box_id){
-	jQuery('#send_box_'+scan_box_id).animate({
-		opacity: 0,
-		left: "+=2000"
-	}, 1000, function() {
-		jQuery('#send_box_'+scan_box_id).remove();
-	});
+    jQuery('#send_box_'+scan_box_id).animate({
+        opacity: 0,
+        left: "+=2000"
+    }, 1000, function() {
+        jQuery('#send_box_'+scan_box_id).remove();
+    });
 }
 
 function send_all(){
-	found = 0;
-	
-	jQuery('#send_all').fadeOut();
+    found = 0;
+
+    jQuery('#send_all').fadeOut();
     jQuery('#price_enquiry').fadeOut();
-	jQuery('.scan_box').each(function(){
-		var this_id = jQuery(this).attr('this_id');
-		send_order(this_id);
-	});
+    jQuery('.scan_box').each(function(){
+        var this_id = jQuery(this).attr('this_id');
+        send_order(this_id);
+    });
 }
 
 /*function to recharge the app when the connection is broke*/
-function rechargable(){ 
+function rechargable(){
     window.location.reload();
 }
 
@@ -243,8 +243,8 @@ function validateProduct(barCode){
         timeout: 60 * 1000
     }).done(function (data) {
 
-            load_new_scan(data);
-            //$('#edit-actions').click(alert('hi'));
+        load_new_scan(data);
+        //$('#edit-actions').click(alert('hi'));
         //openWebCart();
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
@@ -273,16 +273,16 @@ function validate(){
             var uid=data[0].uid;
 
             var htmlstr='<div id="to_hide2" class="pagetxt col-xs-12">'+
-                            //'<div class="logo"><img src="img/anzor_logo.png" ></div>' +
-                           // '<h1>Add product</h1>'+
-                          //  '<p class="text-center">Put product opposite your phone camera, fit barcode to scanning area and wait until we recognize it.</p>'+
-                            '<input type="hidden" id="uid" value="'+uid+'">'+
-                        '</div>'+
-'<div id="addimg" class="pagetxt col-xs-12">' +
- '<div id="start_scan" class="scanbttn col-xs-12">'+
- /*'<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+*/
- '</div>' +
- '</div>';
+                //'<div class="logo"><img src="img/anzor_logo.png" ></div>' +
+                // '<h1>Add product</h1>'+
+                //  '<p class="text-center">Put product opposite your phone camera, fit barcode to scanning area and wait until we recognize it.</p>'+
+                '<input type="hidden" id="uid" value="'+uid+'">'+
+                '</div>'+
+                '<div id="addimg" class="pagetxt col-xs-12">' +
+                '<div id="start_scan" class="scanbttn col-xs-12">'+
+                /*'<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+*/
+                '</div>' +
+                '</div>';
 
             if ($("#remember").is(':checked')){
                 localStorage.name=usr;
@@ -330,80 +330,62 @@ function msg(parClass, parMsg, parMsgStrong ){
 
 
 /*scanning and encoding */
-    function scan() {
-        console.log('scanning');
+function scan() {
+    console.log('scanning');
+
+    var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+
+
+    scanner.scan( function (result) {
+
+
+            validateProduct(result.text);
 
 
 
+        }, function (error) {
+            console.log("Scanning failed: ", error);
+        },
+        {
+            "orientation" : "portrait" // Android only (portrait|landscape), default unset so it rotates with the device
+        });
+}
 
-        //var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+function encode() {
+    var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
-        //scanner.scan( function (result) {
+    scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
+            alert("encode success: " + success);
+        }, function(fail) {
+            alert("encoding failed: " + fail);
+        }
+    );
 
-            cordova.plugins.barcodeScanner.scan( function (result) {
-
-                    validateProduct(result.text);
-
-
-
-                }, function (error) {
-                    console.log("Scanning failed: ", error);
-                },
-                {
-                    "orientation" : "portrait" // Android only (portrait|landscape), default unset so it rotates with the device
-                });
-
-
-
-
-
-
-
-    }
-
-    function encode() {
-
-
-        //var scanner = cordova.require("cordova/plugin/BarcodeScanner");
-
-        //scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
-            cordova.plugins.barcodeScanner.encode(cordova.plugins.barcodeScanner.Encode.TEXT_TYPE, "http://www.nytimes.com", function(success) {
-
-
-                    alert("encode success: " + success);
-                }, function(fail) {
-                    alert("encoding failed: " + fail);
-                }
-            );
-
-
-
-
-    }
+}
 
 
 /*Check connection internet*/
 function checkConnection() {
-	//alert("No Internet Connection");
-	// check to see if the network is reachable
-	//alert('entro');
-	var networkState = navigator.connection.type;
-	if (networkState=='none'){
-            //alert('No Internet Connection');
-            var htmlstr='<div id="msgNoConn">';
-            htmlstr+='<p>Cannot establish connection</p>';
-            htmlstr+='<p>with the Anzor server.</p>';
-            htmlstr+='<br><br>';
-            htmlstr+='<p>You need to be</p>';
-            htmlstr+='<p>connected to the Internet</p>';
-            htmlstr+='<br><br>';
-            htmlstr+='<input type="button" id="recharge" value="Try again">';
-            htmlstr+='</div>';
-            jQuery('.content').html(htmlstr);
-            document.getElementById('recharge').addEventListener('click', rechargable, false);
-        }
-
+    //alert("No Internet Connection");
+    // check to see if the network is reachable
+    //alert('entro');
+    var networkState = navigator.connection.type;
+    if (networkState=='none'){
+        //alert('No Internet Connection');
+        var htmlstr='<div id="msgNoConn">';
+        htmlstr+='<p>Cannot establish connection</p>';
+        htmlstr+='<p>with the Anzor server.</p>';
+        htmlstr+='<br><br>';
+        htmlstr+='<p>You need to be</p>';
+        htmlstr+='<p>connected to the Internet</p>';
+        htmlstr+='<br><br>';
+        htmlstr+='<input type="button" id="recharge" value="Try again">';
+        htmlstr+='</div>';
+        jQuery('.content').html(htmlstr);
+        document.getElementById('recharge').addEventListener('click', rechargable, false);
     }
+
+}
 
 /*calculate the price per line*/
 function checkQty(obj, stockcode, box_counter){
@@ -449,8 +431,6 @@ function openWebCart(){
 
 }
 
-
-
 function openHomePage(){
     var uid = $("#uid").val();// btoa atob(encodedData);
     var url = 'http://'+server+'/anzor_services/home';
@@ -463,11 +443,9 @@ function openHomePage(){
         if (data){
             if (localStorage.usr!=uid){
                 localStorage.usr=uid;
+                //var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'', '_system');
 
                 ref=window.open('http://'+server+'','_system');
-
-
-
             }else{
                 //$("#scan").trigger("click");
                 scan();
@@ -480,35 +458,34 @@ function openHomePage(){
         console.log(b + '|' + c);
     });
     /*if (typeof(redirection) === 'undefined'){
-        redirection= "NO";
-        var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'', '_system');
-    }else{
-        return;
-    }*/
+     redirection= "NO";
+     var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'', '_system');
+     }else{
+     return;
+     }*/
 
 
 
 
 
     /*ref.addEventListener( "loadstop", function() {
-        ref.executeScript(
-            { code: "document.body.innerHTML" },
-            function( values ) {
-                //alert( values[ 0 ] );
-            }
-        );
-    });*/
+     ref.executeScript(
+     { code: "document.body.innerHTML" },
+     function( values ) {
+     //alert( values[ 0 ] );
+     }
+     );
+     });*/
 
     /*ref.addEventListener('loadstop', function() {
-        ref.executeScript({file: "js/custom.js"});
-    })*/
+     ref.executeScript({file: "js/custom.js"});
+     })*/
 
 
 }
 
 function openHomePageFromMobileListProducts(){
-    openHomePage();
-    //window.open('http://'+server+'','_system');
+    window.open('http://'+server+'','_system');
     //ref.focus();
 }
 function checkOut(){

@@ -15,39 +15,30 @@
     <!--https://github.com/phonegap/phonegap-plugin-barcodescanner.git
     https://github.com/Telerik-Verified-Plugins/BarcodeScanner.git
     <gap:plugin name="phonegap.plugin.barcodescanner" source="npm"/>
-    <gap:plugin name="com.phonegap.plugins.barcodescanner"/>
-<gap:plugin name="cordova-plugin-barcodescanner" source="npm"/>
+    <gap:plugin name="com.phonegap.plugins.barcodescanner"/> -->
 
-    <plugin spec="https://github.com/Telerik-Verified-Plugins/BarcodeScanner.git" source="git" />
-    <gap:plugin name="com.phonegap.plugins.barcodescanner"/>-->
     <gap:plugin name="cordova-plugin-barcodescanner" source="npm"/>
+
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.core.inappbrowser" />
     <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
     <gap:plugin name="cordova-plugin-customurlscheme" source="npm">
         <param name="URL_SCHEME" value="scan" />
     </gap:plugin>
-
-    <!-- <platform name="ios">
-         <gap:plugin name="com.phonegap.plugins.barcodescanner"/>
-         <plugin name="com.phonegap.plugins.barcodescanner"/>
-    </platform>
-
-    <platform name="android">
-        <preference name="Orientation" value="all" />
-        <plugin spec="https://github.com/Telerik-Verified-Plugins/BarcodeScanner.git" source="git" />
-    </platform>
+    <!--<gap:url-scheme role="Viewer">
+        <scheme>scan</scheme>
+        <scheme>pgbw</scheme>
+    </gap:url-scheme>
+    <gap:platform name="ios" />-->
+    <gap:platform name="android" />
 
 
-
-    <gap:platform name="ios" />
-    <gap:platform name="android" />-->
-
+    <!--<gap:plugin name="com.ohh2ahh.plugins.appavailability" />-->
 
     <feature name="http://api.phonegap.com/1.0/device" />
     <feature name="debug-server" required="true">
-       <param name="domain" value="http://debug.phonegap.com"/>
-       <param name="key" value="willoughby"/>
+        <param name="domain" value="http://debug.phonegap.com"/>
+        <param name="key" value="willoughby"/>
     </feature>
 
     <!--<preference name="phonegap-version" value="3.6.3" />-->
@@ -56,9 +47,8 @@
     <preference name="target-device"    value="universal" />
     <preference name="fullscreen"       value="false" />
     <preference name="webviewbounce"    value="false" />
-    <preference name="stay-in-webview" value="false" />
+    <preference name="stay-in-webview" value="true" />
     <preference name="android-build-tool" value="gradle" />
-
     <access origin="*"/>
 
 
@@ -96,6 +86,4 @@
 
     <!-- content src="http://www.w3.org/2010/05/video/mediaevents.html" / -->
 
-
-    
 </widget>
