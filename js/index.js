@@ -453,7 +453,7 @@ function openHomePage(){
                 localStorage.usr=uid;
 
                 //ref=window.open('http://'+server+'','_system');
-                ref=window.open('http://'+server+'','_blank');
+                ref=cordova.InAppBrowser.open('http://'+server+'','_blank','location=no');
 
 
 
