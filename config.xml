@@ -54,6 +54,8 @@
     <preference name="stay-in-webview" value="false" />
     <preference name="android-build-tool" value="gradle" />
 
+    <allow-navigation href="*" />
+    <allow-intent href="*" />
     <access origin="*"/>
 
 
