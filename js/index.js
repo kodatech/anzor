@@ -34,7 +34,6 @@ app = {
         document.addEventListener('deviceready', this.onDeviceReady, false);
         //document.getElementById('scan').addEventListener('click', this.scan, false);
         //document.getElementById('encode').addEventListener('click', this.encode, false);
-        document.addEventListener("resume", onResume, false);
     },
 
     // deviceready Event Handler
@@ -66,11 +65,7 @@ app = {
 var box_counter = 1;
 var found = 0;
 
-function onResume() {
-    setTimeout(function() {
-        scan();
-    }, 0);
-}
+
 
 function iniEvents(){
     //document.getElementById('login').addEventListener('click', validate, false);
