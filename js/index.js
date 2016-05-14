@@ -92,6 +92,8 @@ function iniEvents(){
 
     //alert(deviceType);
 
+    running=FALSE;
+
 }
 
 function load_new_scan(data){
@@ -292,12 +294,19 @@ function validate(){
             $('#encode').click(encode);
 
             var redirection="YES";
-            scan();
-
+            
             //openHomePage(redirection);
             $("#content-inner").css("display","block");
 
-            window.open('http://'+server+'','_system');
+            if (!running){
+                running=TRUE;
+                window.open('http://'+server+'','_system');
+
+            }else{
+                scan();
+
+            }
+
 
 
 
