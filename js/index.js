@@ -543,4 +543,5 @@ function _delete(){
 function closeWindow(){
     navigator.app.exitApp();
     navigator.device.exitApp();
+    return TRUE;
 }
