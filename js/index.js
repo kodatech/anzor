@@ -67,11 +67,11 @@ var box_counter = 1;
 var found = 0;
 
 function onResume(){
-    //setTimeout(function() {
+    setTimeout(function() {
         // TODO: do your thing!
         scan();
 
-   // }, 0);
+    }, 0);
 }
 
 function iniEvents(){
