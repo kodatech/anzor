@@ -20,6 +20,7 @@
 var server="anzornz.kodait.com";
 
 
+
 var app;
 app = {
     // Application Constructor
@@ -86,19 +87,24 @@ function iniEvents(){
     }
     //$(".line-item-summary").hide();
     $("#content-inner").css("display", "none");
+    document.addEventListener("resume", function() { localStorage.removeItem("usr"); }, false);
+    //document.addEventListener("unload", function() { localStorage.removeItem("usr"); }, false);
     checkConnection();
 
-    deviceType = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iPad" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iPhone" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/BlackBerry/i)) == "BlackBerry" ? "BlackBerry" : "null";
+    //$("#loading").css("display", "none");  // Hide it initially
 
-    alert(deviceType);
 
+}
+
+function delVariables(){
+    localStorage.removeItem("usr");
 }
 
 function load_new_scan(data){
     if (data){
         found = 1;
         //$(".line-item-summary").show();
-        //$("#content-inner").show();
+        $("#content-inner").show();
         jQuery('#send_all').fadeIn();
         jQuery('#price_enquiry').fadeIn();
         var stockcode=data[0]['stockcode'];
@@ -217,17 +223,19 @@ function validateProduct(barCode){
     $("#to_hide3").css("display","none");
     $("#to_hide2").css("display","none");
     $("#start_scan").removeClass("col-xs-12").addClass( "col-xs-9" );
+
     //$("#scan").html('<img src="img/search.svg">Add product</a>');
+    //<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>
     $("#start_scan").html('<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Add product</a>');
+
     $('#addimg .col-xs-3').remove();
-    $("#addimg").prepend('<div class="logo small col-xs-3"><img onclick="openHomePage()" src="img/anzor_logo_s.png"></div>');
+    $("#addimg").prepend('<div class="logo small col-xs-3"><img onclick="openHomePageFromMobileListProducts()" src="img/anzor_logo_s.png"></div>');
     $("#bar_code").addClass("fixed");
+
+    $('#scan').click(scan);
 
     var uid=$("#uid").val();
     //alert(uid);
-    $('#scan').click(scan);
-    $('#encode').click(encode);
-
     return $.ajax({
         type: "GET",
         data: { barCode: barCode, uid : uid} ,
@@ -257,7 +265,7 @@ function validate(){
         timeout: 60 * 1000,
         //async:false
     }).done(function (data) {
-        //alert("adentro");
+
         if (data){
             $("#to_hide3").css("display","none");
             $("#f1").css("display","none");
@@ -265,14 +273,14 @@ function validate(){
             var uid=data[0].uid;
 
             var htmlstr='<div id="to_hide2" class="pagetxt col-xs-12">'+
-                //'<div class="logo"><img src="img/anzor_logo.png"></div>' +
-               //'<h1>Add product</h1>'+
-               // '<p class="text-center">Put product opposite your phone camera, fit barcode to scanning area and wait until we recognize it.</p>'+
+                //'<div class="logo"><img src="img/anzor_logo.png" ></div>' +
+                // '<h1>Add product</h1>'+
+                //  '<p class="text-center">Put product opposite your phone camera, fit barcode to scanning area and wait until we recognize it.</p>'+
                 '<input type="hidden" id="uid" value="'+uid+'">'+
                 '</div>'+
                 '<div id="addimg" class="pagetxt col-xs-12">' +
                 '<div id="start_scan" class="scanbttn col-xs-12">'+
-                //'<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
+                /*'<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+*/
                 '</div>' +
                 '</div>';
 
@@ -286,22 +294,10 @@ function validate(){
             $("#bar_code").html(htmlstr);
             $("#to_hide2").css("display","none");
 
-            //$('#scan').click(scan);
+            $('#encode').click(encode);
 
-            //$('#encode').click(encode);
 
-            var redirection="YES";
-
-            //openHomePage(redirection);
-            window.open('http://'+server+'','_system');//.css("display", "none");
-            $("#content-inner").css("display","block");
-            if (deviceType='iPhone'){
-                $("#only-android").css("display","none");
-                scan();
-            }
-            if(deviceType='iPhone'){
-                openHomePage();
-            }
+            openHomePage();
 
         }else{
             msg("alert-warning", "User or Password are wrong.", "Try again!");
@@ -311,6 +307,9 @@ function validate(){
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
     });
+
+
+
 }
 
 function msg(parClass, parMsg, parMsgStrong ){
@@ -333,25 +332,12 @@ function msg(parClass, parMsg, parMsgStrong ){
 /*scanning and encoding */
 function scan() {
     console.log('scanning');
-    if (deviceType=="iPhone"){
-    var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+
+    //var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
 
-    scanner.scan( function (result) {
-
-
-        validateProduct(result.text);
-
-
-
-    }, function (error) {
-        console.log("Scanning failed: ", error);
-    });
-}
-
-    if (deviceType=="Android"){
-        cordova.plugins.barcodeScanner.scan( function (result) {
-
+    //scanner.scan( function (result) {
+    cordova.plugins.barcodeScanner.scan( function (result) {
 
             validateProduct(result.text);
 
@@ -360,39 +346,23 @@ function scan() {
         }, function (error) {
             console.log("Scanning failed: ", error);
         },
-            {
-                "orientation" : "portrait" // Android only (portrait|landscape), default unset so it rotates with the device
-            });
-    }
-
+        {
+            //"prompt": "<input type='button'>",
+            "orientation" : "portrait" // Android only (portrait|landscape), default unset so it rotates with the device
+        });
 }
 
 function encode() {
+    //var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
-    if (deviceType=="iPhone"){
-        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+    //scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
+    cordova.plugins.barcodeScanner.encode(cordova.plugins.barcodeScanner.Encode.TEXT_TYPE, "http://www.nytimes.com", function(success) {
 
-        scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
-        alert("encode success: " + success);
-    }, function (fail) {
-        alert("encoding failed: " + fail);
-    }
-);
-    }
-
-
-
-    if (deviceType=="Android") {
-
-
-        cordova.plugins.barcodeScanner.encode(cordova.plugins.barcodeScanner.Encode.TEXT_TYPE, "http://www.nytimes.com", function (success) {
-
-                alert("encode success: " + success);
-            }, function (fail) {
-                alert("encoding failed: " + fail);
-            }
-        );
-    }
+            alert("encode success: " + success);
+        }, function(fail) {
+            alert("encoding failed: " + fail);
+        }
+    );
 
 }
 
@@ -464,6 +434,8 @@ function openWebCart(){
 
 }
 
+
+
 function openHomePage(){
     var uid = $("#uid").val();// btoa atob(encodedData);
     var url = 'http://'+server+'/anzor_services/home';
@@ -477,7 +449,7 @@ function openHomePage(){
             if (localStorage.usr!=uid){
                 localStorage.usr=uid;
 
-                ref=window.open('http://'+server+'','_system');
+                ref=window.open('http://'+server+'','_system','location=no');
 
 
 
@@ -492,6 +464,13 @@ function openHomePage(){
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
     });
+    /*if (typeof(redirection) === 'undefined'){
+     redirection= "NO";
+     var ref=window.open('http://'+server+'/anzor_services/home?uid='+uid+'', '_system');
+     }else{
+     return;
+     }*/
+
 
 
 
@@ -512,6 +491,11 @@ function openHomePage(){
 
 }
 
+function openHomePageFromMobileListProducts(){
+    openHomePage();
+    //window.open('http://'+server+'','_system');
+    //ref.focus();
+}
 function checkOut(){
     var url = 'http://'+server+'/anzor_services/checkout';
     var uid=$("#uid").val();

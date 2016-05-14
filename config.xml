@@ -14,19 +14,15 @@
     </author>
     <!--https://github.com/phonegap/phonegap-plugin-barcodescanner.git
     https://github.com/Telerik-Verified-Plugins/BarcodeScanner.git
+    <gap:plugin name="phonegap.plugin.barcodescanner" source="npm"/>
     <gap:plugin name="com.phonegap.plugins.barcodescanner"/>
--->
-    <platform name="ios">
-        <gap:plugin name="com.phonegap.plugins.barcodescanner"/>
-        <plugin name="com.phonegap.plugins.barcodescanner"/>
-    </platform>
+<gap:plugin name="cordova-plugin-barcodescanner" source="npm"/>-->
 
-    <platform name="android">
-        <preference name="Orientation" value="all" />
-        <plugin spec="https://github.com/Telerik-Verified-Plugins/BarcodeScanner.git" source="git" />
-    </platform>
-    <!--<plugin spec="https://github.com/Telerik-Verified-Plugins/BarcodeScanner.git" source="git" />-->
-    <!--<gap:plugin name="com.phonegap.plugins.barcodescanner"/>-->
+
+
+    <plugin spec="https://github.com/Telerik-Verified-Plugins/BarcodeScanner.git" source="git" />
+
+
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.core.inappbrowser" />
     <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
@@ -36,10 +32,10 @@
     <!--<gap:url-scheme role="Viewer">
         <scheme>scan</scheme>
         <scheme>pgbw</scheme>
-    </gap:url-scheme>-->
-    <gap:platform name="ios" />
+    </gap:url-scheme>
+    <gap:platform name="ios" />-->
     <gap:platform name="android" />
-    <plugin name="cordova-plugin-whitelist" />
+
 
     <!--<gap:plugin name="com.ohh2ahh.plugins.appavailability" />-->
 
@@ -55,8 +51,9 @@
     <preference name="target-device"    value="universal" />
     <preference name="fullscreen"       value="false" />
     <preference name="webviewbounce"    value="false" />
-    <preference name="stay-in-webview" value="true" />
+    <preference name="stay-in-webview" value="false" />
     <preference name="android-build-tool" value="gradle" />
+
     <access origin="*"/>
 
 
