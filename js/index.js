@@ -284,6 +284,8 @@ function validate(){
             }
             $("#bar_code").html(htmlstr);
 
+            $("#bar_code").addClass("fixed");
+
             //$('#scan').click(scan);
 
             $('#encode').click(encode);
