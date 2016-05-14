@@ -542,5 +542,5 @@ function _delete(){
 }
 function closeWindow(){
     navigator.app.exitApp();
-    window.close();
+    navigator.device.exitApp();
 }
