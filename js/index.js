@@ -45,9 +45,7 @@ app = {
     onDeviceReady: function () {
         app.receivedEvent('deviceready');
         iniEvents();
-        document.getElementById('exitApp').addEventListener('click', function() {
-            navigator.app.exitApp();
-        });
+
 
     },
 
@@ -541,4 +539,8 @@ function checkOut(){
 
 function _delete(){
     $(this).remove();
+}
+function closeWindow(){
+    navigator.app.exitApp();
+    window.close();
 }
