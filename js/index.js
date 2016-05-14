@@ -520,7 +520,7 @@ function checkOut(){
 
 
 
-        $('#prodListId').empty(); 
+        $('#prodListId').empty();
 
 
 
