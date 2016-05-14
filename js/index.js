@@ -212,7 +212,7 @@ function rechargable(){
 /*Product validation*/
 function validateProduct(barCode){
     var url = 'http://'+server+'/anzor_services/product';
-    rechargable();
+    //rechargable();
     $("#to_hide3").css("display","none");
     $("#to_hide2").css("display","none");
     //$("#start_scan").removeClass("col-xs-12").addClass( "col-xs-9" );
