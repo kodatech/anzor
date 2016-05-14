@@ -34,7 +34,7 @@ app = {
         document.addEventListener('deviceready', this.onDeviceReady, false);
         //document.getElementById('scan').addEventListener('click', this.scan, false);
         //document.getElementById('encode').addEventListener('click', this.encode, false);
-        document.addEventListener("resume", onResume, false);
+        document.addEventListener("resume", active, false);
     },
 
     // deviceready Event Handler
