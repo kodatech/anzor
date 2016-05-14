@@ -455,7 +455,11 @@ function openHomePage(){
                 //ref=window.open('http://'+server+'','_system');
                 ref=cordova.InAppBrowser.open('http://'+server+'','_blank','location=no');
 
-
+                ref.addEventListener('loadstop', function(event) {
+                    if (event.url.match('http://'+server+'')) {
+                        ref.close();
+                    }
+                });
 
             }else{
                 //$("#scan").trigger("click");
