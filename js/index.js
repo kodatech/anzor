@@ -285,6 +285,7 @@ function validate(){
             $("#bar_code").html(htmlstr);
 
             $("#bar_code").addClass("fixed");
+            $("#to_hide2").css("display","none");
 
             //$('#scan').click(scan);
 
