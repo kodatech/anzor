@@ -456,9 +456,12 @@ function openHomePage(){
                 ref=cordova.InAppBrowser.open('http://'+server+'','_blank','location=no');
 
                 ref.addEventListener('loadstop', function(event) {
-                    if (event.url.match('http://'+server+'')) {
+                    //if (event.url.match('http://'+server+'')) {
+                    $("#exitApp").click(function(){
                         ref.close();
-                    }
+                    });
+
+                    //}
                 });
 
             }else{
