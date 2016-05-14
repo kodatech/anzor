@@ -212,7 +212,7 @@ function rechargable(){
 /*Product validation*/
 function validateProduct(barCode){
     var url = 'http://'+server+'/anzor_services/product';
-
+    rechargable();
     $("#to_hide3").css("display","none");
     $("#to_hide2").css("display","none");
     //$("#start_scan").removeClass("col-xs-12").addClass( "col-xs-9" );
@@ -256,7 +256,7 @@ function validate(){
         timeout: 60 * 1000,
         //async:false
     }).done(function (data) {
-        alert("adentro");
+        //alert("adentro");
         if (data){
             $("#to_hide3").css("display","none");
             $("#f1").css("display","none");
