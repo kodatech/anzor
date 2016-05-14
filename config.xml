@@ -22,9 +22,11 @@
 
     <plugin spec="https://github.com/Telerik-Verified-Plugins/BarcodeScanner.git" source="git" />
 
+    <plugin name="cordova-plugin-inappbrowser" source="npm"/>
 
     <gap:plugin name="org.apache.cordova.network-information" />
-    <gap:plugin name="org.apache.cordova.core.inappbrowser" />
+    <!--<gap:plugin name="org.apache.cordova.core.inappbrowser" />-->
+
     <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
     <gap:plugin name="cordova-plugin-customurlscheme" source="npm">
         <param name="URL_SCHEME" value="scan" />
