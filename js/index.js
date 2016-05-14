@@ -34,7 +34,6 @@ app = {
         document.addEventListener('deviceready', this.onDeviceReady, false);
         //document.getElementById('scan').addEventListener('click', this.scan, false);
         //document.getElementById('encode').addEventListener('click', this.encode, false);
-        document.addEventListener("active", onResume, false);
     },
 
     // deviceready Event Handler
@@ -66,13 +65,7 @@ app = {
 var box_counter = 1;
 var found = 0;
 
-function onResume(){
-    setTimeout(function() {
-        // TODO: do your thing!
-        scan();
 
-    }, 0);
-}
 
 function iniEvents(){
     //document.getElementById('login').addEventListener('click', validate, false);
@@ -232,7 +225,7 @@ function validateProduct(barCode){
     $('#addimg .col-xs-3').remove();
     $("#addimg").prepend('<div class="logo small col-xs-3"><img onclick="openHomePage()" src="img/anzor_logo_s.png"></div>');
     $("#bar_code").addClass("fixed");
-
+    $("#content-inner").css("display","block");
     var uid=$("#uid").val();
     //alert(uid);
     $('#scan').click(scan);
@@ -306,11 +299,11 @@ function validate(){
             scan();
 
             //openHomePage(redirection);
-            $("#content-inner").css("display","block");
 
             window.open('http://'+server+'','_system');
 
 
+            //$("#content-inner").css("display","block");
 
         }else{
             msg("alert-warning", "User or Password are wrong.", "Try again!");
