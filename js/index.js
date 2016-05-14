@@ -44,6 +44,7 @@ app = {
     //
     onDeviceReady: function () {
         app.receivedEvent('deviceready');
+        window.open = cordova.InAppBrowser.open;
         iniEvents();
 
 
@@ -431,7 +432,8 @@ function checkQty(obj, stockcode, box_counter){
 
 function openWebCart(){
     var uid = $("#uid").val();// btoa atob(encodedData);
-    var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_system');
+    //var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_system');
+    var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_blank');
 
 }
 
@@ -450,7 +452,8 @@ function openHomePage(){
             if (localStorage.usr!=uid){
                 localStorage.usr=uid;
 
-                ref=window.open('http://'+server+'','_system');
+                //ref=window.open('http://'+server+'','_system');
+                ref=window.open('http://'+server+'','_blank');
 
 
 
