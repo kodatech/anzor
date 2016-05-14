@@ -457,8 +457,10 @@ function openHomePage(){
 
                 ref.addEventListener('loadstop', function(event) {
                     //if (event.url.match('http://'+server+'')) {
-                    $("#exitApp").click(function(){
-                        ref.close();
+                    ref.addEventListener('loadstop', function(event) {
+                        if (event.url.match("mobile/close")) {
+                            ref.close();
+                        }
                     });
 
                     //}
