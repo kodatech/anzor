@@ -218,7 +218,7 @@ function validateProduct(barCode){
     //$("#start_scan").removeClass("col-xs-12").addClass( "col-xs-9" );
     //$("#scan").html('<img src="img/search.svg">Add product</a>');
     $("#start_scan").html('<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Add product</a>');
-    //$('#addimg .col-xs-3').remove();
+    $('#addimg .col-xs-3').remove();
     $("#addimg").prepend('<div class="logo small col-xs-3"><img onclick="openHomePage()" src="img/anzor_logo_s.png"></div>');
     $("#bar_code").addClass("fixed");
 
