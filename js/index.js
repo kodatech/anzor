@@ -470,6 +470,11 @@ function openHomePage(){
                     //}
                 });
 
+                ref.addEventListener('loadstart', inAppBrowserbLoadStart);
+                ref.addEventListener('loadstop', inAppBrowserbLoadStop);
+                ref.addEventListener('loaderror', inAppBrowserbLoadError);
+                ref.addEventListener('exit', inAppBrowserbClose);
+
             }else{
                 //$("#scan").trigger("click");
                 scan();
@@ -508,6 +513,32 @@ function openHomePage(){
 
 }
 
+function inAppBrowserbLoadStart(event) {
+
+    navigator.notification.activityStart("Please Wait", "Its loading....");
+    alert(event.type + ' - ' + event.url);
+
+}
+
+function inAppBrowserbLoadStop(event) {
+    navigator.notification.activityStop();
+    alert(event.type + ' - ' + event.url);
+
+}
+
+function inAppBrowserbLoadError(event) {
+    navigator.notification.activityStop();
+    alert(event.type + ' - ' + event.message);
+}
+
+function inAppBrowserbClose(event) {
+    //navigator.notification.activityStop();
+    alert(event.type);
+    inAppBrowserbRef.removeEventListener('loadstart', iabLoadStart);
+    inAppBrowserbRef.removeEventListener('loadstop', iabLoadStop);
+    inAppBrowserbRef.removeEventListener('loaderror', iabLoadError);
+    inAppBrowserbRef.removeEventListener('exit', iabClose);
+}
 
 function openHomePageFromMobileListProducts(){
     openHomePage();
