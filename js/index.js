@@ -457,7 +457,7 @@ function openHomePage(){
                 ref=cordova.InAppBrowser.open('http://'+server+'','_blank','location=no');
 
                 ref.addEventListener('loadstart', function(event) {
-                    $("#loading").css("display", "block");
+                    alert('Loading: ' + event.url);
                 });
                 ref.addEventListener('loadstop', function(event) {
                     //if (event.url.match('http://'+server+'')) {
@@ -466,8 +466,6 @@ function openHomePage(){
                             ref.close();
                         }
                     });
-                    $("#loading").css("display", "none");
-
                     //}
                 });
 
