@@ -433,7 +433,8 @@ function checkQty(obj, stockcode, box_counter){
 function openWebCart(){
     var uid = $("#uid").val();// btoa atob(encodedData);
     //var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_system');
-    var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_blank');
+    //var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_blank');
+    ref=cordova.InAppBrowser.open('http://'+server+'/anzor_services/cart?uid='+uid+'','_blank','location=no');
 
 }
 
