@@ -64,7 +64,7 @@ app = {
 
 var box_counter = 1;
 var found = 0;
-
+var items=new Array();
 
 
 function iniEvents(){
@@ -237,13 +237,28 @@ function validateProduct(barCode){
         url: url,
         timeout: 60 * 1000
     }).done(function (data) {
-
-        load_new_scan(data);
-        //$('#edit-actions').click(alert('hi'));
-        //openWebCart();
+        var pos=items.indexOf(data[0]['stockcode']);
+        if (pos==-1){
+            items.push(data[0]['stockcode']);
+            //alert(items.length)
+            load_new_scan(data);
+        }else{
+            changeQty(pos);
+            //alert ("llamo a funcion para agregar uno a la linea existente");
+        }
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
     });
+}
+
+function changeQty(pos){
+    var id='qty_'+pos+'';
+    var qty=parseInt($("#"+id).val())+1;
+    $("#"+id).val(qty);
+    id='total'+pos+'';
+    var idprice='price'+pos+'';
+    var tot=parseFloat($("#"+idprice).text()*qty);
+    $("#"+id).text(tot.toFixed(4));
 }
 
 /*User validation*/
