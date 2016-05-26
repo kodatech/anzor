@@ -245,7 +245,7 @@ function validateProduct(barCode){
         url: url,
         timeout: 60 * 1000
     }).done(function (data) {
-        if (items.indexOf(data[0]['stockcode'])!=-1){
+        if (items.indexOf(data[0]['stockcode'])==-1){
             items.push(data[0]['stockcode']);
             alert(items.length)
             load_new_scan(data);
