@@ -245,12 +245,14 @@ function validateProduct(barCode){
         url: url,
         timeout: 60 * 1000
     }).done(function (data) {
-        if (items.indexOf(data[0]['stockcode'])==-1){
+        var pos=items.indexOf(data[0]['stockcode']);
+        if (pos==-1){
             items.push(data[0]['stockcode']);
-            alert(items.length)
+            //alert(items.length)
             load_new_scan(data);
         }else{
-            alert ("llamo a funcion para agregar uno a la linea existente");
+            changeQty(pos);
+            //alert ("llamo a funcion para agregar uno a la linea existente");
         }
 
         //$('#edit-actions').click(alert('hi'));
@@ -258,6 +260,11 @@ function validateProduct(barCode){
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
     });
+}
+
+function changeQty(pos){
+    var id='qty_'+pos+'';
+    $("#"+id).val($("#"+id).val()+1);
 }
 
 /*User validation*/
