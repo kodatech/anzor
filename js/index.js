@@ -250,7 +250,7 @@ function validateProduct(barCode){
             alert(items.length)
             load_new_scan(data);
         }else{
-            alert ("llamo a funcion para agregar uno a la linea existente")
+            alert ("llamo a funcion para agregar uno a la linea existente");
         }
 
         //$('#edit-actions').click(alert('hi'));
