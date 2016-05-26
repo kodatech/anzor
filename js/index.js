@@ -65,8 +65,9 @@ app = {
 
 };
 
-var box_counter = 1;
+var box_counter = 0;
 var found = 0;
+var items=new Array();
 
 function iniEvents(){
     //document.getElementById('login').addEventListener('click', validate, false);
@@ -244,8 +245,13 @@ function validateProduct(barCode){
         url: url,
         timeout: 60 * 1000
     }).done(function (data) {
+        if (items.indexOf(data[0]['stockcode'])!=-1){
+            items.push(data[0]['stockcode']);
+            load_new_scan(data);
+        }else{
+            alert ("llamo a funcion para agregar uno a la linea existente")
+        }
 
-        load_new_scan(data);
         //$('#edit-actions').click(alert('hi'));
         //openWebCart();
     }).fail(function (a, b, c) {
