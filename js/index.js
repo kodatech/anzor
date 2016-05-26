@@ -264,7 +264,7 @@ function validateProduct(barCode){
 
 function changeQty(pos){
     var id='qty_'+pos+'';
-    var qty=parseInt($("#"+id).val()+1);
+    var qty=parseInt($("#"+id).val())+1;
     $("#"+id).val(qty);
     id='total'+pos+'';
     $("#"+id).text(parseFloat($("#"+id).text()*qty));
