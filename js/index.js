@@ -247,6 +247,7 @@ function validateProduct(barCode){
     }).done(function (data) {
         if (items.indexOf(data[0]['stockcode'])!=-1){
             items.push(data[0]['stockcode']);
+            alert(items.length)
             load_new_scan(data);
         }else{
             alert ("llamo a funcion para agregar uno a la linea existente")
