@@ -267,7 +267,8 @@ function changeQty(pos){
     var qty=parseInt($("#"+id).val())+1;
     $("#"+id).val(qty);
     id='total'+pos+'';
-    $("#"+id).text(parseFloat($("#"+id).text()*qty));
+    var tot=parseFloat($("#"+id).text()*qty);
+    $("#"+id).text(tot.toFixed(4));
 }
 
 /*User validation*/
