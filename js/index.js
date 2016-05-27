@@ -237,15 +237,17 @@ function validateProduct(barCode){
         url: url,
         timeout: 60 * 1000
     }).done(function (data) {
-        var pos=items.indexOf(data[0]['stockcode']);
-        if (pos==-1){
-            items.push(data[0]['stockcode']);
-            //alert(items.length)
-            load_new_scan(data);
-        }else{
-            changeQty(pos);
-            //alert ("llamo a funcion para agregar uno a la linea existente " + pos);
-        }
+        
+            var pos=items.indexOf(data[0]['stockcode']);
+            if (pos==-1){
+                items.push(data[0]['stockcode']);
+                //alert(items.length)
+                load_new_scan(data);
+            }else{
+                changeQty(pos);
+                //alert ("llamo a funcion para agregar uno a la linea existente " + pos);
+            }
+
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
     });
