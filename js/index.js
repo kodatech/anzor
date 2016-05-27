@@ -255,8 +255,8 @@ function changeQty(pos){
     var id='qty_'+pos+'';
     var qty=parseInt($("#"+id).val())+1;
     alert(qty);
-    /*$("#"+id).val(qty);
-    id='total'+pos+'';
+    $("#"+id).val(qty);
+    /*id='total'+pos+'';
     var idprice='price'+pos+'';
     var tot=parseFloat($("#"+idprice).text()*qty);
     $("#"+id).text(tot.toFixed(4));*/
