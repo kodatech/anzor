@@ -240,7 +240,7 @@ function validateProduct(barCode){
         var pos=items.indexOf(data[0]['stockcode']);
         if (pos==-1){
             items.push(data[0]['stockcode']);
-            alert(items.length)
+            //alert(items.length)
             load_new_scan(data);
         }else{
             changeQty(pos);
@@ -549,6 +549,7 @@ function checkOut(){
 function logOut(){
     localStorage.clear();
     $("#remember").val(FALSE);
+    rechargable();
 }
 
 function _delete(){
