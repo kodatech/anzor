@@ -250,6 +250,8 @@ function validateProduct(barCode){
                 changeQty(pos);
                 //alert ("llamo a funcion para agregar uno a la linea existente " + pos);
             }
+        }else{
+            msg("alert-warning", "Wrong product.", "Try again!");
         }
 
 
