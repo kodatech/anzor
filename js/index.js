@@ -318,7 +318,7 @@ function validate(){
 
             //window.open('http://'+server+'','_system');
 
-            window.open('http://'+server+'','_system', 'location=no');
+            window.open('http://'+server+'','_system');
             //$("#content-inner").css("display","block");
 
         }else{
@@ -444,7 +444,7 @@ function checkQty(obj, stockcode, box_counter){
 function openWebCart(){
     var uid = $("#uid").val();// btoa atob(encodedData);
     //var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_system');
-    var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_system', 'location=no');
+    var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_system');
 
 }
 
@@ -464,7 +464,7 @@ function openHomePage(par){
                 localStorage.usr=uid;
                 //ref=window.open('http://'+server+'','_system');
 
-                ref=window.open('http://'+server+'','_system', 'location=no');
+                ref=window.open('http://'+server+'','_system');
 
 
 
@@ -476,7 +476,7 @@ function openHomePage(par){
                     return;
                 }else{
                     //ref=window.open('http://'+server+'','_system');
-                    ref=window.open('http://'+server+'','_system', 'location=no');
+                    ref=window.open('http://'+server+'','_system');
                 }
 
             }
