@@ -256,7 +256,7 @@ function changeQty(pos){
     //alert(id);
     var qty=$("#0").val();
     //parseInt()+1;
-    qty++;
+    //qty++;
     alert(qty);
     //var qty=
     /*$("#"+id).val(qty);
