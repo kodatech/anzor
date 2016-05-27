@@ -464,7 +464,7 @@ function openHomePage(par){
                 localStorage.usr=uid;
                 //ref=window.open('http://'+server+'','_system');
 
-                ref=window.open('http://'+server+'', '_blank', 'location=no');
+                ref=window.open('http://'+server+'', '_self', 'location=no');
 
 
 
@@ -476,7 +476,7 @@ function openHomePage(par){
                     return;
                 }else{
                     //ref=window.open('http://'+server+'','_system');
-                    ref=window.open('http://'+server+'', '_blank', 'location=no');
+                    ref=window.open('http://'+server+'', '_self', 'location=no');
                 }
 
             }
