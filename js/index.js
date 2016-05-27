@@ -546,6 +546,11 @@ function checkOut(){
     });
 }
 
+function logOut(){
+    localStorage.clear();
+    $("#remember").val(FALSE);
+}
+
 function _delete(){
     $(this).remove();
 }
