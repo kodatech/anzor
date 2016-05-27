@@ -208,7 +208,7 @@ function send_all(){
 
 /*function to recharge the app when the connection is broke*/
 function rechargable(){
-    window.location.reload();
+    window.location.reload(true);
 }
 
 
@@ -548,7 +548,7 @@ function checkOut(){
 
 function logOut(){
     localStorage.clear();
-    $("#remember").val(FALSE);
+    $("#remember :checkbox").attr('checked', false);
     rechargable();
 }
 
