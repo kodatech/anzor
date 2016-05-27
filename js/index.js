@@ -243,8 +243,8 @@ function validateProduct(barCode){
             alert(items.length)
             load_new_scan(data);
         }else{
-            changeQty(pos);
-            //alert ("llamo a funcion para agregar uno a la linea existente");
+            //changeQty(pos);
+            alert ("llamo a funcion para agregar uno a la linea existente " + pos);
         }
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
