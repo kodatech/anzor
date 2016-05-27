@@ -62,7 +62,7 @@ app = {
 
 };
 
-var box_counter = 1;
+var box_counter = 0;
 var found = 0;
 var items=new Array();
 
@@ -253,17 +253,12 @@ function validateProduct(barCode){
 
 function changeQty(pos){
     var id='qty_'+pos+'';
-    //alert(id);
-    var qty=$("#0").val();
-    //parseInt()+1;
-    //qty++;
-    alert(qty);
-    //var qty=
-    /*$("#"+id).val(qty);
-     id='total'+pos+'';
+    var qty=parseInt($("#"+id).val())+1;
+    $("#"+id).val(qty);
+    id='total'+pos+'';
     var idprice='price'+pos+'';
     var tot=parseFloat($("#"+idprice).text()*qty);
-    $("#"+id).text(tot.toFixed(4));*/
+    $("#"+id).text(tot.toFixed(4));
 }
 
 /*User validation*/
