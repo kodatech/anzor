@@ -579,6 +579,11 @@ function checkOut(){
 function _delete(){
     $(this).remove();
 }
+function logOut(){
+    localStorage.clear();
+    $("#remember :checkbox").attr('checked', false);
+    rechargable();
+}
 function closeWindow(){
     navigator.app.exitApp();
     navigator.device.exitApp();
