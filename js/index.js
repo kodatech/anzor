@@ -243,8 +243,8 @@ function validateProduct(barCode){
             alert(items.length)
             load_new_scan(data);
         }else{
-            //changeQty(pos);
-            alert ("llamo a funcion para agregar uno a la linea existente " + pos);
+            changeQty(pos);
+            //alert ("llamo a funcion para agregar uno a la linea existente " + pos);
         }
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
@@ -253,12 +253,13 @@ function validateProduct(barCode){
 
 function changeQty(pos){
     var id='qty_'+pos+'';
-    var qty=parseInt($("#"+id).val())+1;
+    alert(id);
+   /* var qty=parseInt($("#"+id).val())+1;
     $("#"+id).val(qty);
     id='total'+pos+'';
     var idprice='price'+pos+'';
     var tot=parseFloat($("#"+idprice).text()*qty);
-    $("#"+id).text(tot.toFixed(4));
+    $("#"+id).text(tot.toFixed(4));*/
 }
 
 /*User validation*/
