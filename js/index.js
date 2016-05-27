@@ -253,7 +253,7 @@ function validateProduct(barCode){
 
 function changeQty(pos){
     var id='qty_'+pos+'';
-    var qty=parseInt($("#"+id).val());//+1;
+    var qty=parseInt($("#"+id).val())+1;
     alert(qty);
     /*$("#"+id).val(qty);
     id='total'+pos+'';
