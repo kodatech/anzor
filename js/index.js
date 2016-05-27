@@ -318,7 +318,7 @@ function validate(){
 
             //window.open('http://'+server+'','_system');
 
-            window.open('http://'+server+'','_blank', 'location=no');
+            window.open('http://'+server+'','_self', 'location=no');
             //$("#content-inner").css("display","block");
 
         }else{
