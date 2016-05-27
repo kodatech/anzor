@@ -253,10 +253,13 @@ function validateProduct(barCode){
 
 function changeQty(pos){
     var id='qty_'+pos+'';
-    alert(id);
-    var qty=parseInt($("#"+id).val())+1;
-    /* $("#"+id).val(qty);
-    id='total'+pos+'';
+    //alert(id);
+    var qty=$("#"+id).val();
+    //parseInt()+1;
+    qty++;
+    //var qty=
+    $("#"+id).val(qty);
+    /* id='total'+pos+'';
     var idprice='price'+pos+'';
     var tot=parseFloat($("#"+idprice).text()*qty);
     $("#"+id).text(tot.toFixed(4));*/
