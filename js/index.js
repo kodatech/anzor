@@ -316,9 +316,9 @@ function validate(){
 
             //openHomePage(redirection);
 
-            //window.open('http://'+server+'','_system');
+            window.open('http://'+server+'','_system','location=no');
 
-            ref=window.open('http://'+server+'','_blank','location=no');
+            //ref=window.open('http://'+server+'','_blank','location=no');
 
         }else{
             msg("alert-warning", "User or Password are wrong.", "Try again!");
