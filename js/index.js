@@ -77,6 +77,9 @@ function iniEvents(){
     $(document).ajaxComplete(function () {
         $("#loading").css("display", "none");
     });
+    $(document).ajaxStop(function () {
+        $("#loading").css("display", "none");
+    });
     //noinspection JSUnresolvedFunction
     if (localStorage.name!=""){
         $("#usr").val(localStorage.name);
@@ -237,7 +240,7 @@ function validateProduct(barCode){
         url: url,
         timeout: 60 * 1000
     }).done(function (data) {
-        
+
             var pos=items.indexOf(data[0]['stockcode']);
             if (pos==-1){
                 items.push(data[0]['stockcode']);
