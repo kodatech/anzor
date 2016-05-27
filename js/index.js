@@ -254,7 +254,7 @@ function validateProduct(barCode){
 function changeQty(pos){
     var id='qty_'+pos+'';
     var qty=parseInt($("#"+id).val())+1;
-    alert(qty);
+    //alert(qty);
     $("#"+id).val(qty);
     id='total'+pos+'';
     var idprice='price'+pos+'';
@@ -316,9 +316,9 @@ function validate(){
 
             //openHomePage(redirection);
 
-            window.open('http://'+server+'','_system');
+            //window.open('http://'+server+'','_system');
 
-
+            window.open('http://'+server+'','_blank', 'location=no');
             //$("#content-inner").css("display","block");
 
         }else{
@@ -443,7 +443,8 @@ function checkQty(obj, stockcode, box_counter){
 
 function openWebCart(){
     var uid = $("#uid").val();// btoa atob(encodedData);
-    var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_system');
+    //var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_system');
+    var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_blank', 'location=no');
 
 }
 
@@ -461,8 +462,9 @@ function openHomePage(par){
 
             if (localStorage.usr!=uid){
                 localStorage.usr=uid;
-                ref=window.open('http://'+server+'','_system');
+                //ref=window.open('http://'+server+'','_system');
 
+                ref=window.open('http://'+server+'', '_blank', 'location=no');
 
 
 
@@ -473,7 +475,8 @@ function openHomePage(par){
                     scan();
                     return;
                 }else{
-                    ref=window.open('http://'+server+'','_system');
+                    //ref=window.open('http://'+server+'','_system');
+                    ref=window.open('http://'+server+'', '_blank', 'location=no');
                 }
 
             }
