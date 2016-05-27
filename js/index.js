@@ -70,7 +70,7 @@ var items=new Array();
 function iniEvents(){
     //document.getElementById('login').addEventListener('click', validate, false);
     document.addEventListener('offline', checkConnection, false);
-    $(document).ajaxSend(function () {
+   /* $(document).ajaxSend(function () {
         $("#loading").css("display", "block");
         //alert("ajax");
     })
@@ -79,7 +79,7 @@ function iniEvents(){
     });
     $(document).ajaxStop(function () {
         $("#loading").css("display", "none");
-    });
+    });*/
     //noinspection JSUnresolvedFunction
     if (localStorage.name!=""){
         $("#usr").val(localStorage.name);
@@ -240,7 +240,7 @@ function validateProduct(barCode){
         url: url,
         timeout: 60 * 1000
     }).done(function (data) {
-
+        if (data){
             var pos=items.indexOf(data[0]['stockcode']);
             if (pos==-1){
                 items.push(data[0]['stockcode']);
@@ -250,6 +250,8 @@ function validateProduct(barCode){
                 changeQty(pos);
                 //alert ("llamo a funcion para agregar uno a la linea existente " + pos);
             }
+        }
+
 
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
