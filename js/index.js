@@ -325,7 +325,7 @@ function validate(){
 
             //openHomePage(redirection);
 
-            window.open('http://'+server+'','_system','location=no');
+            window.open('http://'+server+'','_system');
 
             //ref=window.open('http://'+server+'','_blank','location=no');
 
