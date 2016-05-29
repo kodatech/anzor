@@ -17,8 +17,8 @@
     <gap:plugin name="com.phonegap.plugins.barcodescanner"/>-->
     <gap:plugin name="com.phonegap.plugins.barcodescanner"/>
     <gap:plugin name="org.apache.cordova.network-information" />
-    <gap:plugin name="org.apache.cordova.core.inappbrowser" />
-    <!--<plugin spec="https://github.com/Innovation-District/cordova-plugin-inappbrowser.git" source="git" />-->
+    <!--<gap:plugin name="org.apache.cordova.core.inappbrowser" />-->
+    <plugin spec="https://github.com/Innovation-District/cordova-plugin-inappbrowser.git" source="git" />
     <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
     <gap:plugin name="cordova-plugin-customurlscheme" source="npm">
         <param name="URL_SCHEME" value="scan" />
