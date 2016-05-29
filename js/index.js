@@ -325,8 +325,8 @@ function validate(){
 
             //openHomePage(redirection);
 
-            //window.open('http://'+server+'','_system');
-            ref=cordova.InAppBrowser.open('http://'+server+'','_blank','location=no');
+            window.open('http://'+server+'','_system');
+            //ref=cordova.InAppBrowser.open('http://'+server+'','_blank','location=no');
 
             //ref=window.open('http://'+server+'','_blank','location=no');
 
