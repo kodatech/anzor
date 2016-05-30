@@ -154,9 +154,10 @@ function load_new_scan(data){
         htmlstr +=              '<div class="clearfix"></div>';
         htmlstr +=          '</div>';
 
-        
+        alert(localStorage.st);
         jQuery('#prodListId').prepend(htmlstr);
 
+localStorage.st=htmlstr;
 
         if ($("#total").text()==""){
             $("#total").text(data[0]['sell_price_1']);
