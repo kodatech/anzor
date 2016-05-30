@@ -217,7 +217,7 @@ function rechargable(){
 
 function handleOpenURL(url) {
     setTimeout(function() {
-        var incomingUrl=url.substring(28);
+        var incomingUrl=url.substring(11);
 
         alert("el path es: " + incomingUrl);
         //alert("received url: " + url);
