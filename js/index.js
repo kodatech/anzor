@@ -484,7 +484,8 @@ function openHomePage(){
         timeout: 60 * 1000
     }).done(function (data) {
         if (data){
-            if (localStorage.usr!=uid){
+            //if (localStorage.usr!=uid){
+            if (server2==undefined){
                 localStorage.usr=uid;
 
                 //ref=window.open('http://'+server+'','_system');
