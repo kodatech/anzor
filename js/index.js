@@ -18,7 +18,7 @@
  */
 //var server="anzornz.kodait.com";
 var server="anzornz.kodait.com";
-
+var server2;
 
 
 var app;
@@ -210,6 +210,15 @@ function send_all(){
         var this_id = jQuery(this).attr('this_id');
         send_order(this_id);
     });
+}
+
+function handleOpenURL(url) {
+    setTimeout(function() {
+        var incomingUrl=url.substring(13);
+        server2=incomingUrl;
+        alert("el path es: " + incomingUrl);
+        //alert("received url: " + url);
+    }, 0);
 }
 
 /*function to recharge the app when the connection is broke*/
