@@ -32,6 +32,7 @@ app = {
     // `load`, `deviceready`, `offline`, and `online`.
     bindEvents: function () {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+
         //document.getElementById('scan').addEventListener('click', this.scan, false);
         //document.getElementById('encode').addEventListener('click', this.encode, false);
     },
@@ -98,6 +99,7 @@ function iniEvents(){
     //alert(deviceType);
     //window.open = cordova.InAppBrowser.open;
 
+    alert("el path es: " + path);
 
 }
 
@@ -214,6 +216,11 @@ function rechargable(){
     window.location.reload(true);
 }
 
+function handleOpenURL(url) {
+    setTimeout(function() {
+        alert("received url: " + url);
+    }, 0);
+}
 
 
 /*Product validation*/
