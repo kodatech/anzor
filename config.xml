@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        xmlns:android = "http://schemas.android.com/apk/res/android"
-        id        = "com.phonegap.ryanw.barcode"
+       id        = "com.phonegap.ryanw.barcode"
         version   = "2.0.0">
     <name>Barcode Scanner</name>
 
@@ -39,10 +38,10 @@
     <gap:platform name="ios" />-->
     <gap:platform name="android" />
 
-    <!--Evita que se cierre la app al momento de presionar el launcher de nuevo-->
+    <!--Evita que se cierre la app al momento de presionar el launcher de nuevo
     <gap:config-file platform="android" parent="/manifest/application">
         <activity android:launchMode="singleTop" />
-    </gap:config-file>
+    </gap:config-file>-->
     <!--<gap:plugin name="com.ohh2ahh.plugins.appavailability" />-->
 
     <feature name="http://api.phonegap.com/1.0/device" />
