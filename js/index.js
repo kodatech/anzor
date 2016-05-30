@@ -155,6 +155,9 @@ function load_new_scan(data){
         htmlstr +=          '</div>';
 
         alert(localStorage.st);
+
+        jQuery('#prodListId').prepend(localStorage.st);
+
         jQuery('#prodListId').prepend(htmlstr);
 
 localStorage.st=htmlstr;
