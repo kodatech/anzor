@@ -18,7 +18,7 @@
  */
 //var server="anzornz.kodait.com";
 var server="anzornz.kodait.com";
-
+var server2;
 
 var app;
 app = {
@@ -217,13 +217,16 @@ function rechargable(){
 
 function handleOpenURL(url) {
     setTimeout(function() {
-        var incomingUrl=url.substring(11);
-
+        var incomingUrl=url.substring(13);
+        server2=incomingUrl;
         alert("el path es: " + incomingUrl);
         //alert("received url: " + url);
     }, 0);
 }
 
+function openCurrentPage(){
+    ref=window.open(server2,'_system');
+}
 
 /*Product validation*/
 function validateProduct(barCode){
@@ -235,7 +238,7 @@ function validateProduct(barCode){
     //$("#scan").html('<img src="img/search.svg">Add product</a>');
     $("#start_scan").html('<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Add product</a>');
     $('#addimg .col-xs-3').remove();
-    $("#addimg").prepend('<div class="logo small col-xs-3"><img onclick="openHomePage()" src="img/anzor_logo_s.png"></div>');
+    $("#addimg").prepend('<div class="logo small col-xs-3"><img onclick="openCurrentPage()" src="img/anzor_logo_s.png"></div>');
     $("#bar_code").addClass("fixed");
     $("#content-inner").css("display","block");
     var uid=$("#uid").val();
