@@ -41,7 +41,7 @@
 
     <!--Evita que se cierre la app al momento de presionar el launcher de nuevo-->
     <gap:config-file platform="android" parent="/manifest/application">
-        <activity android:launchMode="singleInstance" />
+        <activity android:launchMode="singleTop" />
     </gap:config-file>
     <!--<gap:plugin name="com.ohh2ahh.plugins.appavailability" />-->
 
