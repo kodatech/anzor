@@ -90,7 +90,7 @@ function iniEvents(){
     }
     //$(".line-item-summary").hide();
     $("#content-inner").css("display", "none");
-    document.addEventListener("resume", function() { localStorage.removeItem("usr"); }, false);
+    //document.addEventListener("resume", function() { localStorage.removeItem("usr"); }, false);
     //document.addEventListener("unload", function() { localStorage.removeItem("usr"); }, false);
     checkConnection();
 
