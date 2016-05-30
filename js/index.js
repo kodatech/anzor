@@ -491,7 +491,7 @@ function openHomePage(){
                 ref=cordova.InAppBrowser.open('http://'+server+'','_blank','location=no');
 
 
-                ref.addEventListener('loadstop', function(event) {
+              /*  ref.addEventListener('loadstop', function(event) {
                     //if (event.url.match('http://'+server+'')) {
                     ref.addEventListener('loadstop', function(event) {
                         if (event.url.match('http://'+server+'')) {
@@ -502,7 +502,7 @@ function openHomePage(){
 
 
                     //}
-                });
+                });*/
 
 
 
