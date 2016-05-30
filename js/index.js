@@ -66,7 +66,7 @@ app = {
 var box_counter = 0;
 var found = 0;
 var items=new Array();
-
+var incomingUrl;
 
 function iniEvents(){
     //document.getElementById('login').addEventListener('click', validate, false);
@@ -98,8 +98,9 @@ function iniEvents(){
 
     //alert(deviceType);
     //window.open = cordova.InAppBrowser.open;
+    incomingUrl=path.substring(28);
 
-    alert("el path es: " + path);
+    alert("el path es: " + incomingUrl);
 
 }
 
