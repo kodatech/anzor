@@ -111,7 +111,8 @@ function load_new_scan(data){
         jQuery('#send_all').fadeIn();
         jQuery('#price_enquiry').fadeIn();
         var stockcode = data[0]['stockcode'];
-        if (localStorage.getItem("items")==null  || localStorage.items.indexOf(stockcode)==-1 ){
+        // || localStorage.items.indexOf(stockcode)==-1 
+        if (localStorage.getItem("items")==null ){
 
 
 
