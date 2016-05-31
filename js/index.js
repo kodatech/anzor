@@ -113,7 +113,7 @@ function load_new_scan(data){
         var stockcode = data[0]['stockcode'];
         // || localStorage.items.indexOf(stockcode)==-1
         //if (localStorage.getItem("items")==null ){
-        if (localStorage.items.indexOf(stockcode)==-1){
+        if (localStorage.getItem("items")==null || localStorage.items.indexOf(stockcode)==-1){
             localStorage.items= JSON.stringify(items);
             alert("items tiene: "+localStorage.getItem("items"));
 
