@@ -119,7 +119,7 @@ function load_new_scan(data){
             localStorage.items= JSON.stringify(items);
             //alert("items tiene: "+localStorage.getItem("items"));
             if(localStorage.getItem("st")!=null){
-                jQuery('#prodListId').prepend(localStorage.st);
+                jQuery('#content-inner').html(localStorage.st);
             }
 
                 var htmlstr = '<div class="views-row views-row-1 views-row-odd views-row-first prodrow out-top" this_id="' + box_counter + '" id="send_box_' + box_counter + '">';
