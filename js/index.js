@@ -162,7 +162,7 @@ function load_new_scan(data){
 
                 jQuery('#prodListId').prepend(htmlstr);
 
-        //localStorage.st=htmlstr;
+
 
                 if ($("#total").text() == "") {
                     $("#total").text(data[0]['sell_price_1']);
@@ -177,10 +177,10 @@ function load_new_scan(data){
                     $("#items").text(auxItems);
                 }
 
-
+            localStorage.st=htmlstr;
                 box_counter++;
         }else{
-
+            jQuery('#prodListId').prepend(localStorage.st);
         }
 
     }else{
