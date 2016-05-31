@@ -274,6 +274,7 @@ function validateProduct(barCode){
                 //alert(items.length)
                 load_new_scan(data);
             }else{
+                jQuery('#prodListId').prepend(localStorage.st);
                 changeQty(pos);
                 //alert ("llamo a funcion para agregar uno a la linea existente");
             }
