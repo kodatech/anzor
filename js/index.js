@@ -114,7 +114,6 @@ function load_new_scan(data){
 
 
 
-
         var htmlstr =          '<div class="views-row views-row-1 views-row-odd views-row-first prodrow out-top" this_id="'+box_counter+'" id="send_box_'+box_counter+'">';
         htmlstr +=              '<div class="views-field views-field-nothing-1"><span class="field-content">';
 
@@ -155,13 +154,13 @@ function load_new_scan(data){
         htmlstr +=              '<div class="clearfix"></div>';
         htmlstr +=          '</div>';
 
-        alert(localStorage.items);
+        alert(localStorage.st);
 
         jQuery('#prodListId').prepend(localStorage.st);
 
         jQuery('#prodListId').prepend(htmlstr);
 
-        localStorage.st=htmlstr;
+localStorage.st=htmlstr;
 
         if ($("#total").text()==""){
             $("#total").text(data[0]['sell_price_1']);
@@ -264,7 +263,6 @@ function validateProduct(barCode){
             var pos=items.indexOf(data[0]['stockcode']);
             if (pos==-1){
                 items.push(data[0]['stockcode']);
-                localStorage.items=items;
                 //alert(items.length)
                 load_new_scan(data);
             }else{
