@@ -104,79 +104,79 @@ function delVariables(){
 }
 
 function load_new_scan(data){
-    if (data){
+    if (data) {
         found = 1;
         //$(".line-item-summary").show();
         $("#content-inner").show();
         jQuery('#send_all').fadeIn();
         jQuery('#price_enquiry').fadeIn();
-        var stockcode=data[0]['stockcode'];
+        var stockcode = data[0]['stockcode'];
+        if (localStorage.getItem("items")==null  || localStorage.items.indexOf(stockcode)==-1 ){
 
 
 
-        var htmlstr =          '<div class="views-row views-row-1 views-row-odd views-row-first prodrow out-top" this_id="'+box_counter+'" id="send_box_'+box_counter+'">';
-        htmlstr +=              '<div class="views-field views-field-nothing-1"><span class="field-content">';
+                var htmlstr = '<div class="views-row views-row-1 views-row-odd views-row-first prodrow out-top" this_id="' + box_counter + '" id="send_box_' + box_counter + '">';
+                htmlstr += '<div class="views-field views-field-nothing-1"><span class="field-content">';
 
-        htmlstr +=                  '<div class="cartprodname">';
-        htmlstr +=                      '<div class="views-field-line-item-title">'+data[0]['description']+'</div>';
-        htmlstr +=                      '<div class="views-field-line-item-label">'+data[0]['stockcode']+'</div>';
-        htmlstr +=                  '</div></span>';
-        htmlstr +=               '</div>';
-        htmlstr +=               '<div class="views-field views-field-edit-delete"><span class="field-content">';
-        htmlstr +=                      '<a href="#" onClick="remove_scan_box('+box_counter+')" class="delete-line-item btn btn-default form-submit"><img src="img/delete.svg"></a></span>';
-        htmlstr +=               '</div>';
-        htmlstr +=               '<div class="clearfix"></div>';
-
-
-        htmlstr +=               '<div class="views-field views-field-edit-quantity">';
-        htmlstr +=                      '<span class="views-label views-label-edit-quantity">Qty:</span>';
-        htmlstr +=                      '<span class="views-label views-label-edit-quantity">' +
-            '<div class="form-item form-item-edit-quantity-0 form-type-textfield form-group">' +
-            '<input title="Qty:" class="form-control form-text ajax-processed" type="text" id="qty_'+box_counter+'" onKeyUp="keyPressEvent(event, this,\'' + stockcode + '\',\'' + box_counter + '\')"  value="1" size="4">' +
-            '</div>' +
-            '</span>'+
-            '</div>';
-
-        htmlstr +=              '<div class="views-field views-field-commerce-unit-price">' +
-            '<span class="views-label views-label-commerce-unit-price"> x </span>' +
-            '<div id="price'+box_counter+'" class="field-content">'+data[0]['sell_price_1']+'</div>' +
-            '</div>';
+                htmlstr += '<div class="cartprodname">';
+                htmlstr += '<div class="views-field-line-item-title">' + data[0]['description'] + '</div>';
+                htmlstr += '<div class="views-field-line-item-label">' + data[0]['stockcode'] + '</div>';
+                htmlstr += '</div></span>';
+                htmlstr += '</div>';
+                htmlstr += '<div class="views-field views-field-edit-delete"><span class="field-content">';
+                htmlstr += '<a href="#" onClick="remove_scan_box(' + box_counter + ')" class="delete-line-item btn btn-default form-submit"><img src="img/delete.svg"></a></span>';
+                htmlstr += '</div>';
+                htmlstr += '<div class="clearfix"></div>';
 
 
+                htmlstr += '<div class="views-field views-field-edit-quantity">';
+                htmlstr += '<span class="views-label views-label-edit-quantity">Qty:</span>';
+                htmlstr += '<span class="views-label views-label-edit-quantity">' +
+                    '<div class="form-item form-item-edit-quantity-0 form-type-textfield form-group">' +
+                    '<input title="Qty:" class="form-control form-text ajax-processed" type="text" id="qty_' + box_counter + '" onKeyUp="keyPressEvent(event, this,\'' + stockcode + '\',\'' + box_counter + '\')"  value="1" size="4">' +
+                    '</div>' +
+                    '</span>' +
+                    '</div>';
+
+                htmlstr += '<div class="views-field views-field-commerce-unit-price">' +
+                    '<span class="views-label views-label-commerce-unit-price"> x </span>' +
+                    '<div id="price' + box_counter + '" class="field-content">' + data[0]['sell_price_1'] + '</div>' +
+                    '</div>';
 
 
+                htmlstr += '<div class="views-field views-field-commerce-total"><span class="views-label views-label-commerce-total"> = </span>';
 
-        htmlstr +=              '<div class="views-field views-field-commerce-total"><span class="views-label views-label-commerce-total"> = </span>';
+                htmlstr += '<div class="field-content price" id="total' + box_counter + '" class="field-content price">' + data[0]['sell_price_1'] + '</div>';
+                htmlstr += '</div>';
 
-        htmlstr +=                      '<div class="field-content price" id="total'+box_counter+'" class="field-content price">'+data[0]['sell_price_1']+'</div>';
-        htmlstr +=              '</div>';
+                htmlstr += '<div class="clearfix"></div>';
+                htmlstr += '</div>';
 
-        htmlstr +=              '<div class="clearfix"></div>';
-        htmlstr +=          '</div>';
+                //alert(JSON.parse(localStorage.getItem("items")));
 
-        alert(JSON.parse(localStorage.getItem("items")));
+                //jQuery('#prodListId').prepend(localStorage.st);
 
-        jQuery('#prodListId').prepend(localStorage.st);
+                jQuery('#prodListId').prepend(htmlstr);
 
-        jQuery('#prodListId').prepend(htmlstr);
+        //localStorage.st=htmlstr;
 
-localStorage.st=htmlstr;
+                if ($("#total").text() == "") {
+                    $("#total").text(data[0]['sell_price_1']);
+                    $("#items").text(1);
+                } else {
 
-        if ($("#total").text()==""){
-            $("#total").text(data[0]['sell_price_1']);
-            $("#items").text(1);
-        }else{
+                    var aux = $("#total").text();
+                    aux = parseFloat(aux) + parseFloat(data[0]['sell_price_1']);
+                    $("#total").text(aux);
+                    var auxItems = parseInt($("#items").text());
+                    auxItems++;
+                    $("#items").text(auxItems);
+                }
 
-            var aux=$("#total").text();
-            aux=parseFloat(aux)+parseFloat(data[0]['sell_price_1']);
-            $("#total").text(aux);
-            var auxItems=parseInt($("#items").text());
-            auxItems++;
-            $("#items").text(auxItems);
+
+                box_counter++;
         }
 
-
-        box_counter++;
     }else{
         //alert("wrong product");
         msg("alert-warning", "Wrong product.", "Try again!");
