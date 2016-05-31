@@ -278,6 +278,7 @@ function validateProduct(barCode){
 
                 alert("condicion items");
                 alert(items.length);
+                alert("este es st "+localStorage.st);
                 jQuery('#prodListId').prepend(localStorage.st);
                 changeQty(pos);
                 //alert ("llamo a funcion para agregar uno a la linea existente");
