@@ -68,6 +68,7 @@ app = {
 var box_counter = 0;
 var found = 0;
 var items=new Array();
+if (localStorage.getItem("items")!=null){items=JSON.parse(localStorage.getItem("items"));}
 
 function iniEvents(){
     //document.getElementById('login').addEventListener('click', validate, false);
@@ -178,6 +179,8 @@ function load_new_scan(data){
 
 
                 box_counter++;
+        }else{
+
         }
 
     }else{
