@@ -277,6 +277,7 @@ function validateProduct(barCode){
             }else{
 
                 alert(localStorage.st);
+                $("#content-inner").html(localStorage.st);
                 changeQty(pos);
                 //alert ("llamo a funcion para agregar uno a la linea existente");
             }
