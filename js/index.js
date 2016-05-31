@@ -177,9 +177,10 @@ function load_new_scan(data){
                     $("#items").text(auxItems);
                 }
 
-            localStorage.st=htmlstr;
+                localStorage.st=htmlstr;
                 box_counter++;
         }else{
+            alert(localStorage.st);
             jQuery('#prodListId').prepend(localStorage.st);
         }
 
