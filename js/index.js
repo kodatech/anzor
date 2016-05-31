@@ -177,8 +177,8 @@ function load_new_scan(data){
                     auxItems++;
                     $("#items").text(auxItems);
                 }
+            localStorage.st=htmlstr;
 
-                localStorage.st=htmlstr;
                 box_counter++;
         }else{
             alert("hi");
@@ -279,7 +279,7 @@ function validateProduct(barCode){
                 alert("condicion items");
                 alert(items.length);
                 alert("este es st "+localStorage.st);
-                jQuery('#prodListId').prepend(localStorage.st);
+                jQuery('#prodListId').prepend("<div>hola</div>");
                 changeQty(pos);
                 //alert ("llamo a funcion para agregar uno a la linea existente");
             }
