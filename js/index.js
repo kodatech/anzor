@@ -160,6 +160,7 @@ function load_new_scan(data){
                 //alert(JSON.parse(localStorage.getItem("items")));
 
                 //jQuery('#prodListId').prepend(localStorage.st);
+            localStorage.st=htmlstr;
 
                 jQuery('#prodListId').prepend(htmlstr);
 
@@ -177,7 +178,7 @@ function load_new_scan(data){
                     auxItems++;
                     $("#items").text(auxItems);
                 }
-            localStorage.st=htmlstr;
+
 
                 box_counter++;
         }else{
@@ -279,8 +280,8 @@ function validateProduct(barCode){
                 alert("condicion items");
                 alert(items.length);
                 alert("este es st "+localStorage.st);
-                $('#prodListId').prepend("<div>hola</div>");
-                $('#prodListId').css("display", "block");
+var aux=localStorage.st;
+                $('#prodListId').prepend(aux);
                 changeQty(pos);
                 //alert ("llamo a funcion para agregar uno a la linea existente");
             }
