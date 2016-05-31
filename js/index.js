@@ -111,9 +111,9 @@ function load_new_scan(data){
         jQuery('#send_all').fadeIn();
         jQuery('#price_enquiry').fadeIn();
         var stockcode = data[0]['stockcode'];
-        // || localStorage.items.indexOf(stockcode)==-1 
-        if (localStorage.getItem("items")==null ){
-
+        // || localStorage.items.indexOf(stockcode)==-1
+        //if (localStorage.getItem("items")==null ){
+        alert("items tiene: "+localStorage.getItem("items"));
 
 
                 var htmlstr = '<div class="views-row views-row-1 views-row-odd views-row-first prodrow out-top" this_id="' + box_counter + '" id="send_box_' + box_counter + '">';
@@ -176,7 +176,7 @@ function load_new_scan(data){
 
 
                 box_counter++;
-        }
+       // }
 
     }else{
         //alert("wrong product");
