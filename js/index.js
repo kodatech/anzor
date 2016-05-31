@@ -264,7 +264,7 @@ function validateProduct(barCode){
             var pos=items.indexOf(data[0]['stockcode']);
             if (pos==-1){
                 items.push(data[0]['stockcode']);
-                localStorage.items=items;
+                localStorage.items+=items;
                 //alert(items.length)
                 load_new_scan(data);
             }else{
