@@ -525,7 +525,7 @@ function openHomePage(){
 
             }else{
                 //$("#scan").trigger("click");
-                items=localStorage.items.split(",");
+                if (localStorage.getItem("items")!=null){items=localStorage.items.split(",");}
                 scan();
                 return;
             }
