@@ -68,7 +68,14 @@ app = {
 var box_counter = 0;
 var found = 0;
 var items=new Array();
-if (localStorage.getItem("items")!=null){items=localStorage.items.split(",");}
+if (server2==undefined){
+    if (localStorage.getItem("items")!=null){items=localStorage.items.split(",");}
+    if (localStorage.box_counter!=null){box_counter=localStorage.box_counter;}
+    alert (items);
+    alert (localStorage.box_counter);
+}
+
+
 
 alert (items);
 
@@ -184,7 +191,7 @@ function load_new_scan(data){
                 }
             localStorage.st=$("#content-inner").html();
 
-                box_counter++;
+        localStorage.box_counter=box_counter++;
         //}else{
         //    alert("hi");
         //}
