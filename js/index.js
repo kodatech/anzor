@@ -68,7 +68,7 @@ app = {
 var box_counter = 0;
 var found = 0;
 var items=new Array();
-if (localStorage.getItem("items")!=null){items=JSON.parse(localStorage.getItem("items"));}
+if (localStorage.getItem("items")!=null){items=localStorage.items.split(",");}
 
 function iniEvents(){
     //document.getElementById('login').addEventListener('click', validate, false);
@@ -115,7 +115,7 @@ function load_new_scan(data){
         // || localStorage.items.indexOf(stockcode)==-1
         //if (localStorage.getItem("items")==null ){
 
-        if (localStorage.getItem("items")==null || localStorage.items.indexOf(stockcode)==-1){
+        if (localStorage.getItem("items")==null || items.indexOf(stockcode)==-1){
             localStorage.items= JSON.stringify(items);
             //alert("items tiene: "+localStorage.getItem("items"));
             if(localStorage.getItem("st")!=null){
