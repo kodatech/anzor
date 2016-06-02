@@ -69,10 +69,10 @@ var box_counter = 0;
 var found = 0;
 var items=new Array();
 if (server2==undefined){
-    if (localStorage.getItem("items")!=null){items=localStorage.items.split(",");}
+    /*if (localStorage.getItem("items")!=null){items=localStorage.items.split(",");}
     if (localStorage.box_counter!=null){box_counter=localStorage.box_counter;}
     alert (items);//vacio//vacio
-    alert (box_counter);//undefined//undefined
+    alert (box_counter);//undefined//undefined*/
 }
 
 
@@ -258,7 +258,7 @@ function validateProduct(barCode){
                 load_new_scan(data);
             }else{
 
-                alert (items);
+                //alert (items);
                 changeQty(pos);
                 //alert ("llamo a funcion para agregar uno a la linea existente");
             }
