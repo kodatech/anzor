@@ -71,13 +71,11 @@ var items=new Array();
 if (server2==undefined){
     if (localStorage.getItem("items")!=null){items=localStorage.items.split(",");}
     if (localStorage.box_counter!=null){box_counter=localStorage.box_counter;}
-    alert (items);
-    alert (localStorage.box_counter);
+    alert (items);//vacio//vacio
+    alert (box_counter);//undefined//undefined
 }
 
 
-
-alert (items);
 
 function iniEvents(){
     //document.getElementById('login').addEventListener('click', validate, false);
@@ -111,95 +109,6 @@ function iniEvents(){
 
 function delVariables(){
     localStorage.removeItem("usr");
-}
-
-function load_new_scan(data){
-    if (data) {
-        found = 1;
-        //$(".line-item-summary").show();
-        $("#content-inner").show();
-        jQuery('#send_all').fadeIn();
-        jQuery('#price_enquiry').fadeIn();
-        var stockcode = data[0]['stockcode'];
-        // || localStorage.items.indexOf(stockcode)==-1
-        //if (localStorage.getItem("items")==null ){
-
-        //if (localStorage.getItem("items")==null || items.indexOf(stockcode)==-1){
-            localStorage.items= JSON.stringify(items);
-            //alert("items tiene: "+localStorage.getItem("items"));
-            if(localStorage.getItem("st")!=null){
-                jQuery('#content-inner').html(localStorage.st);
-            }
-
-                var htmlstr = '<div class="views-row views-row-1 views-row-odd views-row-first prodrow out-top" this_id="' + box_counter + '" id="send_box_' + box_counter + '">';
-                htmlstr += '<div class="views-field views-field-nothing-1"><span class="field-content">';
-
-                htmlstr += '<div class="cartprodname">';
-                htmlstr += '<div class="views-field-line-item-title">' + data[0]['description'] + '</div>';
-                htmlstr += '<div class="views-field-line-item-label">' + data[0]['stockcode'] + '</div>';
-                htmlstr += '</div></span>';
-                htmlstr += '</div>';
-                htmlstr += '<div class="views-field views-field-edit-delete"><span class="field-content">';
-                htmlstr += '<a href="#" onClick="remove_scan_box(' + box_counter + ')" class="delete-line-item btn btn-default form-submit"><img src="img/delete.svg"></a></span>';
-                htmlstr += '</div>';
-                htmlstr += '<div class="clearfix"></div>';
-
-
-                htmlstr += '<div class="views-field views-field-edit-quantity">';
-                htmlstr += '<span class="views-label views-label-edit-quantity">Qty:</span>';
-                htmlstr += '<span class="views-label views-label-edit-quantity">' +
-                    '<div class="form-item form-item-edit-quantity-0 form-type-textfield form-group">' +
-                    '<input title="Qty:" class="form-control form-text ajax-processed" type="text" id="qty_' + box_counter + '" onKeyUp="keyPressEvent(event, this,\'' + stockcode + '\',\'' + box_counter + '\')"  value="1" size="4">' +
-                    '</div>' +
-                    '</span>' +
-                    '</div>';
-
-                htmlstr += '<div class="views-field views-field-commerce-unit-price">' +
-                    '<span class="views-label views-label-commerce-unit-price"> x </span>' +
-                    '<div id="price' + box_counter + '" class="field-content">' + data[0]['sell_price_1'] + '</div>' +
-                    '</div>';
-
-
-                htmlstr += '<div class="views-field views-field-commerce-total"><span class="views-label views-label-commerce-total"> = </span>';
-
-                htmlstr += '<div class="field-content price" id="total' + box_counter + '" class="field-content price">' + data[0]['sell_price_1'] + '</div>';
-                htmlstr += '</div>';
-
-                htmlstr += '<div class="clearfix"></div>';
-                htmlstr += '</div>';
-
-                //alert(JSON.parse(localStorage.getItem("items")));
-
-                //jQuery('#prodListId').prepend(localStorage.st);
-
-
-                jQuery('#prodListId').prepend(htmlstr);
-
-
-
-                if ($("#total").text() == "") {
-                    $("#total").text(data[0]['sell_price_1']);
-                    $("#items").text(1);
-                } else {
-
-                    var aux = $("#total").text();
-                    aux = parseFloat(aux) + parseFloat(data[0]['sell_price_1']);
-                    $("#total").text(aux);
-                    var auxItems = parseInt($("#items").text());
-                    auxItems++;
-                    $("#items").text(auxItems);
-                }
-            localStorage.st=$("#content-inner").html();
-
-        localStorage.box_counter=box_counter++;
-        //}else{
-        //    alert("hi");
-        //}
-
-    }else{
-        //alert("wrong product");
-        msg("alert-warning", "Wrong product.", "Try again!");
-    }
 }
 
 function keyPressEvent(e, obj, stockcode, box_counter) {
@@ -250,68 +159,6 @@ function rechargable(){
     window.location.reload();
 }
 
-
-
-/*Product validation*/
-function validateProduct(barCode){
-    var url = 'http://'+server+'/anzor_services/product';
-
-    $("#to_hide3").css("display","none");
-    $("#to_hide2").css("display","none");
-    $("#start_scan").removeClass("col-xs-12").addClass( "col-xs-9" );
-
-    //$("#scan").html('<img src="img/search.svg">Add product</a>');
-    //<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>
-    $("#start_scan").html('<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Add product</a>');
-
-    $('#addimg .col-xs-3').remove();
-    $("#addimg").prepend('<div class="logo small col-xs-3"><img onclick="openCurrentPage()" src="img/anzor_logo_s.png"></div>');
-    $("#bar_code").addClass("fixed");
-
-    $('#scan').click(scan);
-
-    var uid=$("#uid").val();
-    //alert(uid);
-    return $.ajax({
-        type: "GET",
-        data: { barCode: barCode, uid : uid} ,
-        url: url,
-        timeout: 60 * 1000
-    }).done(function (data) {
-        if (data){
-            var pos=items.indexOf(data[0]['stockcode']);
-            if (pos==-1){
-                items.push(data[0]['stockcode']);
-
-                //alert(items.length)
-                load_new_scan(data);
-            }else{
-
-                changeQty(pos);
-                //alert ("llamo a funcion para agregar uno a la linea existente");
-            }
-
-        }else{
-            msg("alert-warning", "Wrong product.", "Try again!");
-        }
-
-
-        //$('#edit-actions').click(alert('hi'));
-        //openWebCart();
-    }).fail(function (a, b, c) {
-        console.log(b + '|' + c);
-    });
-}
-
-function changeQty(pos){
-    var id='qty_'+pos+'';
-    var qty=parseInt($("#"+id).val())+1;
-    $("#"+id).val(qty);
-    id='total'+pos+'';
-    var idprice='price'+pos+'';
-    var tot=parseFloat($("#"+idprice).text()*qty);
-    $("#"+id).text(tot.toFixed(4));
-}
 
 /*User validation*/
 function validate(){
@@ -374,130 +221,160 @@ function validate(){
 
 }
 
-function msg(parClass, parMsg, parMsgStrong ){
-
-    var htmlstr='<div class="alert '+parClass+'"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>'+parMsgStrong+'</strong> '+parMsg+'</div>';
-    if ($(".alert."+parClass).length){
-        $(".alert."+parClass).remove();
-    }
-    $(".content").prepend(htmlstr);
-    $(".alert.alert-warning").click(_delete);
-    setTimeout(function() {   //calls click event after a certain time
-        if($(".alert."+parClass).length)
-        {
-            $(".alert." + parClass).remove();
-        }
-    }, 10000);
-}
 
 
-/*scanning and encoding */
-function scan() {
-    console.log('scanning');
+/*Product validation*/
+function validateProduct(barCode){
+    var url = 'http://'+server+'/anzor_services/product';
 
-    //var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+    $("#to_hide3").css("display","none");
+    $("#to_hide2").css("display","none");
+    $("#start_scan").removeClass("col-xs-12").addClass( "col-xs-9" );
 
+    //$("#scan").html('<img src="img/search.svg">Add product</a>');
+    //<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>
+    $("#start_scan").html('<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Add product</a>');
 
-    //scanner.scan( function (result) {
-    cordova.plugins.barcodeScanner.scan( function (result) {
+    $('#addimg .col-xs-3').remove();
+    $("#addimg").prepend('<div class="logo small col-xs-3"><img onclick="openCurrentPage()" src="img/anzor_logo_s.png"></div>');
+    $("#bar_code").addClass("fixed");
 
-            validateProduct(result.text);
+    $('#scan').click(scan);
 
-
-
-        }, function (error) {
-            console.log("Scanning failed: ", error);
-        },
-        {
-            //"prompt": "<input type='button'>",
-            "orientation" : "portrait" // Android only (portrait|landscape), default unset so it rotates with the device
-        });
-}
-
-function encode() {
-    //var scanner = cordova.require("cordova/plugin/BarcodeScanner");
-
-    //scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
-    cordova.plugins.barcodeScanner.encode(cordova.plugins.barcodeScanner.Encode.TEXT_TYPE, "http://www.nytimes.com", function(success) {
-
-            alert("encode success: " + success);
-        }, function(fail) {
-            alert("encoding failed: " + fail);
-        }
-    );
-
-}
-
-
-/*Check connection internet*/
-function checkConnection() {
-    //alert("No Internet Connection");
-    // check to see if the network is reachable
-    //alert('entro');
-    var networkState = navigator.connection.type;
-    if (networkState=='none'){
-        //alert('No Internet Connection');
-        var htmlstr='<div id="msgNoConn">';
-        htmlstr+='<p>Cannot establish connection</p>';
-        htmlstr+='<p>with the Anzor server.</p>';
-        htmlstr+='<br><br>';
-        htmlstr+='<p>You need to be</p>';
-        htmlstr+='<p>connected to the Internet</p>';
-        htmlstr+='<br><br>';
-        htmlstr+='<input type="button" id="recharge" value="Try again">';
-        htmlstr+='</div>';
-        jQuery('.content').html(htmlstr);
-        document.getElementById('recharge').addEventListener('click', rechargable, false);
-    }
-
-}
-
-/*calculate the price per line*/
-function checkQty(obj, stockcode, box_counter){
-    //alert($(obj).val());
-    //alert(stockcode);
-    var stock=stockcode;
-    var usr = $("#usr").val();// btoa atob(encodedData);
-    var pass = $("#pass").val();
-    var qty = $(obj).val();
-    var url = 'http://'+server+'/anzor_services/price';
-    var uid=$("#uid").val();//data[0]['uid'];
-    //alert (usr);
-    //alert (pass);
-    var price=$('#price'+box_counter).text();
-    //alert (price);
+    var uid=$("#uid").val();
+    //alert(uid);
     return $.ajax({
         type: "GET",
-        data: { name: usr, pass : pass, scode:stock, qty: qty, price:price, uid:uid} ,
+        data: { barCode: barCode, uid : uid} ,
         url: url,
         timeout: 60 * 1000
-    }).success(function (data) {
-
-
+    }).done(function (data) {
         if (data){
-            //alert(box_counter);
-            var auxLinea=parseFloat($("#total"+box_counter).text());
-            $("#total"+box_counter).text(data[0]['price']);
-            var aux=$("#total").text();
-            aux=parseFloat(aux)+parseFloat(data[0]['price'])-parseFloat(auxLinea);
-            aux=aux.toFixed(4);
-            $("#total").text(aux);
+            var pos=items.indexOf(data[0]['stockcode']);
+            if (pos==-1){
+                items.push(data[0]['stockcode']);
+                localStorage.items= JSON.stringify(items);
+                //alert(items.length)
+                load_new_scan(data);
+            }else{
+
+                alert (items);
+                changeQty(pos);
+                //alert ("llamo a funcion para agregar uno a la linea existente");
+            }
+
         }else{
-            alert("sth goes wrong");
+            msg("alert-warning", "Wrong product.", "Try again!");
         }
+
+
+        //$('#edit-actions').click(alert('hi'));
+        //openWebCart();
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
     });
 }
 
-function openWebCart(){
-    var uid = $("#uid").val();// btoa atob(encodedData);
-    //var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_system');
-    //var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_blank');
-    ref=cordova.InAppBrowser.open('http://'+server+'/anzor_services/cart?uid='+uid+'','_blank','location=no');
 
+function load_new_scan(data){
+    if (data) {
+        found = 1;
+        //$(".line-item-summary").show();
+        $("#content-inner").show();
+        jQuery('#send_all').fadeIn();
+        jQuery('#price_enquiry').fadeIn();
+        var stockcode = data[0]['stockcode'];
+        // || localStorage.items.indexOf(stockcode)==-1
+        //if (localStorage.getItem("items")==null ){
+
+        //if (localStorage.getItem("items")==null || items.indexOf(stockcode)==-1){
+        //localStorage.items= JSON.stringify(items);
+        //alert("items tiene: "+localStorage.getItem("items"));
+        if(localStorage.getItem("st")!=null){
+            jQuery('#content-inner').html(localStorage.st);
+        }
+
+        var htmlstr = '<div class="views-row views-row-1 views-row-odd views-row-first prodrow out-top" this_id="' + box_counter + '" id="send_box_' + box_counter + '">';
+        htmlstr += '<div class="views-field views-field-nothing-1"><span class="field-content">';
+
+        htmlstr += '<div class="cartprodname">';
+        htmlstr += '<div class="views-field-line-item-title">' + data[0]['description'] + '</div>';
+        htmlstr += '<div class="views-field-line-item-label">' + data[0]['stockcode'] + '</div>';
+        htmlstr += '</div></span>';
+        htmlstr += '</div>';
+        htmlstr += '<div class="views-field views-field-edit-delete"><span class="field-content">';
+        htmlstr += '<a href="#" onClick="remove_scan_box(' + box_counter + ')" class="delete-line-item btn btn-default form-submit"><img src="img/delete.svg"></a></span>';
+        htmlstr += '</div>';
+        htmlstr += '<div class="clearfix"></div>';
+
+
+        htmlstr += '<div class="views-field views-field-edit-quantity">';
+        htmlstr += '<span class="views-label views-label-edit-quantity">Qty:</span>';
+        htmlstr += '<span class="views-label views-label-edit-quantity">' +
+            '<div class="form-item form-item-edit-quantity-0 form-type-textfield form-group">' +
+            '<input title="Qty:" class="form-control form-text ajax-processed" type="text" id="qty_' + box_counter + '" onKeyUp="keyPressEvent(event, this,\'' + stockcode + '\',\'' + box_counter + '\')"  value="1" size="4">' +
+            '</div>' +
+            '</span>' +
+            '</div>';
+
+        htmlstr += '<div class="views-field views-field-commerce-unit-price">' +
+            '<span class="views-label views-label-commerce-unit-price"> x </span>' +
+            '<div id="price' + box_counter + '" class="field-content">' + data[0]['sell_price_1'] + '</div>' +
+            '</div>';
+
+
+        htmlstr += '<div class="views-field views-field-commerce-total"><span class="views-label views-label-commerce-total"> = </span>';
+
+        htmlstr += '<div class="field-content price" id="total' + box_counter + '" class="field-content price">' + data[0]['sell_price_1'] + '</div>';
+        htmlstr += '</div>';
+
+        htmlstr += '<div class="clearfix"></div>';
+        htmlstr += '</div>';
+
+        //alert(JSON.parse(localStorage.getItem("items")));
+
+        //jQuery('#prodListId').prepend(localStorage.st);
+
+
+        jQuery('#prodListId').prepend(htmlstr);
+
+
+
+        if ($("#total").text() == "") {
+            $("#total").text(data[0]['sell_price_1']);
+            $("#items").text(1);
+        } else {
+
+            var aux = $("#total").text();
+            aux = parseFloat(aux) + parseFloat(data[0]['sell_price_1']);
+            $("#total").text(aux);
+            var auxItems = parseInt($("#items").text());
+            auxItems++;
+            $("#items").text(auxItems);
+        }
+        localStorage.st=$("#content-inner").html();
+
+        localStorage.box_counter=box_counter++;
+        //}else{
+        //    alert("hi");
+        //}
+
+    }else{
+        //alert("wrong product");
+        msg("alert-warning", "Wrong product.", "Try again!");
+    }
 }
 
+
+function changeQty(pos){
+    var id='qty_'+pos+'';
+    var qty=parseInt($("#"+id).val())+1;
+    $("#"+id).val(qty);
+    id='total'+pos+'';
+    var idprice='price'+pos+'';
+    var tot=parseFloat($("#"+idprice).text()*qty);
+    $("#"+id).text(tot.toFixed(4));
+}
 
 
 function openHomePage(){
@@ -631,4 +508,129 @@ function closeWindow(){
 
 function openCurrentPage(){
     ref=cordova.InAppBrowser.open(server2,'_blank','location=no');
+}
+
+
+function msg(parClass, parMsg, parMsgStrong ){
+
+    var htmlstr='<div class="alert '+parClass+'"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>'+parMsgStrong+'</strong> '+parMsg+'</div>';
+    if ($(".alert."+parClass).length){
+        $(".alert."+parClass).remove();
+    }
+    $(".content").prepend(htmlstr);
+    $(".alert.alert-warning").click(_delete);
+    setTimeout(function() {   //calls click event after a certain time
+        if($(".alert."+parClass).length)
+        {
+            $(".alert." + parClass).remove();
+        }
+    }, 10000);
+}
+
+
+/*scanning and encoding */
+function scan() {
+    console.log('scanning');
+
+    //var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+
+
+    //scanner.scan( function (result) {
+    cordova.plugins.barcodeScanner.scan( function (result) {
+
+            validateProduct(result.text);
+
+
+
+        }, function (error) {
+            console.log("Scanning failed: ", error);
+        },
+        {
+            //"prompt": "<input type='button'>",
+            "orientation" : "portrait" // Android only (portrait|landscape), default unset so it rotates with the device
+        });
+}
+
+function encode() {
+    //var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+
+    //scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
+    cordova.plugins.barcodeScanner.encode(cordova.plugins.barcodeScanner.Encode.TEXT_TYPE, "http://www.nytimes.com", function(success) {
+
+            alert("encode success: " + success);
+        }, function(fail) {
+            alert("encoding failed: " + fail);
+        }
+    );
+
+}
+
+
+/*Check connection internet*/
+function checkConnection() {
+    //alert("No Internet Connection");
+    // check to see if the network is reachable
+    //alert('entro');
+    var networkState = navigator.connection.type;
+    if (networkState=='none'){
+        //alert('No Internet Connection');
+        var htmlstr='<div id="msgNoConn">';
+        htmlstr+='<p>Cannot establish connection</p>';
+        htmlstr+='<p>with the Anzor server.</p>';
+        htmlstr+='<br><br>';
+        htmlstr+='<p>You need to be</p>';
+        htmlstr+='<p>connected to the Internet</p>';
+        htmlstr+='<br><br>';
+        htmlstr+='<input type="button" id="recharge" value="Try again">';
+        htmlstr+='</div>';
+        jQuery('.content').html(htmlstr);
+        document.getElementById('recharge').addEventListener('click', rechargable, false);
+    }
+
+}
+
+/*calculate the price per line*/
+function checkQty(obj, stockcode, box_counter){
+    //alert($(obj).val());
+    //alert(stockcode);
+    var stock=stockcode;
+    var usr = $("#usr").val();// btoa atob(encodedData);
+    var pass = $("#pass").val();
+    var qty = $(obj).val();
+    var url = 'http://'+server+'/anzor_services/price';
+    var uid=$("#uid").val();//data[0]['uid'];
+    //alert (usr);
+    //alert (pass);
+    var price=$('#price'+box_counter).text();
+    //alert (price);
+    return $.ajax({
+        type: "GET",
+        data: { name: usr, pass : pass, scode:stock, qty: qty, price:price, uid:uid} ,
+        url: url,
+        timeout: 60 * 1000
+    }).success(function (data) {
+
+
+        if (data){
+            //alert(box_counter);
+            var auxLinea=parseFloat($("#total"+box_counter).text());
+            $("#total"+box_counter).text(data[0]['price']);
+            var aux=$("#total").text();
+            aux=parseFloat(aux)+parseFloat(data[0]['price'])-parseFloat(auxLinea);
+            aux=aux.toFixed(4);
+            $("#total").text(aux);
+        }else{
+            alert("sth goes wrong");
+        }
+    }).fail(function (a, b, c) {
+        console.log(b + '|' + c);
+    });
+}
+
+function openWebCart(){
+    var uid = $("#uid").val();// btoa atob(encodedData);
+    //var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_system');
+    //var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_blank');
+    ref=cordova.InAppBrowser.open('http://'+server+'/anzor_services/cart?uid='+uid+'','_blank','location=no');
+
 }
