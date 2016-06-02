@@ -70,6 +70,8 @@ var found = 0;
 var items=new Array();
 if (localStorage.getItem("items")!=null){items=localStorage.items.split(",");}
 
+alert (items);
+
 function iniEvents(){
     //document.getElementById('login').addEventListener('click', validate, false);
     document.addEventListener('offline', checkConnection, false);
