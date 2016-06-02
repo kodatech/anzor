@@ -525,7 +525,6 @@ function openHomePage(){
 
             }else{
                 //$("#scan").trigger("click");
-                if (localStorage.getItem("items")!=null){items=localStorage.items.split(",");}
                 scan();
                 return;
             }
