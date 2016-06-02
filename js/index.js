@@ -68,7 +68,7 @@ app = {
 var box_counter = 0;
 var found = 0;
 var items=new Array();
-if (localStorage.getItem("items")!=null){items=localStorage.items.split(",");}
+//if (localStorage.getItem("items")!=null){items=localStorage.items.split(",");}
 
 alert (items);
 
@@ -525,6 +525,7 @@ function openHomePage(){
 
             }else{
                 //$("#scan").trigger("click");
+                items=localStorage.items.split(",");
                 scan();
                 return;
             }
