@@ -255,11 +255,12 @@ function validateProduct(barCode){
             alert($("#prodListId").html().length<1)
             alert(localStorage.getItem("st")!=null)
             if($("#prodListId").html().length<1 && localStorage.getItem("st")!=null){
+                //alert("cargar #content-inner");
+                $("#content-inner").html(localStorage.st);
                 //alert("cargar items");
                 items=JSON.parse(localStorage.getItem("items"));
                 alert(JSON.parse(localStorage.getItem("items")));
-                //alert("cargar #content-inner");
-                $("#content-inner").html(localStorage.st);
+
                 //alert("box_counter");
                 box_counter=localStorage.box;
             }
