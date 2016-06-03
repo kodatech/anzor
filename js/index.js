@@ -255,12 +255,14 @@ function validateProduct(barCode){
             if($("#prodListId").html().length<1 && localStorage.getItem("st")!=null){
                 //alert("cargar items");
                 //items=JSON.parse(localStorage.getItem("items"));
-alert(JSON.parse(localStorage.getItem("items")));
+//alert(JSON.parse(localStorage.getItem("items")));
                 //alert("cargar #content-inner");
                 $("#content-inner").html(localStorage.st);
                 //alert("box_counter");
                 box_counter=localStorage.box;
             }
+
+            if (localStorage.getItem("items")!=null){items=JSON.parse(localStorage.getItem("items"));}
 
             var pos=items.indexOf(data[0]['stockcode']);
             if (pos==-1){
