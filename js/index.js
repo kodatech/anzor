@@ -287,7 +287,7 @@ function validateProduct(barCode){
     });
 }
 
-f
+
 
 function load_new_scan(data){
     if (data) {
@@ -497,9 +497,8 @@ function checkOut(){
         $('#items').text("0 ");
         $('#total').text(" 0");
         //alert("products successfuly added to the cart");
-        localStorage.clear();
         msg("alert-success", "Products successfuly added to the cart", "Success!");
-
+        
 
 
     }).fail(function (a, b, c) {
