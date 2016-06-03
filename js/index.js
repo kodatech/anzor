@@ -406,6 +406,7 @@ function changeQty(pos){
     var tot=parseFloat($("#"+idprice).text()*qty);
     $("#"+id).text(tot.toFixed(4));
     $("#"+id).attr("value",qty);
+    localStorage.st=$("#content-inner").html();
 }
 
 
