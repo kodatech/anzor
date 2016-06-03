@@ -253,12 +253,12 @@ function validateProduct(barCode){
     }).done(function (data) {
         if (data){
             if($("#prodListId").html().length<1 && localStorage.getItem("st")!=null){
-                //alert("cargar items");
-                items=localStorage.items;
-                //alert("cargar #content-inner");
-                $("#content-inner").html(localStorage.st);
-                //alert("box_counter");
-                box_counter=localStorage.box;
+                alert("cargar items");
+                //items=localStorage.items;
+                alert("cargar #content-inner");
+                //$("#content-inner").html(localStorage.st);
+                alert("box_counter");
+                //box_counter=localStorage.box;
             }
 
             var pos=items.indexOf(data[0]['stockcode']);
