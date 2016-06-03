@@ -102,9 +102,14 @@ function iniEvents(){
     //document.addEventListener("unload", function() { localStorage.removeItem("usr"); }, false);
     checkConnection();
 
+    document.addEventListener("pause", pause, false);
     //$("#loading").css("display", "none");  // Hide it initially
 
 
+}
+
+function pause(){
+    alert ("pause");
 }
 
 function delVariables(){
@@ -250,12 +255,13 @@ function validateProduct(barCode){
         timeout: 60 * 1000
     }).done(function (data) {
         if (data){
+            checkIfWEB();
             var pos=items.indexOf(data[0]['stockcode']);
             if (pos==-1){
                 items.push(data[0]['stockcode']);
                 //localStorage.items= JSON.stringify(items);
                 //alert(items.length)
-                checkIfWEB();
+
                 load_new_scan(data);
             }else{
 
@@ -277,7 +283,7 @@ function validateProduct(barCode){
 }
 
 function checkIfWEB(){
-    alert("aca estoy");
+    
 }
 
 function load_new_scan(data){
