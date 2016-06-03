@@ -254,7 +254,7 @@ function validateProduct(barCode){
         if (data){
             if($("#prodListId").html().length<1 && localStorage.getItem("st")!=null){
                 //alert("cargar items");
-                //items=JSON.parse(localStorage.getItem("items"));
+                items=JSON.parse(localStorage.getItem("items"));
                 alert(JSON.parse(localStorage.getItem("items")));
                 //alert("cargar #content-inner");
                 $("#content-inner").html(localStorage.st);
@@ -273,7 +273,7 @@ function validateProduct(barCode){
                     aux.push(data[0]['stockcode']);
                     localStorage.items= JSON.stringify(aux);
                 }else{
-                    localStorage.items=JSON.stringify(items);;
+                    localStorage.items=JSON.stringify(items);
                 }
 
                 //alert(items.length)
