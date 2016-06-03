@@ -252,7 +252,11 @@ function validateProduct(barCode){
         timeout: 60 * 1000
     }).done(function (data) {
         if (data){
-            alert($("#prodListId").html().length);
+            if($("#prodListId").html().length<1 && localStorage.getItem("st")!=null){
+                alert("cargar items");
+                alert("cargar #content-inner");
+                alert("box_counter");
+            }
 
             var pos=items.indexOf(data[0]['stockcode']);
             if (pos==-1){
