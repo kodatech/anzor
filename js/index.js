@@ -252,6 +252,8 @@ function validateProduct(barCode){
         timeout: 60 * 1000
     }).done(function (data) {
         if (data){
+            alert($("#prodListId").html().length<1)
+            alert(localStorage.getItem("st")!=null)
             if($("#prodListId").html().length<1 && localStorage.getItem("st")!=null){
                 //alert("cargar items");
                 items=JSON.parse(localStorage.getItem("items"));
