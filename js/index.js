@@ -414,6 +414,7 @@ function load_new_scan(data){
 function changeQty(pos){
     var idaux='qty_'+pos+'';
     var id='qty_'+pos+'';
+    $("#"+idaux).attr("value",qty);
     var qty=parseInt($("#"+id).val())+1;
     $("#"+id).val(qty);
     id='total'+pos+'';
@@ -421,7 +422,10 @@ function changeQty(pos){
     var tot=parseFloat($("#"+idprice).text()*qty);
     $("#"+id).text(tot.toFixed(4));
     //alert($("#"+idaux).val());
-    $("#"+idaux).attr("value",qty);
+
+
+
+
     localStorage.st=$("#content-inner").html();
 }
 
