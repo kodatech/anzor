@@ -255,6 +255,7 @@ function validateProduct(barCode){
                 items.push(data[0]['stockcode']);
                 //localStorage.items= JSON.stringify(items);
                 //alert(items.length)
+                checkIfWEB();
                 load_new_scan(data);
             }else{
 
@@ -275,6 +276,9 @@ function validateProduct(barCode){
     });
 }
 
+function checkIfWEB(){
+    alert("aca estoy");
+}
 
 function load_new_scan(data){
     if (data) {
