@@ -497,10 +497,9 @@ function checkOut(){
         $('#items').text("0 ");
         $('#total').text(" 0");
         //alert("products successfuly added to the cart");
+        localStorage.clear();
         msg("alert-success", "Products successfuly added to the cart", "Success!");
-        localStorage.removeItem('st');
-        localStorage.removeItem('items');
-        localStorage.removeItem('box');
+
 
 
     }).fail(function (a, b, c) {
