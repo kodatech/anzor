@@ -102,15 +102,12 @@ function iniEvents(){
     //document.addEventListener("unload", function() { localStorage.removeItem("usr"); }, false);
     checkConnection();
 
-    document.addEventListener("pause", pause, false);
-    //$("#loading").css("display", "none");  // Hide it initially
+
 
 
 }
 
-function pause(){
-    alert ("pause");
-}
+
 
 function delVariables(){
     localStorage.removeItem("usr");
@@ -255,11 +252,16 @@ function validateProduct(barCode){
         timeout: 60 * 1000
     }).done(function (data) {
         if (data){
-            checkIfWEB();
+            if (localStorage.getItem("items")!=null && server2!=undefined){
+                alert("cargar array");
+                alert("cargar cart");
+                alert("cargar box_count");
+            }
+
             var pos=items.indexOf(data[0]['stockcode']);
             if (pos==-1){
                 items.push(data[0]['stockcode']);
-                //localStorage.items= JSON.stringify(items);
+                localStorage.items= JSON.stringify(items);
                 //alert(items.length)
 
                 load_new_scan(data);
@@ -282,9 +284,7 @@ function validateProduct(barCode){
     });
 }
 
-function checkIfWEB(){
-    
-}
+f
 
 function load_new_scan(data){
     if (data) {
