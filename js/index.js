@@ -255,6 +255,7 @@ function validateProduct(barCode){
             if($("#prodListId").html().length<1 && localStorage.getItem("st")!=null){
                 //alert("cargar items");
                 //items=JSON.parse(localStorage.getItem("items"));
+alert(JSON.parse(localStorage.getItem("items")));
                 //alert("cargar #content-inner");
                 $("#content-inner").html(localStorage.st);
                 //alert("box_counter");
