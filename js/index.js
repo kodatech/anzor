@@ -291,6 +291,8 @@ function validateProduct(barCode){
             }
 
         }else{
+            $("#content-inner").show();
+
             msg("alert-warning", "Wrong product.", "Try again!");
         }
 
@@ -366,8 +368,7 @@ function load_new_scan(data){
 
         jQuery('#prodListId').prepend(htmlstr);
 
-        var valor = $("qty_" + box_counter + "").val();
-        $("qty_" + box_counter + "").attr('value', valor);
+
 
         if ($("#total").text() == "") {
             $("#total").text(data[0]['sell_price_1']);
@@ -404,6 +405,7 @@ function changeQty(pos){
     var idprice='price'+pos+'';
     var tot=parseFloat($("#"+idprice).text()*qty);
     $("#"+id).text(tot.toFixed(4));
+    $("#"+id).attr("value",qty);
 }
 
 
