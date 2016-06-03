@@ -382,6 +382,8 @@ function load_new_scan(data){
             auxItems++;
             $("#items").text(auxItems);
         }
+        $("#qty_"+box_counter).attr("value",$("#qty_"+box_counter).val());
+
         localStorage.st=$("#content-inner").html();
         box_counter++;
         localStorage.box=box_counter;
@@ -405,8 +407,8 @@ function changeQty(pos){
     var idprice='price'+pos+'';
     var tot=parseFloat($("#"+idprice).text()*qty);
     $("#"+id).text(tot.toFixed(4));
-    $("#"+id).attr("value",qty);
-    localStorage.st=$("#content-inner").html();
+    //$("#"+id).attr("value",qty);
+    //localStorage.st=$("#content-inner").html();
 }
 
 
