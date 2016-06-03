@@ -254,7 +254,8 @@ function validateProduct(barCode){
         if (data){
             //alert($("#prodListId").html().length<1)
             //alert(localStorage.getItem("st")!=null)
-            if($("#prodListId").html().length<1 && localStorage.getItem("st")!=null){
+            addCartReturningWeb();
+            /*if($("#prodListId").html().length<1 && localStorage.getItem("st")!=null){
                 $("#content-inner").show();
                 //alert("cargar #content-inner");
                 $("#content-inner").html(localStorage.st);
@@ -264,7 +265,7 @@ function validateProduct(barCode){
 
                 //alert("box_counter");
                 box_counter=localStorage.box;
-            }
+            }*/
 
            // if (localStorage.getItem("items")!=null){items=JSON.parse(localStorage.getItem("items"));}
 
@@ -291,18 +292,7 @@ function validateProduct(barCode){
             }
 
         }else{
-            if($("#prodListId").html().length<1 && localStorage.getItem("st")!=null){
-                $("#content-inner").show();
-                //alert("cargar #content-inner");
-                $("#content-inner").html(localStorage.st);
-                //alert("cargar items");
-                items=JSON.parse(localStorage.getItem("items"));
-                //alert(JSON.parse(localStorage.getItem("items")));
-
-                //alert("box_counter");
-                box_counter=localStorage.box;
-            }
-    
+            addCartReturningWeb();
             msg("alert-warning", "Wrong product.", "Try again!");
         }
 
@@ -314,7 +304,20 @@ function validateProduct(barCode){
     });
 }
 
+function addCartReturningWeb(){
+    if($("#prodListId").html().length<1 && localStorage.getItem("st")!=null){
+        $("#content-inner").show();
+        //alert("cargar #content-inner");
+        $("#content-inner").html(localStorage.st);
+        //alert("cargar items");
+        items=JSON.parse(localStorage.getItem("items"));
+        //alert(JSON.parse(localStorage.getItem("items")));
 
+        //alert("box_counter");
+        box_counter=localStorage.box;
+    }
+    return;
+}
 
 function load_new_scan(data){
     if (data) {
