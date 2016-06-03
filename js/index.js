@@ -253,7 +253,7 @@ function validateProduct(barCode){
             var pos=items.indexOf(data[0]['stockcode']);
             if (pos==-1){
                 items.push(data[0]['stockcode']);
-                localStorage.items= JSON.stringify(items);
+                //localStorage.items= JSON.stringify(items);
                 //alert(items.length)
                 load_new_scan(data);
             }else{
@@ -290,9 +290,9 @@ function load_new_scan(data){
         //if (localStorage.getItem("items")==null || items.indexOf(stockcode)==-1){
         //localStorage.items= JSON.stringify(items);
         //alert("items tiene: "+localStorage.getItem("items"));
-        if(localStorage.getItem("st")!=null){
+        /*if(localStorage.getItem("st")!=null){
             jQuery('#content-inner').html(localStorage.st);
-        }
+        }*/
 
         var htmlstr = '<div class="views-row views-row-1 views-row-odd views-row-first prodrow out-top" this_id="' + box_counter + '" id="send_box_' + box_counter + '">';
         htmlstr += '<div class="views-field views-field-nothing-1"><span class="field-content">';
@@ -352,9 +352,9 @@ function load_new_scan(data){
             auxItems++;
             $("#items").text(auxItems);
         }
-        localStorage.st=$("#content-inner").html();
+        //localStorage.st=$("#content-inner").html();
 
-        localStorage.box_counter=box_counter++;
+        //localStorage.box_counter=box_counter++;
         //}else{
         //    alert("hi");
         //}
