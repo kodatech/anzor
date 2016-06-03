@@ -633,6 +633,7 @@ function checkQty(obj, stockcode, box_counter){
             aux=parseFloat(aux)+parseFloat(data[0]['price'])-parseFloat(auxLinea);
             aux=aux.toFixed(4);
             $("#total").text(aux);
+            localStorage.st=$("#content-inner").html();
         }else{
             alert("sth goes wrong");
         }
