@@ -611,6 +611,7 @@ function checkQty(obj, stockcode, box_counter){
     var usr = $("#usr").val();// btoa atob(encodedData);
     var pass = $("#pass").val();
     var qty = $(obj).val();
+    $(obj).val(qty);
     var url = 'http://'+server+'/anzor_services/price';
     var uid=$("#uid").val();//data[0]['uid'];
     //alert (usr);
