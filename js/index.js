@@ -254,7 +254,7 @@ function validateProduct(barCode){
         if (data){
             if($("#prodListId").html().length<1 && localStorage.getItem("st")!=null){
                 //alert("cargar items");
-                items=localStorage.items.split(',');
+                //items=localStorage.items.split(',');
                 //alert("cargar #content-inner");
                 $("#content-inner").html(localStorage.st);
                 //alert("box_counter");
