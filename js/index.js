@@ -416,6 +416,7 @@ function changeQty(pos){
     var id='qty_'+pos+'';
     $("#"+idaux).attr("value",qty);
     var qty=parseInt($("#"+id).val())+1;
+    alert(qty);
     $("#"+id).val(qty);
     id='total'+pos+'';
     var idprice='price'+pos+'';
