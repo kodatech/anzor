@@ -267,10 +267,13 @@ function validateProduct(barCode){
             var pos=items.indexOf(data[0]['stockcode']);
             if (pos==-1){
                 items.push(data[0]['stockcode']);
-                if (localStorage.getItem("items")!=null){var aux=JSON.parse(localStorage.getItem("items"));
-                aux.push(data[0]['stockcode']);
-                localStorage.items= JSON.stringify(aux);}else{
-                    localStorage.items=items;
+                //localStorage.items= JSON.stringify(items);
+                if (localStorage.getItem("items")!=null){
+                    var aux=JSON.parse(localStorage.getItem("items"));
+                    aux.push(data[0]['stockcode']);
+                    localStorage.items= JSON.stringify(aux);
+                }else{
+                    localStorage.items=JSON.stringify(items);;
                 }
 
                 //alert(items.length)
