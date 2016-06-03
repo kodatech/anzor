@@ -70,9 +70,9 @@ var found = 0;
 var items=new Array();
 if (server2==undefined){
     /*if (localStorage.getItem("items")!=null){items=localStorage.items.split(",");}
-    if (localStorage.box_counter!=null){box_counter=localStorage.box_counter;}
-    alert (items);//vacio//vacio
-    alert (box_counter);//undefined//undefined*/
+     if (localStorage.box_counter!=null){box_counter=localStorage.box_counter;}
+     alert (items);//vacio//vacio
+     alert (box_counter);//undefined//undefined*/
 }
 
 
@@ -304,8 +304,8 @@ function load_new_scan(data){
         //localStorage.items= JSON.stringify(items);
         //alert("items tiene: "+localStorage.getItem("items"));
         /*if(localStorage.getItem("st")!=null){
-            jQuery('#content-inner').html(localStorage.st);
-        }*/
+         jQuery('#content-inner').html(localStorage.st);
+         }*/
 
         var htmlstr = '<div class="views-row views-row-1 views-row-odd views-row-first prodrow out-top" this_id="' + box_counter + '" id="send_box_' + box_counter + '">';
         htmlstr += '<div class="views-field views-field-nothing-1"><span class="field-content">';
@@ -498,7 +498,7 @@ function checkOut(){
         $('#total').text(" 0");
         //alert("products successfuly added to the cart");
         msg("alert-success", "Products successfuly added to the cart", "Success!");
-        
+
 
 
     }).fail(function (a, b, c) {
