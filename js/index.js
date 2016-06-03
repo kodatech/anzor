@@ -422,7 +422,7 @@ function changeQty(pos){
     $("#"+id).text(tot.toFixed(4));
     //alert($("#"+idaux).val());
     $("#"+idaux).attr("value",qty);
-    //localStorage.st=$("#content-inner").html();
+    localStorage.st=$("#content-inner").html();
 }
 
 
