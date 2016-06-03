@@ -252,11 +252,7 @@ function validateProduct(barCode){
         timeout: 60 * 1000
     }).done(function (data) {
         if (data){
-            if (localStorage.getItem("items")!=null && server2!=undefined){
-                alert("cargar array");
-                alert("cargar cart");
-                alert("cargar box_count");
-            }
+            alert($("#content-inner").html().length);
 
             var pos=items.indexOf(data[0]['stockcode']);
             if (pos==-1){
@@ -362,7 +358,7 @@ function load_new_scan(data){
             auxItems++;
             $("#items").text(auxItems);
         }
-        //localStorage.st=$("#content-inner").html();
+        localStorage.st=$("#content-inner").html();
         box_counter++;
         //localStorage.box_counter=box_counter++;
         //}else{
