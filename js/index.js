@@ -267,7 +267,9 @@ function validateProduct(barCode){
             var pos=items.indexOf(data[0]['stockcode']);
             if (pos==-1){
                 items.push(data[0]['stockcode']);
-                localStorage.items= JSON.stringify(items);
+                var aux=JSON.parse(localStorage.getItem("items"));
+                aux.push(data[0]['stockcode']);
+                localStorage.items= JSON.stringify(aux);
 
                 //alert(items.length)
 
