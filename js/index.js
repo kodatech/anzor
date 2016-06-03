@@ -291,8 +291,18 @@ function validateProduct(barCode){
             }
 
         }else{
-            $("#content-inner").show();
+            if($("#prodListId").html().length<1 && localStorage.getItem("st")!=null){
+                $("#content-inner").show();
+                //alert("cargar #content-inner");
+                $("#content-inner").html(localStorage.st);
+                //alert("cargar items");
+                items=JSON.parse(localStorage.getItem("items"));
+                //alert(JSON.parse(localStorage.getItem("items")));
 
+                //alert("box_counter");
+                box_counter=localStorage.box;
+            }
+    
             msg("alert-warning", "Wrong product.", "Try again!");
         }
 
@@ -382,7 +392,6 @@ function load_new_scan(data){
             auxItems++;
             $("#items").text(auxItems);
         }
-        $("#qty_"+box_counter).attr("value",$("#qty_"+box_counter).val());
 
         localStorage.st=$("#content-inner").html();
         box_counter++;
