@@ -252,15 +252,15 @@ function validateProduct(barCode){
         timeout: 60 * 1000
     }).done(function (data) {
         if (data){
-            alert($("#prodListId").html().length<1)
-            alert(localStorage.getItem("st")!=null)
+            //alert($("#prodListId").html().length<1)
+            //alert(localStorage.getItem("st")!=null)
             if($("#prodListId").html().length<1 && localStorage.getItem("st")!=null){
                 $("#content-inner").show();
                 //alert("cargar #content-inner");
                 $("#content-inner").html(localStorage.st);
                 //alert("cargar items");
                 items=JSON.parse(localStorage.getItem("items"));
-                alert(JSON.parse(localStorage.getItem("items")));
+                //alert(JSON.parse(localStorage.getItem("items")));
 
                 //alert("box_counter");
                 box_counter=localStorage.box;
@@ -366,7 +366,8 @@ function load_new_scan(data){
 
         jQuery('#prodListId').prepend(htmlstr);
 
-
+        var valor = $("qty_" + box_counter + "").val();
+        $("qty_" + box_counter + "").attr('value', valor);
 
         if ($("#total").text() == "") {
             $("#total").text(data[0]['sell_price_1']);
