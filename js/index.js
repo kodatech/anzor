@@ -353,7 +353,7 @@ function load_new_scan(data){
             $("#items").text(auxItems);
         }
         //localStorage.st=$("#content-inner").html();
-
+        box_counter++;
         //localStorage.box_counter=box_counter++;
         //}else{
         //    alert("hi");
