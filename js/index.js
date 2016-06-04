@@ -116,7 +116,8 @@ function delVariables(){
 function keyPressEvent(e, obj, stockcode, box_counter) {
     var evt = e || window.event;
     var keyPressed = evt.which || evt.keyCode;
-
+    var qty = $(obj).val();
+    $(obj).attr('value', qty);
     checkQty(obj, stockcode ,box_counter);
 }
 
@@ -650,8 +651,8 @@ function checkQty(obj, stockcode, box_counter){
     var stock=stockcode;
     var usr = $("#usr").val();// btoa atob(encodedData);
     var pass = $("#pass").val();
-    var qty = $(obj).val();
-    $(obj).attr('value', qty);
+    //var qty = $(obj).val();
+    //$(obj).attr('value', qty);
     var url = 'http://'+server+'/anzor_services/price';
     var uid=$("#uid").val();//data[0]['uid'];
     //alert (usr);
