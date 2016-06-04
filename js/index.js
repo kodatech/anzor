@@ -412,10 +412,11 @@ function load_new_scan(data){
 
 
 function changeQty(pos){
+    var auxLinea=parseFloat($("#total"+pos).text());
     var idaux='qty_'+pos+'';
     var id='qty_'+pos+'';
     var qty=parseInt($("#"+id).val())+1;
-    alert(qty);
+    //alert(qty);
     $("#"+id).val(qty);
     id='total'+pos+'';
     var idprice='price'+pos+'';
@@ -423,8 +424,16 @@ function changeQty(pos){
     $("#"+id).text(tot.toFixed(4));
     //alert($("#"+idaux).val());
 
-alert("idaux: "+idaux);
+//alert("idaux: "+idaux);
     $("#"+idaux).attr("value",qty);
+
+
+    //var auxLinea=parseFloat($("#total"+box_counter).text());
+    //$("#total"+box_counter).text(data[0]['price']);
+    var aux=$("#total").text();
+    aux=parseFloat(aux)+tot-parseFloat(auxLinea);
+    aux=aux.toFixed(4);
+    $("#total").text(aux);
 
 
     localStorage.st=$("#content-inner").html();
@@ -669,7 +678,7 @@ function checkQty(obj, stockcode, box_counter){
 
 
         if (data){
-            alert(box_counter);
+            //alert(box_counter);
             var auxLinea=parseFloat($("#total"+box_counter).text());
             $("#total"+box_counter).text(data[0]['price']);
             var aux=$("#total").text();
