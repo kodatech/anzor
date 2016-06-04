@@ -414,7 +414,6 @@ function load_new_scan(data){
 function changeQty(pos){
     var idaux='qty_'+pos+'';
     var id='qty_'+pos+'';
-    $("#"+idaux).attr("value",qty);
     var qty=parseInt($("#"+id).val())+1;
     alert(qty);
     $("#"+id).val(qty);
@@ -424,7 +423,8 @@ function changeQty(pos){
     $("#"+id).text(tot.toFixed(4));
     //alert($("#"+idaux).val());
 
-
+alert("idaux: "+idaux);
+    $("#"+idaux).attr("value",qty);
 
 
     localStorage.st=$("#content-inner").html();
