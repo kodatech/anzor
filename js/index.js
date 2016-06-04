@@ -669,7 +669,7 @@ function checkQty(obj, stockcode, box_counter){
 
 
         if (data){
-            //alert(box_counter);
+            alert(box_counter);
             var auxLinea=parseFloat($("#total"+box_counter).text());
             $("#total"+box_counter).text(data[0]['price']);
             var aux=$("#total").text();
