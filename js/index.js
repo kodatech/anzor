@@ -114,6 +114,7 @@ function delVariables(){
 }
 
 function keyPressEvent(e, obj, stockcode, box_counter) {
+    alert("keyPressEvent");
     var evt = e || window.event;
     var keyPressed = evt.which || evt.keyCode;
 
