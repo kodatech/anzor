@@ -114,7 +114,6 @@ function delVariables(){
 }
 
 function keyPressEvent(e, obj, stockcode, box_counter) {
-    alert("keyPressEvent");
     var evt = e || window.event;
     var keyPressed = evt.which || evt.keyCode;
 
@@ -648,6 +647,8 @@ function checkConnection() {
 function checkQty(obj, stockcode, box_counter){
     //alert($(obj).val());
     //alert(stockcode);
+    alert("checkQty");
+
     var stock=stockcode;
     var usr = $("#usr").val();// btoa atob(encodedData);
     var pass = $("#pass").val();
