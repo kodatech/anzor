@@ -255,19 +255,7 @@ function validateProduct(barCode){
             //alert($("#prodListId").html().length<1)
             //alert(localStorage.getItem("st")!=null)
             addCartReturningWeb();
-            /*if($("#prodListId").html().length<1 && localStorage.getItem("st")!=null){
-                $("#content-inner").show();
-                //alert("cargar #content-inner");
-                $("#content-inner").html(localStorage.st);
-                //alert("cargar items");
-                items=JSON.parse(localStorage.getItem("items"));
-                //alert(JSON.parse(localStorage.getItem("items")));
 
-                //alert("box_counter");
-                box_counter=localStorage.box;
-            }*/
-
-           // if (localStorage.getItem("items")!=null){items=JSON.parse(localStorage.getItem("items"));}
 
             var pos=items.indexOf(data[0]['stockcode']);
             if (pos==-1){
@@ -549,6 +537,7 @@ function checkOut(){
         msg("alert-success", "Products successfuly added to the cart", "Success!");
 
 
+reinicializar();
 
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
@@ -700,4 +689,12 @@ function openWebCart(){
     //var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_blank');
     ref=cordova.InAppBrowser.open('http://'+server+'/anzor_services/cart?uid='+uid+'','_blank','location=no');
 
+}
+
+function reinicializar(){
+    localStorage.removeItem("st");
+    box_counter=0;
+    localStorage.removeItem("box");
+    localStorage.removeItem("items");
+    items.length=0;
 }
