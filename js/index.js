@@ -116,8 +116,7 @@ function delVariables(){
 function keyPressEvent(e, obj, stockcode, box_counter) {
     var evt = e || window.event;
     var keyPressed = evt.which || evt.keyCode;
-    var qty = $(obj).val();
-    $(obj).attr('value', qty);
+
     checkQty(obj, stockcode ,box_counter);
 }
 
