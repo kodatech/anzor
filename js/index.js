@@ -647,13 +647,13 @@ function checkConnection() {
 function checkQty(obj, stockcode, box_counter){
     //alert($(obj).val());
     //alert(stockcode);
-    alert("checkQty");
+    //alert("checkQty");
 
     var stock=stockcode;
     var usr = $("#usr").val();// btoa atob(encodedData);
     var pass = $("#pass").val();
-    //var qty = $(obj).val();
-    //$(obj).attr('value', qty);
+    var qty = $(obj).val();
+    $(obj).attr('value', qty);
     var url = 'http://'+server+'/anzor_services/price';
     var uid=$("#uid").val();//data[0]['uid'];
     //alert (usr);
