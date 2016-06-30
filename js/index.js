@@ -132,6 +132,7 @@ function remove_scan_box(scan_box_id){
         }
 
     }
+    localStorage.items=JSON.stringify(items);
     //alert($("#total"+scan_box_id).text());
     jQuery('#send_box_'+scan_box_id).fadeOut();
     //$("#total").text(parseFloat($("#total").text())-parseFloat($("#total"+scan_box_id).text()));
