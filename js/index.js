@@ -125,8 +125,12 @@ function remove_scan_box(scan_box_id){
     //alert(items);
     //items.splice(scan_box_id, 1);
     for (var i in items){
-        alert(i);
-        alert(items[i]);
+        //alert(i);
+        //alert(items[i]);
+        if (scan_box_id==i){
+            items[i]="";
+        }
+
     }
     //alert($("#total"+scan_box_id).text());
     jQuery('#send_box_'+scan_box_id).fadeOut();
