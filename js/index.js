@@ -185,6 +185,13 @@ function keyPressEvent(e, obj, stockcode, box_counter) {
 
 function remove_scan_box(scan_box_id){
     //alert($("#total"+scan_box_id).text());
+    for (var i in items){
+        //alert(i);
+        //alert(items[i]);
+        if (scan_box_id==i){
+            items[i]="";
+        }
+    }
     jQuery('#send_box_'+scan_box_id).fadeOut();
     //$("#total").text(parseFloat($("#total").text())-parseFloat($("#total"+scan_box_id).text()));
     $("#total").text(Number((parseFloat($("#total").text())-parseFloat($("#total"+scan_box_id).text())).toFixed(4)));
