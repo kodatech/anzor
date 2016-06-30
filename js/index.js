@@ -121,6 +121,7 @@ function keyPressEvent(e, obj, stockcode, box_counter) {
 }
 
 function remove_scan_box(scan_box_id){
+    alert(scan_box_id);
     //alert($("#total"+scan_box_id).text());
     jQuery('#send_box_'+scan_box_id).fadeOut();
     //$("#total").text(parseFloat($("#total").text())-parseFloat($("#total"+scan_box_id).text()));
