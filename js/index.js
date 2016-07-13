@@ -66,22 +66,11 @@ app = {
 var box_counter = 0;
 var found = 0;
 var items=new Array();
-//var incomingUrl;
 
 function iniEvents(){
-    //document.getElementById('login').addEventListener('click', validate, false);
+
     document.addEventListener('offline', checkConnection, false);
-   /* $(document).ajaxSend(function () {
-        $("#loading").css("display", "block");
-        //alert("ajax");
-    })
-    $(document).ajaxComplete(function () {
-        $("#loading").css("display", "none");
-    });
-    $(document).ajaxStop(function () {
-        $("#loading").css("display", "none");
-    });*/
-    //noinspection JSUnresolvedFunction
+
     if (localStorage.name!=""){
         $("#usr").val(localStorage.name);
         $("#pass").val(localStorage.pass);
@@ -90,22 +79,16 @@ function iniEvents(){
         }
 
     }
-    //$(".line-item-summary").hide();
     $("#content-inner").css("display", "none");
     checkConnection();
 
     deviceType = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iPad" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iPhone" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/BlackBerry/i)) == "BlackBerry" ? "BlackBerry" : "null";
-
-    //alert(deviceType);
-    //window.open = cordova.InAppBrowser.open;
-
 
 }
 
 function load_new_scan(data){
     if (data){
         found = 1;
-        //$(".line-item-summary").show();
         jQuery('#send_all').fadeIn();
         jQuery('#price_enquiry').fadeIn();
         var stockcode=data[0]['stockcode'];
@@ -280,17 +263,7 @@ function validateProduct(barCode){
 }
 
 function changeQty(pos){
-    /*var id='qty_'+pos+'';
-    var qty=parseInt($("#"+id).val())+1;
-    //alert(qty);
-    $("#"+id).val(qty);
-    id='total'+pos+'';
-    var idprice='price'+pos+'';
-    var tot=parseFloat($("#"+idprice).text()*qty);
-    $("#"+id).text(tot.toFixed(4));
 
-
-    */
     var auxLinea=parseFloat($("#total"+pos).text());
      var idaux='qty_'+pos+'';
      var id='qty_'+pos+'';
@@ -301,22 +274,15 @@ function changeQty(pos){
      var idprice='price'+pos+'';
      var tot=parseFloat($("#"+idprice).text()*qty);
      $("#"+id).text(tot.toFixed(4));
-     //alert($("#"+idaux).val());
 
-     //alert("idaux: "+idaux);
      $("#"+idaux).attr("value",qty);
 
 
-     //var auxLinea=parseFloat($("#total"+box_counter).text());
-     //$("#total"+box_counter).text(data[0]['price']);
      var aux=$("#total").text();
      aux=parseFloat(aux)+tot-parseFloat(auxLinea);
      aux=aux.toFixed(4);
      $("#total").text(aux);
 
-/*
-     localStorage.st=$("#content-inner").html();
-    * */
 }
 
 /*User validation*/
