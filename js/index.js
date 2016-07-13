@@ -225,7 +225,7 @@ function validate(){
         }else{
             msg("alert-warning", "User or Password are wrong.", "Try again!");
 //aca deberia hacer visible el pie
-            $("#content-inner").show();
+            //$("#content-inner").show();
 
         }
     }).fail(function (a, b, c) {
@@ -295,6 +295,9 @@ function validateProduct(barCode){
         }else{
             addCartReturningWeb();
             msg("alert-warning", "Wrong product.", "Try again!");
+            //aca deberia hacer visible el pie
+            $("#content-inner").show();
+
         }
 
 
