@@ -567,6 +567,8 @@ function checkOut(){
 
         $('#items').text("0 ");
         $('#total').text(" 0");
+
+        items=[];
         //alert("products successfuly added to the cart");
         msg("alert-success", "Products successfuly added to the cart", "Success!");
 
