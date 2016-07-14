@@ -24,6 +24,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="css/new.css" />
+        <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
         <title>Barcode Scanner</title>
 
 
@@ -101,22 +102,35 @@
                       </div>
                       <div class="clearfix"></div>
                 </div>
-                <div class="footerbttns col-xs-12">
+                <!--<div class="footerbttns col-xs-12">
                     <input type="button" value="Upload Scanned Items to Cart" onclick="checkOut()">
-                    <!--<div>
-                        <div onclick="checkOut()">Upload Scanned Items to Cart</div>
-                    </div>-->
+
                     <div class="dropdown">
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Actions
                             <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
-                            <!--<li><a href="#" onclick="checkOut()">Checkout</a></li>-->
-                            <!--<li><a href="#">Request price</a></li>-->
+
                             <li><a href="#" onclick="openWebCart()">Go to the cart</a></li>
                             <li><a href="#" onclick="logOut()">Logout</a></li>
                             <li id="only-android"><a href="http://anzornz.kodait.com" id="exitApp">Close</a></li>
                         </ul>
+                    </div>
+                </div>-->
+                <div class="footer">
+                    <div class="footerbttns col-xs-12">
+                        <button class="btn btn-primary uploadbtn" type="button" onclick="checkOut()"><span>Upload Scanned Items to Cart</span></button>
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle actionsbtn" type="button" data-toggle="dropdown"><span>Actions</span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <!--<li><a href="#" onclick="checkOut()">Checkout</a></li>-->
+                                <!--<li><a href="#">Request price</a></li>-->
+                                <li><a href="#" onclick="openWebCart()">Go to the cart</a></li>
+                                <li><a href="#" onclick="logOut()">Logout</a></li>
+                                <!--<li id="only-android"><a href="#" onclick="closeWindow()">Close</a></li>-->
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
