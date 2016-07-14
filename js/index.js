@@ -597,7 +597,7 @@ function msg(parClass, parMsg, parMsgStrong ){
         {
             $(".alert." + parClass).remove();
         }
-    }, 10000);
+    }, 3000);
 }
 
 
