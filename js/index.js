@@ -254,6 +254,7 @@ function validateProduct(barCode){
             }
         }else{
             msg("alert-warning", "Wrong product.", "Try again!");
+            $("#content-inner").css("display","block");
         }
 
 
