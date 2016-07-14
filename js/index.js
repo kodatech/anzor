@@ -546,7 +546,7 @@ function checkOut(){
     }).get();
 
 
-    alert (arraySky.length);
+    alert (arraySku.length);
 
     //var barcode="9420019451401";
     return $.ajax({
