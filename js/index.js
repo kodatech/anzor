@@ -547,7 +547,7 @@ function checkOut(){
 
 
     if (arraySku.length == 0){
-        msg("alert-danger", "The list is empty. No products added to the cart", "Danger!");
+        msg("alert-danger", "The list is empty. No products added to the cart", "Alert!");
         return;
     }
 
