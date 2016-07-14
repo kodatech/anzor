@@ -362,6 +362,76 @@ margin:0 0.8em;
 }
 
 
+.footer .footerbttns{
+    padding:1.6em 15px;
+}
+.footer .footerbttns .btn{
+    width:40%;
+    margin:0 5%;
+    padding: 0.6em;
+    display: block;
+    background: #0083a9;
+    border: none;
+    color: #fff;
+    float:left;
+    position:relative;
+    height:54px;
+    font-size:10px;
+    white-space:normal;
+}
+.footer .footerbttns .uploadbtn{
+    border:6px solid #0083a9;
+    background:#fff
+}
+.footer .footerbttns .uploadbtn:before{
+    background:#0083a9;
+    display:block;
+    content:'';
+    position:absolute;
+    width:calc(100% - 4px);
+    height:calc(100% - 4px);
+    z-index:10;
+    top:2px;
+    left:2px;
+    z-index:0;
+}
+.footer .footerbttns .uploadbtn:after{
+    background:#0083a9;
+    display:block;
+    content:'\f106';
+    font-family:'FontAwesome';
+    position:absolute;
+    width:30%;
+    z-index:10;
+    top:-6px;
+    left:35%;
+    z-index:1;
+    line-height:1;
+    font-size:18px;
+}
+.footer .footerbttns .uploadbtn span{
+    z-index:10;
+    position:relative;
+}
+.footer .footerbttns .actionsbtn span{
+    display:block;
+    margin-top:-14px;
+}
+.footer .footerbttns .actionsbtn span:after{
+    display:block;
+    content:'\f013';
+    font-family:'FontAwesome';
+    position:absolute;
+    width:30%;
+    bottom:10px;
+    left:35%;
+    z-index:1;
+    line-height:1;
+    font-size:16px;
+}
+
+
+
 
 @-webkit-keyframes second_object {
     100% { width: 100px; height:100px; left: 48px; top: 48px; }
