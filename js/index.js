@@ -533,6 +533,10 @@ function checkOut(){
         return $(this).val();
     }).get();
 
+    if (arraySky.length == 0){
+        msg("alert-danger", "The list is empty. No products added to the cart.", "Alert!");
+        return;
+    }
 
     //var barcode="9420019451401";
     return $.ajax({
