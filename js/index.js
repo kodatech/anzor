@@ -546,7 +546,10 @@ function checkOut(){
     }).get();
 
 
-    alert (arraySku.length);
+    if (arraySku.length == 0){
+        msg("alert-danger", "The list is empty. No products added to the cart", "Danger!");
+        return;
+    }
 
     //var barcode="9420019451401";
     return $.ajax({
