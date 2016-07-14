@@ -523,7 +523,7 @@ function openHomePageFromMobileListProducts(){
 function checkOut(){
     var url = 'http://'+server+'/anzor_services/checkout';
     var uid=$("#uid").val();
-    //alert(uid);
+    alert("hello");
     //skuArray=$("#views-field-line-item-label").text();
 
     var arraySku=$(".views-field-line-item-label").map(function(){
