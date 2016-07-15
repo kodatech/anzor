@@ -462,9 +462,7 @@ function openHomePage(){
                 //ref=window.open('http://'+server+'','_system');
                 ref=cordova.InAppBrowser.open('http://'+server+'','_blank','location=no');
 
-                ref.addEventListener( "loadstop", function() {
-                    ref.executeScript({ code: "alert( 'hello' );" });
-                });
+
 
                 /*  ref.addEventListener('loadstop', function(event) {
                  //if (event.url.match('http://'+server+'')) {
@@ -712,6 +710,10 @@ function openWebCart(){
     //var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_system');
     //var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_blank');
     ref=cordova.InAppBrowser.open('http://'+server+'/anzor_services/cart?uid='+uid+'','_blank','location=no');
+
+    ref.addEventListener( "loadstop", function() {
+        ref.executeScript({ code: "alert( 'hello' );" });
+    });
 
 }
 
