@@ -220,8 +220,8 @@ function validate(){
 
             $('#encode').click(encode);
 
-            //$("body").css("background-color", "#ffffff");
-
+            $("body").css("background-color", "#ffffff");
+            $("body").css('color', 'black');
 
             openHomePage();
 
