@@ -721,7 +721,7 @@ function openWebCart(){
     ref=cordova.InAppBrowser.open('http://'+server+'/anzor_services/cart?uid='+uid+'','_blank','location=no');
 
     ref.addEventListener( "loadstop", function() {
-        ref.executeScript({ code: "alert( 'hello' );" });
+        //ref.executeScript({ code: "alert( 'hello' );" });
     });
 
 }
