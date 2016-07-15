@@ -133,11 +133,11 @@ function remove_scan_box(scan_box_id){
     }
     localStorage.items=JSON.stringify(items);
     //alert($("#total"+scan_box_id).text());
-    jQuery('#send_box_'+scan_box_id).fadeOut();
+    //jQuery('#send_box_'+scan_box_id).fadeOut();
     //$("#total").text(parseFloat($("#total").text())-parseFloat($("#total"+scan_box_id).text()));
     $("#total").text(Number((parseFloat($("#total").text())-parseFloat($("#total"+scan_box_id).text())).toFixed(4)));
     $("#items").text(parseFloat($("#items").text())-1);
-    //jQuery('#send_box_'+scan_box_id).remove();
+    jQuery('#send_box_'+scan_box_id).remove();
     var arraySku=$(".views-field-line-item-label").map(function(){
         return $(this).text();
     }).get();
