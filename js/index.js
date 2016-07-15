@@ -138,6 +138,10 @@ function remove_scan_box(scan_box_id){
     $("#total").text(Number((parseFloat($("#total").text())-parseFloat($("#total"+scan_box_id).text())).toFixed(4)));
     $("#items").text(parseFloat($("#items").text())-1);
     //jQuery('#send_box_'+scan_box_id).remove();
+    var arraySku=$(".views-field-line-item-label").map(function(){
+        return $(this).text();
+    }).get();
+    alert(arraySku.length);
 }
 function send_order(scan_box_id){
     jQuery('#send_box_'+scan_box_id).animate({
