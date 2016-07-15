@@ -141,7 +141,11 @@ function remove_scan_box(scan_box_id){
     var arraySku=$(".views-field-line-item-label").map(function(){
         return $(this).text();
     }).get();
-    alert(arraySku.length);
+    if(arraySku.length == 0)
+    {
+        localStorage.removeItem("st");
+
+    }
 }
 function send_order(scan_box_id){
     jQuery('#send_box_'+scan_box_id).animate({
