@@ -469,8 +469,18 @@ function openHomePage(){
                 localStorage.usr=uid;
 
                 //ref=window.open('http://'+server+'','_system');
-                
+
+                ref=cordova.InAppBrowser.open('http://'+server+'/anzor_services/cart?uid='+uid+'','_blank','location=no');
+
+                ref.addEventListener( "loadstop", function() {
+                    setTimeout(function() {
+                        ref.close();
+                    }, 5000 );
+                });
+
                 ref=cordova.InAppBrowser.open('http://'+server+'','_blank','location=no');
+
+
 
 
 
