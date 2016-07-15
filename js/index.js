@@ -302,6 +302,8 @@ function validate(){
         //async:false
     }).done(function (data) {
         //alert("adentro");
+        $("body").css("background-color", "#ffffff");
+        $("body").css('color', 'black');
         if (data){
             $("#to_hide3").css("display","none");
             $("#f1").css("display","none");
