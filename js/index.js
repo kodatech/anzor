@@ -469,6 +469,7 @@ function openHomePage(){
                 localStorage.usr=uid;
 
                 //ref=window.open('http://'+server+'','_system');
+                openWebCart();
                 ref=cordova.InAppBrowser.open('http://'+server+'','_blank','location=no');
 
 
