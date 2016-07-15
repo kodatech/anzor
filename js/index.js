@@ -123,15 +123,14 @@ function keyPressEvent(e, obj, stockcode, box_counter) {
 function remove_scan_box(scan_box_id){
     //alert(scan_box_id);
     //alert(items);
-    //items.splice(scan_box_id, 1);
-    for (var i in items){
-        //alert(i);
-        //alert(items[i]);
+    items.splice(scan_box_id, 1);
+    /*for (var i in items){
+
         if (scan_box_id==i){
             items[i]="";
         }
 
-    }
+    }*/
     localStorage.items=JSON.stringify(items);
     //alert($("#total"+scan_box_id).text());
     //jQuery('#send_box_'+scan_box_id).fadeOut();
