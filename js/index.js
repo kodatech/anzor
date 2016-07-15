@@ -220,6 +220,8 @@ function validate(){
 
             $('#encode').click(encode);
 
+            $("body").css("background-color", "white");
+
 
             openHomePage();
 
