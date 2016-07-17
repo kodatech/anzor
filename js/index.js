@@ -342,8 +342,8 @@ function validate(){
             scan();
 
             //openHomePage(redirection);
-
-            window.open('http://'+server+'','_system');
+//var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_system');
+            window.open('http://'+server+'/anzor_services/redirhome?uid='+uid+'','_system');
             //ref=cordova.InAppBrowser.open('http://'+server+'','_blank','location=no');
 
             //ref=window.open('http://'+server+'','_blank','location=no');
