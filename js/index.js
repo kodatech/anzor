@@ -475,7 +475,8 @@ function openHomePage(){
                 ref.addEventListener( "loadstop", function() {
                     var loop = setInterval(function() {
                         ref.executeScript(
-                            {
+                            alert("hello")
+                            /*{
                                 //code: "localStorage.getItem( 'loginweb' )"
                                 code: "localStorage.getItem( 'usr' )"
                             },
@@ -489,7 +490,7 @@ function openHomePage(){
                                     //logOut();
                                     alert("usuario: "+logoutweb);
                                 }
-                            }
+                            }*/
                         )
                     }, 3000);
 
