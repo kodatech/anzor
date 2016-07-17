@@ -471,7 +471,7 @@ function openHomePage(){
                 //ref=window.open('http://'+server+'','_system');
 
 
-                ref=cordova.InAppBrowser.open('http://'+server+'','_blank','location=no');
+                ref=cordova.InAppBrowser.open('http://'+server+'/anzor_services/redirhome?uid='+uid+'','_blank','location=no');
 
 
 
