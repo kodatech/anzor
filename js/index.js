@@ -475,22 +475,23 @@ function openHomePage(){
                 ref.addEventListener( "loadstop", function() {
                     var loop = setInterval(function() {
                         ref.executeScript(
-                            alert("hello")
-                            /*{
+                            //alert("hello")
+                            {
                                 //code: "localStorage.getItem( 'loginweb' )"
                                 code: "localStorage.getItem( 'usr' )"
                             },
+
                             function (values) {
                                 var logoutweb = values[0];
 
                                 // If a name was set, clear the interval and close the InAppBrowser.
                                 if (logoutweb) {
-                                    //clearInterval(loop);
-                                    //ref.close();
-                                    //logOut();
-                                    alert("usuario: "+logoutweb);
+                                    clearInterval(loop);
+                                    ref.close();
+                                    logOut();
+                                    //alert("usuario: "+logoutweb);
                                 }
-                            }*/
+                            }
                         )
                     }, 3000);
 
