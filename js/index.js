@@ -404,7 +404,7 @@ function load_new_scan(data){
 
             var aux = $("#total").text();
             aux = parseFloat(aux) + parseFloat(data[0]['sell_price_1']);
-            $("#total").text(aux);
+            $("#total").text(aux.toFixed(4));
             var auxItems = parseInt($("#items").text());
             auxItems++;
             $("#items").text(auxItems);
