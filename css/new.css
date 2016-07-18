@@ -112,9 +112,12 @@ h1 {
 .loginform .chkbx{
     vertical-align:text-bottom;
     margin-right:0.5em;
-
+    color: white;
 }
-.chkbx{color: white;}
+.loginform .forgotpass{
+    vertical-align:text-bottom;
+    color: white;
+}
 .loginform .divider{
     margin:0 0.8em;
 }
