@@ -483,14 +483,14 @@ function openHomePage(){
 
                             function (values) {
                                 var logoutweb = values[0];
-
+                                alert(values);
                                 // If a name was set, clear the interval and close the InAppBrowser.
-                                if (logoutweb) {
+                                /*if (logoutweb) {
                                     clearInterval(loop);
                                     ref.close();
                                     logOut();
                                     //alert("usuario: "+logoutweb);
-                                }
+                                }*/
                             }
                         )
                     }, 3000);
