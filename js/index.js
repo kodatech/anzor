@@ -203,7 +203,7 @@ function validate(){
 
             var uid=data[0].uid;
 
-            alert (uid);
+            //alert (uid);
 
             var htmlstr='<div id="to_hide2" class="pagetxt col-xs-12">'+
                 //'<div class="logo"><img src="img/anzor_logo.png" ></div>' +
@@ -472,7 +472,7 @@ function openHomePage(){
 
                 //ref=window.open('http://'+server+'','_system');
 
-alert('http://'+server+'/anzor_services/redirhome?uid='+uid+'','_blank','location=no');
+//alert('http://'+server+'/anzor_services/redirhome?uid='+uid+'','_blank','location=no');
                 ref=cordova.InAppBrowser.open('http://'+server+'/anzor_services/redirhome?uid='+uid+'','_blank','location=no');//
                 /*ref.addEventListener( "loadstop", function() {
                     ref.executeScript({
