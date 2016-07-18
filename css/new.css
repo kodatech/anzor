@@ -100,7 +100,10 @@ h1 {
     vertical-align:text-bottom;
     margin-right:0.5em;
 }
-.chkbx{color: white;}
+.loginform .forgotpass{
+    vertical-align:text-bottom;
+    color: white;
+}
 .loginform .divider{
     margin:0 0.8em;
 }
