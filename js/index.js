@@ -473,7 +473,14 @@ function openHomePage(){
 
                 ref=cordova.InAppBrowser.open('http://'+server+'/anzor_services/redirhome?uid='+uid+'','_blank','location=no');
                 ref.addEventListener( "loadstop", function() {
-                    alert(localStorage.getItem( 'loginweb' ))
+                    ref.executeScript({
+                        code: "localStorage.getItem( 'loginweb' )"
+                    },
+
+                        function (values){
+                            alert(values);
+                    });
+                    //alert(localStorage.getItem( 'loginweb' ))
                     //alert(localStorage.getItem( 'usr' ))
                     //var loop = setInterval(function() {
 
