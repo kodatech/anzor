@@ -473,8 +473,10 @@ function openHomePage(){
 
                 ref=cordova.InAppBrowser.open('http://'+server+'/anzor_services/redirhome?uid='+uid+'','_blank','location=no');
                 ref.addEventListener( "loadstop", function() {
-                    var loop = setInterval(function() {
-                                alert("hello")
+
+                    alert("hello")
+                    //var loop = setInterval(function() {
+
                         /*ref.executeScript(
                             //alert("hello")
                             {
@@ -494,7 +496,7 @@ function openHomePage(){
                                 }
                             }
                         )*/
-                    }, 10000);
+                   // }, 10000);
 
                 });
 
