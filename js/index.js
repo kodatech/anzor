@@ -203,6 +203,8 @@ function validate(){
 
             var uid=data[0].uid;
 
+            alert (uid);
+
             var htmlstr='<div id="to_hide2" class="pagetxt col-xs-12">'+
                 //'<div class="logo"><img src="img/anzor_logo.png" ></div>' +
                 // '<h1>Add product</h1>'+
@@ -472,7 +474,7 @@ function openHomePage(){
 
 
                 ref=cordova.InAppBrowser.open('http://'+server+'/anzor_services/redirhome?uid='+uid+'','_blank','location=no');
-                ref.addEventListener( "loadstop", function() {
+                /*ref.addEventListener( "loadstop", function() {
                     ref.executeScript({
                         code: "localStorage.getItem( 'loginweb' )"
                     },
@@ -480,32 +482,9 @@ function openHomePage(){
                         function (values){
                             alert(values);
                     });
-                    //alert(localStorage.getItem( 'loginweb' ))
-                    //alert(localStorage.getItem( 'usr' ))
-                    //var loop = setInterval(function() {
 
-                        /*ref.executeScript(
-                            //alert("hello")
-                            {
-                                //code: "localStorage.getItem( 'loginweb' )"
-                                code: "localStorage.getItem( 'usr' )"
-                            },
 
-                            function (values) {
-                                var logoutweb = values[0];
-                                alert(values);
-                                // If a name was set, clear the interval and close the InAppBrowser.
-                                /*if (logoutweb) {
-                                    clearInterval(loop);
-                                    ref.close();
-                                    logOut();
-                                    //alert("usuario: "+logoutweb);
-                                }
-                            }
-                        )*/
-                   // }, 10000);
-
-                });
+                });*/
 
 
 
