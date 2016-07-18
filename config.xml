@@ -34,8 +34,8 @@
     <!--<gap:url-scheme role="Viewer">
         <scheme>scan</scheme>
         <scheme>pgbw</scheme>
-    </gap:url-scheme>
-    <gap:platform name="ios" />-->
+    </gap:url-scheme>-->
+    <gap:platform name="ios" />
     <gap:platform name="android" />
 
     <!--Evita que se cierre la app al momento de presionar el launcher de nuevo
