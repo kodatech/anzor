@@ -1,5 +1,6 @@
 
 /* New.css **/
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
 
 * {
     -webkit-touch-callout: none;
@@ -10,7 +11,7 @@
 body {
     background-color:#0083a9;
     background-attachment:fixed;
-    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-family: 'Open Sans', 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     font-size:10pt;
     height:100%;
     margin:0;
