@@ -474,7 +474,7 @@ function openHomePage(){
 
 //alert('http://'+server+'/anzor_services/redirhome?uid='+uid+'','_blank','location=no');
                 ref=cordova.InAppBrowser.open('http://'+server+'/anzor_services/redirhome?uid='+uid+'','_blank','location=no');//
-                ref.addEventListener( "loadstop", function() {
+                /*ref.addEventListener( "loadstop", function() {
                     ref.executeScript({
                         code: "document.body.innerHTML"//"localStorage.getItem( 'loginweb' )"
                     },
@@ -484,7 +484,7 @@ function openHomePage(){
                     });
 
 
-                });
+                });*/
 
 
 
