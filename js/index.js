@@ -472,8 +472,8 @@ function openHomePage(){
 
                 //ref=window.open('http://'+server+'','_system');
 
-
-                ref=cordova.InAppBrowser.open('http://'+server+'/anzor_services/redirhome?uid='+uid+'','_blank');//,'location=no'
+alert('http://'+server+'/anzor_services/redirhome?uid='+uid+'','_blank','location=no');
+                ref=cordova.InAppBrowser.open('http://'+server+'/anzor_services/redirhome?uid='+uid+'','_blank','location=no');//
                 /*ref.addEventListener( "loadstop", function() {
                     ref.executeScript({
                         code: "localStorage.getItem( 'loginweb' )"
