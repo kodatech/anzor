@@ -320,8 +320,8 @@ function validate(){
 
                 '<input type="hidden" id="uid" value="'+uid+'">'+
                 '</div>'+
-                '<div id="addimg" class="pagetxt col-xs-12">' +
-                '<div id="start_scan" class="scanbttn col-xs-9">'+
+                '<div id="addimg" class="pagetxt col-xs-12 fixed">' +
+                '<div id="start_scan" class="scanbttn col-xs-9 fixed">'+
 
                 '</div>' +
                 '</div>';
