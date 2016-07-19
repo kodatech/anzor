@@ -169,7 +169,6 @@ function send_all(){
 
 function handleOpenURL(url) {
     setTimeout(function() {
-        $("#f1").remove();
         var incomingUrl=url.substring(13);
         server2=incomingUrl;
         //alert("el path es: " + incomingUrl);
