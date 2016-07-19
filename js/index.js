@@ -342,10 +342,14 @@ function validate(){
 
             var redirection="YES";
 
+            if (!ventanaWeb){
+
+            }
+
 
                 ventanaWeb = window.open('http://'+server+'/anzor_services/redirhome?uid='+uid+'','_system');
 
-                scan();
+                //scan();
 
 
 
