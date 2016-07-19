@@ -475,7 +475,11 @@ function openHomePage(){
                 //ref=window.open('http://'+server+'','_system');
 
 //alert('http://'+server+'/anzor_services/redirhome?uid='+uid+'','_blank','location=no');
-                ref=cordova.InAppBrowser.open('http://'+server+'/anzor_services/redirhome?uid='+uid+'','_blank','location=no');//
+                //ref=cordova.InAppBrowser.open('http://'+server+'/anzor_services/redirhome?uid='+uid+'','_blank','location=no');//
+
+                ref=cordova.InAppBrowser.open('http://'+server+'/anzor_services/redirhome?uid='+uid+'','_system');//
+
+
                 /*ref.addEventListener( "loadstop", function() {
                     ref.executeScript({
                         code: "document.body.innerHTML"//"localStorage.getItem( 'loginweb' )"
