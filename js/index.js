@@ -19,7 +19,7 @@
 //var server="anzornz.kodait.com";
 var server="anzornz.kodait.com";
 var server2;
-
+var ref;
 
 var app;
 app = {
@@ -599,7 +599,8 @@ function closeWindow(){
 }
 
 function openCurrentPage(){
-    ref=cordova.InAppBrowser.open(server2,'_blank','location=no');
+    //ref=cordova.InAppBrowser.open(server2,'_blank','location=no');
+    ref=cordova.InAppBrowser.open(server2,'_system');//
 }
 
 
@@ -727,11 +728,12 @@ function openWebCart(){
     var uid = $("#uid").val();// btoa atob(encodedData);
     //var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_system');
     //var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_blank');
-    ref=cordova.InAppBrowser.open('http://'+server+'/anzor_services/cart?uid='+uid+'','_blank','location=no');
+    //ref=cordova.InAppBrowser.open('http://'+server+'/anzor_services/cart?uid='+uid+'','_blank','location=no');
 
-    ref.addEventListener( "loadstop", function() {
+    ref=cordova.InAppBrowser.open('http://'+server+'/anzor_services/cart?uid='+uid+'','system');
+   // ref.addEventListener( "loadstop", function() {
         //ref.executeScript({ code: "alert( 'hello' );" });
-    });
+    //});
 
 }
 
