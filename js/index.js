@@ -302,9 +302,12 @@ function validate(){
         //async:false
     }).done(function (data) {
         //alert("adentro");
-        $("body").css("background-color", "#ffffff");
-        $("body").css('color', 'black');
+
         if (data){
+
+            $("body").css("background-color", "#ffffff");
+            $("body").css('color', 'black');
+
             $("#to_hide3").css("display","none");
             $("#f1").css("display","none");
 
@@ -336,9 +339,14 @@ function validate(){
             $('#encode').click(encode);
 
             var redirection="YES";
-            scan();
-alert(ventanaWeb);
-            ventanaWeb = window.open('http://'+server+'/anzor_services/redirhome?uid='+uid+'','_system');
+
+//alert(ventanaWeb);
+            if (!ventanaWeb){
+                ventanaWeb = window.open('http://'+server+'/anzor_services/redirhome?uid='+uid+'','_system');
+            }else{
+                scan();
+            }
+
 
         }else{
             msg("alert-warning", "User or Password are wrong.", "Try again!");
