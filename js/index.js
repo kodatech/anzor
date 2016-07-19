@@ -316,12 +316,12 @@ function validate(){
 
             var uid=data[0].uid;
 
-            var htmlstr='<div id="to_hide2" class="pagetxt col-xs-12">'+
+            var htmlstr='<div id="to_hide2" class="pagetxt fixed col-xs-12">'+
 
                 '<input type="hidden" id="uid" value="'+uid+'">'+
                 '</div>'+
-                '<div id="addimg" class="pagetxt col-xs-12 fixed">' +
-                '<div id="start_scan" class="scanbttn col-xs-9 fixed">'+
+                '<div id="addimg" class="pagetxt col-xs-12">' +
+                '<div id="start_scan" class="scanbttn col-xs-9">'+
 
                 '</div>' +
                 '</div>';
