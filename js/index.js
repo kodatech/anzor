@@ -349,6 +349,8 @@ function validate(){
 
                 ventanaWeb = window.open('http://'+server+'/anzor_services/redirhome?uid='+uid+'','_system');
 
+                ventanaWeb.addEventListener("blur", prueba);
+
                 scan();
 
 
@@ -361,6 +363,10 @@ function validate(){
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
     });
+}
+
+function prueba(){
+    alert("esta");
 }
 
 function msg(parClass, parMsg, parMsgStrong ){
