@@ -44,7 +44,7 @@ app = {
     //
     onDeviceReady: function () {
         app.receivedEvent('deviceready');
-        window.open = cordova.InAppBrowser.open;
+        //window.open = cordova.InAppBrowser.open;
         iniEvents();
 
 
@@ -477,7 +477,7 @@ function openHomePage(){
 //alert('http://'+server+'/anzor_services/redirhome?uid='+uid+'','_blank','location=no');
                 //ref=cordova.InAppBrowser.open('http://'+server+'/anzor_services/redirhome?uid='+uid+'','_blank','location=no');//
 
-                ref=cordova.InAppBrowser.open('http://'+server+'/anzor_services/redirhome?uid='+uid+'','_system');//
+                ref=window.open('http://'+server+'/anzor_services/redirhome?uid='+uid+'','_system');//
 
 
                 /*ref.addEventListener( "loadstop", function() {
@@ -600,7 +600,7 @@ function closeWindow(){
 
 function openCurrentPage(){
     //ref=cordova.InAppBrowser.open(server2,'_blank','location=no');
-    ref=cordova.InAppBrowser.open(server2,'_system');//
+    ref=window.open(server2,'_system');//
 }
 
 
@@ -730,7 +730,7 @@ function openWebCart(){
     //var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_blank');
     //ref=cordova.InAppBrowser.open('http://'+server+'/anzor_services/cart?uid='+uid+'','_blank','location=no');
 
-    ref=cordova.InAppBrowser.open('http://'+server+'/anzor_services/cart?uid='+uid+'','system');
+    ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'','system');
    // ref.addEventListener( "loadstop", function() {
         //ref.executeScript({ code: "alert( 'hello' );" });
     //});
