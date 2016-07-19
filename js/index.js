@@ -173,6 +173,7 @@ function handleOpenURL(url) {
         server2=incomingUrl;
         //alert("el path es: " + incomingUrl);
         //alert("received url: " + url);
+        scan();
     }, 0);
 }
 
