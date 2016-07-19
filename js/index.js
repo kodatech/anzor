@@ -19,7 +19,7 @@
 //var server="anzornz.kodait.com";
 var server="anzornz.kodait.com";
 var server2;
-
+var ventanaWeb=false;
 var app;
 app = {
     // Application Constructor
@@ -311,14 +311,12 @@ function validate(){
             var uid=data[0].uid;
 
             var htmlstr='<div id="to_hide2" class="pagetxt col-xs-12">'+
-                //'<div class="logo"><img src="img/anzor_logo.png"></div>' +
-                //'<h1>Add product</h1>'+
-                // '<p class="text-center">Put product opposite your phone camera, fit barcode to scanning area and wait until we recognize it.</p>'+
+
                 '<input type="hidden" id="uid" value="'+uid+'">'+
                 '</div>'+
                 '<div id="addimg" class="pagetxt col-xs-12">' +
                 '<div id="start_scan" class="scanbttn col-xs-9">'+
-                //'<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Start scanning</a>'+
+
                 '</div>' +
                 '</div>';
 
@@ -334,19 +332,13 @@ function validate(){
             $("#bar_code").addClass("fixed");
             $("#to_hide2").css("display","none");
 
-            //$('#scan').click(scan);
 
             $('#encode').click(encode);
 
             var redirection="YES";
             scan();
-
-            //openHomePage(redirection);
-//var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_system');
-            window.open('http://'+server+'/anzor_services/redirhome?uid='+uid+'','_system');
-            //ref=cordova.InAppBrowser.open('http://'+server+'','_blank','location=no');
-
-            //ref=window.open('http://'+server+'','_blank','location=no');
+alert(ventanaWeb);
+            ventanaWeb = window.open('http://'+server+'/anzor_services/redirhome?uid='+uid+'','_system');
 
         }else{
             msg("alert-warning", "User or Password are wrong.", "Try again!");
