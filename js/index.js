@@ -110,7 +110,7 @@ function load_new_scan(data){
 
 
         htmlstr +=               '<div class="views-field views-field-edit-quantity">';
-        htmlstr +=                      '<span class="views-label views-label-edit-quantity">Qty:</span>';
+        htmlstr +=                      '<span class="views-label views-label-edit-quantity">Qty:&nbsp;</span>';
         htmlstr +=                      '<span class="views-label views-label-edit-quantity">' +
             '<div class="form-item form-item-edit-quantity-0 form-type-textfield form-group">' +
             '<input title="Qty:" class="form-control form-text ajax-processed" type="text" id="qty_'+box_counter+'" onKeyUp="keyPressEvent(event, this,\'' + stockcode + '\',\'' + box_counter + '\')"  value="1" size="4">' +
@@ -119,7 +119,7 @@ function load_new_scan(data){
             '</div>';
 
         htmlstr +=              '<div class="views-field views-field-commerce-unit-price">' +
-            '<span class="views-label views-label-commerce-unit-price"> x </span>' +
+            '<span class="views-label views-label-commerce-unit-price">&nbsp;x&nbsp;</span>' +
             '<div id="price'+box_counter+'" class="field-content">'+data[0]['sell_price_1']+'</div>' +
             '</div>';
 
@@ -230,7 +230,7 @@ function validateProduct(barCode){
     $("#start_scan").html('<a id="scan" href="#" class="btn btn-default scan"><img src="img/search.svg">Add product</a>');
     $('#addimg .col-xs-3').remove();
     $("#addimg").prepend('<div class="logo small col-xs-3"><img onclick="openCurrentPage()" src="img/anzor_logo_s.png"></div>');
-    $("#bar_code").addClass("fixed");
+    //$("#bar_code").addClass("fixed");
     $("#content-inner").css("display","block");
     var uid=$("#uid").val();
     //alert(uid);
