@@ -18,7 +18,7 @@
     <gap:plugin name="com.phonegap.plugins.barcodescanner"/>
 <gap:plugin name="cordova-plugin-barcodescanner" source="npm"/>-->
 
-
+    <plugin name="br.com.paveisitemas.splashscreen" spec="2.1.1" source="pgb" />
 
     <plugin spec="https://github.com/Telerik-Verified-Plugins/BarcodeScanner.git" source="git" />
     <plugin spec="https://github.com/Innovation-District/cordova-plugin-inappbrowser.git" source="git" />
@@ -98,5 +98,11 @@
     <gap:splash src="res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone" />
 
     <!-- content src="http://www.w3.org/2010/05/video/mediaevents.html" / -->
+
+    <platform name="android">
+        <splash src="res/screen/android/screen-ldpi-portrait.png" density="land-hdpi"/>
+
+    </platform>
+    <preference name="SplashScreenDelay" value="10000" />
 
 </widget>
