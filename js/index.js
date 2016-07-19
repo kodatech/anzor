@@ -491,7 +491,7 @@ function openHomePage(){
 
             }else{
                 //$("#scan").trigger("click");
-                scan();
+                //scan();
                 return;
             }
         }else{
