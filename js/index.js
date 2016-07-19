@@ -89,6 +89,7 @@ function iniEvents(){
     });
     //noinspection JSUnresolvedFunction
     if (localStorage.name!=""){
+        $("#content-inner").css("display", "none");
         $("#usr").val(localStorage.name);
         $("#pass").val(localStorage.pass);
         if($("#usr").val()!=''){
@@ -97,7 +98,7 @@ function iniEvents(){
 
     }
     //$(".line-item-summary").hide();
-    $("#content-inner").css("display", "none");
+    //$("#content-inner").css("display", "none");
     document.addEventListener("resume", function() { localStorage.removeItem("usr"); }, false);
     //document.addEventListener("unload", function() { localStorage.removeItem("usr"); }, false);
     checkConnection();
