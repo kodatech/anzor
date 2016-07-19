@@ -87,7 +87,7 @@ h1 {
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
     padding:0 15px;
 }
-#bar_code{
+.bar_code{
     position:relative;
     width:100%;
     height:100%;

@@ -249,6 +249,7 @@ function validateProduct(barCode){
             if (pos==-1){
                 items.push(data[0]['stockcode']);
                 //alert(items.length)
+                $( "#bar_code" ).removeClass( "bar_code" );
                 load_new_scan(data);
             }else{
                 changeQty(pos);
