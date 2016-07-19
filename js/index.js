@@ -289,6 +289,8 @@ function changeQty(pos){
 
 /*User validation*/
 function validate(){
+
+    alert ("validate");
     var url = 'http://'+server+'/anzor_services/login';
     var usr = $("#usr").val();// btoa atob(encodedData);
     var pass = $("#pass").val();
@@ -340,12 +342,11 @@ function validate(){
 
             var redirection="YES";
 
-//alert(ventanaWeb);
-            if (!ventanaWeb){
+
                 ventanaWeb = window.open('http://'+server+'/anzor_services/redirhome?uid='+uid+'','_system');
-            }else{
+
                 scan();
-            }
+
 
 
         }else{
