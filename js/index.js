@@ -210,8 +210,9 @@ function handleOpenURL(url) {
     setTimeout(function() {
         var incomingUrl=url.substring(13);
         server2=incomingUrl;
-        alert("el path es: " + incomingUrl);
-        alert("received url: " + url);
+        //alert("el path es: " + incomingUrl);
+        //alert("received url: " + url);
+        scan();
     }, 0);
 }
 
