@@ -176,9 +176,9 @@ function handleOpenURL(url) {
 
         var incomingUrl=url.substring(13);
         server2=incomingUrl;
-        //alert("el path es: " + incomingUrl);
-        //alert("received url: " + url);
-        scan();
+        alert("el path es: " + incomingUrl);
+        alert("received url: " + url);
+        //scan();
     }, 0);
 }
 
