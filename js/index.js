@@ -171,7 +171,7 @@ function send_all(){
 function handleOpenURL(url) {
     setTimeout(function() {
         $(".afterScanProduct").fadeOut(1500);
-    },3000);
+    },10000);
     setTimeout(function() {
 
         var incomingUrl=url.substring(13);
