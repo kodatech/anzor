@@ -345,7 +345,13 @@ h1 {
     display: none;
 }
 
-
+.afterScanProduct{
+    background-image: url(../res/screen/android/screen-hdpi-portrait.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
 .object{
     width: 50px;
     height: 50px;

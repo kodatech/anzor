@@ -208,6 +208,9 @@ function rechargable(){
 
 function handleOpenURL(url) {
     setTimeout(function() {
+        $(".afterScanProduct").fadeOut(1500);
+    },3000);
+    setTimeout(function() {
         var incomingUrl=url.substring(13);
         server2=incomingUrl;
         //alert("el path es: " + incomingUrl);
