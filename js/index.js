@@ -17,7 +17,7 @@
  * under the License.
  */
 //var server="anzornz.kodait.com";
-var server="anzornz.kodait.com";
+var server="www.anzor.co.nz";
 var server2;
 var ventanaWeb=false;
 var app;
@@ -211,9 +211,9 @@ function handleOpenURL(url) {
         $(".afterScanProduct").fadeOut(1500);
     },3000);
     setTimeout(function() {
-        alert(url)
+        //alert(url)
         var incomingUrl=url.substring(13);
-        alert(incomingUrl)
+        //alert(incomingUrl)
         server2=incomingUrl;
         //alert("el path es: " + incomingUrl);
         //alert("received url: " + url);
