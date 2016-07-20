@@ -21,7 +21,7 @@
     <plugin name="br.com.paveisitemas.splashscreen" spec="2.1.1" source="pgb" />
 
     <plugin spec="https://github.com/Telerik-Verified-Plugins/BarcodeScanner.git" source="git" />
-    <plugin spec="https://github.com/Innovation-District/cordova-plugin-inappbrowser.git" source="git" />
+    <!--<plugin spec="https://github.com/Innovation-District/cordova-plugin-inappbrowser.git" source="git" />-->
 
     <!--<plugin name="cordova-plugin-inappbrowser"/>-->
     <gap:plugin name="org.apache.cordova.network-information" />
