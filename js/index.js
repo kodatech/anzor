@@ -211,7 +211,9 @@ function handleOpenURL(url) {
         $(".afterScanProduct").fadeOut(1500);
     },3000);
     setTimeout(function() {
+        alert(url)
         var incomingUrl=url.substring(13);
+        alert(incomingUrl)
         server2=incomingUrl;
         //alert("el path es: " + incomingUrl);
         //alert("received url: " + url);
