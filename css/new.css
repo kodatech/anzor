@@ -448,7 +448,7 @@ h1 {
 }
 
 .afterScanProduct{
-    background-image: url(../res/icon/android/icon-36-ldpi.png);
+    background-image: url(../res/screen/android/screen-hdpi-portrait.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
