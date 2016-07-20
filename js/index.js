@@ -170,6 +170,9 @@ function send_all(){
 
 function handleOpenURL(url) {
     setTimeout(function() {
+        setTimeout(function() {
+            $(".afterScanProduct").fadeOut(1500);
+        },3000);
         var incomingUrl=url.substring(13);
         server2=incomingUrl;
         //alert("el path es: " + incomingUrl);
