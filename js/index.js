@@ -170,9 +170,10 @@ function send_all(){
 
 function handleOpenURL(url) {
     setTimeout(function() {
-        setTimeout(function() {
-            $(".afterScanProduct").fadeOut(1500);
-        },3000);
+        $(".afterScanProduct").fadeOut(1500);
+    },3000);
+    setTimeout(function() {
+
         var incomingUrl=url.substring(13);
         server2=incomingUrl;
         //alert("el path es: " + incomingUrl);
@@ -733,7 +734,7 @@ function openWebCart(){
     //var ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'', '_blank');
     //ref=cordova.InAppBrowser.open('http://'+server+'/anzor_services/cart?uid='+uid+'','_blank','location=no');
 
-    ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'','system');
+    ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'','_system');
    // ref.addEventListener( "loadstop", function() {
         //ref.executeScript({ code: "alert( 'hello' );" });
     //});
