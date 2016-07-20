@@ -377,7 +377,7 @@ function load_new_scan(data){
         htmlstr += '<span class="views-label views-label-edit-quantity">Qty:</span>';
         htmlstr += '<span class="views-label views-label-edit-quantity">' +
             '<div class="form-item form-item-edit-quantity-0 form-type-textfield form-group">' +
-            '<input title="Qty: " class="form-control form-text ajax-processed" type="text" id="qty_' + box_counter + '" onKeyUp="keyPressEvent(event, this,\'' + stockcode + '\',\'' + box_counter + '\')"  value="1" size="4">' +
+            '<input title="Qty:  &nbsp;"  class="form-control form-text ajax-processed" type="text" id="qty_' + box_counter + '" onKeyUp="keyPressEvent(event, this,\'' + stockcode + '\',\'' + box_counter + '\')"  value="1" size="4">' +
             '</div>' +
             '</span>' +
             '</div>';
