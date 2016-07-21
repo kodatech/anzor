@@ -208,7 +208,7 @@ function rechargable(){
 
 function handleOpenURL(url) {
     setTimeout(function() {
-        $(".afterScanProduct").fadeOut(1500);
+        $(".afterScanProduct").text("aca estamos");
     },3000);
     setTimeout(function() {
         //alert(url)
