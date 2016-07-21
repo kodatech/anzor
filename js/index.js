@@ -178,7 +178,7 @@ function handleOpenURL(url) {
         server2=incomingUrl;
         //alert("el path es: " + incomingUrl);
         //alert("received url: " + url);
-        //scan();
+        scan();
     }, 0);
 }
 
@@ -485,16 +485,13 @@ function openHomePage(){
 
 
                 /*ref.addEventListener( "loadstop", function() {
-                    ref.executeScript({
-                        code: "document.body.innerHTML"//"localStorage.getItem( 'loginweb' )"
-                    },
-
-                        function (values){
-                            alert(values);
-                    });
-
-
-                });*/
+                 ref.executeScript({
+                 code: "document.body.innerHTML"//"localStorage.getItem( 'loginweb' )"
+                 },
+                 function (values){
+                 alert(values);
+                 });
+                 });*/
 
 
 
@@ -581,7 +578,7 @@ function checkOut(){
         msg("alert-success", "Products successfuly added to the cart", "Success!");
 
 
-reinicializar();
+        reinicializar();
 
     }).fail(function (a, b, c) {
         console.log(b + '|' + c);
@@ -735,8 +732,8 @@ function openWebCart(){
     //ref=cordova.InAppBrowser.open('http://'+server+'/anzor_services/cart?uid='+uid+'','_blank','location=no');
 
     ref=window.open('http://'+server+'/anzor_services/cart?uid='+uid+'','_system');
-   // ref.addEventListener( "loadstop", function() {
-        //ref.executeScript({ code: "alert( 'hello' );" });
+    // ref.addEventListener( "loadstop", function() {
+    //ref.executeScript({ code: "alert( 'hello' );" });
     //});
 
 }
