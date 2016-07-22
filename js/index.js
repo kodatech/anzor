@@ -170,8 +170,7 @@ function send_all(){
 
 function handleOpenURL(url) {
     setTimeout(function() {
-        //$(".afterScanProduct").fadeOut(1500);
-        $(".afterScanProduct").text("aloha");
+        $(".afterScanProduct").fadeOut(1500);
     },10000);
     setTimeout(function() {
 
