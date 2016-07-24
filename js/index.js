@@ -16,8 +16,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var server="www.anzor.co.nz";
-//var server="anzornz.kodait.com";
+//var server="www.anzor.co.nz";
+var server="anzornz.kodait.com";
 var server2;
 var ref;
 
