@@ -640,7 +640,7 @@ function scan() {
             console.log("Scanning failed: ", error);
         },
         {
-            //"prompt": "<input type='button'>",
+            "prompt": "Place a barcode inside the viewfinder rectangle to scan it. To go back press the return button below.",
             "orientation" : "portrait" // Android only (portrait|landscape), default unset so it rotates with the device
         });
 }
